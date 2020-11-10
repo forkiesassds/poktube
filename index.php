@@ -1,20 +1,4 @@
-<html><head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
-<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app103.us.archive.org';v.server_ms=1700;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/playback.bundle.js?v=VsAvnOBw" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/wombat.js?v=cRqOKCOw" charset="utf-8"></script>
-<script type="text/javascript">
-  __wm.init("https://web.archive.org/web");
-  __wm.wombat("http://www.youtube.com:80/","20050701000942","https://web.archive.org/","web","/_static/",
-	      "1120176582");
-</script>
-<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=bsmaklHF">
-<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ">
-<!-- Start Wayback Rewrite JS Include -->
-<script type="text/javascript" src="/_static/js/jwplayer/jwplayer.js?v=hiYhl5rb" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/video-embed-rewriter.js?v=XNu2aPOa" charset="utf-8"></script>
-<script type="text/javascript">
-_wmVideos_.init("/web");
-</script>
-<!-- End Wayback Rewrite JS Include -->
+<html><head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>YouTube - Your Digital Video Repository</title>
@@ -25,26 +9,7 @@ _wmVideos_.init("/web");
 </head>
 
 
-<body onload="javascript:sf();" return="" false;=""><!-- BEGIN WAYBACK TOOLBAR INSERT -->
-<style type="text/css">
-body {
-  margin-top:0 !important;
-  padding-top:0 !important;
-  /*min-width:800px !important;*/
-}
-</style>
-<script>__wm.rw(0);</script>
-<div id="wm-ipp-base" style="display: block; direction: ltr;" lang="en">
-</div><div id="donato" style="position:relative;width:100%;">
-  <div id="donato-base">
-    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;transpiled=0&amp;referer=https%3A//web.archive.org/web/20050701000942/http%3A//www.youtube.com/" scrolling="no" style="width:100%; height:100%" frameborder="0">
-    </iframe>
-  </div>
-</div><script type="text/javascript">
-__wm.bt(625,27,25,2,"web","http://www.youtube.com/","20050701000942",1996,"/_static/",["/_static/css/banner-styles.css?v=bsmaklHF","/_static/css/iconochive.css?v=qtvMKcIJ"]);
-  __wm.rw(1);
-</script>
-<!-- END WAYBACK TOOLBAR INSERT -->
+<body onload="javascript:sf();" return="" false;="">
 
 <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#D5E5F5" align="center">
 	<tbody><tr>
@@ -121,7 +86,7 @@ __wm.bt(625,27,25,2,"web","http://www.youtube.com/","20050701000942",1996,"/_sta
 <table width="80%" cellspacing="0" cellpadding="3" border="0" align="center">
 	<tbody><tr>
 		<td align="center">
-			<img src="/web/20050701000942im_/http://www.youtube.com/img/logo.gif" alt="YouTube" width="180" vspace="12" hspace="12" height="71">
+			<img src="img/logo.gif" alt="YouTube" width="180" vspace="12" hspace="12" height="71">
 			<br>
 			Your Digital Video Repository
 			<br>
