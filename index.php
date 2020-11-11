@@ -89,6 +89,9 @@
 			<img src="img/logo.gif" alt="YouTube" width="180" vspace="12" hspace="12" height="71">
 			<br>
 			Your Digital Video Repository
+			<?php
+echo "SUCK MY BIG DICK";
+?>
 			<br>
 			<br>
 		</td>
