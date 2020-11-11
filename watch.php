@@ -4,7 +4,7 @@
 <title>YouTube - Your Digital Video Repository</title>
 <link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link href="http://localhost/poktube/styles.css" rel="stylesheet" type="text/css">
+<link href="http://localhost/poktube/styles_alt.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
 </head>
     <body>
