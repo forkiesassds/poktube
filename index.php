@@ -58,7 +58,28 @@
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
 	<tbody><tr>
 	
-			
+		<?php
+session_start(); // Right at the top of your script
+?>
+
+<li class='active' style='float:right;'>
+  <?php 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
+} else {
+    echo "Please log in first to see this page.";
+}
+  ?>
+  
+  
+<?php  
+    $name = "GeeksforGeeks"; 
+?> 
+   
+<?= "<h1>Hello User,</h1> 
+    <h1>{$name} welcomes you</h1>" ?> 
+
+	
 		<td width="100%" align="right">
 		<table cellspacing="0" cellpadding="2" border="0" align="right">
 			<tbody><tr>
@@ -89,6 +110,9 @@
 			<img src="img/logo.gif" alt="YouTube" width="180" vspace="12" hspace="12" height="71">
 			<br>
 			Your Digital Video Repository
+			<?php
+			echo $_SESSION["username"];
+			?>
 			<br>
 			<br>
 		</td>
