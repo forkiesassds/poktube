@@ -331,7 +331,7 @@
 
 <br><table cellpadding="10" border="0" bgcolor="#FFFFFF" align="center">
 	<tbody><tr>
-		<td valign="center" align="center"><span class="footer"><a href="about.php">About Us</a> | <a href="contact.php">Contact Us</a> | <a href="terms.php">Terms of Use</a> | <a href="privacy.php">Privacy Policy</a> | Copyright © 2005 YouTube, LLC™ | <a href="rss/global/recently_added.rss"><img src="https://web.archive.org/web/20050701000942im_/http://www.youtube.com/img/rss.gif" style="vertical-align: text-top;" width="36" height="14" border="0"></a></span></td>
+		<td valign="center" align="center"><span class="footer"><a href="about.php">About Us</a> | <a href="contact.php">Contact Us</a> | <a href="terms.php">Terms of Use</a> | <a href="privacy.php">Privacy Policy</a> | "Copyright" © 2020 PokTube, even though it might not be. | <a href="rss/global/recently_added.rss"><img src="https://web.archive.org/web/20050701000942im_/http://www.youtube.com/img/rss.gif" style="vertical-align: text-top;" width="36" height="14" border="0"></a></span></td>
 	</tr>
 </tbody></table>
 
