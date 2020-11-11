@@ -3,10 +3,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="This is a video sharing website">
 <meta name="keywords" content="video, clips, camera, recording, upload, share">
+<link href="http://localhost/poktube/styles.css" rel="stylesheet" type="text/css">
 
 <title>BitView - Your Digital Video Repository</title>
-
-<link href="http://localhost/poktube/styles.css" rel="stylesheet" type="text/css">    </head>
+</head>
     <body>
         <div class="hd">
     <ul class="hd_nav">
