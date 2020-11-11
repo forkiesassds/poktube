@@ -67,7 +67,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	echo '<td width="100%" align="right">
 		<table cellspacing="0" cellpadding="2" border="0" align="right">
 			<tbody><tr>
-							<td><a href="register.php" class="bold">Sign Up</a></td>
+							<td><a href="register.php" class="bold">[this is the username for clipIt, youre logged in]</a></td>
 				<td>&nbsp;|&nbsp;</td>
 				<td><a href="logout.php">Log Out</a></td>
 				<td>&nbsp;|&nbsp;</td>
