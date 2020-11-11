@@ -1,11 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="This is a video sharing website">
-<meta name="keywords" content="video, clips, camera, recording, upload, share">
+<title>YouTube - Your Digital Video Repository</title>
+<link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
 <link href="http://localhost/poktube/styles.css" rel="stylesheet" type="text/css">
-
-<title>BitView - Your Digital Video Repository</title>
+<link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
 </head>
     <body>
         <div class="hd">
