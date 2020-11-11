@@ -64,10 +64,11 @@ session_start(); // Right at the top of your script
   <?php 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     //echo $_SESSION['username'] . $_SESSION['username'] . "!";
+	$txt1 = "Learn PHP";
 	echo '<td width="100%" align="right">
 		<table cellspacing="0" cellpadding="2" border="0" align="right">
 			<tbody><tr>
-							<td><a href="register.php" class="bold">[this is the username for clipIt, youre logged in]</a></td>
+							<td><a href="register.php" class="bold">My Profile</a></td>
 				<td>&nbsp;|&nbsp;</td>
 				<td><a href="logout.php">Log Out</a></td>
 				<td>&nbsp;|&nbsp;</td>

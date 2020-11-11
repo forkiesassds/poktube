@@ -77,11 +77,11 @@
     </script>
     <div style="overflow:hidden">
     <video id="video_player" autoplay="" width="427" height="320">
-        <source src="/web/20171203210958im_/http://www.bitview.net/videos/p4MEBapLN5CPE1FJhUaT.mp4" type="video/mp4">
-        <object type="application/x-shockwave-flash" data="/web/20171203210958im_/http://www.bitview.net/f_player/flash_player.swf" width="427" height="320">
-            <param name="movie" value="/f_player/flash_player.swf">
+        <source src="/videos/test.mp4" type="video/mp4">
+        <object type="application/x-shockwave-flash" data="Late2005.swf" width="427" height="320">
+            <param name="movie" value="Late2005.swf">
             <param name="allowFullScreen" value="false">
-            <param name="FlashVars" value="flv=../videos/p4MEBapLN5CPE1FJhUaT.mp4&amp;title=Video&amp;autoplay=1&amp;margin=0&amp;bgcolor1=ffffff&amp;bgcolor2=ffffff&amp;showstop=1&amp;showvolume=1&amp;showtime=0&amp;showplayer=always&amp;showloading=always&amp;showfullscreen=0&amp;playercolor=e1e1e1&amp;buttoncolor=8d8d8d&amp;buttonovercolor=717171&amp;sliderovercolor=909090">
+            <param name="FlashVars" value="flv=../videos/test.mp4">
         </object>
     </video>
     </div>
