@@ -61,36 +61,34 @@
 		<?php
 session_start(); // Right at the top of your script
 ?>
-
-<li class='active' style='float:right;'>
   <?php 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
-} else {
-    echo "Please log in first to see this page.";
-}
-  ?>
-  
-  
-<?php  
-    $name = "GeeksforGeeks"; 
-?> 
-   
-<?= "<h1>Hello User,</h1> 
-    <h1>{$name} welcomes you</h1>" ?> 
-
-	
-		<td width="100%" align="right">
+    //echo $_SESSION['username'] . $_SESSION['username'] . "!";
+	echo '<td width="100%" align="right">
 		<table cellspacing="0" cellpadding="2" border="0" align="right">
 			<tbody><tr>
-							<td><a href="signup.php" class="bold">Sign Up</a></td>
+							<td><a href="register.php" class="bold">Sign Up</a></td>
+				<td>&nbsp;|&nbsp;</td>
+				<td><a href="logout.php">Log Out</a></td>
+				<td>&nbsp;|&nbsp;</td>
+				<td><a href="help.php">Help</a>&nbsp;</td>
+						</tr>
+		</tbody></table>
+		</td>';
+} else {
+    echo '<td width="100%" align="right">
+		<table cellspacing="0" cellpadding="2" border="0" align="right">
+			<tbody><tr>
+							<td><a href="register.php" class="bold">Sign Up</a></td>
 				<td>&nbsp;|&nbsp;</td>
 				<td><a href="login.php">Log In</a></td>
 				<td>&nbsp;|&nbsp;</td>
 				<td><a href="help.php">Help</a>&nbsp;</td>
 						</tr>
 		</tbody></table>
-		</td>
+		</td>';
+}
+  ?>
 	</tr>
 
 		
