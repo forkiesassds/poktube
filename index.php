@@ -4,361 +4,208 @@
 <title>YouTube - Your Digital Video Repository</title>
 <link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link href="http://localhost/poktube/styles.css" rel="stylesheet" type="text/css">
+<link href="http://localhost/poktube/styles_alt.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
 </head>
 
-
-<body onload="javascript:sf();" return="" false;="">
-
-<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#D5E5F5" align="center">
-	<tbody><tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_tl.gif" width="5" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="1" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_tr.gif" width="5" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
-		
-		<td width="100%">
-
-		<table width="100%" cellspacing="0" cellpadding="0" border="0">
-				<tbody><tr>
-					<td>
-										<table cellspacing="0" cellpadding="2" border="0">
-						<tbody><tr>
-							<td>&nbsp;<a href="index.php" class="bold">Home</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_videos.php">My Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_favorites.php">My Favorites</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_messages.php">My Messages</a>
-														</td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_profile.php">My Profile</a></td>
-						</tr>
-					</tbody></table>
-					</td>
-				</tr>
-			</tbody></table>
-			
-			</td>
-	
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_bl.gif" width="5" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="1" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_br.gif" width="5" height="5"></td>
-	</tr>
-</tbody></table>
-
-<div class="tableLinkBar">
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-	<tbody><tr>
-	
-		<?php
-session_start(); // Right at the top of your script
+<?php
+include "header.php";                 // (2) Include the header
 ?>
-  <?php 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    //echo $_SESSION['username'] . $_SESSION['username'] . "!";
-	$txt1 = "Learn PHP";
-	echo '<td width="100%" align="right">
-		<table cellspacing="0" cellpadding="2" border="0" align="right">
-			<tbody><tr>
-							<td><a href="register.php" class="bold">My Profile</a></td>
-				<td>&nbsp;|&nbsp;</td>
-				<td><a href="logout.php">Log Out</a></td>
-				<td>&nbsp;|&nbsp;</td>
-				<td><a href="help.php">Help</a>&nbsp;</td>
-						</tr>
-		</tbody></table>
-		</td>';
-} else {
-    echo '<td width="100%" align="right">
-		<table cellspacing="0" cellpadding="2" border="0" align="right">
-			<tbody><tr>
-							<td><a href="register.php" class="bold">Sign Up</a></td>
-				<td>&nbsp;|&nbsp;</td>
-				<td><a href="login.php">Log In</a></td>
-				<td>&nbsp;|&nbsp;</td>
-				<td><a href="help.php">Help</a>&nbsp;</td>
-						</tr>
-		</tbody></table>
-		</td>';
+
+<?php
+$mysqli = new mysqli("localhost", "root", "", "video");
+
+/* check connection */
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
 }
-  ?>
-	</tr>
 
-		
-</tbody></table></div>
-
-
-<script>
-	function sf()
-	{
-		document.f.search.focus();
-	}
-</script>
-
-<table width="80%" cellspacing="0" cellpadding="3" border="0" align="center">
-	<tbody><tr>
-		<td align="center">
-			<img src="img/logo.gif" alt="YouTube" width="180" vspace="12" hspace="12" height="71">
-			<br>
-			Your Digital Video Repository
-			<?php
-			echo $_SESSION["username"];
-			?>
-			<br>
-			<br>
-		</td>
-	</tr>
-
-	<form name="f" method="GET" action="results.php"></form>
-	<tr>
-		<td align="center"><input type="text" name="search" size="35" maxlength="128" style="color:#ff3333; font-size: 18px; padding: 3px;"></td>
-	</tr>
-	<tr>
-		<td align="center"><input type="submit" value="Search Videos"></td>
-	</tr>
-	
-</tbody></table>
-
-<div style="font-size: 16px; font-weight: bold; margin-top: 20px; margin-bottom: 20px; text-align: center;"><a href="my_videos_upload.php">Upload Your Videos</a></div>
-
-<br>
-
-<div style="font-size: 13px; color: #333333; margin-bottom: 30px; text-align: center; width: 50%; margin-left: auto; margin-right: auto;">
-
-
-	<a style="font-size: 12px;" href="results.php?search=nansheng">nansheng</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=azlan">azlan</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=wereldband">wereldband</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=ny">ny</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=superbike">superbike</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=japan">japan</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=sinceretheory">sinceretheory</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=jozef">jozef</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=party">party</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=amazon">amazon</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=board">board</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=skate">skate</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=buckley">buckley</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=shubs">shubs</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=falls">falls</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=de">de</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=stockshot">stockshot</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=cubbyhole">cubbyhole</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=burnout">burnout</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=satellite">satellite</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=poughkeepsie">poughkeepsie</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=cruise">cruise</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=heritage">heritage</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=orgel">orgel</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=chin">chin</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=themed">themed</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=mill">mill</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=music">music</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=new">new</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=live">live</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=to">to</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=farmer">farmer</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=mtv">mtv</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=puenbrouck">puenbrouck</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=sicily">sicily</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=fairfield">fairfield</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=musical">musical</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=coffeehouse">coffeehouse</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=bud">bud</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=2005">2005</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=trip">trip</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=jfk">jfk</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=woordjes">woordjes</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=death">death</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=xlanz">xlanz</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=skill">skill</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=olle">olle</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=nature">nature</a> :
-
-	
-	<a style="font-size: 12px;" href="results.php?search=ads">ads</a> :
-
-	
-	<a style="font-size: 17px;" href="results.php?search=dance">dance</a> :
-
-	
-<div style="font-size: 14px; font-weight: bold; margin-top: 10px;"><a href="tags.php">See More Tags</a></div>
-
-</div>
-		
-<table width="80%" cellspacing="0" cellpadding="0" border="0" bgcolor="#CCCCCC" align="center">
-	<tbody><tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_tl.gif" width="5" height="5"></td>
-		<td width="100%"><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="1" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_tr.gif" width="5" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
-		<td>
-		<div class="moduleTitleBar">
-		<div class="moduleTitle"><div style="float: right; padding-right: 5px;"><a href="videos_page.php">&gt;&gt;&gt; Watch More Videos</a></div>
-		Featured Videos
-		</div>
-		</div>
-				
-		<div class="moduleFeatured"> 
-			<table width="100%" cellspacing="0" cellpadding="0" border="0">
-				<tbody><tr valign="top">
-
-					
-						<td width="20%" align="center"><a href="index.php?v=_QBPp6zso7g"><img src="/web/20050701000942im_/http://www.youtube.com/get_still.php?still_id=2&amp;video_id=_QBPp6zso7g" class="moduleFeaturedThumb" width="120" height="90"></a>
-						<div class="moduleFeaturedTitle"><a href="index.php?v=_QBPp6zso7g">Denny's</a></div>
-						<div class="moduleFeaturedDetails">Added: June 14, 2005						<br>by <a href="profile.php?user=jrhyley">jrhyley</a><!-- (<a href="profile.php?user=jrhyley">10</a>) --></div>
-						<div class="moduleFeaturedDetails">Views: 86 | Comments: 1</div></td>
-
-						
-						<td width="20%" align="center"><a href="index.php?v=Eq2ObjmGSD8"><img src="/web/20050701000942im_/http://www.youtube.com/get_still.php?still_id=2&amp;video_id=Eq2ObjmGSD8" class="moduleFeaturedThumb" width="120" height="90"></a>
-						<div class="moduleFeaturedTitle"><a href="index.php?v=Eq2ObjmGSD8">On top of the world!</a></div>
-						<div class="moduleFeaturedDetails">Added: May 3, 2005						<br>by <a href="profile.php?user=jawed">jawed</a><!-- (<a href="profile.php?user=jawed">10</a>) --></div>
-						<div class="moduleFeaturedDetails">Views: 82 | Comments: 0</div></td>
-
-						
-						<td width="20%" align="center"><a href="index.php?v=NYVk34eItx8"><img src="/web/20050701000942im_/http://www.youtube.com/get_still.php?still_id=2&amp;video_id=NYVk34eItx8" class="moduleFeaturedThumb" width="120" height="90"></a>
-						<div class="moduleFeaturedTitle"><a href="index.php?v=NYVk34eItx8">Trabajo</a></div>
-						<div class="moduleFeaturedDetails">Added: June 27, 2005						<br>by <a href="profile.php?user=HaoT">HaoT</a><!-- (<a href="profile.php?user=HaoT">10</a>) --></div>
-						<div class="moduleFeaturedDetails">Views: 3 | Comments: 0</div></td>
-
-						
-						<td width="20%" align="center"><a href="index.php?v=ivi5mnb6xfA"><img src="/web/20050701000942im_/http://www.youtube.com/get_still.php?still_id=2&amp;video_id=ivi5mnb6xfA" class="moduleFeaturedThumb" width="120" height="90"></a>
-						<div class="moduleFeaturedTitle"><a href="index.php?v=ivi5mnb6xfA">Dance Luke &amp; Kylie DANCE!!</a></div>
-						<div class="moduleFeaturedDetails">Added: June 28, 2005						<br>by <a href="profile.php?user=WhitneyLee">WhitneyLee</a><!-- (<a href="profile.php?user=WhitneyLee">10</a>) --></div>
-						<div class="moduleFeaturedDetails">Views: 15 | Comments: 0</div></td>
-
-						
-						<td width="20%" align="center"><a href="index.php?v=dySCz5rPK4E"><img src="/web/20050701000942im_/http://www.youtube.com/get_still.php?still_id=2&amp;video_id=dySCz5rPK4E" class="moduleFeaturedThumb" width="120" height="90"></a>
-						<div class="moduleFeaturedTitle"><a href="index.php?v=dySCz5rPK4E">My "Special" Dance</a></div>
-						<div class="moduleFeaturedDetails">Added: April 27, 2005						<br>by <a href="profile.php?user=cabmobile">cabmobile</a><!-- (<a href="profile.php?user=cabmobile">10</a>) --></div>
-						<div class="moduleFeaturedDetails">Views: 144 | Comments: 0</div></td>
-
-						
-				</tr>
-			</tbody></table>
-		</div>
-		
-		</td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_bl.gif" width="5" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/pixel.gif" width="1" height="5"></td>
-		<td><img src="/web/20050701000942im_/http://www.youtube.com/img/box_login_br.gif" width="5" height="5"></td>
-	</tr>
-</tbody></table>
-
-<br><table cellpadding="10" border="0" bgcolor="#FFFFFF" align="center">
-	<tbody><tr>
-		<td valign="center" align="center"><span class="footer"><a href="about.php">About Us</a> | <a href="contact.php">Contact Us</a> | <a href="terms.php">Terms of Use</a> | <a href="privacy.php">Privacy Policy</a> | "Copyright" © 2020 PokTube, even though it might not be. | <a href="rss/global/recently_added.rss"><img src="https://web.archive.org/web/20050701000942im_/http://www.youtube.com/img/rss.gif" style="vertical-align: text-top;" width="36" height="14" border="0"></a></span></td>
-	</tr>
-</tbody></table>
-
-
-
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'video';
+try {
+    $pdo = new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+} catch (PDOException $exception) {
+    // If there is an error with the connection, stop the script and display the error
+    exit('Failed to connect to database!');
+}
+
+$query = "SELECT * FROM `videos` WHERE `video_id` order by RAND() LIMIT 5";
+$result = $mysqli->query($query);
+
+/* numeric array */
+$row = $result->fetch_array(MYSQLI_NUM);
+printf ("%s (title name: %s)\n %s %s %s", $row[0], $row[1], $row[2], $row[3], $row[4]);
+
+/* free result set */
+$result->free();
+
+/* close connection */
+$mysqli->close();
+?>
+
+<?php
+  $connect = new mysqli("localhost", "root", "", "video");
+  $SQL = "SELECT * FROM `videos` WHERE `video_id` order by RAND() LIMIT 5";
+  $query = mysqli_query($SQL);
+  $result = mysqli_fetch_array($query);
+  $stmt = $pdo->prepare('SELECT COUNT(*) AS total_comments FROM comments WHERE page_id =' . $row[0]);
+  $stmt->execute([ $_GET['page_id'] ]);
+  $comments_info = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+        <div class="main">
+    <img src="img/logo.png" alt="BitView" width="183px" height="72px">
+    <div class="slogan">
+        Your Digital Video Repository
+    </div>
+    <form action="/web/20171203210931/http://www.bitview.net/results.php" method="get" data-children-count="1">
+        <input type="text" size="35" name="search" maxlength="128" class="search_box"><br>
+        <input type="submit" value="Search Videos">
+    </form>
+    <div class="big_links">
+        <a href="/web/20171203210931/http://www.bitview.net/my_videos_upload.php">Upload Videos</a>   <div class="big_links_seperator">//</div>   <a href="/web/20171203210931/http://www.bitview.net/videos.php">Browse Videos</a><img src="/web/20171203210931im_/http://www.bitview.net/img/new.gif" alt="New">
+    </div>
+            <div class="home_tags">
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Kelly"> Kelly</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Brent"> Brent</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= 11pixels"> 11pixels</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=Bitview">Bitview</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Test"> Test</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=it kinda sucks">it kinda sucks</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=palaryzer">palaryzer</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= music"> music</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= finger"> finger</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= eleven"> eleven</a> :
+                            <a style="font-size: 17px" href="/web/20171203210931/http://www.bitview.net/results.php?search=nuclear power">nuclear power</a> :
+                            <a style="font-size: 17px" href="/web/20171203210931/http://www.bitview.net/results.php?search= thorium"> thorium</a> :
+                            <a style="font-size: 17px" href="/web/20171203210931/http://www.bitview.net/results.php?search= uranium"> uranium</a> :
+                            <a style="font-size: 17px" href="/web/20171203210931/http://www.bitview.net/results.php?search= fission"> fission</a> :
+                            <a style="font-size: 17px" href="/web/20171203210931/http://www.bitview.net/results.php?search= science"> science</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=arkansas">arkansas</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= say yogurt in the discord Jan"> say yogurt in the discord Jan</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= i am trying to break the homepage screen to see if it works and if not then i will cry"> i am trying to break the homepage screen to see if it works and if not then i will cry</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=0">0</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=muerte ">muerte </a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= edgar "> edgar </a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= dead "> dead </a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=2005 youtube">2005 youtube</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=2005 Youtube">2005 Youtube</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=funy">funy</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=videos">videos</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=Me At The Zoo">Me At The Zoo</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Bad Film"> Bad Film</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Funny"> Funny</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Comedy"> Comedy</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Parody"> Parody</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=scary">scary</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=Windows NT 3.51">Windows NT 3.51</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= NT"> NT</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= New Technology"> New Technology</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= zombo.com"> zombo.com</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= zombocom"> zombocom</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= welcome to zombocom"> welcome to zombocom</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= NT 3.51"> NT 3.51</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=perspective films">perspective films</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=dab">dab</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search=Welcome ">Welcome </a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= new channel "> new channel </a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= first video"> first video</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Review"> Review</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= BitReView"> BitReView</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= (BitReView)"> (BitReView)</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= KnotSnappy"> KnotSnappy</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= video"> video</a> :
+                            <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= original"> original</a> :
+                        <div style="font-size: 14px; font-weight: bold; margin-top: 10px;"><a href="/web/20171203210931/http://www.bitview.net/tags.php">See More Tags</a></div>
+        </div>
+                <div class="videos_box">
+            <div class="videos_box_head">
+                <div style="float:left">
+                    Featured Videos
+                </div>
+                <div style="float:right">
+                    <a href="/web/20171203210931/http://www.bitview.net/videos.php">See More Videos</a>
+                </div>
+            </div>
+            <div class="videos_box_in">
+                            <div class="videos_box_sct">
+                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O">
+                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/k_0ZplOs75O.jpg" class="thumb" width="120" height="90">
+                    </a>
+                    <div>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O" class="videos_box_title">GameCube saying MEOW!!!!</a>
+                        <div class="videos_info">
+                            Added: Dec 03, 2017<br>
+                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=ng1">ng1</a>
+                        </div>
+                        <div class="videos_info">
+                            Views: 9 | Comments: <?=$comments_info['total_comments']?>                        </div>
+                    </div>
+                </div>
+                            <div class="videos_box_sct">
+                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=bdqvxjDXaTd">
+                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/bdqvxjDXaTd.jpg" class="thumb" width="120" height="90">
+                    </a>
+                    <div>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=bdqvxjDXaTd" class="videos_box_title">BitView (Classic 2005 YouTube clone)</a>
+                        <div class="videos_info">
+                            Added: Dec 03, 2017<br>
+                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=Adel123Essam">Adel123Essam</a>
+                        </div>
+                        <div class="videos_info">
+                            Views: 42 | Comments: 3                        </div>
+                    </div>
+                </div>
+                            <div class="videos_box_sct">
+                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=32BsLMvNye3">
+                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/32BsLMvNye3.jpg" class="thumb" width="120" height="90">
+                    </a>
+                    <div>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=32BsLMvNye3" class="videos_box_title">BitView - Overview</a>
+                        <div class="videos_info">
+                            Added: Dec 03, 2017<br>
+                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=Oldcpv3">Oldcpv3</a>
+                        </div>
+                        <div class="videos_info">
+                            Views: 19 | Comments: 1                        </div>
+                    </div>
+                </div>
+                            <div class="videos_box_sct">
+                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=L7qUVvGqicT">
+                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/L7qUVvGqicT.jpg" class="thumb" width="120" height="90">
+                    </a>
+                    <div>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=L7qUVvGqicT" class="videos_box_title">BitView Review (BitReView)</a>
+                        <div class="videos_info">
+                            Added: Dec 03, 2017<br>
+                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=KnotSnappy">KnotSnappy</a>
+                        </div>
+                        <div class="videos_info">
+                            Views: 40 | Comments: 7                        </div>
+                    </div>
+                </div>
+                            <div class="videos_box_sct">
+                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=fHBNhQKRdiN">
+                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/fHBNhQKRdiN.jpg" class="thumb" width="120" height="90">
+                    </a>
+                    <div>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=fHBNhQKRdiN" class="videos_box_title">Hi I'm opti</a>
+                        <div class="videos_info">
+                            Added: Dec 03, 2017<br>
+                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=opti">opti</a>
+                        </div>
+                        <div class="videos_info">
+                            Views: 16 | Comments: 3                        </div>
+                    </div>
+                </div>
+                        </div>
+        </div>
+    </div>        <div class="footer">
+    <a href="/web/20171203210931/http://www.bitview.net/whats_new.php">What's New</a> | <a href="/web/20171203210931/http://www.bitview.net/about.php">About Us</a> | <a href="/web/20171203210931/http://www.bitview.net/help.php">Help</a> | <a href="/web/20171203210931/http://www.bitview.net/terms.php">Terms of Use</a> | <a href="/web/20171203210931/http://www.bitview.net/privacy.php">Privacy Policy</a> | Copyright © 2017 BitView
+</div>    
+
+</body>
 
 </body></html>

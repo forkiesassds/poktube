@@ -7,41 +7,53 @@
 <link href="http://localhost/poktube/styles_alt.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
 </head>
-    <body>
-        <div class="hd">
-    <ul class="hd_nav">
-        <li><a href="/web/20171203210958/http://www.bitview.net/" style="font-weight: bold">Home</a></li>
-        <li> | </li>
-                <li><a href="/web/20171203210958/http://www.bitview.net/my_videos.php">My Videos</a></li>
-        <li> | </li>
-        <li><a href="/web/20171203210958/http://www.bitview.net/my_favorites.php">My Favorites</a></li>
-        <li> | </li>
-        <li><a href="/web/20171203210958/http://www.bitview.net/my_messages.php">My Messages</a></li>
-        <li> | </li>
-        <li><a href="/web/20171203210958/http://www.bitview.net/my_profile.php">My Profile</a></li>
-    </ul>
-</div>
-<div class="hd_under2">
-    <ul class="hd_nav2">
-                    <li><a href="/web/20171203210958/http://www.bitview.net/signup.php" style="font-weight: bold">Sign Up</a></li>
-            <li> | </li>
-            <li><a href="/web/20171203210958/http://www.bitview.net/login.php">Log In</a></li>
-            <li> | </li>
-            <li><a href="/web/20171203210958/http://www.bitview.net/help.php">Help</a></li>
-            </ul>
-    <div class="hd_under2_left">
-        <a href="/web/20171203210958/http://www.bitview.net/"><img src="/web/20171203210958im_/http://www.bitview.net/img/bitview.png" alt="BitView"></a>
-        <form action="/web/20171203210958/http://www.bitview.net/results.php" method="get">
-            <input type="text" size="30" name="search" maxlength="128" class="search_box">
-            <input type="submit" value="Search Videos">
-        </form>
-    </div>
-    <div class="hd_under2_right">
-        <a href="/web/20171203210958/http://www.bitview.net/my_videos_upload.php" style="font-weight:bold;font-size:13px">Upload Videos</a><div class="hd_under2_seperator">//</div><span style="font-size: 13px; font-weight: bold; padding: 4px 6px 4px 6px; background-color:#FFCC66"><a href="/web/20171203210958/http://www.bitview.net/videos.php">Browse Videos</a> <span style="color: #CC6600; font-size: 10px">NEW!</span></span>
-    </div>
-</div>
+
+<?php
+include "header2.php";
+error_reporting(0); //fixing the query issue breaks comment sections.
+?>
+<?php
+$mysqli = new mysqli("localhost", "root", "", "video");
+
+/* check connection */
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+
+$query = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];;
+$result = $mysqli->query($query);
+
+/* numeric array */
+$row = $result->fetch_array(MYSQLI_NUM);
+//printf ("%s (title name: %s)\n %s %s %s (tags: %s) [uploaded: %s]", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $_GET['v']);
+
+/* free result set */
+$result->free();
+
+/* close connection */
+$mysqli->close();
+?>
+
+<?php
+  $connect = new mysqli("localhost", "root", "", "video");
+  $SQL = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];
+  $AAAA = "UPDATE videos SET views = 1 WHERE video_id = " . $_GET['v'];
+  $query = mysqli_query($SQL);
+  $result = mysqli_fetch_array($query);
+  $result = mysqli_fetch_array($query2);
+  $uploadtime = date("F jS, Y", strtotime($row[6]));
+?>
+
+<?php
+  $connect = new mysqli("localhost", "root", "", "video");
+  $AAAA = "UPDATE videos SET views = 5 WHERE video_id = " . $_GET['v'];
+  $query = mysqli_query($AAAA);
+  $result = mysqli_fetch_array($query);
+?>
+
 <div class="page_title">
-    BitView (Classic 2005 YouTube clone)</div>
+    <?php echo $result[$row[1]] ?? $row[1];?></div>
         <div style="width:800px;margin:0 auto">
     <div style="width:480px;margin:0 15px 0 0;float:left">
         <div class="share_links">
@@ -58,35 +70,35 @@
         function v_play() {
             if (player.ended || player.paused) {
                 player.play();
-                document.getElementById("left").style.backgroundImage = "url('/img/ply0.png')";
+                document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
             } else {
                 player.pause();
-                document.getElementById("left").style.backgroundImage = "url('/img/ply1.png')";
+                document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
             }
         }
 
         function v_mute() {
             if (player.muted) {
-                document.getElementById("right").style.backgroundImage = "url('/img/vol1.png')";
+                document.getElementById("right").style.backgroundImage = "url('img/vol1.png')";
                 player.muted = false;
             } else {
-                document.getElementById("right").style.backgroundImage = "url('/img/vol0.png')";
+                document.getElementById("right").style.backgroundImage = "url('img/vol0.png')";
                 player.muted = true;
             }
         }
     </script>
     <div style="overflow:hidden">
     <video id="video_player" autoplay="" width="427" height="320">
-        <source src="/videos/test.mp4" type="video/mp4">
+        <source src="videos/<?php echo $result[$row[2]] ?? $row[2];?>" type="video/mp4">
         <object type="application/x-shockwave-flash" data="Late2005.swf" width="427" height="320">
             <param name="movie" value="Late2005.swf">
             <param name="allowFullScreen" value="false">
-            <param name="FlashVars" value="flv=../videos/test.mp4">
+            <param name="FlashVars" value="flv=videos/<?php echo $result[$row[2]] ?? $row[2];?>">
         </object>
     </video>
     </div>
     <div id="video_controls" style="display: block;">
-        <div id="left" onclick="v_play()" style="background-image: url(&quot;/web/20171203210958if_/http://www.bitview.net/img/ply1.png&quot;);"></div>
+        <div id="left" onclick="v_play()" style="background-image: url(img/ply1.png);"></div>
         <div id="right" onclick="v_mute()"></div>
         <div id="mid"><div id="midin" style="width: 1.96057%;"></div></div>
     </div>
@@ -107,74 +119,70 @@
         player.currentTime = (e.offsetX / this.offsetWidth) * player.duration;
         if (player.ended || player.paused) {
             player.play();
-            document.getElementById("left").style.backgroundImage = "url('/img/ply0.png')";
+            document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
         }
     });
     player.addEventListener("ended", function() {
-        document.getElementById("left").style.backgroundImage = "url('/img/ply1.png')";
+        document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
     });
 
 </script>        <div style="width:427px;margin:0 auto">
                             <div class="videodescription">
-                    Reupload from my VidLii. 
-Original Description:
-Just only a preview for this website, also I've even tried it out. and It's really good.
-here's the site link btw: http://www.bitview.net                </div>
+                    <?php echo $result[$row[3]] ?? $row[3];?>                </div>
                                         <div style="font-size: 12px;margin: 5px 0px 10px 0px;color: #333333;">
                     Tags //
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search=Review">Review</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Classic"> Classic</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Old good days"> Old good days</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= BitView"> BitView</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= 2005 YouTube"> 2005 YouTube</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Old School"> Old School</a> :
-                                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Nostalgia"> Nostalgia</a> :
+                                        <?php echo $result[$row[5]] ?? $row[5];?>
                                     </div>
                         <div style="font-size:11px;color:#333333">
                 <div style="margin:0 0 5px 0">
-                    Added: December 03, 2017 by <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam">Adel123Essam</a> //
+                    Added: <?php echo $uploadtime ?? $uploadtime;?> by <img src="pfp/<?php echo $result[$row[4]] ?? $row[4];?>.png" width="32" height="32"> <a href="profile.php?user=<?php echo $result[$row[4]] ?? $row[4];?>"><?php echo $result[$row[4]] ?? $row[4];?></a> //
                     <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=videos">Videos</a> (2) | <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=favorites">Favorites</a> (3)
                 </div>
                 <div>
-                    Views: 43 | <a href="#comments">Comments</a>: 3                </div>
+                    Views: <?php echo $result[$row[7]] ?? $row[7];?> | <a href="#comments">Comments</a>: 3                </div>
             </div>
         </div>
         <div style="background-image:#E5ECF9;background:#E5ECF9;padding:7px 0 21px;margin:15px 0 10px 0;text-align:center">
                             <div style="font-size:11px;font-weight:bold;color:#CC6600;padding:5px 0 5px 0">Share this video! Copy and paste this link:</div>
-                <input size="50" type="text" readonly="readonly" id="embed_link" style="font-size:10px;text-align:center" value="http://www.bitview.net/watch.php?v=bdqvxjDXaTd" onclick="document.getElementById('embed_link').select();document.getElementById('embed_link').focus()">
+                <input size="50" type="text" readonly="readonly" id="embed_link" style="font-size:10px;text-align:center" value="<?php echo $_SERVER['REQUEST_URI']?>" onclick="document.getElementById('embed_link').select();document.getElementById('embed_link').focus()">
                     </div>
         <div style="padding-bottom:5px;font-weight:bold;color:#444">Comment on this video:</div>
-        <form action="/web/20171203210958/http://www.bitview.net/watch.php?v=bdqvxjDXaTd" method="POST" style="margin:0 0 1em 0">
-            <textarea cols="55" rows="3" name="comment_text" maxlength="256"></textarea><br>
-            <input type="submit" name="comment_submit" value="Add Comment">
-        </form>
         <br>
         <a name="comments"></a>
-        <div class="c_title">
-            Comments (3)
-        </div>
-                                    <div class="comment">
-                    "@BoredWithADHD idk, maybe yesterday or something."
-                    <br>
-                    - <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam">Adel123Essam</a> // <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=videos">Videos</a> (2) | <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=favorites">Favorites</a> (3) - (59 minutes, 50 seconds ago)
-                </div>
-                            <div class="comment">
-                    "when was this made..?"
-                    <br>
-                    - <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=BoredWithADHD">BoredWithADHD</a> // <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=BoredWithADHD&amp;page=videos">Videos</a> (0) | <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=BoredWithADHD&amp;page=favorites">Favorites</a> (0) - (1 hour, 39 minutes, 48 seconds ago)
-                </div>
-                            <div class="comment">
-                    "Joined."
-                    <br>
-                    - <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Kratos">Kratos</a> // <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Kratos&amp;page=videos">Videos</a> (0) | <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Kratos&amp;page=favorites">Favorites</a> (0) - (3 hours, 35 minutes, 5 seconds ago)
-                </div>
+		<div class="comments"></div>
+<script>
+const comments_page_id = <?php echo $result[$row[0]] ?? $row[0];?>; // This number should be unique on every page
+fetch("comments.php?page_id=" + comments_page_id).then(response => response.text()).then(data => {
+	document.querySelector(".comments").innerHTML = data;
+	document.querySelectorAll(".comments .write_comment_btn, .comments .reply_comment_btn").forEach(element => {
+		element.onclick = event => {
+			event.preventDefault();
+			document.querySelectorAll(".comments .write_comment").forEach(element => element.style.display = 'none');
+			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "']").style.display = 'block';
+			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "'] input[name='name']").focus();
+		};
+	});
+	document.querySelectorAll(".comments .write_comment form").forEach(element => {
+		element.onsubmit = event => {
+			event.preventDefault();
+			fetch("comments.php?page_id=" + comments_page_id, {
+				method: 'POST',
+				body: new FormData(element)
+			}).then(response => response.text()).then(data => {
+				element.parentElement.innerHTML = data;
+			});
+		};
+	});
+});
+</script>
+
                         </div>
     <div style="width:305px;float:left">
         <div class="videos_box" style="width:98%">
             <div class="videos_box_head">
                 <div style="display:table;width:100%">
                     <div style="font-size:12px;display:table-cell">
-                        Tag // Review  Classic  Old good days  BitView  2005 YouTube  Old School  Nostalgia (8)                    </div>
+                        More videos                   </div>
                     <div style="font-size:12px;color:#444;font-weight:normal;text-align:right;display:table-cell">
                         <a href="/web/20171203210958/http://www.bitview.net/results.php?search=Review++Classic++Old+good+days++BitView++2005+YouTube++Old+School++Nostalgia">See more Results</a>
                     </div>
