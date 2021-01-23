@@ -60,12 +60,12 @@ $mysqli->close();
     <div class="slogan">
         Your Digital Video Repository
     </div>
-    <form action="/web/20171203210931/http://www.bitview.net/results.php" method="get" data-children-count="1">
+    <form action="results.php" method="get" data-children-count="1">
         <input type="text" size="35" name="search" maxlength="128" class="search_box"><br>
         <input type="submit" value="Search Videos">
     </form>
     <div class="big_links">
-        <a href="/web/20171203210931/http://www.bitview.net/my_videos_upload.php">Upload Videos</a>   <div class="big_links_seperator">//</div>   <a href="/web/20171203210931/http://www.bitview.net/videos.php">Browse Videos</a><img src="/web/20171203210931im_/http://www.bitview.net/img/new.gif" alt="New">
+        <a href="my_videos_upload.php">Upload Videos</a>   <div class="big_links_seperator">//</div>   <a href="videos.php">Browse Videos</a><img src="new.gif" alt="New">
     </div><!--
             <div class="home_tags">
                             <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Kelly"> Kelly</a> :
