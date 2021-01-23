@@ -66,7 +66,7 @@ $mysqli->close();
     </form>
     <div class="big_links">
         <a href="/web/20171203210931/http://www.bitview.net/my_videos_upload.php">Upload Videos</a>   <div class="big_links_seperator">//</div>   <a href="/web/20171203210931/http://www.bitview.net/videos.php">Browse Videos</a><img src="/web/20171203210931im_/http://www.bitview.net/img/new.gif" alt="New">
-    </div>
+    </div><!--
             <div class="home_tags">
                             <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Kelly"> Kelly</a> :
                             <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= Brent"> Brent</a> :
@@ -119,7 +119,7 @@ $mysqli->close();
                             <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= video"> video</a> :
                             <a style="font-size: 12px" href="/web/20171203210931/http://www.bitview.net/results.php?search= original"> original</a> :
                         <div style="font-size: 14px; font-weight: bold; margin-top: 10px;"><a href="/web/20171203210931/http://www.bitview.net/tags.php">See More Tags</a></div>
-        </div>
+        </div>-->
                 <div class="videos_box">
             <div class="videos_box_head">
                 <div style="float:left">
@@ -131,11 +131,11 @@ $mysqli->close();
             </div>
             <div class="videos_box_in">
                             <div class="videos_box_sct">
-                    <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O">
-                        <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/k_0ZplOs75O.jpg" class="thumb" width="120" height="90">
+                    <a href="watch.php?v=<?php echo $result[$row[0]] ?? $row[0];?>">
+                        <img src="pfp\<?php echo $result[$row[4]] ?? $row[4];?>.png" class="thumb" width="120" height="90">
                     </a>
                     <div>
-                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O" class="videos_box_title">GameCube saying MEOW!!!!</a>
+                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O" class="videos_box_title"><?php echo $result[$row[1]] ?? $row[1];?></a>
                         <div class="videos_info">
                             Added: Dec 03, 2017<br>
                             by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=ng1">ng1</a>
@@ -144,7 +144,7 @@ $mysqli->close();
                             Views: 9 | Comments: <?=$comments_info['total_comments']?>                        </div>
                     </div>
                 </div>
-                            <div class="videos_box_sct">
+                            <!--<div class="videos_box_sct">
                     <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=bdqvxjDXaTd">
                         <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/bdqvxjDXaTd.jpg" class="thumb" width="120" height="90">
                     </a>
@@ -198,7 +198,7 @@ $mysqli->close();
                         </div>
                         <div class="videos_info">
                             Views: 16 | Comments: 3                        </div>
-                    </div>
+                    </div>-->
                 </div>
                         </div>
         </div>
