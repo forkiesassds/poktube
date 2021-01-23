@@ -57,7 +57,7 @@ $mysqli->close();
   $comments_info = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
         <div class="main">
-    <img src="img/logo.png" alt="BitView" width="183px" height="72px">
+    <img src="img/logo.png" alt="PokTube">
     <div class="slogan">
         Your Digital Video Repository
     </div>
