@@ -127,7 +127,7 @@ $mysqli->close();
                     Featured Videos
                 </div>
                 <div style="float:right">
-                    <a href="/web/20171203210931/http://www.bitview.net/videos.php">See More Videos</a>
+                    <a href="videos.php">See More Videos</a>
                 </div>
             </div>
             <div class="videos_box_in">
