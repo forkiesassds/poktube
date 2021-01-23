@@ -25,6 +25,7 @@ $result = mysqli_query($con,"SELECT * FROM videos");
 echo "<table border='2'>
 <tr>
 <th>ID</th>
+<th>Thumbnail</th>
 <th>Video</th>
 <th>File name</th>
 <th>Description</th>
@@ -37,6 +38,7 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['0'] . "</td>";
+echo "<td><img src=\"thumbnail/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
 echo "<td>" . $row['1'] . "</td>";
 echo "<td>" . $row['2'] . "</td>";
 echo "<td>" . $row['3'] . "</td>";

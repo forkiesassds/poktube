@@ -53,6 +53,7 @@ $mysqli->close();
   $result = mysqli_fetch_array($query);
   $stmt = $pdo->prepare('SELECT COUNT(*) AS total_comments FROM comments WHERE page_id =' . $row[0]);
   $stmt->execute([ $_GET['page_id'] ]);
+  $uploadtime = date("M jS Y", strtotime($row[6]));
   $comments_info = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
         <div class="main">
@@ -132,16 +133,16 @@ $mysqli->close();
             <div class="videos_box_in">
                             <div class="videos_box_sct">
                     <a href="watch.php?v=<?php echo $result[$row[0]] ?? $row[0];?>">
-                        <img src="pfp\<?php echo $result[$row[4]] ?? $row[4];?>.png" class="thumb" width="120" height="90">
+                        <img src="thumbnail\<?php echo $result[$row[0]] ?? $row[0];?>.png" class="thumb" width="120" height="90"> <!-- this is a fucking poor way of loading thumbnails, make them jpegs once this goes public. -->
                     </a>
                     <div>
-                        <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=k_0ZplOs75O" class="videos_box_title"><?php echo $result[$row[1]] ?? $row[1];?></a>
+                        <a href="watch.php?v=<?php echo $result[$row[0]] ?? $row[0];?>" class="videos_box_title"><?php echo $result[$row[1]] ?? $row[1];?></a>
                         <div class="videos_info">
-                            Added: Dec 03, 2017<br>
-                            by <a href="/web/20171203210931/http://www.bitview.net/profile.php?user=ng1">ng1</a>
+                            Added: <?php echo $uploadtime ?? $uploadtime;?><br>
+                            by <a href="profile.php?user=<?php echo $result[$row[4]] ?? $row[4];?>"><?php echo $result[$row[4]] ?? $row[4];?></a>
                         </div>
                         <div class="videos_info">
-                            Views: 9 | Comments: <?=$comments_info['total_comments']?>                        </div>
+                            Views: <?php echo $result[$row[7]] ?? $row[7];?> | Comments: <?=$comments_info['total_comments']?>                        </div>
                     </div>
                 </div>
                             <!--<div class="videos_box_sct">
