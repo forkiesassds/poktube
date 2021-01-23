@@ -175,7 +175,7 @@ fetch("comments.php?page_id=" + comments_page_id).then(response => response.text
 	});
 });
 </script>
-
+<!-- TODO: GET THE FUCKING RECOMMEND LIST TO WORK -->
                         </div>
     <div style="width:305px;float:left">
         <div class="videos_box" style="width:98%">
