@@ -31,7 +31,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <li> | </li>
             <li><a href="help.php">Help</a></li>
  </ul>
- </div>';
+';
 } else {
     echo '<div class="hd_under2">
 			<ul class="hd_nav2">
@@ -41,7 +41,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <li> | </li>
             <li><a href="help.php">Help</a></li>
  </ul>
- </div>';
+';
 }
   ?>
       <div class="hd_under2_left">
@@ -51,9 +51,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <input type="submit" value="Search Videos">
         </form>
     </div>
-	<br>
-    <div class="hd_under2_right">
+	    <div class="hd_under2_right">
 	        <a href="/web/20171203210958/http://www.bitview.net/my_videos_upload.php" style="font-weight:bold;font-size:13px">Upload Videos</a><div class="hd_under2_seperator">//</div><span style="font-size: 13px; font-weight: bold; padding: 4px 6px 4px 6px; background-color:#FFCC66"><a href="/web/20171203210958/http://www.bitview.net/videos.php">Browse Videos</a> <span style="color: #CC6600; font-size: 10px">NEW!</span></span>
-</div>
+		</div>
+	<br>
 	</tr>
 </tbody></table></div>
