@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </li><li> Securely and privately show videos to your friends and family around the world
             </li><li> ... and much, much more!
             </li></ul>
-        <br><span class="highlight"><a href="/web/20171203211127/http://www.bitview.net/signup.php">Sign up now</a> and open a free account.</span>
+        <br><span class="highlight"><a href="register.php">Sign up now</a> and open a free account.</span>
         <br><br><br>
         To learn more about our service, please see our <a href="help.php">Help</a> section.<br><br><br>
     </div>
@@ -121,7 +121,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
                 <table width="100%" cellspacing="0" cellpadding="5" border="0">
                     <tbody><tr>
-        <p>Please fill in your credentials to login.</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                 <table width="100%" cellspacing="0" cellpadding="5" border="0">
                     <tbody><tr>
@@ -129,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <td data-children-count="1"><input type="text" size="20" maxlength="20" name="username" class="form-control" value="<?php echo $username; ?>"></td>
                     </tr>
                     <tr>
-                        <td align="right"><span style="font-weight:bold">Password:</span></td>
+                        <td align="right"><span style="font-weight:bold;font-size: 12px;">Password:</span></td>
                         <td data-children-count="1"><input type="password" name="password" class="form-control"></td>
                     </tr>
                                         <tr>
