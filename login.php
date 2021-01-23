@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div class="page_title">Log In</div>
 <div style="width:80%;margin:0 auto;overflow:hidden">
     <div style="float:left;width:47%">
-        <span class="highlight">What is BitView?</span>
+        <span class="highlight">What is PokTube?</span>
         <br><br>
         PokTube is a way to get your videos to the people who matter to you. With PokTube you can:
         <ul>
@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div style="float:right">
         <div class="login_box">
             <div style="margin: 5px 0 9px;font-weight:bold;color: #003366;font-size:14px;text-align:center">
-                BitView Log In
+                PokTube Log In
             </div>
                 <table width="100%" cellspacing="0" cellpadding="5" border="0">
                     <tbody><tr>
