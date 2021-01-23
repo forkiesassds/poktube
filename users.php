@@ -25,7 +25,8 @@ $result = mysqli_query($con,"SELECT * FROM users");
 echo "<table border='2'>
 <tr>
 <th>ID</th>
-<th>Video</th>
+<th>PFP</th>
+<th>Username</th>
 <th>Created</th>
 </tr>";
 
@@ -33,6 +34,7 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['0'] . "</td>";
+echo "<td><img src=\"pfp/" . $row['1'] . ".png" . "\" width=\"64\" height=\"64\"</img></td>";
 echo "<td>" . $row['1'] . "</td>";
 echo "<td>" . $row['3'] . "</td>";
 echo "</tr>";
