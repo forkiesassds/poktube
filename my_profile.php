@@ -14,12 +14,15 @@ error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
 <h1>Settings</h1>
 <h2>Profile Picture</h2>
+<img src="pfp/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
+<br>
 <form action="my_profile.php" method="post" enctype="multipart/form-data">
   Select image to upload:
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
-
+<!-- the profile pic is asked with the png command, for anything else
+	make it a SQL query or whatever the fuck -->
 
 <?php
 $target_dir = "pfp/";
