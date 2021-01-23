@@ -122,22 +122,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <table width="100%" cellspacing="0" cellpadding="5" border="0">
                     <tbody><tr>
         <p>Please fill in your credentials to login.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <span style="font-weight:bold">User Name:</span>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <span style="font-weight:bold">Password:</span>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
-            </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-        </form>
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                <table width="100%" cellspacing="0" cellpadding="5" border="0">
+                    <tbody><tr>
+                        <td align="right"><span style="font-weight:bold;font-size: 12px;">User Name:</span></td>
+                        <td data-children-count="1"><input type="text" size="20" maxlength="20" name="username" class="form-control" value="<?php echo $username; ?>"></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><span style="font-weight:bold">Password:</span></td>
+                        <td data-children-count="1"><input type="password" name="password" class="form-control"></td>
+                    </tr>
+                                        <tr>
+                        <td></td>
+                        <td><input type="submit" name="log_in" value="Log In"></td>
+                    </tr>
+                </tbody></table>
+            </form>
                 </tbody></table>
             </form>
             <div style="text-align:center;margin: 5px 0 3px"><a href="javascript:void(0)">Forgot your password?</a></div>
