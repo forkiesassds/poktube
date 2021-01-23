@@ -1,6 +1,8 @@
 <?php
-// Initialize the session
-session_start();
+
+include "header2.php";
+error_reporting(1); //fixing the query issue breaks comment sections.
+
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -93,24 +95,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <link href="styles_alt.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
+<div class="page_title">Log In</div>
+<div style="width:80%;margin:0 auto;overflow:hidden">
+    <div style="float:left;width:47%">
+        <span class="highlight">What is BitView?</span>
+        <br><br>
+        PokTube is a way to get your videos to the people who matter to you. With PokTube you can:
+        <ul>
+            <li> Show off your favorite videos to the world
+            </li><li> Blog the videos you take with your digital camera or cell phone
+            </li><li> Securely and privately show videos to your friends and family around the world
+            </li><li> ... and much, much more!
+            </li></ul>
+        <br><span class="highlight"><a href="/web/20171203211127/http://www.bitview.net/signup.php">Sign up now</a> and open a free account.</span>
+        <br><br><br>
+        To learn more about our service, please see our <a href="help.php">Help</a> section.<br><br><br>
+    </div>
+    <div style="float:right">
+        <div class="login_box">
+            <div style="margin: 5px 0 9px;font-weight:bold;color: #003366;font-size:14px;text-align:center">
+                BitView Log In
+            </div>
+                <table width="100%" cellspacing="0" cellpadding="5" border="0">
+                    <tbody><tr>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+                <span style="font-weight:bold">User Name:</span>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <span style="font-weight:bold">Password:</span>
                 <input type="password" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
@@ -119,6 +138,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
-    </div>    
+                </tbody></table>
+            </form>
+            <div style="text-align:center;margin: 5px 0 3px"><a href="javascript:void(0)">Forgot your password?</a></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

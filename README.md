@@ -19,6 +19,11 @@ I do plan of keeping the 2017 BV UI as an option (along with possibly the origin
 * Actually make the Featured Videos and Recommended List work (multiple arrays afaik).
 * Find a better name.
 * Make a proper logo (originally it was some YouTube-styled logo, but when I revived this project, I replaced it with a placeholder)
+* Better XP/KDE3-styled interface.
+* Add original July 2005 CSS as an option (along with June 2005 CSS)
+
+## Old browser support?
+Useless, but we will add support for that once the internals are done.
 
 ## FRAMEBIT SOURCE CODE
 ![Discord logs](https://cdn.discordapp.com/attachments/752645257354805389/802619613946970198/unknown.png)

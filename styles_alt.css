@@ -188,7 +188,8 @@ textarea{
     padding:5px 10px 10px;
     border:6px double #FFF;
     width:275px;
-    margin-right:10px
+    margin-right:10px;
+	text-align: center
 }
 #left,#right{
     width:20px;
