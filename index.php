@@ -10,7 +10,7 @@
 
 <?php
 include "header.php";
-error_reporting(0); //we don't fucking care.
+error_reporting(2); //we don't fucking care.
 ?>
 
 <?php
@@ -145,6 +145,50 @@ $mysqli->close();
                             Views: <?php echo $result[$row[7]] ?? $row[7];?> | Comments: <?=$comments_info['total_comments']?>                        </div>
                     </div>
                 </div>
+				<?php
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY ViewCount DESC LIMIT 10"); //instructions for sql
+
+while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+$idvideolist = $fetch['VideoID'];
+$namevideolist = htmlspecialchars($fetch['VideoName']);
+$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
+$uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
+$descvideolist = htmlspecialchars($fetch['VideoDesc']);
+$viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+echo "<div class='moduleEntry'>
+						<table width='565' cellpadding='0' cellspacing='0' border='0'>
+							<tbody><tr valign='top'>
+								<td><a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
+								</td>
+								<td width='100%'>
+									<div class='moduleEntryTitle'>
+										<a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a>
+									</div>
+										<div class='moduleEntryDescription'>
+									".$descvideolist."
+									</div>
+							
+									<div class='moduleEntryDetails'>
+										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
+									</div>
+									<div class='moduleEntryDetails'>
+										Views: ".$viewsvideolist." // Comments: [not ''indexed'' yet]
+										</div>
+									<nobr>
+			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
+			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
+			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
+			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
+			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
+	</nobr>
+
+
+								</td>
+							</tr>
+						</tbody></table>
+					</div>";
+}
+?>
                             <!--<div class="videos_box_sct">
                     <a href="/web/20171203210931/http://www.bitview.net/watch.php?v=bdqvxjDXaTd">
                         <img src="/web/20171203210931im_/http://www.bitview.net/u/thmp/bdqvxjDXaTd.jpg" class="thumb" width="120" height="90">

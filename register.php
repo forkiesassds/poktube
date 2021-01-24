@@ -1,4 +1,5 @@
 <?php
+include("header2.php");
 // Include config file
 require_once "config.php";
  
@@ -7,8 +8,8 @@ $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+if(isset($_POST["signupsubmit"])){
+	if(ctype_alnum($_POST["username"])) {
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
@@ -21,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
-            $param_username = trim($_POST["username"]);
+            $param_username = trim(htmlspecialchars($_POST["username"]));
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -31,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = "This username is already taken.";
                 } else{
-                    $username = trim($_POST["username"]);
+                    $username = trim(htmlspecialchars($_POST["username"]));
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -41,6 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
+	} else {
+		$username_err = "Username must be alphabetical-numerical, special characters or spaces not permitted.";
+	}
     
     // Validate password
     if(empty(trim($_POST["password"]))){
@@ -62,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && $username !== "default/default"){
         
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
@@ -78,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+                echo "<script>window.location = 'login.php'</script>";
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -86,50 +90,109 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
-    }
+    } else {
+		$username_err = "Please re-enter your account credentials.";
+	}
     
     // Close connection
     mysqli_close($link);
 }
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
+<table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
+		
+
+
+
+
+
+<div style="padding: 0px 5px 0px 5px;">
+
+
+
+
+<script>
+function formValidator()
+{
+	/*
+	var field_signup_email = document.theForm.field_signup_email;
+	var field_signup_username = document.theForm.field_signup_username;
+	var field_signup_password_1 = document.theForm.field_signup_password_1;
+	var field_signup_password_2 = document.theForm.field_signup_password_2;
+	*/
+
+	var signup_button = document.getElementById("signupbutton");
+
+	signup_button.disabled='true';
+	signup_button.value='Please wait...';
+}
+</script>
+
+<div class="page_title">Sign Up</div>
+
+<div style="width:80%;margin:0 auto 20px;padding:0 5px 5px">
+    <div style="font-size:13px;margin: 0 0 15px;padding:0 0 0 10px">
+        Please enter your account information below. All field are required.
             </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
-</body>
-</html>
+    <form action="register.php" method="POST">
+        <table width="720" cellspacing="0" cellpadding="5" border="0">
+            <tbody>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">User Name:</span></td>
+                <td><input type="text" size="20" maxlength="20" name="username" data-kwimpalastatus="alive" data-kwimpalaid="1611513448340-2"></td>
+            </tr>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">Password:</span></td>
+                <td><input type="password" size="20" maxlength="20" name="password" data-kwimpalastatus="alive" data-kwimpalaid="1611513448340-0"></td>
+            </tr>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">Retype Password:</span></td>
+                <td><input type="password" size="20" maxlength="20" name="confirm_password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    - I certify I am over 13 years old.
+                    <br>
+                    - I agree to the <a href="/web/20171203211120/http://www.bitview.net/terms.php" target="_blank">terms of use</a> and <a href="/web/20171203211120/http://www.bitview.net/privacy.php" target="_blank">privacy policy</a>.
+                </td>
+            </tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input name="signupsubmit" id="signupsubmit" type="submit" value="Sign Up"></td>
+	</tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    Or, <a href="/web/20171203211120/http://www.bitview.net/">return to the homepage</a>.
+                </td>
+            </tr>
+				<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $username_err; ?></td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $password_err; ?></td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $confirm_password_err; ?></td>
+	</tr>
+        </tbody></table>
+    </form>
+</div>
+
+Please enter your account information below. All fields are required.<br><br>
+		</div>
+		</td>
+	</tr>
+</tbody></table>
+<?php
+include("footer.php");
+?>
