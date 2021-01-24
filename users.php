@@ -11,7 +11,7 @@
 include "header2.php";
 error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
-<h1>All users</h1>
+<div class="page_title">All users</div>
 <?php
 $con=mysqli_connect("localhost", "root", "", "users");
 // Check connection

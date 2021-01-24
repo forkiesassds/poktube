@@ -30,8 +30,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <li><a href="logout.php">Sign Off</a></li>
             <li> | </li>
             <li><a href="help.php">Help</a></li>
- </ul>
-';
+ </ul>';
 } else {
     echo '<div class="hd_under2">
 			<ul class="hd_nav2">
@@ -40,8 +39,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <li><a href="login.php">Log In</a></li>
             <li> | </li>
             <li><a href="help.php">Help</a></li>
- </ul>
-';
+ </ul>';
 }
   ?>
       <div class="hd_under2_left">

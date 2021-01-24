@@ -11,7 +11,7 @@
 include "header2.php";
 error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
-<h1>All videos</h1>
+<div class="page_title">All videos</div>
 <?php
 $con=mysqli_connect("localhost", "root", "", "video");
 // Check connection

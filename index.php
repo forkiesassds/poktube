@@ -9,7 +9,8 @@
 </head>
 
 <?php
-include "header.php";                 // (2) Include the header
+include "header.php";
+error_reporting(0); //we don't fucking care.
 ?>
 
 <?php
@@ -37,7 +38,6 @@ $result = $mysqli->query($query);
 
 /* numeric array */
 $row = $result->fetch_array(MYSQLI_NUM);
-printf ("%s (title name: %s)\n %s %s %s", $row[0], $row[1], $row[2], $row[3], $row[4]);
 
 /* free result set */
 $result->free();
@@ -204,7 +204,7 @@ $mysqli->close();
                         </div>
         </div>
     </div>        <div class="footer">
-    <a href="/web/20171203210931/http://www.bitview.net/whats_new.php">What's New</a> | <a href="/web/20171203210931/http://www.bitview.net/about.php">About Us</a> | <a href="/web/20171203210931/http://www.bitview.net/help.php">Help</a> | <a href="/web/20171203210931/http://www.bitview.net/terms.php">Terms of Use</a> | <a href="/web/20171203210931/http://www.bitview.net/privacy.php">Privacy Policy</a> | Copyright © 2017 BitView
+    <a href="/web/20171203210931/http://www.bitview.net/whats_new.php">What's New</a> | <a href="/web/20171203210931/http://www.bitview.net/about.php">About Us</a> | <a href="/web/20171203210931/http://www.bitview.net/help.php">Help</a> | <a href="/web/20171203210931/http://www.bitview.net/terms.php">Terms of Use</a> | <a href="/web/20171203210931/http://www.bitview.net/privacy.php">Privacy Policy</a> | Copyright © 2021 PokTube
 </div>    
 
 </body>

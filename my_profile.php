@@ -12,7 +12,7 @@
 include "header2.php";
 error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
-<h1>Settings</h1>
+<div class="page_title">Settings</div>
 <h2>Profile Picture</h2>
 <img src="pfp/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
 <br>
