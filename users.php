@@ -34,9 +34,9 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['0'] . "</td>";
-echo "<td><img src=\"pfp/" . $row['1'] . ".png" . "\" width=\"64\" height=\"64\"</img></td>";
+echo "<td><img src=\"content/profpic/" . $row['1'] . ".png" . "\" width=\"64\" height=\"64\"</img></td>";
 echo "<td>" . $row['1'] . "</td>";
-echo "<td>" . date("Y-m-d",$row['3']) . "</td>";
+echo "<td>" . $row['3'] . "</td>";
 echo "</tr>";
 }
 echo "</table>";

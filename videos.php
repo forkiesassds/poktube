@@ -20,7 +20,7 @@ if (mysqli_connect_errno())
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$result = mysqli_query($con,"SELECT * FROM videos");
+$result = mysqli_query($con,"SELECT * FROM videodb");
 
 echo "<table border='2'>
 <tr>
@@ -38,12 +38,12 @@ while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 echo "<td>" . $row['0'] . "</td>";
-echo "<td><img src=\"thumbnail/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
+echo "<td><img src=\"content/thumbs/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
 echo "<td>" . $row['1'] . "</td>";
+echo "<td>" . $row['7'] . "</td>";
 echo "<td>" . $row['2'] . "</td>";
 echo "<td>" . $row['3'] . "</td>";
 echo "<td>" . $row['4'] . "</td>";
-echo "<td>" . date("Y-m-d",$row['6']) . "</td>";
 echo "<td><a href=\"watch.php?v=" . $row['0'] . "\"</a>Watch</td>";
 echo "</tr>";
 }
