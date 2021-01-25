@@ -42,9 +42,8 @@ $mysqli->close();
 ?>
 
 <?php
-  $connect = new mysqli("localhost", "root", "", "video");
-  $SQL = "SELECT * FROM `videos` WHERE `video_id` = 1";
-  $query = mysqli_query($SQL);
+  $SQL = mysqli_connect("localhost", "root", "", "video");
+  $query = mysqli_query($SQL,"SELECT * FROM videos");
   $result = mysqli_fetch_array($query);
 ?>
 <div id="baseDiv">

@@ -13,7 +13,7 @@ error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
 <div class="page_title">All videos</div>
 <?php
-$con=mysqli_connect("localhost", "root", "", "video");
+$con=mysqli_connect("localhost", "root", "", "poktube");
 // Check connection
 if (mysqli_connect_errno())
 {

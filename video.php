@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-$mysqli = new mysqli("localhost", "root", "", "video");
+$mysqli = new mysqli("localhost", "root", "", "poktube");
 
 /* check connection */
 if ($mysqli->connect_errno) {
@@ -29,7 +29,7 @@ $mysqli->close();
 ?>
 
 <?php
-  $connect = new mysqli("localhost", "root", "", "video");
+  $connect = new mysqli("localhost", "root", "", "poktube");
   $SQL = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];
   $query = mysqli_query($SQL);
   $result = mysqli_fetch_array($query);
