@@ -43,7 +43,7 @@ echo "<td>" . $row['1'] . "</td>";
 echo "<td>" . $row['2'] . "</td>";
 echo "<td>" . $row['3'] . "</td>";
 echo "<td>" . $row['4'] . "</td>";
-echo "<td>" . $row['6'] . "</td>";
+echo "<td>" . date("Y-m-d",$row['6']) . "</td>";
 echo "<td><a href=\"watch.php?v=" . $row['0'] . "\"</a>Watch</td>";
 echo "</tr>";
 }

@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-// Check if the user is already logged in, if yes then redirect him to welcome page
+// Check if the user is already logged in, if yes then redirect them to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo "<script>history.go(-1)</script>";
     exit;
@@ -54,7 +54,7 @@ if(isset($_POST["loginsubmit"])){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){             
+                        if(password_verify(password, $hashed_password)){             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
@@ -64,7 +64,7 @@ if(isset($_POST["loginsubmit"])){
                             echo "<script>window.location.replace('index.php');</script>";
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
+                            echo "The password you entered was not valid.";
                         }
                     }
                 } else{
