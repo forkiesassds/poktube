@@ -1,132 +1,174 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<?php 
+include("header.php"); 
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>YouTube - Your Digital Video Repository</title>
-<link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link href="styles_alt.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
-</head>
-
-<?php
-include "header2.php";
-error_reporting(1); //fixing the query issue breaks comment sections.
-?>
-<?php
-$mysqli = new mysqli("localhost", "root", "", "users");
-
-/* check connection */
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
+if(isset($_GET["user"])) {
+$user = $_GET["user"];
 }
 
-$query = "SELECT * FROM `users` WHERE `username` = \"" . $_GET['user'] . "\"";;
-$result = $mysqli->query($query);
+//if $FeaturedVideo is null then dont show anything
+if (!isset($_GET["user"])) {
+die();
+}
 
-/* numeric array */
-$row = $result->fetch_array(MYSQLI_NUM);
-printf ("%s (title name: %s)\n %s %s %s", $row[0], $row[1], $row[2], $row[3], $row[4], $_GET['user']);
-
-/* free result set */
-$result->free();
-
-/* close connection */
-$mysqli->close();
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $user ."'"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$LastestVideo = htmlspecialchars($cdf['recent_vid']);
+$Username = htmlspecialchars($cdf['username']);
+$AboutMe = htmlspecialchars($cdf['aboutme']);
+$VidsWatched = $cdf['videos_watched'];
+$Name = htmlspecialchars($cdf['prof_name']);
+$Age = htmlspecialchars($cdf['prof_age']);
+$City = htmlspecialchars($cdf['prof_city']);
+$Hometown = htmlspecialchars($cdf['prof_hometown']);
+$Country = htmlspecialchars($cdf['prof_country']);
+$Occupation = htmlspecialchars($cdf['prof_occupation']);
+$Interests = htmlspecialchars($cdf['prof_interests']);
+$Music = htmlspecialchars($cdf['prof_music']);
+$Books = htmlspecialchars($cdf['prof_books']);
+$Movies = htmlspecialchars($cdf['prof_movies']);
+if($cdf['prof_website']) {
+$Website = htmlspecialchars($cdf['prof_website']);
+} else {
+	$Website = "";
+}
+$PreRegisteredOn = $cdf['registeredon'];
+$DateTime = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime->format('F j Y');
 ?>
+<meta name="title" content="<?php echo $Username ?>'s Channel">
+<meta name="description" content="<?php echo $AboutMe ?>">
+<title><?php echo $Username ?> - FrameBit</title>
+<div style="padding: 0px 5px 0px 5px;">
+		
 
-<?php
-  $connect = new mysqli("localhost", "root", "", "video");
-  $SQL = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];
-  $query = mysqli_query($SQL);
-  $result = mysqli_fetch_array($query);
-  $uploadtime = date("F jS, Y", strtotime($row[3]));
-?>
 
-<div class="page_title">User Profile</div>
-<div style="overflow:hidden;width:800px;margin:0 auto">
-    <div style="width:500px;float:right;margin:0 15px 0 0;border:1px solid #CCCCCC">
-        <div style="padding: 15px 15px 15px 15px">
-            <div style="font-size: 18px; font-weight: bold; color: #CC6633; margin-bottom: 2px;">
-                Hello. I'm <?php echo $result[$row[1]] ?? $row[1];?>.
-            </div>
-            <div class="profile_info">
-                Signed up:
-            </div>
-            <?php echo $uploadtime ?? $uploadtime;?>                             <div class="profile_info">
-                    Name:
-                </div>
-                <?php echo $result[$row[5]] ?? $row[5];?>                                        <div class="profile_info">
-                    Gender:
-                </div>
-                <?php echo $result[$row[6]] ?? $row[6];?>                                    <div class="profile_info">
-                    About Me:
-                </div>
-                <?php echo $result[$row[7]] ?? $row[7];?>                                    <div class="profile_info">
-                    Hobbies:
-                </div>
-                If bitview was a script I'd buy it                                        <div class="profile_info">
-                    Favorite Books:
-                </div>
-                But good thing it's not a script                                        <div class="profile_info">
-                    Favorite Music:
-                </div>
-                Because it's easier to use                    </div>
-    </div>
-    <div style="width:258px;float:left">
-        <div style="background:#e5ecf9;border-radius:4px;padding:12px;text-align:center">
-                            <div style="font-size:14px;font-weight:bold;color:#003366"><?php echo $result[$row[1]] ?? $row[1];?></div>
-                <a href="/web/20171203212115/http://www.bitview.net/watch.php?v=ELorde6F2Sf">
-                    <img src="pfp/<?php echo $result[$row[1]] ?? $row[1];?>.png" class="thumb" width="128" height="128">
-                </a>
-        </div>
-        <div style="background:#eeeedd;border-radius:4px;padding:8px;margin: 17px auto 0;width:65%">
-            <div style="font-size:14px;font-weight:bold;margin:0 0 8px;color:#666633">
-                Latest 4 users
-            </div>
-                            <div style="border-bottom:1px dashed #CCCC66;margin:0 0 8px;padding:0 0 10px">
-                    <div style="margin: 0 0 5px;font-weight:bold;font-size:12px">
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=OrBuLon">OrBuLon</a>
-                    </div>
-                    <div>
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=OrBuLon&amp;page=videos"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_vid.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=OrBuLon&amp;page=videos">0</a>) <div style="display:inline-block;display:inline;margin:0 3px">|</div> <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=OrBuLon&amp;page=favorites"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_fav.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=OrBuLon&amp;page=favorites">0</a>)
-                    </div>
-                </div>
-                            <div style="border-bottom:1px dashed #CCCC66;margin:0 0 8px;padding:0 0 10px">
-                    <div style="margin: 0 0 5px;font-weight:bold;font-size:12px">
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Clygro">Clygro</a>
-                    </div>
-                    <div>
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Clygro&amp;page=videos"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_vid.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Clygro&amp;page=videos">1</a>) <div style="display:inline-block;display:inline;margin:0 3px">|</div> <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Clygro&amp;page=favorites"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_fav.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Clygro&amp;page=favorites">1</a>)
-                    </div>
-                </div>
-                            <div style="border-bottom:1px dashed #CCCC66;margin:0 0 8px;padding:0 0 10px">
-                    <div style="margin: 0 0 5px;font-weight:bold;font-size:12px">
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=ng1">ng1</a>
-                    </div>
-                    <div>
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=ng1&amp;page=videos"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_vid.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=ng1&amp;page=videos">1</a>) <div style="display:inline-block;display:inline;margin:0 3px">|</div> <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=ng1&amp;page=favorites"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_fav.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=ng1&amp;page=favorites">0</a>)
-                    </div>
-                </div>
-                            <div style="border-bottom:1px dashed #CCCC66;margin:0 0 8px;padding:0 0 10px">
-                    <div style="margin: 0 0 5px;font-weight:bold;font-size:12px">
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Winduss">Winduss</a>
-                    </div>
-                    <div>
-                        <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Winduss&amp;page=videos"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_vid.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Winduss&amp;page=videos">0</a>) <div style="display:inline-block;display:inline;margin:0 3px">|</div> <a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Winduss&amp;page=favorites"><img src="/web/20171203212115im_/http://www.bitview.net/img/icon_fav.gif" style="vertical-align:text-bottom"></a> (<a href="/web/20171203212115/http://www.bitview.net/profile.php?user=Winduss&amp;page=favorites">0</a>)
-                    </div>
-                </div>
-                        <div>
-                <div style="font-weight:bold;margin-bottom:5px">Icon Key:</div>
-                <div style="margin:0 0 6px">
-                    <img src="/web/20171203212115im_/http://www.bitview.net/img/icon_vid.gif" style="vertical-align: text-bottom"> - Videos
-                </div>
-                <div>
-                    <img src="/web/20171203212115im_/http://www.bitview.net/img/icon_fav.gif" style="vertical-align: text-bottom"> - Favorites
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td width="180">
+		
+		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+			<tr>
+				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
+				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
+			</tr>
+			<tr>
+				<td><img src="/web/20050728150049im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
+				<td align="center" style="padding: 5px;">
+				
+				
+						<div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;"><?php echo $Username ?></div>
+						<img src="content/profpic/<?php echo $Username ?>.png" class="thumb" width="128" height="128">
+		
+				</td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+			</tr>
+			<tr>
+				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
+				<td><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
+			</tr>
+		</table>
+		
+		</td>
+		
+		<td style="padding: 0px 10px 0px 10px;">
+		
+		<table width="100%" cellpadding="5" cellspacing="0" border="0">
+			<tr>
+				<td width="120" align="right"><span class="label">User Name:</span></td>
+				<td><?php echo $Username ?></td>
+			</tr>
+		
+			<!-- Personal Information: -->
+			
+					
+					
+						<tr>
+				<td align="right"><span class="label">Name:</span></td>
+				<td><?php echo $Name ?></td>
+			</tr>
+			
+			<tr valign="top">
+				<td align="right"><span class="label">Age:</span></td>
+				<td><?php echo $Age ?></td>
+			</tr>
+					
+					
+					
+						<tr valign="top">
+				<td align="right"><span class="label">About Me:</span></td>
+				<td><?php echo $AboutMe ?></td>
+			</tr>
+					
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			
+			
+			
+			<!-- Location Information -->
+			
 
-</body></html>
+			<tr valign="top">
+				<td align="right"><span class="label">Hometown:</span></td>
+				<td><?php echo $Hometown ?></td>
+			</tr>
+			
+			<tr valign="top">
+			<td align="right"><span class="label">Current City:</span></td>
+			<td><?php echo $City ?></td>
+					
+			<tr valign="top">
+			<td align="right"><span class="label">Country:</span></td>
+			<td><?php echo $Country ?></td>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			
+			
+			
+			<!-- Random Information -->
+			<tr valign="top">
+			<td align="right"><span class="label">Personal Website:</span></td>
+			<td><a href="<?php echo $Website ?>"><?php echo $Website ?></a></td>		
+					
+					
+					
+					
+					
+					
+			<tr>
+				<td align="right"><span class="label"></span></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		</td>
+			
+		<td width="180">
+		
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; Profile</div>
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos.php?user=<?php echo $Username ?>">Public Videos</a> (0)</div>
+		<!-- only show this link to friends in their network -->
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos_private.php?user=<?php echo $Username ?>">Private Videos</a> (0)</div>
+		<!-- only show this link to friends in their network -->
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_favorites.php?user=<?php echo $Username ?>">Favorites</a> (0)</div>
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 20px; color: #444;">&#187; <a href="profile_friends.php?user=<?php echo $Username ?>">Friends</a> (0)</div>
+		
+
+		
+		<div style="font-size: 12px; color: #444; margin: 10px 0px 0px 0px; text-align: center;"><strong>Like my videos?</strong><br>
+		<a href="#">Subscribe to my RSS Feed.</a></div>
+		
+		</td>
+
+			
+	</tr>
+</table>
+
+		</div>
+		</td>
+	</tr>
+</table>
+<?php include("footer.php"); ?>

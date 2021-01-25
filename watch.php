@@ -1,365 +1,401 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>YouTube - Your Digital Video Repository</title>
-<link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link href="styles_alt.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
-</head>
-
 <?php
-include "header2.php";
-error_reporting(0); //fixing the query issue breaks comment sections.
-?>
-<?php
-$mysqli = new mysqli("localhost", "root", "", "video");
-
-/* check connection */
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
+include("header.php");
+$share_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if(!isset($_GET["v"])){
+	die();
+} else {
+	$vid = $_GET["v"];
 }
 
-$query = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];;
-$result = $mysqli->query($query);
+function limit_echo($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
 
-/* numeric array */
-$row = $result->fetch_array(MYSQLI_NUM);
-//printf ("%s (title name: %s)\n %s %s %s (tags: %s) [uploaded: %s]", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $_GET['v']);
+$VideoName = "No title.";
+$VideoDesc = "No description.";
+$Uploader = "Unknown";
+$UploadDate = "Unknown";
+$loaded = 0;
 
-/* free result set */
-$result->free();
+function makeClickableLinks($s) {
+  return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $s);
+}
 
-/* close connection */
-$mysqli->close();
+function makeClickableLinksLimit($s) {
+  return preg_replace('@(http(s)?)?(://)?(([a-zA-Z])([-\w]+\.)+([^\s\.]+[^\s]*)+[^,.\s])@', '<a href="$1" target="_blank">$1</a>', $s);
+}
+
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+//do not show anything if the video dosent exist
+if (!isset($vdf['VideoID'])) {
+echo "<script>window.location.replace('/?vexist=0');</script>";
+die();
+} else {
+$VideoID = $vdf['VideoID'];
+}
+$Uploader = htmlspecialchars($vdf['Uploader']); // get all video information
+$VideoName = htmlspecialchars($vdf['VideoName']);
+$ViewCount = $vdf['ViewCount'];
+$PreUploadDate = htmlspecialchars($vdf['UploadDate']);
+$VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
+$VideoCategory = htmlspecialchars($vdf['VideoCategory']);
+$VideoFile = $vdf['VideoFile'];
+$DateTime = new DateTime($PreUploadDate);
+
+$userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
+$udf = mysqli_fetch_assoc($userfetch);
+
+if(isset($_SESSION["username"])){
+$localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
+$ldf = mysqli_fetch_assoc($localfetch);
+
+$vidnew = $ldf["videos_watched"] + 1;
+
+$updateQuery = "UPDATE users SET videos_watched='". $vidnew ."' WHERE username='". $_SESSION["username"] ."'";
+mysqli_query($connect,$updateQuery);
+}
+$PreRegisteredOn = $udf['registeredon'];
+$DateTime2 = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime2->format('F j, Y');
+$UploadDate = $DateTime->format('F j, Y');
+
+$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
+
+$commentcount = 0;
+
+$viewnew = $ViewCount + 1;
+
+$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
+mysqli_query($connect,$updateQuery);
+
+$ViewCount = $viewnew;
+
+if(!$VideoDesc) {
+	$VideoDesc = "<i>No description...</i>";
+}
+
+$commentcount = 0;
+
+while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
+$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+$datecommentlist = $searchcomments['date']; // comment date
+$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
+$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
+$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+
+if ($idcommentlist == $vid AND $hidden != 1) {
+$commentcount++; // count the amount of comments
+}
+}
 ?>
-
-<?php
-  $connect = new mysqli("localhost", "root", "", "video");
-  $SQL = "SELECT * FROM `videos` WHERE `video_id` = " . $_GET['v'];
-  $AAAA = "UPDATE videos SET views = 1 WHERE video_id = " . $_GET['v'];
-  $query = mysqli_query($SQL);
-  $result = mysqli_fetch_array($query);
-  $result = mysqli_fetch_array($query2);
-  $uploadtime = date("F jS, Y", strtotime($row[6]));
-?>
-
-<?php
-  $connect = new mysqli("localhost", "root", "", "video");
-  $AAAA = "UPDATE videos SET views = 5 WHERE video_id = " . $_GET['v'];
-  $query = mysqli_query($AAAA);
-  $result = mysqli_fetch_array($query);
-?>
-
-<div class="page_title">
-    <?php echo $result[$row[1]] ?? $row[1];?></div>
-        <div style="width:800px;margin:0 auto">
-    <div style="width:480px;margin:0 15px 0 0;float:left">
-        <div class="share_links">
-            <a href="https://web.archive.org/web/20171203210958/mailto:/?subject=BitView (Classic 2005 YouTube clone)&amp;body=http://www.bitview.net/watch.php?v=bdqvxjDXaTd">Share</a>
-             //
-            <a href="#comments">Comment</a>
-             //
-            <a href="/web/20171203210958/http://www.bitview.net/a/favorite_video.php?v=bdqvxjDXaTd">Add to Favorites</a>
-             //
-                            <a href="/web/20171203210958/http://www.bitview.net/send_message.php?to=Adel123Essam">Contact Me</a>
-                                </div>
-        <div style="width:427px;height:360px" class="videocontainer" id="video_height" oncontextmenu="return false;">
-    <script>
-        function v_play() {
-            if (player.ended || player.paused) {
-                player.play();
-                document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
-            } else {
-                player.pause();
-                document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
-            }
-        }
-
-        function v_mute() {
-            if (player.muted) {
-                document.getElementById("right").style.backgroundImage = "url('img/vol1.png')";
-                player.muted = false;
-            } else {
-                document.getElementById("right").style.backgroundImage = "url('img/vol0.png')";
-                player.muted = true;
-            }
-        }
-    </script>
-    <div style="overflow:hidden">
-    <video id="video_player" autoplay="" width="427" height="320">
-        <source src="videos/<?php echo $result[$row[2]] ?? $row[2];?>" type="video/mp4">
-        <object type="application/x-shockwave-flash" data="Late2005.swf" width="427" height="320">
-            <param name="movie" value="Late2005.swf">
-            <param name="allowFullScreen" value="false">
-            <param name="FlashVars" value="flv=videos/<?php echo $result[$row[2]] ?? $row[2];?>">
-        </object>
-    </video>
-    </div>
-    <div id="video_controls" style="display: block;">
-        <div id="left" onclick="v_play()" style="background-image: url(img/ply1.png);"></div>
-        <div id="right" onclick="v_mute()"></div>
-        <div id="mid"><div id="midin" style="width: 1.96057%;"></div></div>
-    </div>
-    <script>document.getElementById("video_controls").style.display = "block"</script>
-</div>
+<html>
+<title><?php echo $VideoName ?> - FrameBit</title>
+<meta name="title" content="<?php echo $VideoName ?> - FrameBit">
+<meta name="description" content="<?php echo $VideoDesc ?>">
+<link rel="stylesheet" href="styles.css" type="text/css"> <!-- iirc this is old 2005 css.
+it's a shitty idea to mix 2017 bitview css and old july 2005 css, but this will do for now.
+i actually don't fucking care because this will be replaced with a XP/KDE3 style later on.
+-pf94 1/24/2021 -->
+<link rel="stylesheet" href="styles_alt.css" type="text/css">
+<body><table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
 <script>
-    player = document.getElementById('video_player');
-    if(!player.canPlayType || !player.canPlayType('video/mp4').replace(/no/, '')) {
-        document.getElementById("video_controls").outerHTML = "";
-        document.getElementById("video_height").style.height = "330px";
-    }
-    player.addEventListener('timeupdate', function() {
-        var percentage = (100 / player.duration) * player.currentTime;
-        document.getElementById('midin').style.width = percentage + "%";
-    }, false);
-    progressBar = document.getElementById("mid");
-    progressBar.addEventListener("click", function(e) {
-        player.currentTime = (e.offsetX / this.offsetWidth) * player.duration;
-        if (player.ended || player.paused) {
-            player.play();
-            document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
-        }
-    });
-    player.addEventListener("ended", function() {
-        document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
-    });
+	function getFormVars(form) 
+	{	var formVars = new Array();
+		for (var i = 0; i < form.elements.length; i++)
+		{
+			var formElement = form.elements[i];
+			formVars[formElement.name] = formElement.value;
+		}
+		return urlEncodeDict(formVars);
+	}
 
-</script>        <div style="width:427px;margin:0 auto">
-                            <div class="videodescription">
-                    <?php echo $result[$row[3]] ?? $row[3];?>                </div>
-                                        <div style="font-size: 12px;margin: 5px 0px 10px 0px;color: #333333;">
-                    Tags //
-                                        <?php echo $result[$row[5]] ?? $row[5];?>
-                                    </div>
-                        <div style="font-size:11px;color:#333333">
-                <div style="margin:0 0 5px 0">
-                    Added: <?php echo $uploadtime ?? $uploadtime;?> by <img src="pfp/<?php echo $result[$row[4]] ?? $row[4];?>.png" width="32" height="32"> <a href="profile.php?user=<?php echo $result[$row[4]] ?? $row[4];?>"><?php echo $result[$row[4]] ?? $row[4];?></a> //
-                    <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=videos">Videos</a> (2) | <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam&amp;page=favorites">Favorites</a> (3)
-                </div>
-                <div>
-                    Views: <?php echo $result[$row[7]] ?? $row[7];?> | <a href="#comments">Comments</a>: 3                </div>
-            </div>
-        </div>
-        <div style="background-image:#E5ECF9;background:#E5ECF9;padding:7px 0 21px;margin:15px 0 10px 0;text-align:center">
-                            <div style="font-size:11px;font-weight:bold;color:#CC6600;padding:5px 0 5px 0">Share this video! Copy and paste this link:</div>
-                <input size="50" type="text" readonly="readonly" id="embed_link" style="font-size:10px;text-align:center" value="<?php echo $_SERVER['REQUEST_URI']?>" onclick="document.getElementById('embed_link').select();document.getElementById('embed_link').focus()">
-                    </div>
-        <div style="padding-bottom:5px;font-weight:bold;color:#444">Comment on this video:</div>
-        <br>
-        <a name="comments"></a>
-		<div class="comments"></div>
-<script>
-const comments_page_id = <?php echo $result[$row[0]] ?? $row[0];?>; // This number should be unique on every page
-fetch("comments.php?page_id=" + comments_page_id).then(response => response.text()).then(data => {
-	document.querySelector(".comments").innerHTML = data;
-	document.querySelectorAll(".comments .write_comment_btn, .comments .reply_comment_btn").forEach(element => {
-		element.onclick = event => {
-			event.preventDefault();
-			document.querySelectorAll(".comments .write_comment").forEach(element => element.style.display = 'none');
-			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "']").style.display = 'block';
-			document.querySelector("div[data-comment-id='" + element.getAttribute("data-comment-id") + "'] input[name='name']").focus();
-		};
-	});
-	document.querySelectorAll(".comments .write_comment form").forEach(element => {
-		element.onsubmit = event => {
-			event.preventDefault();
-			fetch("comments.php?page_id=" + comments_page_id, {
-				method: 'POST',
-				body: new FormData(element)
-			}).then(response => response.text()).then(data => {
-				element.parentElement.innerHTML = data;
-			});
-		};
-	});
-});
+	function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		if(!CheckLogin()) 
+			return false;
+		printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form);
+	}
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+
+		var div_id = "div_" + form_id;
+		var reply_id = "reply_" + form_id;
+		var reply_comment_form = "comment_form" + form_id;
+		
+		if (is_main_comment_form)
+			discard_visible="style='display: none'";
+		else
+			discard_visible="";
+		
+		var innerHTMLContent = '\
+		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>\
+		<form name="' + reply_comment_form + '" id="' + reply_comment_form + '" method="post" action="comment_servlet" >\
+			<input type="hidden" name="video_id" value="pTrJLz2Nwsg">\
+			<input type="hidden" name="add_comment" value="">\
+			<input type="hidden" name="form_id" value="' + reply_comment_form + '">\
+			<input type="hidden" name="reply_parent_id" value="' + reply_parent_id + '">\
+			<textarea tabindex="2" name="comment" cols="55" rows="3"></textarea>\
+			<br>\
+			Attach a video:\
+			<select name="field_reference_video">\
+				<option value="">- Your Videos -</option>\
+				<option value="">- Your Favorite Videos -</option>\
+			</select>\
+			<input type="button" name="add_comment_button" \
+								value="Post Comment" \
+								onclick="postThreadedComment(\'' + reply_comment_form + '\');">\
+			<input type="button" name="discard_comment_button"\
+								value="Discard" ' + discard_visible + '\
+								onclick="hideCommentReplyForm(\'' + form_id + '\',false);">\
+		</form></div>';
+		if(!is_main_comment_form) {
+			toggleVisibility(reply_id, false);
+		}
+		toggleVisibility(div_id, true);
+		setInnerHTML(div_id, innerHTMLContent);
+	}
 </script>
-<!-- TODO: GET THE FUCKING RECOMMEND LIST TO WORK -->
-                        </div>
-    <div style="width:305px;float:left">
-        <div class="videos_box" style="width:98%">
-            <div class="videos_box_head">
-                <div style="display:table;width:100%">
-                    <div style="font-size:12px;display:table-cell">
-                        More videos                   </div>
-                    <div style="font-size:12px;color:#444;font-weight:normal;text-align:right;display:table-cell">
-                        <a href="/web/20171203210958/http://www.bitview.net/results.php?search=Review++Classic++Old+good+days++BitView++2005+YouTube++Old+School++Nostalgia">See more Results</a>
-                    </div>
-                </div>
-            </div>
-                                                <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=xh1zmlaPxfv">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/xh1zmlaPxfv.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=xh1zmlaPxfv">la muerte de edgar</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=paris201">paris201</a></div>
-                                <div style="padding:0 0 2px 0">Views: 11</div>
-                                <div style="padding:0 0 2px 0">Comments: 0</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=gl747iaisf2">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/gl747iaisf2.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=gl747iaisf2">first tts spanish bitview video</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=paris201">paris201</a></div>
-                                <div style="padding:0 0 2px 0">Views: 7</div>
-                                <div style="padding:0 0 2px 0">Comments: 0</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=UfGFX0ujlRJ">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/UfGFX0ujlRJ.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=UfGFX0ujlRJ">Camcorder testing</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=IDontKnowDraw">IDontKnowDraw</a></div>
-                                <div style="padding:0 0 2px 0">Views: 8</div>
-                                <div style="padding:0 0 2px 0">Comments: 1</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=jy1e0lOjcKQ">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/jy1e0lOjcKQ.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=jy1e0lOjcKQ">EL CHICHICUILOTE</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=LKY2DSN">LKY2DSN</a></div>
-                                <div style="padding:0 0 2px 0">Views: 12</div>
-                                <div style="padding:0 0 2px 0">Comments: 3</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=PRi64r2OziO">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/PRi64r2OziO.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=PRi64r2OziO">How to Customize your YouTube channel (OLD YOUTUBE)</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=Adel123Essam">Adel123Essam</a></div>
-                                <div style="padding:0 0 2px 0">Views: 27</div>
-                                <div style="padding:0 0 2px 0">Comments: 3</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=L7qUVvGqicT">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/L7qUVvGqicT.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=L7qUVvGqicT">BitView Review (BitReView)</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=KnotSnappy">KnotSnappy</a></div>
-                                <div style="padding:0 0 2px 0">Views: 40</div>
-                                <div style="padding:0 0 2px 0">Comments: 7</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=NZquot8mx2Z">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/NZquot8mx2Z.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=NZquot8mx2Z">Jake Nye The Science Guy</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 03, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=KnotSnappy">KnotSnappy</a></div>
-                                <div style="padding:0 0 2px 0">Views: 22</div>
-                                <div style="padding:0 0 2px 0">Comments: 1</div>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="videos_box_in" style="padding-bottom:9px">
-                        <div style="float:left;width:115px;margin:0 10px 0 0">
-                            <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=9xFyXt6JKhP">
-                                <img src="/web/20171203210958im_/http://www.bitview.net/u/thmp/9xFyXt6JKhP.jpg" class="thumb" width="100" height="75">
-                            </a>
-                        </div>
-                        <div style="float:left;width:159px">
-                            <div class="v_video_title">
-                                <a href="/web/20171203210958/http://www.bitview.net/watch.php?v=9xFyXt6JKhP">BitView Promo</a>
-                            </div>
-                            <div style="font-size:11px;color:#444;margin:3px 0 5px">
-                                <div style="padding:0 0 2px 0">Added: December 02, 2017</div>
-                                <div style="padding:0 0 2px 0">By: <a href="/web/20171203210958/http://www.bitview.net/profile.php?user=BigMushroomFan">BigMushroomFan</a></div>
-                                <div style="padding:0 0 2px 0">Views: 95</div>
-                                <div style="padding:0 0 2px 0">Comments: 6</div>
-                            </div>
-                        </div>
-                    </div>
-                                    </div>
-        <div style="width:198px ;margin:13px 0 0 0">
-            <div style="font-weight:bold;color:#676767;margin:10px 0px 5px 0px">
-                Related Tags:
-            </div>
-            <div style="padding: 0px 0px 5px 0px;color:#8e8e8e">
-                                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= How-to"> How-to</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= BitReView"> BitReView</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search=muerte ">muerte </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search=Jake">Jake</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Brent"> Brent</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search=2005 youtube">2005 youtube</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= viejo "> viejo </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= bitview "> bitview </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= bitview "> bitview </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= 2005 "> 2005 </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= Science"> Science</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search=spanish ">spanish </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search=share ">share </a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= The"> The</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= KnotSnappy"> KnotSnappy</a></div>
-                                            <div style="padding:0 0 6px 0">» <a href="/web/20171203210958/http://www.bitview.net/results.php?search= BMF"> BMF</a></div>
-                                                </div>
-        </div>
-    </div>
-</div>
-<div style="clear:both"></div>        <div class="footer">
-    <a href="/web/20171203210958/http://www.bitview.net/whats_new.php">What's New</a> | <a href="/web/20171203210958/http://www.bitview.net/about.php">About Us</a> | <a href="/web/20171203210958/http://www.bitview.net/help.php">Help</a> | <a href="/web/20171203210958/http://www.bitview.net/terms.php">Terms of Use</a> | <a href="/web/20171203210958/http://www.bitview.net/privacy.php">Privacy Policy</a> | Copyright © 2017 BitView
-</div>    
+<div align="center" style="padding-bottom: 10px;">
 
-</body></html>
+
+
+
+
+</div>
+
+<table width="795" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td width="515" style="padding-right: 15px;">
+			<br>
+		<div class="tableSubTitle"><?php echo $VideoName ?></div>
+		<div style="font-size: 13px; font-weight: bold; text-align:center;">
+		<a href="#">Share</a>
+		// <a href="#comment">Comment</a>
+		// <a href="#" target="invisible" onclick="return FavoritesHandler();">Add to Favorites</a>
+		// <a href="#">Contact Me</a>
+		</div>	<tbody><tr valign="top">
+		<td width="510" style="padding-right: 15px;">
+		<br>
+			<div id="flashcontent" width="500" height="500">
+				<iframe id='iframeplayer' style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>' width='500' height='500' frameBorder='0' scrolling='no' debug='true'></iframe>
+			</div>
+		</div>
+		
+			<table width="425" cellpadding="0" cellspacing="0" border="0" align="center">
+			<tr>
+				<td>
+					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
+										</div>
+					</div>
+					<div class="watchAdded">
+					Added: <?php echo $UploadDate ?> by <a href="profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a> //
+					<a href="profile_videos.php?user=<?php echo $Uploader ?>">Videos</a> (0) | <a href="profile_favorites.php?user=<?php echo $Uploader ?>">Favorites</a> (0) | <a href="profile_friends.php?user=<?php echo $Uploader ?>">Friends</a> (0)
+					</div>
+			
+					<div class="watchDetails">
+					Views: <?php echo $ViewCount ?> | <a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+
+				</td>
+			</tr>
+		</table>
+
+		<table width="400" cellpadding="0" cellspacing="0" border="0" align="center">
+	
+					</div>
+			</td>
+		</tr>
+	</tbody></table>
+
+<!-- google_ad_section_end -->
+
+	<!-- watchTable -->
+		
+		<div style="padding: 15px 0px 10px 0px;">
+		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+			<tr>
+				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
+				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
+			</tr>
+			<tr>
+				<form name="linkForm" id="linkForm">
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				<td align="center">
+		
+				<div style="font-size: 11px; font-weight: bold; color: #CC6600; padding: 5px 0px 5px 0px;">Share this video! Copy and paste this link:</div>
+				<div style="font-size: 11px; padding-bottom: 15px;">
+				<input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" size="50" readonly="true" style="font-size: 10px; text-align: center;">
+				</div>
+				
+				</td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				</form>
+			</tr>
+			<tr>
+				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
+				<td><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
+			</tr>
+		</table>
+		</div>
+
+<br>
+<a name="comment"></a>
+
+		<div style="padding-bottom: 5px; font-weight: bold; color: #444;">Comment on this video:</div>
+				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="<?php echo $vid; ?>"><textarea tabindex="2" name="comment" cols="55" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" value="Post Comment" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm(&#39;main_comment&#39;,false);">		</form></div>
+		
+		
+<br>
+		
+<table width="495">
+<tbody><tr>
+<td>
+	<table class="commentsTitle" width="100%">
+	<tbody><tr>
+		<td>Comments (<?php echo $commentcount; ?>): </td>
+	</tr></tbody></table>
+</td>
+</tr>
+<?php
+$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
+
+$count = 0;
+
+while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
+$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+$datecommentlist = $searchcomments['date']; // comment date
+$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
+$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
+$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+
+if ($idcommentlist == $vid AND $hidden != 1) {
+echo "<tr>
+<td>
+      			<a name='8n9OjARLLDs'>
+					<table class='parentSection' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
+					<tbody><tr valign='top'>
+						<td>
+<!-- google_ad_section_start -->
+		".$messagecommentlist."
+<!-- google_ad_section_end -->
+			<div class='userStats'>
+				<a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
+				 - (".$datecommentlist.")
+			</div>
+
+	<div id='div_comment_form_id_8n9OjARLLDs'></div>
+
+							</td>
+					</tr>
+				</tbody></table>
+
+			</a></td>
+</tr>";
+$count++; // count the amount of comments
+}
+}
+if($count == 0) {
+	echo "<tr><td><center><p style='padding: 10px; font-size: 15px;'>No comments found.</p></center></td></tr>"; // echos "no comments found" if no comments
+}
+?>
+</tbody></table>
+		
+
+		</td>
+		<td width="280">
+				<div style="padding-bottom: 10px;">
+					<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEEEEE">
+						</table>
+		</div>
+			
+			<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
+				<tbody><tr>
+					<td><img src="./img/box_login_tl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_tr.gif" width="5" height="5"></td>
+				</tr>
+				<tr>
+					<td><img src="./img/pixel.gif" width="5" height="1"></td>
+					<td width="270">
+					<div class="moduleTitleBar">
+					<table width="270" cellpadding="0" cellspacing="0" border="0">
+						<tbody><tr valign="top">
+
+							<td><div class="moduleFrameBarTitle">Videos from <?php echo $Uploader ?></div></td>
+							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
+						</tr>
+					</tbody></table>
+					</div>
+
+							<div id="side_results" name="side_results">
+					<?php
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
+
+while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+$idvideolist = $fetch['VideoID'];
+$namevideolist = htmlspecialchars($fetch['VideoName']);
+$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
+$viewsvideolist = $fetch['ViewCount'];
+
+if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
+echo "<div class='moduleFrameEntry'>
+<table width='235' cellpadding='0' cellspacing='0' border='0'>
+							<tbody><tr valign='top'>
+								<td width='90'>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' class='moduleEntryThumb' width='80' height='60'></a></td>
+								<td>
+									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
+									<div class='moduleFrameDetails'>
+										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
+									</div>
+									<div class='moduleFrameDetails'>
+										Views: ".$viewsvideolist."<br>
+									</div>
+		
+								</td>
+							</tr>
+						</tbody></table>
+					</div>";
+}
+}
+?>
+
+					<div class="moduleFrameEntry">
+						<table width="235" cellpadding="0" cellspacing="0" border="0">
+							<tbody><tr align="center" valign="top">
+								<td></td>
+							</tr>
+						</tbody></table>
+					</div>
+				</div>
+
+					</td>
+					<td><img src="./img/pixel.gif" width="5" height="1"></td>
+				</tr>
+				<tr>
+					<td><img src="./img/box_login_bl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_br.gif" width="5" height="5"></td>
+				</tr>
+			</tbody></table>
+		
+		</td>
+	</tr>
+</tbody></table>
+
+
+		</td>
+	</tr>
+</tbody></table>
+<?php include('footer.php') ?></body></html>
