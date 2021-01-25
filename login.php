@@ -54,7 +54,7 @@ if(isset($_POST["loginsubmit"])){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify(password, $hashed_password)){             
+                        if(password_verify($password, $hashed_password)){             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
