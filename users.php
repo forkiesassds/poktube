@@ -13,7 +13,7 @@ error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
 <div class="page_title">All users</div>
 <?php
-$con=mysqli_connect("localhost", "root", "", "users");
+$con=mysqli_connect("localhost", "root", "", "poktube");
 // Check connection
 if (mysqli_connect_errno())
 {
@@ -36,7 +36,7 @@ echo "<tr>";
 echo "<td>" . $row['0'] . "</td>";
 echo "<td><img src=\"pfp/" . $row['1'] . ".png" . "\" width=\"64\" height=\"64\"</img></td>";
 echo "<td>" . $row['1'] . "</td>";
-echo "<td>" . $row['3'] . "</td>";
+echo "<td>" . date("Y-m-d",$row['3']) . "</td>";
 echo "</tr>";
 }
 echo "</table>";
