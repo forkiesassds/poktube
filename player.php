@@ -48,7 +48,7 @@ die(); // just dies
         }
     </script>
     <div style="overflow:hidden">
-    <video width="407" height="320" id="video_player" autoplay>
+    <video width="407" height="320" id="video_player" controls autoplay>
         <source src="./<?php echo $VideoFile; ?>">
     </video>
     </div>

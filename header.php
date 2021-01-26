@@ -14,6 +14,7 @@ if ($detail2["registeredon"] == null) {
 }
 ?>
 <head>
+<link rel="stylesheet" href="main.css" type="text/css">
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
