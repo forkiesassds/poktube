@@ -135,7 +135,7 @@ function formValidator()
     <div style="font-size:13px;margin: 0 0 15px;padding:0 0 0 10px">
         Please enter your account information below. All field are required.
             </div>
-    <form action="register.php" method="POST">
+    <form action="signup.php" method="POST">
         <table width="720" cellspacing="0" cellpadding="5" border="0">
             <tbody>
             <tr>
