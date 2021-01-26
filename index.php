@@ -155,38 +155,6 @@ echo "<div class='moduleEntry'>
 				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
 			</tr>
 		</table>
-<div style="margin-top: 10px;">
-		<table width="180" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFCC99">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td width="170" style="padding: 5px; text-align: center;">
-				<div style="font-weight: bold; font-size: 13px;">January Video Contest!</div>
-				
-				<a href="monthly_contest.php"><img src="img/ytp.jpg" width="80" height="60" style="border: 5px solid #FFFFFF; margin-top: 10px;"></a>
-				
-				<div style="font-size: 16px; font-weight: bold; padding-top: 5px;"><a href="monthly_contest.php">YTP/YTPMV</a></div>
-				<div style="font-size: 11px; padding: 10px 0px 5px 0px;">FrameBit is proud to present our first monthly video contest.</div>
-				
-								
-				<div style="font-size: 12px; font-weight: bold; margin-bottom: 5px;"><a href="monthly_contest.php">Join the contest now!</a></div>
-				
-								
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
-		</div>
-
 		</td>
 	</tr>
 </table>
