@@ -144,8 +144,11 @@ echo "<div class='moduleEntry'>
 				<td><img src="img/pixel.gif" width="5" height="1"></td>
 				<td width="170">
 									<div style="font-size: 16px; font-weight: bold; text-align: center; padding: 5px 5px 10px 5px;">
-					<a href="signup.php">Sign up for your free account!</a>
-				
+					<?php if(isset($_SESSION["username"])) {
+		echo "<p>Welcome, " . $_SESSION["username"] . "</p><br><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" width=\"128\" height=\"128\">";
+	} else {
+		echo "<a href=\"signup.php\">Sign up for your free account!</a>";
+	}?>
 				</td>
 				<td><img src="img/pixel.gif" width="5" height="1"></td>
 			</tr>
