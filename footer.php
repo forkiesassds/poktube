@@ -4,6 +4,6 @@
 			<span class="footer"><a href="#">What's New</a> | <a href="#">About Us</a> | <a href="help.php">Help</a> | <a href="#">Developers</a> | <a href="terms.php">Terms of Use</a> | <a href="#">Privacy Policy</a> 
 			<br>
 			<br>
-			Copyright &copy; 2021 FrameBit</span></td>
+			Copyright &copy; 2021 PokTube</span></td>
 	</tr>
 </table>
