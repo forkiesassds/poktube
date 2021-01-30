@@ -1,9 +1,9 @@
 <?php
 include("db.php"); 
-if (empty($_GET["v"])) {
+if (empty($_GET["video_id"])) {
 	$vid = "";
 } else {
-	$vid = $_GET["v"];
+	$vid = $_GET["video_id"];
 }
 
 //if $vid is null then dont show anything

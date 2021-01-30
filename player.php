@@ -50,6 +50,7 @@ die(); // just dies
     <div style="overflow:hidden">
     <video width="407" height="320" id="video_player" controls autoplay>
         <source src="./<?php echo $VideoFile; ?>">
+		We are not going to waste our fucking time on Flash Player. It's clunky and fucking useless.
     </video>
     </div>
     <div id="video_controls" style="display:none">
