@@ -19,8 +19,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<br>
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<table width="100%" bgcolor="#D5E5F5" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="FrameBit" border="0"></a></td>
 		<td valign="top">
@@ -80,11 +79,9 @@ if ($detail2["registeredon"] == null) {
 			
 </table>
 
-<table align="center" width="100%" bgcolor="#D5E5F5" cellpadding="0" cellspacing="0" border="0" style="margin: 5px 0px 10px 0px;">
+<table align="center" width="100%" bgcolor="#adcded" cellpadding="0" cellspacing="0" border="0" style="margin: 0px 0px 10px 0px;">
 	<tr>
-		<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
-		<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
 	</tr>
 	<tr>
 		<td><img src="img/pixel.gif" width="5" height="1"></td>
@@ -118,8 +115,6 @@ if ($detail2["registeredon"] == null) {
 		<td><img src="img/pixel.gif" width="5" height="1"></td>
 	</tr>
 	<tr>
-		<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
-		<td><img src="img/box_login_br.gif" width="5" height="5"></td>
 	</tr>
 </table>

@@ -58,7 +58,7 @@ $RegisteredOn = $DateTime->format('F j Y');
 				
 				
 						<div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;"><?php echo $Username ?></div>
-						<img src="content/profpic/<?php echo $Username ?>.png" class="thumb" width="128" height="128">
+						<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" height="128">
 		
 				</td>
 				<td><img src="img/pixel.gif" width="5" height="1"></td>

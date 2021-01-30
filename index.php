@@ -3,7 +3,7 @@ include("header.php");
 ?>
 <html>
 <head>
-<title>FrameBit - Frame Yourself.</title>
+<title>Chaziz PokTube</title>
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -22,10 +22,13 @@ include("header.php");
 </script>
 </head>
 <body onload="performOnLoadFunctions();">
+<div class="alert">
+<img style="float: left; margin: 0px 12px 0px 0px;" src="img/error.png"><p>This is a placeholder design. The website will look different later in developement.</p>
+</div> 
 <table width="790" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
-					<table class="roundedTable" width="595" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
+					<table class="roundedTable" width="695" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
 			<tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
@@ -87,7 +90,7 @@ $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendation
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='moduleEntry'>
-						<table width='565' cellpadding='0' cellspacing='0' border='0'>
+						<table width='665' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td><a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
 								</td>
@@ -106,14 +109,7 @@ echo "<div class='moduleEntry'>
 										Views: ".$viewsvideolist." // Comments: [not ''indexed'' yet]
 										</div>
 									<nobr>
-			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
-			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
-			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
-			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
-			<img style='border:0px; padding:0px; margin:0px; vertical-align:middle;' src='img/star_sm_bg.gif'>
 	</nobr>
-
-
 								</td>
 							</tr>
 						</tbody></table>
