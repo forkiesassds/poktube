@@ -178,12 +178,12 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="515" style="padding-right: 15px;">
 			<br>
 		<div class="tableSubTitle"><?php echo $VideoName ?></div>
-		<div style="font-size: 13px; font-weight: bold; text-align:center;">
+		<!---<div style="font-size: 13px; font-weight: bold; text-align:center;">
 		<a href="#">Share</a>
 		// <a href="#comment">Comment</a>
 		// <a href="#" target="invisible" onclick="return FavoritesHandler();">Add to Favorites</a>
 		// <a href="#">Contact Me</a>
-		</div>	<tbody><tr valign="top">
+		</div>-->	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div id="flashcontent" width="500" height="500">
@@ -197,9 +197,10 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
 										</div>
 					</div>
+					<div><img style="float: left; margin: 0px 5px 10px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="32" height="32">
+					<div class="label"><?php echo $Uploader ?></div></div>
 					<div class="watchAdded">
-					Added: <?php echo $UploadDate ?> by <a href="profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a> //
-					<a href="profile_videos.php?user=<?php echo $Uploader ?>">Videos</a> (0) | <a href="profile_favorites.php?user=<?php echo $Uploader ?>">Favorites</a> (0) | <a href="profile_friends.php?user=<?php echo $Uploader ?>">Friends</a> (0)
+					Uploaded: <?php echo $UploadDate ?>
 					</div>
 			
 					<div class="watchDetails">
