@@ -4,14 +4,6 @@ include("auth.php");
 error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
 <title>My Profile</title>
-<h2>Profile Picture</h2>
-<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
-<br>
-<form action="my_profile.php" method="post" enctype="multipart/form-data">
-  Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
 <!-- the profile pic is asked with the png command, for anything else
 	make it a SQL query or whatever the fuck -->
 
@@ -65,6 +57,14 @@ if ($uploadOk == 0) {
 }
 ?>
 <center><h1>My Profile</h1>
+<h2>Profile Picture</h2>
+<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
+<br>
+<form action="my_profile.php" method="post" enctype="multipart/form-data">
+  Select profile picture to upload:<br><br>
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
 <hr style='border-top: solid black 2px; width: 30%;'>
 <h4>Set information you want others to see</h4>
   <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
