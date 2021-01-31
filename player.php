@@ -25,63 +25,14 @@ die(); // just dies
 <link href="main.css" rel="stylesheet" type="text/css"/> 
 </head>
 <body>
-        <div style="width:407px;height:390px;" class="videocontainer" id="video_height" oncontextmenu="return false;">
-    <script>
-        function v_play() {
-            if (player.ended || player.paused) {
-                player.play();
-                document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
-            } else {
-                player.pause();
-                document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
-            }
-        }
-
-        function v_mute() {
-            if (player.muted) {
-                document.getElementById("right").style.backgroundImage = "url('img/vol1.png')";
-                player.muted = false;
-            } else {
-                document.getElementById("right").style.backgroundImage = "url('img/vol0.png')";
-                player.muted = true;
-            }
-        }
+    <div class="videocontainer" oncontextmenu="return false;">
     </script>
     <div style="overflow:hidden">
-    <video width="407" height="320" id="video_player" controls autoplay>
+    <video width="480" height="360" id="video_player" controls autoplay>
         <source src="./<?php echo $VideoFile; ?>">
 		We are not going to waste our fucking time on Flash Player. It's clunky, obsolete and fucking useless.
     </video>
     </div>
-    <div id="video_controls" style="display:none">
-        <div id="left" onclick="v_play()"></div>
-        <div id="right" onclick="v_mute()"></div>
-        <div id="mid"><div id="midin"></div></div>
-    </div>
-    <script>document.getElementById("video_controls").style.display = "block"</script>
 </div>
-<script>
-    player = document.getElementById('video_player');
-    if(!player.canPlayType || !player.canPlayType('video/mp4').replace(/no/, '')) {
-        document.getElementById("video_controls").outerHTML = "";
-        document.getElementById("video_height").style.height = "330px";
-    }
-    player.addEventListener('timeupdate', function() {
-        var percentage = (100 / player.duration) * player.currentTime;
-        document.getElementById('midin').style.width = percentage + "%";
-    }, false);
-    progressBar = document.getElementById("mid");
-    progressBar.addEventListener("click", function(e) {
-        player.currentTime = (e.offsetX / this.offsetWidth) * player.duration;
-        if (player.ended || player.paused) {
-            player.play();
-            document.getElementById("left").style.backgroundImage = "url('img/ply0.png')";
-        }
-    });
-    player.addEventListener("ended", function() {
-        document.getElementById("left").style.backgroundImage = "url('img/ply1.png')";
-    });
-
-</script> 
 </body>
 </html>

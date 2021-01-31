@@ -106,7 +106,6 @@ $commentcount++; // count the amount of comments
 it's a shitty idea to mix 2017 bitview css and old july 2005 css, but this will do for now.
 i actually don't fucking care because this will be replaced with a XP/KDE3 style later on.
 -pf94 1/24/2021 -->
-<link rel="stylesheet" href="styles_alt.css" type="text/css">
 <body><table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>
 		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
@@ -186,8 +185,8 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		</div>-->	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
 		<br>
-			<div id="flashcontent" width="500" height="500">
-				<iframe id='iframeplayer' style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>' width='500' height='500' frameBorder='0' scrolling='no' debug='true'></iframe>
+			<div width="500" height="380">
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
