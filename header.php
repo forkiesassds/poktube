@@ -31,7 +31,7 @@ if ($detail2["registeredon"] == null) {
 					<tr>
 					
 						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b>Hello, <a href='profile.php?user=".$username."'>".$username."</a></b></td>
+		echo "<td><b>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div> <a href='profile.php?user=".$username."'>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a href='my_profile.php'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
