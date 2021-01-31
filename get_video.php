@@ -1,5 +1,6 @@
 <?php
 include("db.php"); 
+ob_start();
 if (empty($_GET["video_id"])) {
 	$vid = "";
 } else {
@@ -17,6 +18,15 @@ $vdf = mysqli_fetch_assoc($vidfetch);
 if (!isset($vdf['VideoID'])) {
 die(); // just dies
 } else {
-	$VideoFile = $vdf['VideoFile'];
+	$vid = $vdf['VideoFile'];
+	echo $vid;
 }
+?>
+
+<?php
+header("content-type: text/plain");
+ob_start();
+$vid = $_GET["video_id"];
+$asset = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "content/video/ILVD_hJun4vlz2ExZ09CWYswQb/DgO73cE0VXaxSWAh6t4Rv_8mkK.mp4");
+echo $asset;
 ?>
