@@ -90,8 +90,8 @@ $mysqli->close();
     <div style="overflow:hidden">
     <video id="video_player" autoplay="" width="427" height="320">
         <source src="videos/<?php echo $result[$row[2]] ?? $row[2];?>" type="video/mp4">
-        <object type="application/x-shockwave-flash" data="e" width="427" height="320">
-            <param name="movie" value="e">
+        <object type="application/x-shockwave-flash" data="Late2005.swf" width="427" height="320">
+            <param name="movie" value="Late2005.swf">
             <param name="allowFullScreen" value="false">
             <param name="FlashVars" value="flv=videos/<?php echo $result[$row[2]] ?? $row[2];?>">
         </object>
