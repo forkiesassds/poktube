@@ -53,7 +53,7 @@ $RegisteredOn = $DateTime->format('F j Y');
 				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
 			</tr>
 			<tr>
-				<td><img src="/web/20050728150049im_/http://www.youtube.com/img/pixel.gif" width="5" height="1"></td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
 				<td align="center" style="padding: 5px;">
 				
 				
