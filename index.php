@@ -141,7 +141,7 @@ echo "<div class='moduleEntry'>
 				<td width="170">
 									<div style="font-size: 16px; font-weight: bold; text-align: center; padding: 5px 5px 10px 5px;">
 					<?php if(isset($_SESSION["username"])) {
-		echo "<p>Welcome, " . $_SESSION["username"] . "</p><br><img class=\"moduleFeaturedThumb\" src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"128\" height=\"128\">";
+		echo "<p>Welcome back, " . $_SESSION["username"] . "!</p><br><img class=\"moduleFeaturedThumb\" src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"128\" height=\"128\">";
 	} else {
 		echo "<a href=\"signup.php\">Sign up for your free account!</a>";
 	}?>
