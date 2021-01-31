@@ -109,6 +109,8 @@ if ($detail2["registeredon"] == null) {
 							<td><a href="my_profile.php">My Profile</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a href="browse.php">Browse</a></td>
+							<td>&nbsp;|&nbsp;</td>
+							<td><a href="https://discord.gg/72ZPaTtXct">Discord</a></td>
 						</tr>
 						</table>
 					</td>
