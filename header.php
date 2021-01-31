@@ -58,7 +58,11 @@ if ($detail2["registeredon"] == null) {
 		<tr>
 		<td width="100%">
 		
-		<div style="font-size: 12px; font-weight: bold; float: right; padding: 10px 5px 0px 5px;"><a href="my_videos_upload.php">Upload</a> &nbsp;//&nbsp; <a href="browse.php">Browse</a> &nbsp;//&nbsp; <a href="my_friends_invite.php">Invite</a></div>
+		<?php if(isset($_SESSION["username"])) {
+		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 10px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
+		} else {
+			echo "";}?>
+		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
 		
 		<table cellpadding="2" cellspacing="0" border="0">
 			<tr>
@@ -78,7 +82,6 @@ if ($detail2["registeredon"] == null) {
 
 			
 </table>
-
 <table align="center" width="100%" bgcolor="#adcded" cellpadding="0" cellspacing="0" border="0" style="margin: 0px 0px 10px 0px;">
 	<tr>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
@@ -104,6 +107,8 @@ if ($detail2["registeredon"] == null) {
 							-->
 							<td>&nbsp;|&nbsp;</td>
 							<td><a href="my_profile.php">My Profile</a></td>
+							<td>&nbsp;|&nbsp;</td>
+							<td><a href="browse.php">Browse</a></td>
 						</tr>
 						</table>
 					</td>

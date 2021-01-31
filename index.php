@@ -24,9 +24,9 @@ include("header.php");
 </script>
 </head>
 <body onload="performOnLoadFunctions();">
-<div class="alert">
+<!--<div class="alert">
 <img style="float: left; margin: 0px 12px 0px 0px;" src="img/error.png"><p>This is under beta and developement. The website will look different later in developement.</p>
-</div> 
+</div>-->
 <table width="790" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
