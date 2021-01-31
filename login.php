@@ -103,9 +103,9 @@ if(isset($_POST["loginsubmit"])){
 		<td style="padding-right: 15px;" width="510">
 		
 		
-		<span class="highlight">What is FrameBit?</span>
+		<span class="highlight">What is PokTube?</span>
 
-		FrameBit is a way to get your videos to the people who matter to you. With FrameBit you can:
+		PokTube is a way to get your videos to the people who matter to you. With PokTube you can:
 		
 		<ul>
 		<li> Show off your favorite videos to the world
@@ -135,7 +135,7 @@ if(isset($_POST["loginsubmit"])){
 
 			<input type="hidden" name="field_command" value="login_submit">
 				<tbody><tr>
-					<td align="center" colspan="2"><div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;">FrameBit Log In</div></td>
+					<td align="center" colspan="2"><div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;">PokTube Log In</div></td>
 				</tr>
 				<tr>
 					<td align="right"><span class="label">User Name:</span></td>

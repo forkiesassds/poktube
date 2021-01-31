@@ -24,7 +24,7 @@ if($count == 20) {
 }
 }
 ?>
-<title>Browse - FrameBit</title>
+<title>Browse - PokTube</title>
 <table width="790" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
 	<tbody><tr>
 		<td><img src="img/box_login_tl.gif" width="5" height="5"></td>

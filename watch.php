@@ -99,8 +99,8 @@ $commentcount++; // count the amount of comments
 }
 ?>
 <html>
-<title><?php echo $VideoName ?> - FrameBit</title>
-<meta name="title" content="<?php echo $VideoName ?> - FrameBit">
+<title><?php echo $VideoName ?> - PokTube</title>
+<meta name="title" content="<?php echo $VideoName ?> - PokTube">
 <meta name="description" content="<?php echo $VideoDesc ?>">
 <link rel="stylesheet" href="styles.css" type="text/css"> <!-- iirc this is old 2005 css.
 it's a shitty idea to mix 2017 bitview css and old july 2005 css, but this will do for now.
