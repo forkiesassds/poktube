@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
-<title>Upload - FrameBit</title>
+<title>Upload - PokTube</title>
 <div id="uploadVid">
 	<h2 style="color:orange">Video Upload (Step 1 of 2)</h2>
 	<form name="uploadForm" id="uploadForm" method="post" action="my_videos_upload_2.php" enctype="multipart/form-data">

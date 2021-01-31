@@ -21,7 +21,7 @@ if ($detail2["registeredon"] == null) {
 </head>
 <table width="100%" bgcolor="#D5E5F5" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="FrameBit" border="0"></a></td>
+		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
 		<td valign="top">
 		
 		<table align="right" width="670" cellpadding="0" cellspacing="0" border="0">

@@ -37,7 +37,7 @@ $RegisteredOn = $DateTime->format('F j Y');
 ?>
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
-<title><?php echo $Username ?> - FrameBit</title>
+<title><?php echo $Username ?> - PokTube</title>
 <div style="padding: 0px 5px 0px 5px;">
 		
 
