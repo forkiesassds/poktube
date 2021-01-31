@@ -284,7 +284,7 @@ if ($idcommentlist == $vid AND $hidden != 1) {
 echo "<tr>
 <td>
       			<a name='8n9OjARLLDs'>
-					<table class='parentSection' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
+					<table class='parentSection' cellspacing='0' cellpadding='0' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
 					<tbody><tr valign='top'>
 						<td>
 <!-- google_ad_section_start -->
@@ -294,13 +294,10 @@ echo "<tr>
 				<a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
 				 - (".$datecommentlist.")
 			</div>
-
 	<div id='div_comment_form_id_8n9OjARLLDs'></div>
-
 							</td>
 					</tr>
 				</tbody></table>
-
 			</a></td>
 </tr>";
 $count++; // count the amount of comments

@@ -13,10 +13,6 @@
   background-color: #f03c30; /* Red */
 } 
 
-.dumbass {
-	margin: 0px;
-}
-
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -258,6 +254,11 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	margin-bottom: 5px;
 	color: #666666;
 	
+}
+
+#table {
+  border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
 }
 
 .tableFavRemove {
