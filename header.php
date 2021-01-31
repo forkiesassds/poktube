@@ -19,7 +19,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<table class="header1" width="100%" bgcolor="#D5E5F5" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
+<table class="header1" width="100%" bgcolor="#E9E9E9" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
 		<td valign="top">
