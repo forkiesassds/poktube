@@ -453,6 +453,14 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	border-bottom: 1px dashed #CCC;
 }
 
+.header1 {
+	background-image: url(img/header.gif);
+}
+
+.header2 {
+	background-image: url(img/subheader.gif);
+}
+
 .watchTags {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
