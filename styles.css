@@ -118,7 +118,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 /* Modules */
 
 .moduleEntrySelected {
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_selected_bg.gif);
+	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-color: #FFFFCC;
 	background-position: left top;
@@ -128,7 +128,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 .moduleEntry {
 	background-color: #DDD;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_bg.gif);
+	background-image: url(img/table_results_bg.gif);
 	background-position: left top;
 	background-repeat: repeat-x;
 	border-bottom: 1px dashed #999999;
@@ -182,7 +182,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 .moduleFeatured {
 	background-color: #DDD;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_bg.gif);
+	background-image: url(img/table_results_bg.gif);
 	background-position: left top;
 	background-repeat: repeat-x;
 	border-bottom: 1px dashed #999999;
@@ -221,7 +221,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 .moduleFrameEntrySelected {
 	width: 270;
 	background-color: #FFFFCC;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_selected_bg.gif);
+	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-position: left top;
 	border-bottom: 1px dashed #999999;
@@ -231,7 +231,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 .moduleFrameEntry {
 	width: 270;
 	background-color: #DDD;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_bg.gif);
+	background-image: url(img/table_results_bg.gif);
 	background-position: left top;
 	background-repeat: repeat-x;
 	border-bottom: 1px dashed #999999;
@@ -255,12 +255,6 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	color: #666666;
 	
 }
-
-#table {
-  border-spacing:0; /* Removes the cell spacing via CSS */
-  border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
-}
-
 .tableFavRemove {
 	margin-right: 5px;
 	margin-left: 10px;
@@ -271,7 +265,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 .tableVideoStats {
 	width: 100%;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_selected_bg.gif);
+	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-color: #FFFFCC;
 	background-position: left top;
@@ -330,7 +324,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 }
 
 .formHighlight {
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_selected_bg.gif);
+	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-color: #FFFFCC;
 	background-position: left top;
@@ -420,7 +414,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 .watchTable {
 	background-color: #DDDDDD;
-	background-image: url(/web/20050819125750im_/http://www.youtube.com/img/table_results_bg.gif);
+	background-image: url(img/table_results_bg.gif);
 	background-repeat: repeat-x;
 	background-position: left top;
 	border-bottom: 1px dashed #999999;
