@@ -31,9 +31,9 @@ if ($detail2["registeredon"] == null) {
 					<tr>
 					
 						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div> <a class='headertext' href='profile.php?user=".$username."'>".$username."</a></b></td>
+		echo "<td><b class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='my_profile.php'>My Profile</a></td>
+<td><a class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a class='headertext' href='logout.php'>Log Out</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
@@ -107,7 +107,7 @@ if ($detail2["registeredon"] == null) {
 							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
 							-->
 							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="my_profile.php">My Profile</a></td>
+							<td><a class="headertext" href="my_profile.php">Settings</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="browse.php">Browse</a></td>
 							<td>&nbsp;|&nbsp;</td>
