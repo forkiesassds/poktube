@@ -1,14 +1,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>YouTube - Your Digital Video Repository</title>
-<link rel="icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/web/20050701000942im_/http://www.youtube.com/favicon.ico" type="image/x-icon">
-<link href="styles_alt.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="YouTube " "="" recently="" added="" videos="" [rss]"="" href="https://web.archive.org/web/20050701000942/http://www.youtube.com/rss/global/recently_added.rss">
 </head>
 <?php
-include "header2.php";
+include "header.php";
 error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
 <div class="page_title">All users</div>
