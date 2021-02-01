@@ -18,6 +18,10 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#5d42f4">
+<meta name="description" content="Share your videos with friends and family">
+<meta property="og:image" content="/poktube/img/logo.png">
+<meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
 <table class="header1" width="100%" bgcolor="#E9E9E9" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
