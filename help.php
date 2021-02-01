@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
-<title>FrameBit</title>
+<title>PokTube</title>
 <table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>
 		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
@@ -26,13 +26,13 @@
 				<br>
 				These are just some examples of the videos that our users are uploading. In the end, you know yourself best. What would <i>you</i> like to capture on video?
 <br><br><span class="highlight">Q: How long can my video be?</span>
-<br><br>A: There is no time limit on your video, but the video file you upload must be less than 50 MB in size. If your video is too large for FrameBit, use a free service such as <a href="https://8mb.video">8mb.video</a>
+<br><br>A: There is no time limit on your video, but the video file you upload must be less than 50 MB in size. If your video is too large for PokTube, use a free service such as <a href="https://8mb.video">8mb.video</a>
 <br><br><span class="highlight">Q: What video file formats can I upload?</span>
-<br><br>A: FrameBit accepts video files from most digital cameras and from cell phones in the .AVI, .MOV, and .MPG file formats.
+<br><br>A: PokTube accepts video files from most digital cameras and from cell phones in the .AVI, .MOV, and .MPG file formats.
 <br><br><span class="highlight">Q: How can I improve my videos?</span>
 <br><br>A: We encourage you to edit your videos with software such as <a href="http://web.archive.org/web/20051102071344/http://www.microsoft.com/windowsxp/using/moviemaker/default.mspx" target="_blank">Windows MovieMaker</a> (included with every Windows installation), or <a href="http://web.archive.org/web/20051102071344/http://www.apple.com/ilife/imovie/" target="_blank">Apple iMovie</a>. Using these programs you can easily edit your videos, add soundtracks, etc.
 <br><br><span class="highlight">Q: What is your policy on copyright infringement?</span>
-<br><br>A: FrameBit respects the rights of copyright holders and publishers and is only accepting video uploads from persons who hold all necessary rights to the uploaded material. Our policy is to respond to any notices of alleged infringement that comply with the Digital Millennium Copyright Act (DMCA). If we receive a notice or otherwise have reason to believe that content you submitted infringes another party's copyright, your account may be terminated and the video removed from FrameBit.
+<br><br>A: PokTube respects the rights of copyright holders and publishers and is only accepting video uploads from persons who hold all necessary rights to the uploaded material. Our policy is to respond to any notices of alleged infringement that comply with the Digital Millennium Copyright Act (DMCA). If we receive a notice or otherwise have reason to believe that content you submitted infringes another party's copyright, your account may be terminated and the video removed from PokTube.
 <br><br><span class="highlight">Q: It keeps asking me to log in, what should I do?</span>
 <br><br>A: Make sure you have cookies enabled.
 <br><br><span class="highlight">Q: What are 'tags'?</span>
@@ -42,7 +42,7 @@
 <br><br><span class="highlight">Q: How do I remove a video?</span>
 <br><br>A: To remove one of your videos, simply go to "My Videos". Click on the 'remove video' button next to the video you'd like to remove.
 <br><br><span class="highlight">Q: Is there a limit to how much I can upload?</span>
-<br><br>A: The only limit is 100MB per video.  We don't have any limit for the number of videos you upload, and we don't foresee adding a ceiling anytime in the future.  So, get crankin' and upload as many videos as you'd like - its more content for the FrameBit community to enjoy!
+<br><br>A: The only limit is 100MB per video.  We don't have any limit for the number of videos you upload, and we don't foresee adding a ceiling anytime in the future.  So, get crankin' and upload as many videos as you'd like - its more content for the PokTube community to enjoy!
 <br><br><span class="highlight">Q: How do I embed videos on my MySpace/Friendster profile?!?</span>
 <br><br>A: Please see sharing.php for information on how to embed your videos on Friendster/MySpace/eBay/blogs.
 <br><br><span class="highlight">Q: Videos won't play, what's wrong?</span>
@@ -55,16 +55,16 @@
 					
 				
 				<span class="highlight">Q: How do I report copyright infringement?</span>
-<br><br>A: If you believe that someone else has uploaded your copyrighted content without your permission, we encourage you to contact that person in order to resolve any differences with them directly.  You can also contact our support team using this <a href="contact.php">form</a> for instructions on how to submit a copyright infringement notice to FrameBit.
+<br><br>A: If you believe that someone else has uploaded your copyrighted content without your permission, we encourage you to contact that person in order to resolve any differences with them directly.  You can also contact our support team using this <a href="contact.php">form</a> for instructions on how to submit a copyright infringement notice to PokTube.
 <br><br><span class="highlight">Q: What if I have been falsely accused of copyright infringement?</span>
-<br><br>A: We'll let you know if we receive a copyright complaint about any of your video content that is hosted on FrameBit. We'll give you the opportunity to respond appropriately.
-<br><br><span class="highlight">Q: What are you doing to prevent content that violates your policies from appearing in FrameBit?</span>
+<br><br>A: We'll let you know if we receive a copyright complaint about any of your video content that is hosted on PokTube. We'll give you the opportunity to respond appropriately.
+<br><br><span class="highlight">Q: What are you doing to prevent content that violates your policies from appearing in PokTube?</span>
 <br><br>A: We do a preliminary review on uploaded videos through both a manual and automated process. Although we try our best to detect and remove videos that violate our policy guidelines, our review process is primarily focused on removing adult content or obvious copyright violations, and is not bulletproof. However, we encourage our viewers to notify us when they discover policy violations or copyright issues -- we have a process for reviewing reported policy violations, and respond to reported copyright violations under the Digital Millennium Copyright Act.
 <br><br><span class="highlight">Q: What is this .MSWMM file? How do I create a movie with Windows Movie Maker?</span>
-<br><br>A: A .MSWMM file is a Windows Movie Maker Project file. By saving the project, it allows you to return to the movide and make modifications at a later time. However, if you're satisfied with the movie and would like to upload and share the result through FrameBit, you will need to choose the "Save Movie File" option under the "File" menu (which is different from "Save Project" that creates the .MSWMM file).
+<br><br>A: A .MSWMM file is a Windows Movie Maker Project file. By saving the project, it allows you to return to the movide and make modifications at a later time. However, if you're satisfied with the movie and would like to upload and share the result through PokTube, you will need to choose the "Save Movie File" option under the "File" menu (which is different from "Save Project" that creates the .MSWMM file).
 
-<br><br><br><span class="highlight">Contact FrameBit</span>
-<br><br>If you have any account or video issues, please contact us at our <a href="#">Discord server</a>.
+<br><br><br><span class="highlight">Contact PokTube</span>
+<br><br>If you have any account or video issues, please contact us at the <a href="https://discord.gg/72ZPaTtXct">Chaziz/PokTube Community</a> discord server.
 Also, if you have any ideas or suggestions to make our service better, please don't hesitate to drop us a line.
 
 
