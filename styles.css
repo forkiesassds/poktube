@@ -135,6 +135,26 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	padding: 10px;
 }
 
+.moduleEntry_alt:hover {
+	background-color: #FFFFCC;
+	background-image: url(img/table_results_selected_bg.gif);
+	background-position: left top;
+	background-repeat: repeat-x;
+	border-bottom: 1px dashed #999999;
+	border-right: 1px dashed #999999;
+	padding: 10px;
+}
+
+.moduleEntry_alt {
+	background-color: #DDD;
+	background-image: url(img/table_results_bg.gif);
+	background-position: left top;
+	background-repeat: repeat-x;
+	border-bottom: 1px dashed #999999;
+	border-right: 1px dashed #999999;
+	padding: 10px;
+}
+
 .moduleEntryThumb {
 	border: 5px solid #FFFFFF;
 	margin-right: 10px;

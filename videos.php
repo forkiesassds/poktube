@@ -22,7 +22,9 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 $result = mysqli_query($con,"SELECT * FROM videodb");
 
-echo "<table border='2'>
+echo "
+<table cellspacing='0' cellpadding='0' border='0' class='roundedTable' bgcolor='#cccccc' border='2'>
+<tbody>
 <tr>
 <th>ID</th>
 <th>Thumbnail</th>
@@ -32,19 +34,20 @@ echo "<table border='2'>
 <th>Uploader</th>
 <th>Uploaded</th>
 <th>Link</th>
-</tr>";
+</tr>
+</tbody>";
 
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row['0'] . "</td>";
-echo "<td><img src=\"content/thumbs/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
-echo "<td>" . $row['1'] . "</td>";
-echo "<td>" . $row['7'] . "</td>";
-echo "<td>" . $row['2'] . "</td>";
-echo "<td>" . $row['3'] . "</td>";
-echo "<td>" . $row['4'] . "</td>";
-echo "<td><a href=\"watch.php?v=" . $row['0'] . "\"</a>Watch</td>";
+echo "<td class='moduleEntry_alt'>" . $row['0'] . "</td>";
+echo "<td class='moduleEntry_alt'><img src=\"content/thumbs/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
+echo "<td class='moduleEntry_alt'>" . $row['1'] . "</td>";
+echo "<td class='moduleEntry_alt'>" . $row['7'] . "</td>";
+echo "<td class='moduleEntry_alt'>" . $row['2'] . "</td>";
+echo "<td class='moduleEntry_alt'>" . $row['3'] . "</td>";
+echo "<td class='moduleEntry_alt'>" . $row['4'] . "</td>";
+echo "<td class='moduleEntry_alt'><a href=\"watch.php?v=" . $row['0'] . "\"</a>Watch</td>";
 echo "</tr>";
 }
 echo "</table>";
