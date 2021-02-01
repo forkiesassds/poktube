@@ -77,7 +77,7 @@ if (!file_exists($preload_folder)) {
 						$title = $_POST['title'];
 						$desc = $_POST['desc'];
 						$uploader = mysqli_real_escape_string($connect, $username);
-		 				exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 277K -b:a 75k    -strict experimental content/video/".$folder_id."/".$vid_id.".mp4"); 
+		 				exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental content/video/".$folder_id."/".$vid_id.".mp4"); 
 						$failcount = 0;
 						
 						clearstatcache();
