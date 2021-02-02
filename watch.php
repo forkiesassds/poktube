@@ -197,7 +197,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 										</div>
 					</div>
 					<div><img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
-					<div class="label" style="padding padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
+					<div class="label" style="padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
