@@ -35,15 +35,15 @@ include("header.php");
 									<table width="100%" cellpadding="0" cellspacing="0" border="0">
 					<tr valign="top">
 					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><a href="browse.php">Watch</a></div>
+					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/television.png"> <a href="browse.php">Watch</a></div>
 					Instantly find and watch 1000's of fast streaming videos.
 					</td>
 					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><a href="my_videos_upload.php">Upload</a></div>
+					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/add.png"> <a href="my_videos_upload.php">Upload</a></div>
 					Quickly upload and tag videos in almost any video format.
 					</td>
 					<td width="33%" style="padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><a href="my_friends_invite.php">Share</a></div>
+					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/link.png"> <a href="my_friends_invite.php">Share</a></div>
 					Easily share your videos with family, friends, or co-workers.
 					</td>
 					</tr>
@@ -71,11 +71,11 @@ include("header.php");
 					<div class="sunkenTitleBar">
 						<div class="sunkenTitle">
 							<div style="float: right; padding: 1px 5px 0px 0px; font-size: 12px;"><a href="browse.php">See More Videos</a></div>
-							<span style="color:#444;">Most Viewed Videos</span>
+							<span style="color:#444;">Videos</span>
 						</div>
 					</div>
 											<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY ViewCount DESC LIMIT 10"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
