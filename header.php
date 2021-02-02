@@ -62,7 +62,7 @@ if ($detail2["registeredon"] == null) {
 		<td width="100%">
 		
 		<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 10px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
+		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
 		} else {
 			echo "";}?>
 		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
