@@ -196,8 +196,8 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
 										</div>
 					</div>
-					<div><img style="float: left; margin: 0px 5px 10px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="32" height="32">
-					<div class="label"><?php echo $Uploader ?></div></div>
+					<div><img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
+					<div class="label" style="padding padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
