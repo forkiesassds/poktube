@@ -39,11 +39,11 @@ while($row = mysqli_fetch_array($result))
 echo "<tr>";
 echo "<td class='moduleEntry_alt'>" . $row['0'] . "</td>";
 echo "<td class='moduleEntry_alt'><img src=\"content/thumbs/" . $row['0'] . ".png" . "\" width=\"120\" height=\"90\"</img></td>";
-echo "<td class='moduleEntry_alt'>" . $row['1'] . "</td>";
-//echo "<td class='moduleEntry_alt'>" . $row['7'] . "</td>";
-echo "<td class='moduleEntry_alt'>" . $row['2'] . "</td>";
-echo "<td class='moduleEntry_alt'>" . $row['3'] . "</td>";
-echo "<td class='moduleEntry_alt'>" . $row['4'] . "</td>";
+echo "<td class='moduleEntry_alt'>" . htmlspecialchars($row['1']) . "</td>";
+//echo "<td class='moduleEntry_alt'>" . htmlspecialchars($row['7']) . "</td>";
+echo "<td class='moduleEntry_alt'>" . htmlspecialchars($row['2']) . "</td>";
+echo "<td class='moduleEntry_alt'>" . htmlspecialchars($row['3']) . "</td>";
+echo "<td class='moduleEntry_alt'>" . htmlspecialchars($row['4']) . "</td>";
 echo "<td class='moduleEntry_alt'><a href=\"watch.php?v=" . $row['0'] . "\"</a>Watch</td>";
 echo "</tr>";
 }
