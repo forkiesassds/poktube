@@ -35,7 +35,9 @@ $target_file = "content/preload/".$folder_id."/".$vid_id.".".$vextension;
 $target_folder = "content/video/".$folder_id;
 $preload_folder = "content/preload/".$folder_id;
 $target_thumb = "content/thumbs/".$url_id.".png";
-$thumbcmd = "ffmpeg.exe -i ".$target_file." -vframes 1 -an -s 240x180 -ss 30 ".$target_thumb;
+$none = 0;
+$category = "Gaming";
+$thumbcmd = "ffmpeg -i ".$target_file." -vframes 1 -an -s 240x180 -ss 30 ".$target_thumb;
 
 if (!file_exists($target_folder)) {
 	mkdir($target_folder);
@@ -54,9 +56,9 @@ if (!file_exists($preload_folder)) {
 							echo "<center><h1>Your video is an incompatible format.<br>To continue uploading this video, convert it to a supported format.</h1></center>";
 							die();
 						}
-						$width = exec("ffprobe.exe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 ".$target_file);
-						$height = exec("ffprobe.exe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 ".$target_file);
-						$checkerror = exec("ffmpeg.exe -v error -i ".$target_file." -f null - >error.log 2>&1");
+						$width = exec("ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 ".$target_file);
+						$height = exec("ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 ".$target_file);
+						$checkerror = exec("ffmpeg -v error -i ".$target_file." -f null - >error.log 2>&1");
 						if ( '' == file_get_contents("error.log") )
 						{
 							// good file, continues with process of uploading
@@ -92,8 +94,9 @@ if (!file_exists($preload_folder)) {
 						}
 						exec($thumbcmd);
 						$datenow = date("Y-m-d");
-						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, VideoFile) VALUES (?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
-						$stmt->bind_param("ssssss", $url_id, $title, $desc, $uploader, $datenow, $target_file);
+						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, ViewCount, VideoCategory, VideoFile, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
+						$stmt->bind_param("sssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $none);
 						// set params
 						$target_file = $target_folder . "/" . $vid_id . ".mp4";
 						$stmt->execute();
@@ -101,7 +104,7 @@ if (!file_exists($preload_folder)) {
 						$stmt->bind_param("s", $url_id);
 						$stmt->execute();
 						delete_directory($preload_folder);
-						echo "<script>window.location.replace('watch.php?v=".$url_id."');</script>";
+						//echo "<script>window.location.replace('watch.php?v=".$url_id."');</script>";
 			} else {
 				$upload_msg = 'You should select a file to upload!';
 			}
