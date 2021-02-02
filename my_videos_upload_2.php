@@ -104,7 +104,7 @@ if (!file_exists($preload_folder)) {
 						$stmt->bind_param("s", $url_id);
 						$stmt->execute();
 						delete_directory($preload_folder);
-						//echo "<script>window.location.replace('watch.php?v=".$url_id."');</script>";
+						echo "<script>window.location.replace('watch.php?v=".$url_id."');</script>";
 			} else {
 				$upload_msg = 'You should select a file to upload!';
 			}
