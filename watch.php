@@ -190,14 +190,14 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 			</div>
 		</div>
 		
-			<table width="425" cellpadding="0" cellspacing="0" border="0" align="center">
+			<table style="margin-left: 8px;margin-right: 8px;" width="480" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tr>
 				<td>
 					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
 										</div>
 					</div>
-					<div><img style="float: left; margin: 0px 5px 10px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="32" height="32">
-					<div class="label"><?php echo $Uploader ?></div></div>
+					<div><img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
+					<div class="label" style="padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
