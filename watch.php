@@ -190,7 +190,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 			</div>
 		</div>
 		
-			<table width="425" cellpadding="0" cellspacing="0" border="0" align="center">
+			<table style="margin-left: 8px;margin-right: 8px;" width="480" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tr>
 				<td>
 					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
