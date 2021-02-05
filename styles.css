@@ -121,13 +121,13 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 /* Modules */
 
-.moduleEntrySelected {
+.moduleEntrySelected, .moduleEntry:hover {
 	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-color: #FFFFCC;
 	background-position: left top;
 	border-bottom: 1px dashed #999999;
-	padding: 10px 10px 0px 10px;
+	padding: 10px;
 }
 
 .moduleEntry {
@@ -218,6 +218,17 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	margin: 5px;
 }
 
+.button {
+    background-color: #0092ff;
+    border: none;
+    color: #fff;
+    padding: 4px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+
 .moduleFeaturedTitle {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -242,7 +253,7 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	color: #444;
 }
 
-.moduleFrameEntrySelected {
+.moduleFrameEntrySelected, .moduleFrameEntry:hover {
 	width: 270;
 	background-color: #FFFFCC;
 	background-image: url(img/table_results_selected_bg.gif);

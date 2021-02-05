@@ -74,7 +74,7 @@ if ($detail2["registeredon"] == null) {
 					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#2746B5; font-size: 14px; padding: 2px;">
 				</td>
 				<td>
-					<input type="submit" value="Search Videos">
+					<input class="button" type="submit" value="Search Videos">
 					<span class="headertext">NOT IMPLEMENTED</span>
 				</td>
 				</form>

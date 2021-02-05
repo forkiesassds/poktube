@@ -232,7 +232,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 				<td><img src="img/pixel.gif" width="5" height="1"></td>
 				<td align="center">
 		
-				<div style="font-size: 11px; font-weight: bold; color: #CC6600; padding: 5px 0px 5px 0px;">Share this video! Copy and paste this link:</div>
+				<div style="font-size: 11px; color: #000; padding: 5px 0px 5px 0px;">Share this video! Copy and paste this link:</div>
 				<div style="font-size: 11px; padding-bottom: 15px;">
 				<input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" size="50" readonly="true" style="font-size: 10px; text-align: center;">
 				</div>
@@ -337,7 +337,7 @@ if($count == 0) {
 
 							<div id="side_results" name="side_results">
 					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand()"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
