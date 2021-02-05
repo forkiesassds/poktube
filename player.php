@@ -58,7 +58,7 @@ echo "<object id='MediaPlayer1'
 	echo
 	"<video width='480' height='360' id='video_player' controls autoplay>
         <source src='./$VideoFile'>
-		Error: HTML5 player hasen't loaded. If your browser supports ActiveX, then add &?activex in the address bar.
+		Error: HTML5 player hasen't loaded. If your browser supports ActiveX, then add &activex in the address bar.
 		Flash Player is going to be added soon.
     </video>";
 }
