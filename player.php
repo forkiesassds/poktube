@@ -30,6 +30,7 @@ die(); // just dies
     <div style="overflow:hidden">
     <video width="480" height="360" id="video_player" controls autoplay>
         <source src="./<?php echo $VideoFile; ?>">
+		<embed type="application/x-mplayer2" src="./<?php echo $VideoFile; ?>" name="MediaPlayer" showcontrols="1" showstatusbar="1" width="480" height="360">
 		We are not going to waste our fucking time on Flash Player. It's clunky, obsolete and fucking useless.
     </video>
     </div>
