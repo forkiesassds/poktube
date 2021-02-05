@@ -329,7 +329,7 @@ if($count == 0) {
 					<table width="270" cellpadding="0" cellspacing="0" border="0">
 						<tbody><tr valign="top">
 
-							<td><div class="moduleFrameBarTitle">Videos from <?php echo $Uploader ?></div></td>
+							<td><div class="moduleFrameBarTitle">Recommended Videos</div></td>
 							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
 						</tr>
 					</tbody></table>
@@ -337,7 +337,7 @@ if($count == 0) {
 
 							<div id="side_results" name="side_results">
 					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand()"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
@@ -345,7 +345,6 @@ $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
 
-if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
 echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
@@ -364,7 +363,6 @@ echo "<div class='moduleFrameEntry'>
 							</tr>
 						</tbody></table>
 					</div>";
-}
 }
 ?>
 
