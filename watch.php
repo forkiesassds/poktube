@@ -26,7 +26,11 @@ if(($_GET["player"]) == 2){
 	if(($_GET["player"]) == 1){
 	$player = 1;
 } else {
+	if(($_GET["player"]) == 0){
 	$player = 0;
+} else {
+	$player = null;
+}
 }
 }
 
@@ -194,7 +198,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		// <a href="#">Contact Me</a>
 		</div>-->	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
-		<br>
+		<br><?php echo $player; ?>
 			<div width="500" height="380">
 				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&player=<?php echo $player; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>

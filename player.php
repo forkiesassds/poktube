@@ -58,8 +58,8 @@ echo "<object id='MediaPlayer1'
 	if (($_GET["player"]) == 1) {
 echo "<embed name='player' width='480' height='360' id='player' src='player.swf' flashvars='video_id=$VideoFile' type='application/x-shockwave-flash' quality='high' bgcolor='#FFFFFF'>";
 } else {
-	echo
-	"<video width='480' height='360' id='video_player' controls autoplay>
+		if (($_GET["player"]) == 0) {
+echo "<video width='480' height='360' id='video_player' controls autoplay>
         <source src='./$VideoFile'>
 		If you're reading this, then your browser does not support the HTML5 video tag.
 		<br>
@@ -67,6 +67,14 @@ echo "<embed name='player' width='480' height='360' id='player' src='player.swf'
 		<br>
 		Replace the number 0 in your address bar with ethier the number 1 for Flash, or the number 2 for ActiveX.
     </video>";
+} else {
+if (($_GET["player"]) == null) {
+echo "H";
+} else {
+	echo
+	"SEX";
+};
+};
 }
 }
 	?>
