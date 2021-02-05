@@ -28,7 +28,7 @@ die(); // just dies
     <div class="videocontainer" oncontextmenu="return false;">
     </script>
     <div style="overflow:hidden">
-    <?php if (empty($_GET["activex"])) {
+    <?php if (($_GET["player"]) == 2) {
 echo "<object id='MediaPlayer1' 
         CLASSID='CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95' 
         codebase='http://activex.microsoft.com/activex/controls/mplayer/ 
@@ -55,12 +55,19 @@ echo "<object id='MediaPlayer1'
       volume=-20>
 </object>";
 } else {
+	if (($_GET["player"]) == 1) {
+echo "<embed name='player' width='480' height='360' id='player' src='player.swf' flashvars='video_id=$VideoFile' type='application/x-shockwave-flash' quality='high' bgcolor='#FFFFFF'>";
+} else {
 	echo
 	"<video width='480' height='360' id='video_player' controls autoplay>
         <source src='./$VideoFile'>
-		Error: HTML5 player hasen't loaded. If your browser supports ActiveX, then add &activex in the address bar.
-		Flash Player is going to be added soon.
+		If you're reading this, then your browser does not support the HTML5 video tag.
+		<br>
+		PokTube now supports ActiveX and Flash.
+		<br>
+		Replace the number 0 in your address bar with ethier the number 1 for Flash, or the number 2 for ActiveX.
     </video>";
+}
 }
 	?>
     </div>

@@ -87,11 +87,11 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='moduleEntry'>
 						<table width='665' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
-								<td><a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
+								<td><a href='watch.php?v=$idvideolist&player=0'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
 								</td>
 								<td width='100%'>
 									<div class='moduleEntryTitle'>
-										<a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a>
+										<a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a>
 									</div>
 										<div class='moduleEntryDescription'>
 									".$descvideolist."

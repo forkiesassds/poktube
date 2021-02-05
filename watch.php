@@ -20,10 +20,14 @@ function limit_echo($x, $length)
   }
 }
 
-if(!isset($_GET["activex"])){
-	null;
+if(($_GET["player"]) == 2){
+	$player = 2;
 } else {
-	$actX = $_GET['activex'];
+	if(($_GET["player"]) == 1){
+	$player = 1;
+} else {
+	$player = 0;
+}
 }
 
 $VideoName = "No title.";
@@ -192,7 +196,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="500" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&activex=<?php echo $actX; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&player=<?php echo $player; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
@@ -360,7 +364,7 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
+									<a href='watch.php?v=".$idvideolist."&player=$player' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
 								<td>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
@@ -424,7 +428,7 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
+									<a href='watch.php?v=".$idvideolist."&player=$player' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
 								<td>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
