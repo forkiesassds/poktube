@@ -18,7 +18,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<meta name="theme-color" content="#4298f4">
+<meta name="theme-color" content="#f28900">
 <meta name="description" content="Share your videos with friends and family">
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
