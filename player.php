@@ -6,6 +6,12 @@ if (empty($_GET["v"])) {
 	$vid = $_GET["v"];
 }
 
+
+if (empty($_GET["activex"])) {
+	echo "ActiveX";
+} else {
+	echo "HTML5";
+}
 //if $vid is null then dont show anything
 if ($vid == null) {
 die();
@@ -20,6 +26,7 @@ die(); // just dies
 	$VideoFile = $vdf['VideoFile'];
 }
 ?>
+
 <html>
 <head>
 <link href="main.css" rel="stylesheet" type="text/css"/> 
@@ -28,11 +35,16 @@ die(); // just dies
     <div class="videocontainer" oncontextmenu="return false;">
     </script>
     <div style="overflow:hidden">
-    <video width="480" height="360" id="video_player" controls autoplay>
-        <source src="./<?php echo $VideoFile; ?>">
-		<embed type="application/x-mplayer2" src="./<?php echo $VideoFile; ?>" name="MediaPlayer" showcontrols="1" showstatusbar="1" width="480" height="360">
-		We are not going to waste our fucking time on Flash Player. It's clunky, obsolete and fucking useless.
-    </video>
+    <?php if (isset($vdf['activex'])) {
+echo "test"; // just dies
+} else {
+	echo
+	"<video width='480' height='360' id='video_player' controls autoplay>
+        <source src='./$VideoFile'>
+		Error: HTML5 player hasen't loaded. If your browser supports ActiveX, then add &?activex==1 in the address bar
+    </video>";
+}
+	?>
     </div>
 </div>
 </body>
