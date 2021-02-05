@@ -36,7 +36,7 @@ include("header.php");
 					<tr valign="top">
 					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
 					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/television.png"> <a href="browse.php">Watch</a></div>
-					Instantly find and watch 1000's of fast streaming videos.
+					Instantly find and watch streaming videos.
 					</td>
 					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
 					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/add.png"> <a href="my_videos_upload.php">Upload</a></div>
@@ -44,7 +44,7 @@ include("header.php");
 					</td>
 					<td width="33%" style="padding: 0px 10px 10px 10px; color: #444;">
 					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/link.png"> <a href="my_friends_invite.php">Share</a></div>
-					Easily share your videos with family, friends, or co-workers.
+					Easily share your videos with your family, friends, or co-workers.
 					</td>
 					</tr>
 				</table>

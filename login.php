@@ -119,9 +119,9 @@ if(isset($_POST["loginsubmit"])){
 		
 		To learn more about our service, please see our <a href="help.php">Help</a> section.<br><br><br>
 		</td>
-		<td width="280">
+		<td width="275">
 		
-		<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+		<table width="275" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ebf7ff">
 			<tbody><tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
@@ -135,7 +135,7 @@ if(isset($_POST["loginsubmit"])){
 
 			<input type="hidden" name="field_command" value="login_submit">
 				<tbody><tr>
-					<td align="center" colspan="2"><div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;">PokTube Log In</div></td>
+					<td align="center" colspan="2"><div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;"><img src="img/logo.png" alt="PokTube" border="0"><p>Log In</p></div></td>
 				</tr>
 				<tr>
 					<td align="right"><span class="label">User Name:</span></td>
