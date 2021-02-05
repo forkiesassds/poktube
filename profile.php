@@ -26,6 +26,8 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
+$Foreground = htmlspecialchars($cdf['channel_color']);
+$Background = htmlspecialchars($cdf['channel_bg']);
 if($cdf['prof_website']) {
 $Website = htmlspecialchars($cdf['prof_website']);
 } else {
@@ -46,7 +48,7 @@ $RegisteredOn = $DateTime->format('F j Y');
 	<tr valign="top">
 		<td width="180">
 		
-		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="<?php echo $Foreground ?>">
 			<tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>

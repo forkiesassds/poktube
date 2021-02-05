@@ -110,6 +110,13 @@ if ($uploadOk == 0) {
   </form>
    <br>
  <br>
+  <form action="setinfo.php" method="post" enctype="multipart/form-data">
+  Profile Foreground       :
+  <input type='color' id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Submit" name="channel_color">
+  </form>
+   <br>
+ <br>
   <!--
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Occupation       :

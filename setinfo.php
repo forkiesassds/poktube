@@ -88,4 +88,12 @@ $stmt->bind_param("ss", $setinfo, $user);
 $stmt->execute();
 echo "<br><br><center><h1>Set info.</h1></center><br><br>";
 }
+if(isset($_POST['channel_color'])) {
+$setinfo = addslashes($_POST['textbox']); // addslashes for quotes
+$user = $_SESSION['username']; // get username to set about to
+$stmt = $connect->prepare("UPDATE users SET channel_color=? WHERE username=?");
+$stmt->bind_param("ss", $setinfo, $user);
+$stmt->execute();
+echo "<br><br><center><h1>Set color.</h1></center><br><br>";
+}
 ?>
