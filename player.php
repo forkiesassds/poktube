@@ -35,8 +35,32 @@ die(); // just dies
     <div class="videocontainer" oncontextmenu="return false;">
     </script>
     <div style="overflow:hidden">
-    <?php if (isset($vdf['activex'])) {
-echo "test"; // just dies
+    <?php if (empty($_GET["activex"])) {
+echo "<object id='MediaPlayer1' 
+        CLASSID='CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95' 
+        codebase='http://activex.microsoft.com/activex/controls/mplayer/ 
+                  en/nsmp2inf.cab#Version=5,1,52,701'
+        standby='Loading Microsoft Windows® Media Player components...'
+        TYPE='application/x-oleobject'
+        width='280'
+        height='256'>
+<param name='fileName' value='./$VideoFile'>
+<param name='animationatStart' value='true'>
+<param name='transparentatStart' value='true'>
+<param name='autoStart' value='false'>
+<param name='showControls' value='true'>
+<param name='Volume' value='100'>
+<embed type='application/x-mplayer2'
+      id='myEmbededTag'
+      pluginspage='http://www.microsoft.com/Windows/MediaPlayer/'
+      src='./$VideoFile'
+      name='MediaPlayer1'
+      width=280
+      height=256 
+      autostart=1
+      showcontrols=1
+      volume=-20>
+</object>";
 } else {
 	echo
 	"<video width='480' height='360' id='video_player' controls autoplay>
