@@ -344,7 +344,7 @@ if($count == 0) {
 							<div id="side_results" name="side_results">
 					<?php				
 $x = 1; 
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate`"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 if ($x == 9) {
@@ -374,8 +374,8 @@ echo "<div class='moduleFrameEntry'>
 							</tr>
 						</tbody></table>
 					</div>";
-}
 $x++;
+}
 }
 ?>
 
