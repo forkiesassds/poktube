@@ -337,7 +337,7 @@ if($count == 0) {
 
 							<div id="side_results" name="side_results">
 					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC LIMIT 8"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
