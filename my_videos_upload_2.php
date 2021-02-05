@@ -37,7 +37,7 @@ $preload_folder = "content/preload/".$folder_id;
 $target_thumb = "content/thumbs/".$url_id.".png";
 $none = 0;
 $category = "Gaming";
-$thumbcmd = "ffmpeg -i ".$target_file." -vframes 1 -an -s 240x180 -ss 30 ".$target_thumb;
+$thumbcmd = "ffmpeg -v error -i ".$target_file." -vframes 1 -an -s 240x180 -ss 1 ".$target_thumb;
 
 if (!file_exists($target_folder)) {
 	mkdir($target_folder);
