@@ -379,15 +379,6 @@ $x++;
 }
 ?>
 
-					<div class="moduleFrameEntry">
-						<table width="235" cellpadding="0" cellspacing="0" border="0">
-							<tbody><tr align="center" valign="top">
-								<td></td>
-							</tr>
-						</tbody></table>
-					</div>
-				</div>
-
 					</td>
 					<td><img src="./img/pixel.gif" width="5" height="1"></td>
 				</tr>
@@ -449,15 +440,6 @@ echo "<div class='moduleFrameEntry'>
 					</div>";
 }
 ?>
-
-					<div class="moduleFrameEntry">
-						<table width="235" cellpadding="0" cellspacing="0" border="0">
-							<tbody><tr align="center" valign="top">
-								<td></td>
-							</tr>
-						</tbody></table>
-					</div>
-				</div>
 
 					</td>
 					<td><img src="./img/pixel.gif" width="5" height="1"></td>
