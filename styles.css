@@ -18,7 +18,7 @@
 } 
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	background-color: #FFFFFF;
 	color: #222222;
@@ -30,7 +30,7 @@ a:link, a:visited, a:active {
 }
 
 td {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 }
 
