@@ -360,7 +360,7 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' class='moduleEntryThumb' width='80' height='60'></a></td>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
 								<td>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
@@ -424,7 +424,7 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' class='moduleEntryThumb' width='80' height='60'></a></td>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
 								<td>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
