@@ -5,13 +5,6 @@ if (empty($_GET["v"])) {
 } else {
 	$vid = $_GET["v"];
 }
-
-
-if (empty($_GET["activex"])) {
-	echo "ActiveX";
-} else {
-	echo "HTML5";
-}
 //if $vid is null then dont show anything
 if ($vid == null) {
 die();
