@@ -198,7 +198,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		// <a href="#">Contact Me</a>
 		</div>-->	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
-		<br><?php echo $player; ?>
+		<br>
 			<div width="500" height="380">
 				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&player=<?php echo $player; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
