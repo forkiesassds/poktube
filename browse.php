@@ -56,7 +56,7 @@ if($count == 20) {
 								<table width="770" cellpadding="0" cellspacing="0" border="0">
 
 				<tbody><?php
-$vidlist = mysqli_query($connect, "SELECT * FROM videodb ORDER by ViewCount DESC LIMIT ".$page.", 20");
+$vidlist = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
 $count = 0;
 
 while ($fetch = mysqli_fetch_assoc($vidlist)) {
