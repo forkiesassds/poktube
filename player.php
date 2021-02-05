@@ -42,8 +42,8 @@ echo "<object id='MediaPlayer1'
                   en/nsmp2inf.cab#Version=5,1,52,701'
         standby='Loading Microsoft Windows® Media Player components...'
         TYPE='application/x-oleobject'
-        width='280'
-        height='256'>
+        width='480'
+        height='360'>
 <param name='fileName' value='./$VideoFile'>
 <param name='animationatStart' value='true'>
 <param name='transparentatStart' value='true'>
@@ -55,8 +55,8 @@ echo "<object id='MediaPlayer1'
       pluginspage='http://www.microsoft.com/Windows/MediaPlayer/'
       src='./$VideoFile'
       name='MediaPlayer1'
-      width=280
-      height=256 
+      width=480
+      height=360 
       autostart=1
       showcontrols=1
       volume=-20>
