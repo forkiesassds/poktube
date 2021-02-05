@@ -88,19 +88,19 @@ $RegisteredOn = $DateTime->format('F j Y');
 					
 						<tr>
 				<td align="right"><span class="label">Name:</span></td>
-				<td><?php echo $Name ?></td>
+				<td><?php echo stripslashes($Name) ?></td>
 			</tr>
 			
 			<tr valign="top">
 				<td align="right"><span class="label">Age:</span></td>
-				<td><?php echo $Age ?></td>
+				<td><?php echo stripslashes($Age) ?></td>
 			</tr>
 					
 					
 					
 						<tr valign="top">
 				<td align="right"><span class="label">About Me:</span></td>
-				<td><?php echo $AboutMe ?></td>
+				<td><?php echo stripslashes($AboutMe) ?></td>
 			</tr>
 					
 			<tr>
@@ -114,16 +114,16 @@ $RegisteredOn = $DateTime->format('F j Y');
 
 			<tr valign="top">
 				<td align="right"><span class="label">Hometown:</span></td>
-				<td><?php echo $Hometown ?></td>
+				<td><?php echo stripslashes($Hometown) ?></td>
 			</tr>
 			
 			<tr valign="top">
 			<td align="right"><span class="label">Current City:</span></td>
-			<td><?php echo $City ?></td>
+			<td><?php echo stripslashes($City) ?></td>
 					
 			<tr valign="top">
 			<td align="right"><span class="label">Country:</span></td>
-			<td><?php echo $Country ?></td>
+			<td><?php echo stripslashes($Country) ?></td>
 			<tr>
 				<td colspan="2">&nbsp;</td>
 			</tr>
