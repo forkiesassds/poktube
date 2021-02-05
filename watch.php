@@ -336,10 +336,14 @@ if($count == 0) {
 					</div>
 
 							<div id="side_results" name="side_results">
-					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` LIMIT 8"); //instructions for sql
+					<?php				
+$x = 1; 
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate`"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+if ($x == 9) {
+	break;
+}
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
@@ -365,6 +369,7 @@ echo "<div class='moduleFrameEntry'>
 						</tbody></table>
 					</div>";
 }
+$x++;
 }
 ?>
 
