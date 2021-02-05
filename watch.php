@@ -20,6 +20,12 @@ function limit_echo($x, $length)
   }
 }
 
+if(!isset($_GET["activex"])){
+	null;
+} else {
+	$actX = $_GET['activex'];
+}
+
 $VideoName = "No title.";
 $VideoDesc = "No description.";
 $Uploader = "Unknown";
@@ -186,7 +192,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="500" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&activex=<?php echo $actX; ?>' width='500' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
