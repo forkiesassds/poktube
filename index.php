@@ -100,9 +100,6 @@ echo "<div class='moduleEntry'>
 									<div class='moduleEntryDetails'>
 										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
 									</div>
-									<div class='moduleEntryDetails'>
-										Views: ".$viewsvideolist." // Comments: [not ''indexed'' yet]
-										</div>
 									<nobr>
 	</nobr>
 								</td>

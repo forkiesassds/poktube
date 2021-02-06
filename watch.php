@@ -87,12 +87,12 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $commentcount = 0;
 
-$viewnew = $ViewCount + 1;
+//$viewnew = $ViewCount + 1;
 
-$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
-mysqli_query($connect,$updateQuery);
+//$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
+//mysqli_query($connect,$updateQuery);
 
-$ViewCount = $viewnew;
+//$ViewCount = $viewnew;
 
 if(!$VideoDesc) {
 	$VideoDesc = "<i>No description...</i>";
@@ -215,10 +215,6 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
-			
-					<div class="watchDetails">
-					Views: <?php echo $ViewCount ?> | <a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
-
 				</td>
 			</tr>
 		</table>
