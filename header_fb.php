@@ -19,30 +19,6 @@ if ($detail2["registeredon"] == null) {
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <center>
-		            <script>
-                        var imageURLs = [
-                          "img/epic/bomo.jpg",
-                          "img/epic/nekonekodouga.jpg",
-                          "img/epic/sb.png",
-                          "img/epic/removevirus.png",
-                          "img/epic/anim.png",
-                          "img/epic/classic.png",
-						  "img/epic/w10.png",
-						  "img/epic/newgrounds.png",
-						  "img/epic/aworld.png",
-                        ];
-                        function getImageTag() {
-                          var img = '<img width="720" height="90" src="';
-                          var randomIndex = Math.floor(Math.random() * imageURLs.length);
-                          img += imageURLs[randomIndex];
-                          img +=
-                            '" alt=\The logomizer failed to load. Maybe your internet is hot garbage.\ style="display: block; max-width:100%; height: auto; margin-left: auto; margin-right: auto; "/>';
-                          return img;
-                        }
-            </script>
-            <script>
-              document.write(getImageTag());
-            </script>
 			<br>
 			</center>
 <table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
@@ -52,7 +28,7 @@ if ($detail2["registeredon"] == null) {
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/framebit.png" width="120" height="48" alt="FrameBit" border="0"></a></td>
+		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
 		<td valign="top">
 		
 		<table width="670" cellpadding="0" cellspacing="0" border="0">
