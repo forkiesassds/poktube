@@ -100,6 +100,10 @@ echo "<div class='moduleEntry'>
 									<div class='moduleEntryDetails'>
 										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
 									</div>
+									
+									<div class='moduleEntryDetails'>
+										Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
+									</div>
 									<nobr>
 	</nobr>
 								</td>
