@@ -70,8 +70,8 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 		echo "<tr valign='top'>";
 	}
 	echo "<td width='20%' align='center'>
-			<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='120' height='90' class='moduleFeaturedThumb'></a>
-			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a></div>
+			<a href='watch.php?v=".$idvideolist."&player=0'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='120' height='90' class='moduleFeaturedThumb'></a>
+			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a></div>
 			<div class='moduleFeaturedDetails'>
 				Added: ".$uploadvideolist."<br>
 				by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
