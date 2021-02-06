@@ -35,7 +35,7 @@ echo "<object id='MediaPlayer1'
                   en/nsmp2inf.cab#Version=5,1,52,701'
         standby='Loading Microsoft Windows® Media Player components...'
         TYPE='application/x-oleobject'
-        width='480'
+        width='640'
         height='360'>
 <param name='fileName' value='./$VideoFile'>
 <param name='animationatStart' value='true'>
@@ -48,7 +48,7 @@ echo "<object id='MediaPlayer1'
       pluginspage='http://www.microsoft.com/Windows/MediaPlayer/'
       src='./$VideoFile'
       name='MediaPlayer1'
-      width=480
+      width=640
       height=360 
       autostart=1
       showcontrols=1
@@ -56,10 +56,10 @@ echo "<object id='MediaPlayer1'
 </object>";
 } else {
 	if (($_GET["player"]) == 1) {
-echo "<embed name='player' width='480' height='360' id='player' src='player.swf' flashvars='video_id=$VideoFile' type='application/x-shockwave-flash' quality='high' bgcolor='#FFFFFF'>";
+echo "<embed name='player' width='640' height='360' id='player' src='player.swf' flashvars='video_id=$VideoFile' type='application/x-shockwave-flash' quality='high' bgcolor='#FFFFFF'>";
 } else {
 		if (($_GET["player"]) == 0) {
-echo "<video width='480' height='360' id='video_player' controls autoplay>
+echo "<video width='640' height='360' id='video_player' controls autoplay>
         <source src='./$VideoFile'>
 		If you're reading this, then your browser does not support the HTML5 video tag.
 		<br>
