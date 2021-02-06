@@ -231,7 +231,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 	<!-- watchTable -->
 		
 		<div style="padding: 15px 0px 10px 0px;">
-		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+		<table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
 			<tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
@@ -263,12 +263,12 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 <a name="comment"></a>
 
 		<div style="padding-bottom: 5px; font-weight: bold; color: #444;">Comment on this video:</div>
-				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="<?php echo $vid; ?>"><textarea tabindex="2" name="comment" cols="55" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" value="Post Comment" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm(&#39;main_comment&#39;,false);">		</form></div>
+				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="<?php echo $vid; ?>"><textarea tabindex="2" name="comment" cols="78" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" value="Post Comment" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm(&#39;main_comment&#39;,false);">		</form></div>
 		
 		
 <br>
 		
-<table width="495">
+<table width="650">
 <tbody><tr>
 <td>
 	<table class="commentsTitle" width="100%">
