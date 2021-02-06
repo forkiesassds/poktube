@@ -1,1 +1,0 @@
-<embed name="player" width="425" height="350" id="player" src="player.swf" flashvars="video_id=<?php echo $VideoFile ?>" type="application/x-shockwave-flash" quality="high" bgcolor="#FFFFFF">
