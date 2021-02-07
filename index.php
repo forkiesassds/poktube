@@ -101,10 +101,11 @@ echo "<div class='video-entry'>
          <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
+		 <b style="color:#CC6600">PokTube now privated?</b><br>
+		 PokTube was made private because it is heavily incomplete and is total shit.<br><br>
          <b style="color:#CC6600">NEW DESIGN?</b><br>
          Yes. This is based on early-2009 YouTube. Why? because 2005 is total garbage and is lazy.<br><br>
-		 Some pages are now fucked up (mainly profile and settings), but keep in mind, this will be fixed LATER.<br><br>
-		 -Chaziz
+		 Some pages are now fucked up (mainly profile and settings), but keep in mind, this will be fixed LATER.
          <div style="font-size: 1px; height: 1px;"><br></div>
       </div>
       <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
