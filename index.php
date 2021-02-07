@@ -4,19 +4,7 @@ include("header.php");
 <html>
 <head>
 <title>Chaziz PokTube</title>
-
-<script language="javascript" type="text/javascript">
-		onLoadFunctionList = new Array();
-		function performOnLoadFunctions()
-		{
-			for (var i in onLoadFunctionList)
-			{
-				onLoadFunctionList[i]();
-			}
-		}
-</script>
-</head>
-<body onload="performOnLoadFunctions();">
+<body>
 <!--<div class="alert">
 <img style="float: left; margin: 0px 12px 0px 0px;" src="img/error.png"><p>This is under beta and developement. The website will look different later in developement.</p>
 </div>-->
