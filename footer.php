@@ -1,3 +1,5 @@
+<div id="footer">
+
 <table cellpadding="10" cellspacing="0" border="0" align="center">
 	<tr>
 		<td align="center" valign="center">
@@ -8,4 +10,6 @@
 			Copyright &copy; 2021 Chaziz
 			</td>
 	</tr>
-</table>
+</table>		</div>
+	</div>
+</div>

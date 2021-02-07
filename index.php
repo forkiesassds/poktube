@@ -8,10 +8,9 @@ include("header.php");
 <!--<div class="alert">
 <img style="float: left; margin: 0px 12px 0px 0px;" src="img/error.png"><p>This is under beta and developement. The website will look different later in developement.</p>
 </div>-->
-<table width="790" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
-					<table class="roundedTable" width="695" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
+					<table class="roundedTable" width="650" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
 			<tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
@@ -92,37 +91,23 @@ echo "<div class='video-entry'>
 }
 ?>
 			<!-- end recently featured -->
+</div></div></div></div></div>
 
-		
-		</td>
-		<td width="180">
-					<table class="roundedTable" width="180" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffeebb">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td width="170">
-									<div style="font-size: 16px; font-weight: bold; text-align: center; padding: 5px 5px 10px 5px;">
-					<?php if(isset($_SESSION["username"])) {
-		echo "<p>Welcome back, " . $_SESSION["username"] . "!</p><br><img class=\"moduleFeaturedThumb\" src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"128\" height=\"128\">";
-	} else {
-		echo "<a href=\"signup.php\">Sign up for your free account!</a>";
-	}?>
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-</table>
+<div id="homepage-side-content">
+   <div class="homepage-side-block" id="homepage-whats-new-block">
+      <div class="homepage-yellow-block">
+         <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
+         <div class="clear"></div>
+         <div class="bottomBorderDotted"></div>
+         <b style="color:#CC6600">NEW DESIGN?</b><br>
+         Yes. This is based on early-2009 YouTube. Why? because 2005 is total garbage and is lazy.<br><br>
+		 Some pages are now fucked up (mainly profile and settings), but keep in mind, this will be fixed LATER.<br><br>
+		 -Chaziz
+         <div style="font-size: 1px; height: 1px;"><br></div>
+      </div>
+      <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
+   </div>
+</div></div>
 
 
 <div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">

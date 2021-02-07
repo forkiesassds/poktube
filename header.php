@@ -129,3 +129,6 @@ if ($detail2["registeredon"] == null) {
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
 	</tr>
 </table>
+<div id="baseDiv" class="date-20090101 video-info">
+<div id="masthead">
+<div id="homepage-main-content"> 
