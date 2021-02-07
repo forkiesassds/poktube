@@ -2451,7 +2451,6 @@ font-weight: normal;
 }
 .video-description,
 .channel-description{
-height: 16px;
 overflow: hidden;
 margin-top: 3px;
 }
