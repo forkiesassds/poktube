@@ -59,22 +59,13 @@ include("header.php");
 			</tr>
 		</table>
 <!-- begin recently featured -->
-					<table class="roundedTable" width="595" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#cccccc">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td width="585">
-					<div class="sunkenTitleBar">
-						<div class="sunkenTitle">
-							<div style="float: right; padding: 1px 5px 0px 0px; font-size: 12px;"><a href="browse.php">See More Videos</a></div>
-							<span style="color:#444;">Videos</span>
-						</div>
-					</div>
-											<?php
+<div id="homepage-featured-heading">
+			<div id="homepage-featured-more-top"><a id="hpVideoListMoreLink" href="browse.php" onmousedown="urchinTracker('/Events/Home/SeeMore/Featured/Top');">See More Featured Videos</a></div>
+		<h1 id="hpVideoListHead">Featured Videos</h1>
+<div id='homepage-video-list' class='list-view'>
+	<div id='hpFeatured'>
+		<div class='video-entry'>
+<?php
 $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
@@ -84,43 +75,34 @@ $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendation
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-echo "<div class='moduleEntry'>
-						<table width='665' cellpadding='0' cellspacing='0' border='0'>
-							<tbody><tr valign='top'>
-								<td><a href='watch.php?v=$idvideolist&player=0'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
-								</td>
-								<td width='100%'>
-									<div class='moduleEntryTitle'>
-										<a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a>
-									</div>
-										<div class='moduleEntryDescription'>
-									".$descvideolist."
-									</div>
-							
-									<div class='moduleEntryDetails'>
-										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
-									</div>
-									
-									<div class='moduleEntryDetails'>
-										Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
-									</div>
-									<nobr>
-	</nobr>
-								</td>
-							</tr>
-						</tbody></table>
-					</div>";
+echo "<div class='video-entry'>
+   <div class='v120WideEntry'>
+      <div class='v120WrapperOuter'>
+         <div class='v120WrapperInner'>
+            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+         </div>
+      </div>
+   </div>
+   <div class='video-main-content' id='video-main-content-muP9eH2p2PI'>
+      <div class='video-title '>
+         <div class='video-long-title'>
+            <a id='video-long-title-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0'  title='$namevideolist' rel='nofollow'>$namevideolist</a>
+         </div>
+      </div>
+      <div id='video-description-muP9eH2p2PI' class='video-description'>
+         $descvideolist
+      </div>
+	  <div class='video-facets'>
+		  Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
+	  </div>
+      <div class='video-facets'>
+         <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
+      </div>
+   </div>
+   <div class='video-clear-list-left'></div>
+</div>";
 }
 ?>
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
 			<!-- end recently featured -->
 
 		
