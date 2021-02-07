@@ -4122,7 +4122,7 @@ background-color: #d8e0fa;
 }
 #watch-comments-stats{
 border: 1px solid #ccc;
-margin-top: 10px;
+/*! margin-top: 10px; */
 }
 #watch-tab-commentary{
 width: 319px;

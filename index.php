@@ -1,13 +1,11 @@
 <?php 
 include("header.php"); 
 ?>
+<div id="homepage-main-content">
 <html>
 <head>
 <title>Chaziz PokTube</title>
 <body>
-<!--<div class="alert">
-<img style="float: left; margin: 0px 12px 0px 0px;" src="img/error.png"><p>This is under beta and developement. The website will look different later in developement.</p>
-</div>-->
 	<tr valign="top">
 		<td style="padding-right: 15px;">
 					<table class="roundedTable" width="650" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">

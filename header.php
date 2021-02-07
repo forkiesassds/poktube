@@ -95,4 +95,4 @@ if ($detail2["registeredon"] == null) {
 			<a class="nav-item" href="browse.php">Videos</a>
 			<a class="nav-item" href="https://discord.gg/72ZPaTtXct">Discord</a>
 		</div>
-<div id="homepage-main-content">
+		<br>
