@@ -294,7 +294,7 @@ margin: 2px auto 0 auto;
 #masthead .bar{
 width: 958px;
 height: 35px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) repeat-x scroll 0 -410px;
+background: transparent url(img/master-vfl69326.png) repeat-x scroll 0 -410px;
 border: 1px solid #999;
 clear: both;
 }
@@ -353,14 +353,14 @@ margin-bottom: 4px;
 #masthead .logo img{
 width: 84px;
 height: 33px;
-background: white url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 0;
+background: white url(img/master-vfl69326.png) no-repeat scroll 0 0;
 }
 #masthead .slogan{
 width: 125px;
 height: 11px;
 display: block;
 margin-bottom: 5px;
-background: white url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -33px;
+background: white url(img/master-vfl69326.png) no-repeat scroll 0 -33px;
 }
 #masthead .user-info{
 float: right;
@@ -378,7 +378,7 @@ width: 200px;
 float: left;
 }
 #masthead .nav-item{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -410px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -410px;
 height: 16px;
 text-align: center;
 float: left;
@@ -392,12 +392,12 @@ border-left: 1px solid #fff;
 border-right: 1px solid #999;
 }
 #masthead a.nav-item:hover{
-background: white url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -445px;
+background: white url(img/master-vfl69326.png) no-repeat scroll 0 -445px;
 border-left: 0;
 padding-left: 9px;
 }
 #masthead a.nav-item:active{
-background: white url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -139px;
+background: white url(img/master-vfl69326.png) no-repeat scroll 0 -139px;
 border-left: 0;
 padding-left: 9px;
 }
@@ -417,15 +417,15 @@ cursor: hand;
 cursor: pointer;
 }
 .search-wrapper .search-left-cap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -162px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -162px -37px;
 }
 .search-wrapper .search-right-cap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -167px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -167px -37px;
 }
 .search-wrapper .search-button-text{
 float: left;
 display: block;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -302px -480px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -302px -480px;
 height: 20px;
 color: #03c;
 font-weight: bold;
@@ -509,7 +509,7 @@ font-weight: normal;
 text-decoration: none;
 }
 .util-username-arrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -462px 0;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -462px 0;
 width: 9px;
 height: 5px;
 margin: 0 0 0 4px !important;
@@ -662,7 +662,7 @@ text-decoration: none;
 text-decoration: underline;
 }
 .gaiaHelpBtn{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -221px -18px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -221px -18px;
 width: 16px;
 height: 16px;
 }
@@ -724,7 +724,7 @@ line-height: 16px;
 padding-bottom: 1px;
 }
 .box-close-link img{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -488px 0;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -488px 0;
 height: 12px;
 width: 12px;
 margin-left: 5px;
@@ -733,13 +733,13 @@ cursor: pointer;
 vertical-align: middle;
 }
 #iconMail{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -488px -22px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -488px -22px;
 width: 21px;
 height: 16px;
 margin-right: 1px;
 }
 #iconMail.noMail{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -472px -22px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -472px -22px;
 width: 14px;
 margin-right: 5px;
 }
@@ -752,11 +752,11 @@ height: 14px;
 }
 .activeSharingGreenHeader,
 .activeSharingGreen{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -441px -47px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -441px -47px;
 }
 .activeSharingRedHeader,
 .activeSharingRed{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -427px -47px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -427px -47px;
 }
 .flag-list{
 width: 796px;
@@ -786,7 +786,7 @@ text-decoration: underline;
 vertical-align: middle;
 }
 .globalFlag{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -162px -20px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -162px -20px;
 width: 17px;
 height: 16px;
 }
@@ -890,7 +890,7 @@ vertical-align: middle;
 border-bottom: 1px dotted #03C;
 }
 #search-settings-form .close-link img{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -488px 0;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -488px 0;
 height: 12px;
 width: 12px;
 margin-left: 5px;
@@ -1133,7 +1133,7 @@ text-align: center;
 #footer .promo img{
 width: 115px;
 height: 50px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -364px -274px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -364px -274px;
 }
 #copyright{
 font-size: 11px;
@@ -1149,7 +1149,7 @@ text-decoration: none;
 #footer #igoogle-footer img{
 height: 17px;
 width: 62px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -172px 0px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -172px 0px;
 vertical-align: middle;
 }
 #footer #igoogle-footer span{
@@ -1216,7 +1216,7 @@ text-decoration: none;
 #chrome-promo .chrome-icon{
 width: 24px;
 height: 24px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -377px -39px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -377px -39px;
 vertical-align: middle;
 margin-right: 5px;
 }
@@ -1890,10 +1890,10 @@ position: relative;
 z-index: 0;
 }
 .QLIconImg{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -537px 4px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -537px 4px;
 }
 .QLIconImgOver{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -562px 4px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -562px 4px;
 }
 .QLIconImgDone{}
 .addtoQL90{
@@ -1983,11 +1983,11 @@ text-align: center;
 background: #F90 url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/btn_gradient_orange_1x23-vfl29294.png) repeat-x 0 0;
 }
 .subButton b{
-background: #F90 url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) repeat-x 0px -249px;
+background: #F90 url(img/master-vfl69326.png) repeat-x 0px -249px;
 text-decoration: none;
 }
 .editButton b{
-background: #F90 url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) repeat-x 0px -249px;
+background: #F90 url(img/master-vfl69326.png) repeat-x 0px -249px;
 text-decoration: none;
 }
 .uploadButton,
@@ -2093,15 +2093,15 @@ cursor: hand;
 cursor: pointer;
 width: 5px;
 height: 25px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -132px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -132px -37px;
 }
 .add-button .add-button-leftcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -162px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -162px -37px;
 }
 .action-button.inactive .action-button-leftcap,
 .add-button.inactive .add-button-leftcap,
 .edit-button .edit-button-leftcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -152px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -152px -37px;
 }
 .action-button .action-button-text,
 .add-button .add-button-text,
@@ -2115,7 +2115,7 @@ color: #994800;
 cursor: hand;
 cursor: pointer;
 text-decoration: none;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -174px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -174px;
 height: 19px;
 padding: 6px 8px 0 8px;
 }
@@ -2126,13 +2126,13 @@ text-decoration: none;
 }
 .add-button .add-button-text{
 color: #002f91;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -305px -480px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -305px -480px;
 }
 .action-button.inactive .action-button-text,
 .add-button.inactive .add-button-text,
 .edit-button .edit-button-text{
 color: #000;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -224px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -224px;
 }
 .action-button .action-button-rightcap,
 .add-button .add-button-rightcap,
@@ -2143,15 +2143,15 @@ cursor: hand;
 cursor: pointer;
 width: 5px;
 height: 25px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -137px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -137px -37px;
 }
 .add-button .add-button-rightcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -167px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -167px -37px;
 }
 .action-button.inactive .action-button-rightcap,
 .add-button.inactive .add-button-rightcap,
 .edit-button .edit-button-rightcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -157px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -157px -37px;
 }
 .action-button .action-button-dropcap{
 float: left;
@@ -2183,24 +2183,24 @@ background-color: white;
 }
 .action-button .action-button-dropcap img{
 display: block;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -312px -274px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -312px -274px;
 width: 26px;
 height: 25px;
 }
 .action-button .action-button-dropcap:hover img{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -338px -274px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -338px -274px;
 width: 26px;
 height: 25px;
 }
 .action-button:hover .action-button-leftcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -142px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -142px -37px;
 }
 .action-button:hover .action-button-text{
 text-decoration: underline;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -199px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -199px;
 }
 .action-button:hover .action-button-rightcap{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -147px -37px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -147px -37px;
 }
 .action-button.inactive .action-button-text,
 .add-button.inactive .add-button-text,
@@ -2616,10 +2616,10 @@ clear: both;
 clear: left;
 }
 .arrowDown{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -423px 0px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -423px 0px;
 }
 .arrowRight{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -423px -20px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -423px -20px;
 }
 .expand-panel .expand-content{
 display: none;
@@ -2650,7 +2650,7 @@ padding-top: 5px;
 color: #666;
 }
 .expand-panel .expand-header .arrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -423px -19px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -423px -19px;
 vertical-align: text-bottom;
 margin-bottom: 1px;
 margin-right: 2px;
@@ -2658,7 +2658,7 @@ height: 16px;
 width: 16px;
 }
 .expand-panel.expanded .expand-header .arrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -423px 1px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -423px 1px;
 }
 .small-expand-panel .expand-header .arrow{
 height: 14px;
@@ -2701,22 +2701,22 @@ width: 19px;
 height: 45px;
 }
 a .LeftSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -332px;
 }
 a .RightSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -19px -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -19px -332px;
 }
 a:hover .LeftSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -39px -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -39px -332px;
 }
 a:hover .RightSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -58px -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -58px -332px;
 }
 a:active .LeftSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -78px -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -78px -332px;
 }
 a:active .RightSingleArrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -97px -332px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -97px -332px;
 }
 .SingleArrowBox{
 padding-top: 5px;
@@ -2756,7 +2756,7 @@ background: transparent url(https://web.archive.org/web/20090101130645im_/http:/
 background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/TableArrowWhite-vfl28566.gif) no-repeat scroll -63px 0px;
 }
 img.ratingVS{
-background: #FFF url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll;
+background: #FFF url(img/master-vfl69326.png) no-repeat scroll;
 width: 60px;
 height: 14px;
 }
@@ -2775,17 +2775,17 @@ img.ratingVS-transparent{
 background-color: transparent;
 }
 .ratingCapsVS-left{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -109px -290px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -109px -290px;
 width: 2px;
 height: 16px;
 }
 .ratingCapsVS-right{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -111px -290px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -111px -290px;
 width: 2px;
 height: 16px;
 }
 img.ratingCapsVS{
-background: #FFF url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll;
+background: #FFF url(img/master-vfl69326.png) no-repeat scroll;
 width: 60px;
 height: 16px;
 }
@@ -2801,18 +2801,18 @@ img.ratingCapsVS-4\.0{background-position: -12px -274px;}
 img.ratingCapsVS-4\.5{background-position: 0 -290px;}
 img.ratingCapsVS-5\.0{background-position: 0 -274px;}
 .ratingCapsL-left{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -291px -294px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -291px -294px;
 width: 10px;
 height: 20px;
 }
 .ratingCapsL-right{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -302px -294px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -302px -294px;
 width: 10px;
 height: 20px;
 }
 img.ratingL,
 img.ratingCapsL{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll;
 width: 95px;
 height: 20px;
 }
@@ -2839,13 +2839,13 @@ padding: 0px;
 margin: 0px;
 }
 .icn_star_full_19x20{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -196px -274px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -196px -274px;
 }
 .icn_star_half_19x20{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -196px -294px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -196px -294px;
 }
 .icn_star_empty_19x20{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -215px -274px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -215px -274px;
 }
 #btn-listview,
 #btn-compactview,
@@ -2858,16 +2858,16 @@ width: 24px;
 height: 20px;
 }
 #btn-listview-on{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -555px -23px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -555px -23px;
 }
 #btn-listview-off{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -555px -43px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -555px -43px;
 }
 #btn-gridview-on{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -579px -43px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -579px -43px;
 }
 #btn-gridview-off{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -579px -23px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -579px -23px;
 }
 .view-type-C #btn-compactview{
 background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/compactlistgrid-vfl44572.gif) no-repeat scroll 0 -20px;
@@ -2966,13 +2966,13 @@ height: 15px;
 width: 21px;
 }
 .badge-partner-video{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -220px -48px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -220px -48px;
 }
 .badge-is-longform{
 background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/badge_featurelength-vfl55396.gif) no-repeat scroll 0 0;
 }
 .badge-has-annotations{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -243px -48px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -243px -48px;
 }
 .badge-closed-captions{
 background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/badge_cc_domestic-vfl55396.gif) no-repeat scroll 0 0;
@@ -3147,7 +3147,7 @@ vertical-align: text-bottom;
 text-decoration: underline;
 }
 .icn_share_mail{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -313px -47px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -313px -47px;
 margin-bottom: 2px;
 vertical-align: text-bottom;
 }
@@ -3180,9 +3180,9 @@ vertical-align: text-bottom;
 .icn_share_delicious{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -208px -16px;}
 .icn_share_promoted_delicious, a:hover .icn_share_delicious{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -208px 0px;}
 .icn_share_digg{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -224px -16px;}
-.icn_share_promoted_digg, a:hover .icn_share_digg{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -297px -47px;}
+.icn_share_promoted_digg, a:hover .icn_share_digg{background: transparent url(img/master-vfl69326.png) no-repeat scroll -297px -47px;}
 .icn_share_facebook{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -240px -16px;}
-.icn_share_promoted_facebook, a:hover .icn_share_facebook{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -265px -47px;}
+.icn_share_promoted_facebook, a:hover .icn_share_facebook{background: transparent url(img/master-vfl69326.png) no-repeat scroll -265px -47px;}
 .icn_share_furl{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -256px -16px;}
 .icn_share_promoted_furl, a:hover .icn_share_furl{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -256px 0px;}
 .icn_share_goo{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -272px -16px;}
@@ -3192,7 +3192,7 @@ vertical-align: text-bottom;
 .icn_share_mixi{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -304px -16px;}
 .icn_share_promoted_mixi, a:hover .icn_share_mixi{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -304px 0px;}
 .icn_share_myspace{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -320px -16px;}
-.icn_share_promoted_myspace, a:hover .icn_share_myspace{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -281px -47px;}
+.icn_share_promoted_myspace, a:hover .icn_share_myspace{background: transparent url(img/master-vfl69326.png) no-repeat scroll -281px -47px;}
 .icn_share_nujij{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -336px -16px;}
 .icn_share_promoted_nujij, a:hover .icn_share_nujij{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -336px 0px;}
 .icn_share_reddit{background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/sharing_icons-vfl59811.gif) no-repeat scroll -352px -16px;}
@@ -3363,7 +3363,7 @@ width: 638px;
 }
 .watch-tabs td{
 text-align: center;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -305px -101px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -305px -101px;
 border-bottom: 1px solid #ccc;
 border-left: 1px solid #ccc;
 font-size: 16px;
@@ -3373,11 +3373,11 @@ line-height: 35px;
 color: #03c;
 }
 #watch-main-area .watch-tabs td{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -117px -342px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -117px -342px;
 border: 0;
 }
 html > body #watch-main-area .watch-tabs td{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -117px -331px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -117px -331px;
 }
 #watch-main-area .watch-tabs a{
 display: block;
@@ -3392,7 +3392,7 @@ html > body #watch-main-area .watch-tabs td .watch-tab-arrow{
 margin-top: 0;
 }
 #watch-main-area .watch-tabs td.watch-tab-sel .watch-tab-arrow{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0 -322px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0 -322px;
 }
 .watch-tabs .watch-tab-sel{
 background: white;
@@ -3579,7 +3579,7 @@ text-align: left;
 #watch-action-favorite,
 #watch-action-playlists,
 #watch-action-flag{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll 0px 0px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll 0px 0px;
 width: 23px;
 height: 20px;
 vertical-align: middle;
@@ -4044,7 +4044,7 @@ vertical-align: text-bottom;
 .watch-greeting-card-link{
 width: 16px;
 height: 16px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -199px -47px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -199px -47px;
 }
 #watch-flag-menu{
 position: relative;
@@ -4368,21 +4368,21 @@ vertical-align: bottom;
 }
 .watch-comment-down-hover:hover,
 .watch-comment-down-on{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -385px -19px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -385px -19px;
 }
 .watch-comment-down,
 .watch-comment-down-hover,
 .watch-comment-voting-off .watch-comment-down-hover{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -385px 0px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -385px 0px;
 }
 .watch-comment-up-hover:hover,
 .watch-comment-up-on{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -404px -19px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -404px -19px;
 }
 .watch-comment-up,
 .watch-comment-up-hover,
 .watch-comment-voting-off .watch-comment-up-hover{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -404px 0px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -404px 0px;
 }
 .opacity30,
 .watch-comment-up,
@@ -4628,10 +4628,10 @@ top: 20px;
 #watch-embed-div #watch-embed-customize{
 width: 18px;
 height: 18px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -331px -44px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -331px -44px;
 }
 #watch-embed-div #watch-embed-customize:hover{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -354px -44px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -354px -44px;
 }
 #watch-customize-embed-div{
 display: none;
@@ -4904,7 +4904,7 @@ cursor:pointer;
 cursor:hand;
 margin-left:4px;
 margin-right: 2px;
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -439px -22px;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -439px -22px;
 }
 .watch-playlist-row{
 clear: both;
@@ -5340,7 +5340,7 @@ vertical-align: top;
 border-bottom: 1px dotted #03C;
 }
 #geosearch-form .close-link img{
-background: transparent url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/master-vfl69326.gif) no-repeat scroll -488px 0;
+background: transparent url(img/master-vfl69326.png) no-repeat scroll -488px 0;
 height: 12px;
 width: 12px;
 margin-left: 5px;

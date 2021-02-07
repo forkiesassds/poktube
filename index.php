@@ -49,6 +49,10 @@ include("header.php");
 <div id="homepage-featured-heading">
 			<div id="homepage-featured-more-top"><a id="hpVideoListMoreLink" href="browse.php" onmousedown="urchinTracker('/Events/Home/SeeMore/Featured/Top');">See More Featured Videos</a></div>
 		<h1 id="hpVideoListHead">Featured Videos</h1>
+		<div id="homepage-featured-tabs">
+		<div class="clear"></div>
+	</div>
+		<div class="clear"></div>
 <div id='homepage-video-list' class='list-view'>
 	<div id='hpFeatured'>
 		<div class='video-entry'>

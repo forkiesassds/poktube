@@ -24,6 +24,8 @@ if ($detail2["registeredon"] == null) {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
+<div id="baseDiv" class="date-20090101 video-info">
+<div id="masthead">
 <table class="header1" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
@@ -40,6 +42,8 @@ if ($detail2["registeredon"] == null) {
 <td><a class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a class='headertext' href='logout.php'>Log Out</a></td>
+<td style='padding: 0px 5px 0px 5px;'>|</td>
+<td><a class='headertext' href='my_profile.php'>Settings</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
 <td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
 	} else {
@@ -86,49 +90,9 @@ if ($detail2["registeredon"] == null) {
 
 			
 </table>
-<table class="header2" align="center" width="100%" bgcolor="#3C3C3C" cellpadding="0" cellspacing="0" border="0" style="margin: 0px 0px 10px 0px;">
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-		
-		<td width="100%">
-
-		<table width="100%" cellpadding="0" cellspacing="0" border="0">
-				<tr>
-					<td>
-											<table cellpadding="2" cellspacing="0" border="0">
-						<tr>
-							<td>&nbsp;<a class="headertext" href="index.php">Home</a></td>
-							<!--
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_videos.php">My Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_favorites.php">My Favorites</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
-							-->
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="my_profile.php">Settings</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="browse.php">Browse</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="https://discord.gg/72ZPaTtXct">Discord</a></td>
-						</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			
-			</td>
-	
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-</table>
-<div id="baseDiv" class="date-20090101 video-info">
-<div id="masthead">
-<div id="homepage-main-content"> 
+<div class="bar">
+			<a class="nav-item" href="index.php">Home</a>
+			<a class="nav-item" href="browse.php">Videos</a>
+			<a class="nav-item" href="https://discord.gg/72ZPaTtXct">Discord</a>
+		</div>
+<div id="homepage-main-content">
