@@ -2451,6 +2451,7 @@ font-weight: normal;
 }
 .video-description,
 .channel-description{
+height: 16px;
 overflow: hidden;
 margin-top: 3px;
 }
@@ -5572,27 +5573,3 @@ background: transparent url(https://web.archive.org/web/20090101130645im_/http:/
 height: 14px;
 width: 14px;
 }
-
-/*
-     FILE ARCHIVED ON 13:06:45 Jan 01, 2009 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 23:19:12 Feb 06, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 428.213
-  exclusion.robots: 139.826
-  exclusion.robots.policy: 139.814
-  xauthn.identify: 85.532
-  xauthn.chkprivs: 53.926
-  RedisCDXSource: 29.422
-  esindex: 0.014
-  LoadShardBlock: 234.902 (3)
-  PetaboxLoader3.datanode: 269.671 (4)
-  CDXLines.iter: 20.629 (3)
-  load_resource: 222.421
-  PetaboxLoader3.resolve: 150.003
-*/
