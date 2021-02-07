@@ -76,7 +76,6 @@ if ($detail2["registeredon"] == null) {
 				</td>
 				<td>
 					<input class="button" type="submit" value="Search Videos">
-					<span class="headertext">UNIMPLEMENTED</span>
 				</td>
 				</form>
 			</tr>
