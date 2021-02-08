@@ -66,8 +66,6 @@ $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
 
-echo "$VideoFile";
-
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
 $udf = mysqli_fetch_assoc($userfetch);
 
