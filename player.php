@@ -26,7 +26,7 @@ $name = ""; // self-explanatory
 
   
 </head>
-  <body id="" class="date-20120609 en_US ltr   ytg-old-clearfix " dir="ltr">
+  <body id="" class="date-20120609 en_US ltr ytg-old-clearfix " dir="ltr">
 
 <div id="watch-longform-ad" class="hid">
   <div id="watch-longform-text">
