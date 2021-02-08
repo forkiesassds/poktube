@@ -9,7 +9,7 @@ die();
 }
 
 $image = "none"; // set this for thumbnail
-$name = "End my suffering"; // self-explanatory
+$name = ""; // self-explanatory
 ?>
   <html lang="en" dir="ltr">
 
