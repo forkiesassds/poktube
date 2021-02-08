@@ -9,13 +9,13 @@ die();
 }
 
 $image = "none"; // set this for thumbnail
-$name = "End my suffering"; // self-explanatory
+$name = "Insert video name here"; // self-explanatory
 ?>
   <html lang="en" dir="ltr">
 
 <head>
 
-    <link rel="stylesheet" href="./player_asset/player.css">
+    <link rel="stylesheet" href="./player_asset/embed.css">
   <style>
     @-o-viewport { width: device-width; }
     @-moz-viewport { width: device-width; }

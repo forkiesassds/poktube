@@ -32,16 +32,16 @@ $vid_id = randstr(26);
 if(isset($_POST["upload"])){
 $vextension  = pathinfo( $_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION );
 $target_file = "content/preload/".$folder_id."/".$vid_id.".".$vextension;
-$target_folder = "content/video/".$folder_id;
+$target_folder = "video/".$url_id;
 $preload_folder = "content/preload/".$folder_id;
 $target_thumb = "content/thumbs/".$url_id.".png";
 $none = 0;
 $category = "Gaming";
 $thumbcmd = "ffmpeg -v error -i ".$target_file." -vframes 1 -an -s 240x180 -ss 1 ".$target_thumb;
 
-if (!file_exists($target_folder)) {
-	mkdir($target_folder);
-}
+//if (!file_exists($target_folder)) {
+//	mkdir($target_folder);
+//}
 if (!file_exists($preload_folder)) {
 	mkdir($preload_folder);
 }
@@ -79,12 +79,12 @@ if (!file_exists($preload_folder)) {
 						$title = $_POST['title'];
 						$desc = $_POST['desc'];
 						$uploader = mysqli_real_escape_string($connect, $username);
-		 				exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental content/video/".$folder_id."/".$vid_id.".mp4"); 
+		 				exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental video/".$url_id.".mp4"); 
 						$failcount = 0;
 						
 						clearstatcache();
-						if ( 0 == filesize("content/video/".$folder_id."/".$vid_id.".mp4") ) {
-							unlink("content/video/".$folder_id."/".$vid_id.".mp4");
+						if ( 0 == filesize("video/".$url_id.".mp4") ) {
+							unlink("video/".$url_id.".mp4");
 							delete_directory($preload_folder);
 							$failcount++;
 						}
@@ -98,7 +98,7 @@ if (!file_exists($preload_folder)) {
 						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, ViewCount, VideoCategory, VideoFile, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
 						$stmt->bind_param("sssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $none);
 						// set params
-						$target_file = $target_folder . "/" . $vid_id . ".mp4";
+						$target_file = "video/" . $url_id . ".mp4";
 						$stmt->execute();
 						$stmt = $connect->prepare("UPDATE users SET recent_vid = ? WHERE username = '".$uploader."'"); // add title, desc, through prepared statements
 						$stmt->bind_param("s", $url_id);

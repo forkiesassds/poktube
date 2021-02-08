@@ -82,7 +82,7 @@ echo "<div class='video-entry'>
          $descvideolist
       </div>
 	  <div class='video-facets'>
-		  Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
+		  Alternative players: (NOT AVAILABLE)
 	  </div>
       <div class='video-facets'>
          Uploaded by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
@@ -91,6 +91,7 @@ echo "<div class='video-entry'>
    <div class='video-clear-list-left'></div>
 </div>";
 }
+//<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>
 			<!-- end recently featured -->
 </div></div></div></div></div>
@@ -101,8 +102,8 @@ echo "<div class='video-entry'>
          <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
-		 <b style="color:#CC6600">PokTube now privated?</b><br>
-		 PokTube was made private because it is heavily incomplete and is total shit.<br><br>
+		 <b style="color:#CC6600">New player</b><br>
+		 End my suffering, Flash and ActiveX players are no longer available for the time being.<br><br>
          <b style="color:#CC6600">NEW DESIGN?</b><br>
          Yes. This is based on early-2009 YouTube. Why? because 2005 is total garbage and is lazy.<br><br>
 		 Some pages are now fucked up (mainly profile and settings), but keep in mind, this will be fixed LATER.

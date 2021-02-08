@@ -66,6 +66,8 @@ $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
 
+echo "$VideoFile";
+
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
 $udf = mysqli_fetch_assoc($userfetch);
 
@@ -202,7 +204,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid; ?>.mp4&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
