@@ -82,7 +82,7 @@ echo "<div class='video-entry'>
          $descvideolist
       </div>
 	  <div class='video-facets'>
-		  Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
+		  Alternative players: (NOT AVAILABLE)
 	  </div>
       <div class='video-facets'>
          Uploaded by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
@@ -91,6 +91,7 @@ echo "<div class='video-entry'>
    <div class='video-clear-list-left'></div>
 </div>";
 }
+//<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>
 			<!-- end recently featured -->
 </div></div></div></div></div>

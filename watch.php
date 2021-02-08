@@ -202,49 +202,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
-			    <?php if (($_GET["player"]) == 2) {
-echo "<object id='MediaPlayer1' 
-        CLASSID='CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95' 
-        codebase='http://activex.microsoft.com/activex/controls/mplayer/ 
-                  en/nsmp2inf.cab#Version=5,1,52,701'
-        standby='Loading Microsoft Windows® Media Player components...'
-        TYPE='application/x-oleobject'
-        width='640'
-        height='360'>
-<param name='fileName' value='./$VideoFile'>
-<param name='animationatStart' value='true'>
-<param name='transparentatStart' value='true'>
-<param name='autoStart' value='false'>
-<param name='showControls' value='true'>
-<param name='Volume' value='100'>
-<embed type='application/x-mplayer2'
-      id='myEmbededTag'
-      pluginspage='http://www.microsoft.com/Windows/MediaPlayer/'
-      src='./$VideoFile'
-      name='MediaPlayer1'
-      width=640
-      height=360 
-      autostart=1
-      showcontrols=1
-      volume=-20>
-</object>";
-} else {
-	if (($_GET["player"]) == 1) {
-echo "<embed name='player' width='640' height='360' id='player' src='player.swf' flashvars='video_id=$VideoFile' type='application/x-shockwave-flash' quality='high' bgcolor='#FFFFFF'>";
-} else {
-		if (($_GET["player"]) == 0) {
-echo "<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $VideoFile; ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>";
-} else {
-if (($_GET["player"]) == null) {
-echo "H";
-} else {
-	echo
-	"SEX";
-};
-};
-}
-}
-	?>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $VideoFile; ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
