@@ -91,13 +91,6 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $commentcount = 0;
 
-$viewnew = $ViewCount + 1;
-
-$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
-mysqli_query($connect,$updateQuery);
-
-$ViewCount = $viewnew;
-
 if(!$VideoDesc) {
 	$VideoDesc = "<i>No description...</i>";
 }
@@ -120,10 +113,6 @@ $commentcount++; // count the amount of comments
 <title><?php echo $VideoName ?> - PokTube</title>
 <meta name="title" content="<?php echo $VideoName ?> - PokTube">
 <meta name="description" content="<?php echo $VideoDesc ?>">
-<link rel="stylesheet" href="styles.css" type="text/css"> <!-- iirc this is old 2005 css.
-it's a shitty idea to mix 2017 bitview css and old july 2005 css, but this will do for now.
-i actually don't fucking care because this will be replaced with a XP/KDE3 style later on.
--pf94 1/24/2021 -->
 <body><table width="950" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>
 		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
@@ -222,7 +211,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					</div>
 			
 					<div class="watchDetails">
-					Views: <?php echo $ViewCount ?> | <a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+					<a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
 
 				</td>
 			</tr>
@@ -367,6 +356,7 @@ $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
+$uploadedvideolist = htmlspecialchars($vdf['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
 echo "<div class='moduleFrameEntry'>
@@ -380,7 +370,7 @@ echo "<div class='moduleFrameEntry'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Views: ".$viewsvideolist."<br>
+										Uploaded: ".$uploadedvideolist."<br>
 									</div>
 		
 								</td>
@@ -444,7 +434,7 @@ echo "<div class='moduleFrameEntry'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Views: ".$viewsvideolist."<br>
+										Uploaded: ".$viewsvideolist."<br>
 									</div>
 		
 								</td>
