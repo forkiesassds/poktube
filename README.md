@@ -14,7 +14,7 @@
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
 #### February 9th 2021 database changes
 ```sql
-ALTER TABLE `users` ADD `ispartner` TINYINT NOT NULL AFTER `registeredon`; 
+ALTER TABLE `users` ADD `is_partner` TINYINT NOT NULL AFTER `registeredon`; 
 
 ALTER TABLE `videodb` ADD `HQVideoFile` TEXT NOT NULL AFTER `VideoFile`; 
 ```
