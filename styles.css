@@ -4,12 +4,8 @@
 
 /* The alert message box */
 .alert {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
   background-color: #f44336; /* Red */
   color: white;
-  margin: 15px;
   vertical-align: baseline;
 }
 
