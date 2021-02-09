@@ -20,6 +20,7 @@ function limit_echo($x, $length)
   }
 }
 
+if(isset($_GET["player"])) {
 if(($_GET["player"]) == 2){
 	$player = 2;
 } else {
@@ -32,6 +33,9 @@ if(($_GET["player"]) == 2){
 	$player = null;
 }
 }
+}
+} else {
+	$player = 0;
 }
 
 $VideoName = "No title.";
@@ -87,13 +91,6 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $commentcount = 0;
 
-//$viewnew = $ViewCount + 1;
-
-//$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
-//mysqli_query($connect,$updateQuery);
-
-//$ViewCount = $viewnew;
-
 if(!$VideoDesc) {
 	$VideoDesc = "<i>No description...</i>";
 }
@@ -116,10 +113,6 @@ $commentcount++; // count the amount of comments
 <title><?php echo $VideoName ?> - PokTube</title>
 <meta name="title" content="<?php echo $VideoName ?> - PokTube">
 <meta name="description" content="<?php echo $VideoDesc ?>">
-<link rel="stylesheet" href="styles.css" type="text/css"> <!-- iirc this is old 2005 css.
-it's a shitty idea to mix 2017 bitview css and old july 2005 css, but this will do for now.
-i actually don't fucking care because this will be replaced with a XP/KDE3 style later on.
--pf94 1/24/2021 -->
 <body><table width="950" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>
 		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
@@ -178,7 +171,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		setInnerHTML(div_id, innerHTMLContent);
 	}
 </script>
-<div align="center" style="padding-bottom: 10px;">
+<div align="center">
 
 
 
@@ -189,7 +182,6 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 <table width="895" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="515" style="padding-right: 15px;">
-			<br>
 		<div id="watch-vid-title" class="title">
 			<h1><?php echo $VideoName ?></h1>
 		</div>
@@ -202,7 +194,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $VideoFile; ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
@@ -217,6 +209,10 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
+			
+					<div class="watchDetails">
+					<a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+
 				</td>
 			</tr>
 		</table>
@@ -360,6 +356,7 @@ $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
+$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
 echo "<div class='moduleFrameEntry'>
@@ -373,7 +370,7 @@ echo "<div class='moduleFrameEntry'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Views: ".$viewsvideolist."<br>
+										Uploaded: ".$uploadedvideolist."<br>
 									</div>
 		
 								</td>
@@ -437,7 +434,7 @@ echo "<div class='moduleFrameEntry'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Views: ".$viewsvideolist."<br>
+										Uploaded: ".$viewsvideolist."<br>
 									</div>
 		
 								</td>

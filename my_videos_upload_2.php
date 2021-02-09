@@ -25,6 +25,18 @@ function delete_directory($dirname) {
      return true;
 }
 
+function check_for_partner($sql, $user) {
+	$userfetch = mysqli_query($sql, "SELECT * FROM users WHERE username='". $user ."'");
+	$userinf = mysqli_fetch_assoc($userfetch);
+	if (isset($userinf['is_partner'])) {
+		if ($userinf['is_partner'] == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
 $url_id = randstr(11);
 $folder_id = randstr(26);
 $vid_id = randstr(26);
@@ -32,6 +44,7 @@ $vid_id = randstr(26);
 if(isset($_POST["upload"])){
 $vextension  = pathinfo( $_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION );
 $target_file = "content/preload/".$folder_id."/".$vid_id.".".$vextension;
+$hq_target_file = "content/preload/".$folder_id."/".$vid_id.".hq.".$vextension;
 $target_folder = "video/".$url_id;
 $preload_folder = "content/preload/".$folder_id;
 $target_thumb = "content/thumbs/".$url_id.".png";
@@ -79,26 +92,42 @@ if (!file_exists($preload_folder)) {
 						$title = $_POST['title'];
 						$desc = $_POST['desc'];
 						$uploader = mysqli_real_escape_string($connect, $username);
-		 				exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental video/".$url_id.".mp4"); 
+						echo check_for_partner($connect, $username);
+						if (check_for_partner($connect, $username) && $width && $height > 240) {
+							exec("ffmpeg -i ".$target_file." -vf scale=-854:480  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4");
+						} else {
+							$hq_target_file = "";
+						}
+						exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental video/".$url_id.".mp4"); 
 						$failcount = 0;
 						
 						clearstatcache();
-						if ( 0 == filesize("video/".$url_id.".mp4") ) {
+						if ( 0 == filesize("video/".$url_id.".mp4")) {
 							unlink("video/".$url_id.".mp4");
 							delete_directory($preload_folder);
 							$failcount++;
 						}
-						if($failcount == 1) {
+						if ( check_for_partner($connect, $username) && $width && $height > 240 && 0 == filesize("video/".$url_id.".hq.mp4") ) {
+							unlink("video/".$url_id.".hq.mp4");
+							delete_directory($preload_folder);
+							$failcount++;
+						}
+						if($failcount >= 1) {
 							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.</h1></center>";
 							die();
 						}
 						exec($thumbcmd);
 						$datenow = date("Y-m-d");
 						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, ViewCount, VideoCategory, VideoFile, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
-						$stmt->bind_param("sssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $none);
+						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, ViewCount, VideoCategory, VideoFile, HQVideoFile, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
+						$stmt->bind_param("ssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $hq_target_file, $none);
 						// set params
 						$target_file = "video/" . $url_id . ".mp4";
+						if (check_for_partner($connect, $username) && $width && $height > 240) {
+							$hq_target_file = "video/" . $url_id . ".hq.mp4";
+						} else {
+							$hq_target_file = "";
+						}
 						$stmt->execute();
 						$stmt = $connect->prepare("UPDATE users SET recent_vid = ? WHERE username = '".$uploader."'"); // add title, desc, through prepared statements
 						$stmt->bind_param("s", $url_id);

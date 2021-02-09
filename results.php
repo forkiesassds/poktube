@@ -15,7 +15,7 @@ echo "<html>
 <head>
 <title>Search results for ".$_GET['search']."</title>";
 ?>
-<div style="margin: auto; width: 50%;">
+<div style="margin: auto; width: 95%;">
 <!-- begin recently featured -->
 					<table class="roundedTable" width="auto" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#cccccc">
 			<tr>
