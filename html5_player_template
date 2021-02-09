@@ -267,13 +267,10 @@ C27.533,0.1,33.367,0,41.1,0h8.05c10.8,0,20.367,0.583,28.7,1.75C82.317,2.417,85.3
       <span class="yt-uix-button-menu-item html5-context-menu-pop-out">Pop out</span>
     </li>
     <li>
-      <a class="yt-uix-button-menu-item" target="_blank" href="/web/20120609184925/http://www.youtube.com/my_speed">Take speed test</a>
-    </li>
-    <li>
       <span class="yt-uix-button-menu-item html5-context-menu-show-video-info">Show video info</span>
     </li>
     <li>
-      <a class="yt-uix-button-menu-item" target="_blank" href="/web/20120609184925/http://www.youtube.com/html5">About HTML5</a>
+      <a class="yt-uix-button-menu-item" target="_blank" href="http://epictube.ueuo.com/">EpicTube Patching</a>
     </li>
   </ul>
 
