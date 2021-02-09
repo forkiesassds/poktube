@@ -20,6 +20,7 @@ function limit_echo($x, $length)
   }
 }
 
+if(isset($_GET["player"])) {
 if(($_GET["player"]) == 2){
 	$player = 2;
 } else {
@@ -32,6 +33,9 @@ if(($_GET["player"]) == 2){
 	$player = null;
 }
 }
+}
+} else {
+	$player = 0;
 }
 
 $VideoName = "No title.";
