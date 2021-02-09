@@ -189,7 +189,9 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 <table width="895" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="515" style="padding-right: 15px;">
-		<div class="tableSubTitle"><?php echo $VideoName ?></div>
+		<div id="watch-vid-title" class="title">
+			<h1><?php echo $VideoName ?></h1>
+		</div>
 		<!---<div style="font-size: 13px; font-weight: bold; text-align:center;">
 		<a href="#">Share</a>
 		// <a href="#comment">Comment</a>
