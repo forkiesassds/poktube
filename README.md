@@ -10,12 +10,14 @@
 5. Import ``poktube.sql`` to the ``poktube`` database
 6. Make a folder called ``preload`` in the content folder if it does not exist.
 
-## The homer
-Type this command on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
+### The homer
+Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
+#### February 9th 2021 database changes
 ```sql
 ALTER TABLE `users` ADD `ispartner` TINYINT NOT NULL AFTER `registeredon`; 
-```
 
+ALTER TABLE `videodb` ADD `HQVideoFile` TEXT NOT NULL AFTER `VideoFile`; 
+```
 ## To do
 * Improve the All users page. (only some shitty internal incomplete admin control panel exists)
 * Add categories
