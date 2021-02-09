@@ -85,7 +85,7 @@ echo "<div class='video-entry'>
 		  Alternative players: (NOT AVAILABLE)
 	  </div>
       <div class='video-facets'>
-         Uploaded by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
+         Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
       </div>
    </div>
    <div class='video-clear-list-left'></div>
