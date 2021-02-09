@@ -91,13 +91,6 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $commentcount = 0;
 
-$viewnew = $ViewCount + 1;
-
-$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
-mysqli_query($connect,$updateQuery);
-
-$ViewCount = $viewnew;
-
 if(!$VideoDesc) {
 	$VideoDesc = "<i>No description...</i>";
 }
