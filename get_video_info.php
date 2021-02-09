@@ -26,7 +26,11 @@ $author = $vdf['Uploader'];
 $name = $vid;
 $author = "IT IS NOT WORKING";
 }
-
+if (isset($vdf['VideoFile'])) {
+$vid = $vdf['VideoFile'];
+} else {
+die(); //die because there is no video file
+}
 
 
 // 2012 fixed player, get_video_info.php, crazy frog#8833

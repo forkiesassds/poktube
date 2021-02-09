@@ -1,8 +1,5 @@
 <?php
 include("db.php"); 
-if(isset($_GET["vp"])) {
-$vidpath = htmlspecialchars($_GET["vp"]);
-}
 if(isset($_GET["v"])) {
 $vid = htmlspecialchars($_GET["v"]);
 }
@@ -12,7 +9,7 @@ if ($vid == null) {
 die();
 }
 
-$image = "none"; // set this for thumbnail
+$image = "content/thumbs/". $vid .".png"; // set this for thumbnail
 $name = ""; // self-explanatory
 
 $vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
@@ -21,8 +18,7 @@ $vdf = mysqli_fetch_assoc($vidfetch);
 if (isset($vdf['VideoName'])) {
 $name = $vdf['VideoName'];
 } else {
-print($vid);
-var_dump($vdf);
+$name = "PLACEHOLDER";
 }
 ?>
   <html lang="en" dir="ltr">

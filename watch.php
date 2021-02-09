@@ -201,7 +201,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?vp=<?php echo $VideoFile; ?>&v=<?php echo $vid ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
