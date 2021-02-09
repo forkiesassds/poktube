@@ -102,15 +102,17 @@ if (!file_exists($preload_folder)) {
 						$failcount = 0;
 						
 						clearstatcache();
-						if ( 0 == filesize("video/".$url_id.".mp4") || 0 == filesize("video/".$url_id.".hq.mp4") ) {
-							if (check_for_partner($connect, $username)) {
-								unlink("video/".$url_id.".hq.mp4");
-							}
+						if ( 0 == filesize("video/".$url_id.".mp4")) {
 							unlink("video/".$url_id.".mp4");
 							delete_directory($preload_folder);
 							$failcount++;
 						}
-						if($failcount == 1) {
+						if ( check_for_partner($connect, $username) && 0 == filesize("video/".$url_id.".hq.mp4") ) {
+							unlink("video/".$url_id.".hq.mp4");
+							delete_directory($preload_folder);
+							$failcount++;
+						}
+						if($failcount >= 1) {
 							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.</h1></center>";
 							die();
 						}

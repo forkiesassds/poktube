@@ -38,9 +38,8 @@ $hqvid = $vid;
 } else {
 $hqvid = $vdf['HQVideoFile'];
 }
-else {
+} else {
 $hqvid = $vid;
-}
 }
 
 
