@@ -93,7 +93,7 @@ if (!file_exists($preload_folder)) {
 						$desc = $_POST['desc'];
 						$uploader = mysqli_real_escape_string($connect, $username);
 						echo check_for_partner($connect, $username);
-						if (check_for_partner($connect, $username)) {
+						if (check_for_partner($connect, $username) && $width && $height > 240) {
 							exec("ffmpeg -i ".$target_file." -vf scale=-854:480  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4");
 						} else {
 							$hq_target_file = "";
@@ -107,7 +107,7 @@ if (!file_exists($preload_folder)) {
 							delete_directory($preload_folder);
 							$failcount++;
 						}
-						if ( check_for_partner($connect, $username) && 0 == filesize("video/".$url_id.".hq.mp4") ) {
+						if ( check_for_partner($connect, $username) && $width && $height > 240 && 0 == filesize("video/".$url_id.".hq.mp4") ) {
 							unlink("video/".$url_id.".hq.mp4");
 							delete_directory($preload_folder);
 							$failcount++;
@@ -123,7 +123,7 @@ if (!file_exists($preload_folder)) {
 						$stmt->bind_param("ssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $hq_target_file, $none);
 						// set params
 						$target_file = "video/" . $url_id . ".mp4";
-						if (check_for_partner($connect, $username)) {
+						if (check_for_partner($connect, $username) && $width && $height > 240) {
 							$hq_target_file = "video/" . $url_id . ".hq.mp4";
 						} else {
 							$hq_target_file = "";
