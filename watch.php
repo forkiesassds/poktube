@@ -87,12 +87,12 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $commentcount = 0;
 
-//$viewnew = $ViewCount + 1;
+$viewnew = $ViewCount + 1;
 
-//$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
-//mysqli_query($connect,$updateQuery);
+$updateQuery = "UPDATE videodb SET ViewCount='". $viewnew ."' WHERE VideoID='". $vid ."'";
+mysqli_query($connect,$updateQuery);
 
-//$ViewCount = $viewnew;
+$ViewCount = $viewnew;
 
 if(!$VideoDesc) {
 	$VideoDesc = "<i>No description...</i>";
@@ -178,7 +178,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		setInnerHTML(div_id, innerHTMLContent);
 	}
 </script>
-<div align="center" style="padding-bottom: 10px;">
+<div align="center">
 
 
 
@@ -189,10 +189,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 <table width="895" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="515" style="padding-right: 15px;">
-			<br>
-		<div id="watch-vid-title" class="title">
-			<h1><?php echo $VideoName ?></h1>
-		</div>
+		<div class="tableSubTitle"><?php echo $VideoName ?></div>
 		<!---<div style="font-size: 13px; font-weight: bold; text-align:center;">
 		<a href="#">Share</a>
 		// <a href="#comment">Comment</a>
@@ -202,7 +199,7 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $VideoFile; ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?vp=<?php echo $VideoFile; ?>&v=<?php echo $vid ?>&player=<?php echo $player; ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 		
@@ -217,6 +214,10 @@ i actually don't fucking care because this will be replaced with a XP/KDE3 style
 					<div class="watchAdded">
 					Uploaded: <?php echo $UploadDate ?>
 					</div>
+			
+					<div class="watchDetails">
+					Views: <?php echo $ViewCount ?> | <a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+
 				</td>
 			</tr>
 		</table>

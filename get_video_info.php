@@ -1,4 +1,5 @@
 <?php
+include("db.php");
 //first method, pick your video via URL
 if(isset($_GET["video_id"])) {
 $vid = htmlspecialchars($_GET["video_id"]); // this entire if statement is not required if you are using second method
@@ -7,12 +8,26 @@ $vid = htmlspecialchars($_GET["video_id"]); // this entire if statement is not r
 // second method, hardcode it in
 // $vid = "Insert video file name here";
 
+
 if ($vid == null) {
 die();
 }
 
 $name = "Insert video name here";
 $author = "Insert author name here";
+
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+//do not show anything if the video-stream dosent exist
+if (isset($vdf['VideoName']) && isset($vdf['Uploader'])) {
+$name = $vdf['VideoName'];
+$author = $vdf['Uploader'];
+} else {
+$name = $vid;
+$author = "IT IS NOT WORKING";
+}
+
+
 
 // 2012 fixed player, get_video_info.php, crazy frog#8833
 ?>

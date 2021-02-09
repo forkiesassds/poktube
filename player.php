@@ -1,4 +1,8 @@
 <?php
+include("db.php"); 
+if(isset($_GET["vp"])) {
+$vidpath = htmlspecialchars($_GET["vp"]);
+}
 if(isset($_GET["v"])) {
 $vid = htmlspecialchars($_GET["v"]);
 }
@@ -10,6 +14,16 @@ die();
 
 $image = "none"; // set this for thumbnail
 $name = ""; // self-explanatory
+
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+//do not show anything if the video-stream dosent exist
+if (isset($vdf['VideoName'])) {
+$name = $vdf['VideoName'];
+} else {
+print($vid);
+var_dump($vdf);
+}
 ?>
   <html lang="en" dir="ltr">
 
