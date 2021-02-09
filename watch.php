@@ -356,7 +356,7 @@ $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
-$uploadedvideolist = htmlspecialchars($vdf['UploadDate']);
+$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
 echo "<div class='moduleFrameEntry'>
