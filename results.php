@@ -80,3 +80,4 @@ echo "<div class='moduleEntry'>
 		</table>
 	</div>
 			<!-- end recently featured -->
+<?php include("footer.php"); ?>
