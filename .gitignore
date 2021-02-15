@@ -8,3 +8,6 @@ ngrok.exe
 content/
 
 json_user.php
+
+db.php
+config.php
