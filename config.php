@@ -1,8 +1,8 @@
 <?php
 /* Database credentials. */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'poktube');
-define('DB_PASSWORD', 't43Z34tPzWWaYyE6');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
 define('DB_NAME', 'poktube');
  
 /* Attempt to connect to MySQL database */
