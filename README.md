@@ -12,11 +12,13 @@
 
 ### The homer
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
-#### February 9th 2021 database changes
+#### February 15th 2021 database changes
 ```sql
 ALTER TABLE `users` ADD `is_partner` TINYINT NOT NULL AFTER `registeredon`; 
 
 ALTER TABLE `videodb` ADD `HQVideoFile` TEXT NOT NULL AFTER `VideoFile`; 
+
+ALTER TABLE `videodb` ADD `IsFeatured` TEXT NOT NULL AFTER `CustomThumbnail`; 
 ```
 ## To do
 * Improve the All users page. (only some shitty internal incomplete admin control panel exists)

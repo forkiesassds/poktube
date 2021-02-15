@@ -88,15 +88,18 @@ if(($_GET["vexist"]) == 0){
 	<div id='hpFeatured'>
 		<div class='video-entry'>
 <?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+$featured = $fetch['IsFeatured'];
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+$c = 0;
+if ($featured && $c <= 10) {
 echo "<div class='video-entry'>
    <div class='v120WideEntry'>
       <div class='v120WrapperOuter'>
@@ -123,6 +126,8 @@ echo "<div class='video-entry'>
    </div>
    <div class='video-clear-list-left'></div>
 </div>";
+$c++;
+}
 }
 //<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>

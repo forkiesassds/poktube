@@ -68,6 +68,7 @@ $PreUploadDate = htmlspecialchars($vdf['UploadDate']);
 $VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
 $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
+$Featured = $vdf['IsFeatured'];
 $DateTime = new DateTime($PreUploadDate);
 
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
@@ -198,9 +199,17 @@ $commentcount++; // count the amount of comments
 			</div>
 		</div>
 		
-			<table style="margin-left: 8px;margin-right: 8px;" width="480" cellspacing="0" cellpadding="0" border="0" align="center">
+			<table style="margin-left: 8px;margin-right: 8px;" width="635" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tr>
 				<td>
+					<?php
+					if ($Featured) {
+					echo "
+					<div id=\"watch-video-response\">
+						This video has been featured!
+					</div>";
+					}
+					?>
 					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
 										</div>
 					</div>
