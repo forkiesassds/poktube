@@ -59,7 +59,7 @@ console.log("2012 player loaded: by Crazy frog. Modified by Chaziz and Icanttell
       'FLASH_UPGRADE': '<div class=\"yt-alert yt-alert-default yt-alert-error  yt-alert-player\"><div class=\"yt-alert-icon\"><img src=\"\/\/s.ytimg.com\/yt\/img\/pixel-vfl3z5WfW.gif\" class=\"icon master-sprite\" alt=\"Alert icon\"><\/div><div class=\"yt-alert-buttons\"><\/div><div class=\"yt-alert-content\" role=\"alert\">    <span class=\"yt-alert-vertical-trick\"><\/span>\n    <div class=\"yt-alert-message\">\n            You need to upgrade your Adobe Flash Player to watch this video. <br> <a href=\"http:\/\/get.adobe.com\/flashplayer\/\">Download it from Adobe.<\/a>\n    <\/div>\n<\/div><\/div>'
     });
       yt.setConfig({
-      'PLAYER_CONFIG': {"assets": {"html": "\/html5_player_template", "css": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/cssbin\/www-player-vflFpAOf-.css", "js": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/jsbin\/html5player-vfljIEiND.js"}, "url": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/watch_as3-vflpp9opi.swf", "min_version": "8.0.0", "args": {"el": "embedded", "fexp": "900064,907217,907335,921602,919306,919316,912804,913542,919324,912706", "is_html5_mobile_device": false, "length_seconds": 212, "allow_embed": 1, "tabsb": "1", "allow_ratings": 0, "hl": "en_US", "eurl": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/www.dailykos.com\/story\/2012\/05\/28\/1095455\/-How-to-deal-with-random-people-harassing-you-online", "iurl": "<?php echo $image; ?>", "view_count": 62280066, "title": "<?php echo $name; ?>", "avg_rating": 4.47379109953, "video_id": "<?php echo $vid; ?>", "sw": "1.0", "enablejsapi": "0", "sk": "MvZbizDv2TLFXP_7GPrvTX347OtEerznC", "advideo": "1", "rel": "1", "playlist_module": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/playlist_module-vfl3lol2H.swf"}, "url_v9as2": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflNmVqFE.swf", "params": {"allowscriptaccess": "always", "allowfullscreen": "true", "bgcolor": "#000000"}, "attrs": {"width": "100%", "id": "video-player", "height": "100%"}, "url_v8": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflNmVqFE.swf", "html5": true},
+      'PLAYER_CONFIG': {"assets": {"html": "\/html5_player_template", "css": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/cssbin\/www-player-vflFpAOf-.css", "js": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/jsbin\/html5player-vfljIEiND.js"}, "url": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/watch_as3-vflpp9opi.swf", "min_version": "8.0.0", "args": {"el": "embedded", "fexp": "900064,907217,907335,921602,919306,919316,912804,913542,919324,912706", "is_html5_mobile_device": false, "length_seconds": 212, "allow_embed": 1, "tabsb": "1", "allow_ratings": 0, "hl": "en_US", "eurl": "https:\/\/squarebracket.me", "iurl": "<?php echo $image; ?>", "view_count": 62280066, "title": "<?php echo $name; ?>", "avg_rating": 4.47379109953, "video_id": "<?php echo $vid; ?>", "sw": "1.0", "enablejsapi": "0", "sk": "MvZbizDv2TLFXP_7GPrvTX347OtEerznC", "advideo": "1", "rel": "1", "playlist_module": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/playlist_module-vfl3lol2H.swf"}, "url_v9as2": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflNmVqFE.swf", "params": {"allowscriptaccess": "always", "allowfullscreen": "true", "bgcolor": "#000000"}, "attrs": {"width": "100%", "id": "video-player", "height": "100%"}, "url_v8": "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/s.ytimg.com\/yt\/swfbin\/cps-vflNmVqFE.swf", "html5": true},
     'EMBED_HTML_TEMPLATE': "\u003ciframe width=\"__width__\" height=\"__height__\" src=\"__url__\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e",
     'EMBED_HTML_URL': "https:\/\/web.archive.org\/web\/20120609184833\/http:\/\/www.youtube.com\/embed\/__videoid__"
   });
@@ -92,24 +92,3 @@ console.log("2012 player loaded: by Crazy frog. Modified by Chaziz and Icanttell
 
 </body>
 </html>
-<!--
-     FILE ARCHIVED ON 18:48:33 Jun 09, 2012 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 13:50:30 Jan 21, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  captures_list: 3478.604
-  exclusion.robots: 0.364
-  exclusion.robots.policy: 0.345
-  RedisCDXSource: 42.508
-  load_resource: 277.14
-  LoadShardBlock: 3372.678 (3)
-  esindex: 0.019
-  PetaboxLoader3.resolve: 739.112 (4)
-  PetaboxLoader3.datanode: 687.403 (4)
-  CDXLines.iter: 26.368 (3)
--->
