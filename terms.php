@@ -47,13 +47,13 @@
 
 <br><br>YOU SPECIFICALLY ACKNOWLEDGE THAT PokTube SHALL NOT BE LIABLE FOR USER SUBMISSIONS OR THE DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY, AND THAT THE RISK OF HARM OR DAMAGE FROM THE FOREGOING RESTS ENTIRELY WITH YOU. 
 
-<br><br>The Website is controlled and offered by Chaziz from his house in Canada.  Chaziz makes no representations that the PokTube Website is appropriate or available for use in other locations.  Those who access or use the PokTube Website from other jurisdictions do so at their own volition and are responsible for compliance with local law.
+<br><br>The Website is controlled and offered by Chaziz. The Website is hosted in it's facilities in the United States. Chaziz makes no representations that the PokTube Website is appropriate or available for use in other locations.  Those who access or use the PokTube Website from other jurisdictions do so at their own volition and are responsible for compliance with local law.
 
 <br><br><strong>7. Indemnity</strong> 
 <br>You agree to defend, indemnify and hold harmless PokTube, its parent corporation, officers, directors, employees and agents, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from: (i) your use of and access to the PokTube Website; (ii) your violation of any term of this Agreement; (iii) your violation of any third party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that one of your User Submissions caused damage to a third party. This defense and indemnification obligation will survive this Agreement and your use of the PokTube Website. 
 
 <br><br><strong>8. Ability to Accept Terms of Service</strong> 
-<br>You affirm that you are either more than 18 years of age or, an emancipated minor or, possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations and warranties set forth in these Terms of Service, and to abide by and comply with these Terms of Service.   In any case, you affirm that you are over the age of 13, as the PokTube Website is not intended for children under 13.  
+<br>You affirm that you are over the age of 13, as the PokTube Website is not intended for children under 13.  
 
 		</div>
 		</td>

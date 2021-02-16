@@ -32,7 +32,7 @@ if ($detail2["registeredon"] == null) {
 		<td valign="top">
 		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
-			<td align="left" class="headertext" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide!</td>
+			<td align="left" class="headertext" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload your videos online!</td>
 				<td align="right">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>

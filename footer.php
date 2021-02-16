@@ -8,7 +8,7 @@
 			<br>
 			<a href="https://www.youtube.com/channel/UCMnG3eA5QcSgIPsavuW4ubA"><img src="img/chaziz.png"><br></a>
 			Copyright &copy; 2021 Chaziz <br/>
-			<?php $output=null; $output2=null; exec("git show --format=\"Revision %h commited on %cI\" --no-patch 2>&1", $output, $output2); echo $output[0]; ?>
+			<p><small><?php $output=null; $output2=null; exec("git show --format=\"Revision %h (%s) commited on %cI by %an\" --no-patch 2>&1", $output, $output2); echo $output[0]; ?></small></p>
 			</td>
 	</tr>
 </table>		</div>
