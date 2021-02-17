@@ -1,6 +1,5 @@
 <?php
-
-  $con=mysqli_connect("localhost","root","","poktube");
+  include "db.php";
 
   // Check connection
   if (mysqli_connect_errno())
@@ -10,7 +9,7 @@
 
   $query = "SELECT * FROM `videodb` where `VideoID` = '" . $_GET['v'] . "'";
 
-  $result = mysqli_query($con,$query);
+  $result = mysqli_query($connect,$query);
 
   $rows = array();
   while($r = mysqli_fetch_assoc($result)) {
@@ -19,5 +18,5 @@
   header("Content-type: application/json");
   echo json_encode($rows);
 
-  mysqli_close($con);
+  mysqli_close($connect);
 ?>

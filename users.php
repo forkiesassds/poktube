@@ -4,6 +4,7 @@
 </head>
 <?php
 include "header.php";
+include "db.php";
 error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
 <table width="800" cellspacing="0" cellpadding="0" border="0" align="center">
@@ -13,14 +14,13 @@ error_reporting(0); //fixing the query issue breaks comment sections.
 
 <div class="tableSubTitle">All users</div>
 <?php
-$con=mysqli_connect("localhost", "root", "", "poktube");
 // Check connection
 if (mysqli_connect_errno())
 {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$result = mysqli_query($con,"SELECT * FROM users");
+$result = mysqli_query($connect,"SELECT * FROM users");
 
 echo "<table cellspacing='0' cellpadding='0' border='0' class='roundedTable' bgcolor='#cccccc' border='2'>
 <tr>
