@@ -358,10 +358,10 @@ Quality
         <span class="yt-uix-button-menu-close">720p <sup>HD</sup></span>
       </li>
       <li class="yt-uix-button-menu-item" data-value="large">
-        <span class="yt-uix-button-menu-close">480p</span>
+        <span class="yt-uix-button-menu-close">High</span>
       </li>
       <li class="yt-uix-button-menu-item" data-value="medium">
-        <span class="yt-uix-button-menu-close">360p</span>
+        <span class="yt-uix-button-menu-close">Low</span>
       </li>
       <li class="yt-uix-button-menu-item" data-value="small">
         <span class="yt-uix-button-menu-close">240p</span>
