@@ -21,11 +21,11 @@
 <!---- footer end ----->
 
 
-<!---- POKTUBE PAGE RENDERED
+<!-- POKTUBE PAGE RENDERED
 <?php
 $t=time();
 echo(date("Y-m-d H:i:s",$t));?> 
 BY USER <?php echo ($_SERVER['REMOTE_ADDR']);?> ON
 <?php
 echo ($_SERVER['HTTP_USER_AGENT']);
-?>----->
+?>-->
