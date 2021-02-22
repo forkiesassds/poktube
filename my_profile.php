@@ -52,7 +52,8 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png")) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
-    //echo "Sorry, there was an error uploading your file.";
+    echo "Sorry, there was an error uploading your file.";
+	echo($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png");
   }
 }
 ?>
