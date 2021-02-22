@@ -1,6 +1,7 @@
 <?php 
 include("header.php"); 
 include("auth.php");
+error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else
@@ -52,7 +53,6 @@ if ($uploadOk == 0) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
-	echo($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png");
   }
 }
 ?>
