@@ -1,7 +1,6 @@
 <?php 
 include("header.php"); 
 include("auth.php");
-error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else
