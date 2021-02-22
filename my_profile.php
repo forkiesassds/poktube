@@ -8,7 +8,7 @@ error_reporting(1); //fixing the query issue breaks comment sections.
 	make it a SQL query or whatever the fuck -->
 
 <?php
-$target_dir = "/content/profpic/";
+$target_dir = "content/profpic/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
@@ -52,11 +52,12 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png")) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
-    echo "Sorry, there was an error uploading your file.";
+    //echo "Sorry, there was an error uploading your file.";
   }
 }
 ?>
-<center><h1>My Profile</h1>
+<div class="tableSubTitle">My Profile</div>
+<h3>NOTE: THIS DOES NOT WORK ON LINUX SERVERS</h3>
 <h2>Profile Picture</h2>
 <img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
 <br>
@@ -65,7 +66,6 @@ if ($uploadOk == 0) {
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
-<hr style='border-top: solid black 2px; width: 30%;'>
 <h4>Set information you want others to see</h4>
   <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
   <br>
@@ -163,7 +163,5 @@ if ($uploadOk == 0) {
   </form>
    <br>
  <br>
- <hr style='border-top: solid black 2px; width: 30%;'>
-</center>
 <br>
 <?php include("footer.php"); ?>
