@@ -34,13 +34,13 @@ if(isset($_POST["submit"])) {
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-  //echo "Sorry, your file is too large.";
+  echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "png") {
-  //echo "Sorry, PNG files are only supported.";
+  echo "Sorry, PNG files are only supported.";
   $uploadOk = 0;
 }
 
@@ -58,7 +58,7 @@ if ($uploadOk == 0) {
 }
 ?>
 <div class="tableSubTitle">My Profile</div>
-<h3>NOTE: THIS DOES NOT WORK ON LINUX SERVERS</h3>
+<h3>IMPORTANT NOTICE: Uploading does NOT work. I know this. Do not bother me about it.</h3>
 <h2>Profile Picture</h2>
 <img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
 <br>
