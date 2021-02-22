@@ -8,7 +8,7 @@ error_reporting(1); //fixing the query issue breaks comment sections.
 	make it a SQL query or whatever the fuck -->
 
 <?php
-$target_dir = "content/profpic/";
+$target_dir = "/usr/share/nginx/html/content/profpic/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
