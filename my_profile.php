@@ -53,7 +53,7 @@ if ($uploadOk == 0) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
     //echo "Sorry, there was an error uploading your file.";
-	echo htmlspecialchars($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png");
+	echo htmlspecialchars($target_dir . $_SESSION['username'] . ".png");
   }
 }
 ?>
