@@ -1,5 +1,6 @@
 <?php
-include "header.php";
+include "db.php";
+include "auth.php";
 ?>
 <?php
 // Check connection
@@ -10,23 +11,19 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 $result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
 
-$vdf = mysqli_fetch_assoc($result);
+$adf = mysqli_fetch_assoc($result);
 
-$isAdmin = $vdf['is_admin'];
+$isAdmin = $adf['is_admin'];
 
-echo $isAdmin;
-echo $_SESSION["username"];
-echo "<br>";
-echo "SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'";
-
-  if($isAdmin == 1)
-  {
-    echo "ASS";
-  }
-  else
-  {
-    echo "COCK";
-  }
+$admin = 0;
+if($isAdmin == 1) // is logged in?
+{
+$admin = 1;
+}
+else
+{
+    echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
+}
 
 mysqli_close($connect);
 ?>

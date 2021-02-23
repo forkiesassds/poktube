@@ -6,6 +6,7 @@ if(isset($_SESSION["username"])) {
 $username = htmlspecialchars($_SESSION["username"]);
 $detail = mysqli_query($connect, "SELECT * FROM users WHERE username='". $username ."'"); // selects details of user
 $detail2 = mysqli_fetch_assoc($detail); // function for getting details of user
+$isAdmin = $detail2['is_admin'];
 if ($detail2["registeredon"] == null) {
 	$stmt = $connect->prepare("UPDATE users SET registeredon = ? WHERE username = ?"); // prepares sql commands in prepared statement
 	$stmt->bind_param("ss", $datenow, $username);
@@ -95,6 +96,15 @@ if ($detail2["registeredon"] == null) {
 			<a class="nav-item" href="index.php">Home</a>
 			<a class="nav-item" href="browse.php">Videos</a>
 			<a class="nav-item" href="https://discord.gg/FAEEuMhn3M">Discord</a>
+			<?php $admin = 0;
+if($isAdmin == 1) // is logged in?
+{
+echo "<a class='nav-item' href='admin.php'>Admin</a>";
+}
+else
+{
+    echo "";
+}?>
 		</div>
 		<br>
 		
