@@ -18,7 +18,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" type="text/css" href="assets/components/menu.css">
 <link rel="stylesheet" type="text/css" href="assets/components/image.css">
 <link rel="stylesheet" type="text/css" href="assets/components/transition.css">
-<link rel="stylesheet" type="text/css" href="assets/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="assets/semantic.twitter.min.css">
 <script src="assets/jquery-3.5.1.min.js"></script>
 <script src="assets/semantic.min.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
