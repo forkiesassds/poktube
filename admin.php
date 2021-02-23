@@ -1,17 +1,5 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<?php
-include "header.php";
-error_reporting(0); //fixing the query issue breaks comment sections.
-?>
-<table width="800" cellspacing="0" cellpadding="0" border="0" align="center">
-	<tbody><tr>
-		<td style="padding-bottom: 25px;" bgcolor="#FFFFFF">
-		<div style="padding: 0px 5px 0px 5px;">
-
-<div class="tableSubTitle">All users</div>
+<?php include("header.php"); ?>
+<title>PokTube</title>
 <?php
 // Check connection
 if (mysqli_connect_errno())
@@ -42,9 +30,4 @@ echo "</table>";
 
 mysqli_close($con);
 ?>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</html>
+<?php include("footer.php"); ?>

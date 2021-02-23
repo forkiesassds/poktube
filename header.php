@@ -94,7 +94,9 @@ if ($detail2["registeredon"] == null) {
 <div class="bar">
 			<a class="nav-item" href="index.php">Home</a>
 			<a class="nav-item" href="browse.php">Videos</a>
-			<a class="nav-item" href="https://discord.gg/72ZPaTtXct">Discord</a>
+			<a class="nav-item" href="https://discord.gg/FAEEuMhn3M">Discord</a>
 		</div>
 		<br>
+		
+		<h6>NOTICE: FILE UPLOADING IS BROKEN</h6>
 <!---- header end ----->
