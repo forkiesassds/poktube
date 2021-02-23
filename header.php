@@ -96,7 +96,8 @@ if ($detail2["registeredon"] == null) {
 			<a class="nav-item" href="index.php">Home</a>
 			<a class="nav-item" href="browse.php">Videos</a>
 			<a class="nav-item" href="https://discord.gg/FAEEuMhn3M">Discord</a>
-			<?php $admin = 0;
+			<?php 
+if(isset($_SESSION["username"])) {
 if($isAdmin == 1) // is logged in?
 {
 echo "<a class='nav-item' href='admin.php'>Admin</a>";
@@ -104,6 +105,7 @@ echo "<a class='nav-item' href='admin.php'>Admin</a>";
 else
 {
     echo "";
+}
 }?>
 		</div>
 		<br>

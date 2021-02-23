@@ -15,9 +15,11 @@ Type these commands on your PokTube database on PHPmyAdmin, why? Because the dat
 
 No, this will not give access to that The Homer folder.
 #### February 22nd 2021 database change
-This adds the "Is admin" thing, for Admin Control Panel.
+This adds the "Is admin" and the "Is approved" things, for the Admin Control Panel.
 ```sql
 ALTER TABLE `users` ADD `is_admin` INT(4) NOT NULL DEFAULT '0' AFTER `is_partner`; 
+
+ALTER TABLE `videodb` ADD `isApproved` INT(4) NOT NULL AFTER `UploadDate`; 
 ```
 #### February 9th 2021 database changes
 This adds Partner and HD Video Support. NEEDED OR ELSE UPLOADER WILL NOT WORK.
