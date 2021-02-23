@@ -10,7 +10,7 @@
 			<a href="#" class="item">Privacy Policy</a>
 		</div>
 		<br/>
-		<a href="https://www.youtube.com/channel/UCMnG3eA5QcSgIPsavuW4ubA"><img src="img/chaziz.png"></a><br/> <!--TODO: make this use white text instead of white text-->
+		<a href="https://www.youtube.com/channel/UCMnG3eA5QcSgIPsavuW4ubA"><img src="img/chaziz.png"></a><br/> <!--TODO: make this use white text instead of black text-->
 		<span class="item">Copyright &copy; 2021 Chaziz</a><br/>
 		<p><small><?php $output=null; $output2=null; exec("git show --format=\"Revision %h (%s) commited on %cI by %an\" --no-patch 2>&1", $output, $output2); echo $output[0]; ?></p></small>
 		<small><a href="githistory.php">More Git info</a></small>
