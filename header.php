@@ -39,7 +39,7 @@ if ($detail2["registeredon"] == null) {
 		<form method="GET" action="results.php" style="padding: unset;margin: unset;">
 			<div class="ui transparent inverted icon input">
 				<i class="search icon"></i>
-				<input type="text" placeholder="Search">
+				<input type="text" name="search" value="" placeholder="Search">
 			</div>
 		</form>
 	</div>
