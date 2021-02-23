@@ -38,10 +38,12 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }
 ?>
-<div id="homepage-main-content">
+<div class="two column stackable ui padded grid">
+  <div class="ten wide column">
+    <div class="ui segment">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
-					<table class="roundedTable" width="650" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
+					<table class="roundedTable" width="auto" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
 			<tr>
 				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
 				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
@@ -84,12 +86,9 @@ if(($_GET["vexist"]) == 0){
 		<div class="clear"></div>
 	</div>
 		<div class="clear"></div>
-<div id='homepage-video-list' class='list-view'>
-	<div id='hpFeatured'>
-		<div class='video-entry'>
+<div class="ui celled list">
 <?php
 $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
-
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
@@ -97,37 +96,34 @@ $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendation
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-echo "<div class='video-entry'>
-   <div class='v120WideEntry'>
-      <div class='v120WrapperOuter'>
-         <div class='v120WrapperInner'>
-            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-         </div>
+echo "<div class='item'>
+    <div class='image'>
+      <img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+    </div>
+    <div class='content'>
+      <a href='watch.php?v=$idvideolist&player=0' class='header'>$namevideolist</a>
+      <div class='meta'>
+        <span>$descvideolist</span>
       </div>
-   </div>
-   <div class='video-main-content' id='video-main-content-muP9eH2p2PI'>
-      <div class='video-title '>
-         <div class='video-long-title'>
-            <a id='video-long-title-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0'  title='$namevideolist' rel='nofollow'>$namevideolist</a>
-         </div>
+      <div class='description'>
+        <p></p>
       </div>
-      <div id='video-description-muP9eH2p2PI' class='video-description'>
-         $descvideolist
+      <div class='extra'>
+      Uploaded on $uploadvideolist<br>
+	  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png'>
+	  <span>$uploadervideolist</span></a>
       </div>
-      <div class='video-facets'>
-         Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
-      </div>
-   </div>
-   <div class='video-clear-list-left'></div>
-</div>";
+    </div>
+  </div>";
 }
 //<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>
+</div>
 			<!-- end recently featured -->
-</div></div></div></div></div>
+</div></div></div>
 
-<div id="homepage-side-content">
-   <div class="homepage-side-block" id="homepage-whats-new-block">
+<div class="six wide column">
+   <div class="ui segment">
       <div class="homepage-yellow-block">
          <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
          <div class="clear"></div>
@@ -141,7 +137,7 @@ echo "<div class='video-entry'>
       </div>
       <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
    </div>
-</div></div>
+</div></div></div>
 
 
 <div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">
