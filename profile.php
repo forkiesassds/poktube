@@ -50,7 +50,7 @@ $RegisteredYear = $DateTime->format('Y');
 
 .ui.padded.grid:not(.vertically):not(.horizontally) {
 	position: relative !important;
-	bottom: 90px;
+	bottom: 125px;
 }
 </style>
 <meta name="title" content="<?php echo $Username ?>'s Channel">
@@ -76,7 +76,7 @@ $RegisteredYear = $DateTime->format('Y');
   </div>
 </div>
 </div>
-<div class="fourteen wide column">
+<div class="four wide column">
 <div class="ui card">
   <div class="content">
     <div class="header">About me</div>
