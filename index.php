@@ -80,8 +80,7 @@ if(($_GET["vexist"]) == 0){
 		</table>
 <!-- begin recently featured -->
 <div id="homepage-featured-heading">
-			<div id="homepage-featured-more-top"><a id="hpVideoListMoreLink" href="browse.php" onmousedown="urchinTracker('/Events/Home/SeeMore/Featured/Top');">See More Featured Videos</a></div>
-		<h1 id="hpVideoListHead">Featured Videos</h1>
+		<h1 id="hpVideoListHead">Featured Videos</h1><a href="browse.php">See More Featured Videos</a>
 		<div id="homepage-featured-tabs">
 		<div class="clear"></div>
 	</div>
@@ -124,18 +123,13 @@ echo "<div class='item'>
 
 <div class="six wide column">
    <div class="ui segment">
-      <div class="homepage-yellow-block">
-         <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
+         <h4 class="ui header">What's New</h4>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
-		 <b style="color:#CC6600">New server</b><br>
-		 PokTube is no longer hosted on a laptop. It has been moved to be hosted on a Debian server with Nginx.<br><br>
-		 Since we haven't figured everything out yet, video uploading and playback is broken for the time being.<br><br>
-		 <b style="color:#CC6600">New player</b><br>
-		 End my suffering, Flash and ActiveX players are no longer available for the time being.<br><br>
-         <div style="font-size: 1px; height: 1px;"><br></div>
-      </div>
-      <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
+		 <h4 class="ui header">Headers</h4>
+		 <p>A site can define styles for headers</p>
+		 <h4 class="ui header">Headers</h4>
+		 <p>A site can define styles for headers</p></div>
    </div>
 </div></div></div>
 

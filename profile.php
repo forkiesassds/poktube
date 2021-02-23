@@ -36,13 +36,43 @@ $Website = htmlspecialchars($cdf['prof_website']);
 $PreRegisteredOn = $cdf['registeredon'];
 $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
 ?>
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
+<body>
 <div style="padding: 0px 5px 0px 5px;">
-		
 
+<div class="two column stackable ui padded grid">
+<div class="two wide column">
+<div style="box-shadow: 0 0 0 1px #d4d4d5,0 2px 0 0 <?php echo $Foreground?>,0 1px 3px 0 #d4d4d5;" class="ui card">
+  <div class="image">
+    <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
+  </div>
+  <div class="content">
+    <a class="header"><?php echo $Username ?></a>
+    <div class="meta">
+      <span class="date">Joined in <?php echo $RegisteredYear?></span>
+    </div>
+    <div class="description">
+      <?php echo stripslashes($AboutMe) ?>
+    </div>
+  </div>
+</div>
+</div>
+<div class="fourteen wide column">
+<div class="ui card">
+  <div class="content">
+    <div class="header">Yvan Eht Nioj</div>
+  </div>
+          <div class="content">
+          <div class="summary">
+            <div class="meta">Name:</div> ASS
+          </div>
+        </div>
+</div>
+</div>
 
 <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
