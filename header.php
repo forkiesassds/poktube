@@ -49,7 +49,8 @@ if ($detail2["registeredon"] == null) {
 <a href='my_videos_upload.php' class=\"item\">Upload</a>
 <a href='my_profile.php' class=\"item\">Settings</a>
 <a href='logout.php' class=\"item\">Log Out</a>
-<a href='help.php' class=\"item\">Help</a>";
+<a href='help.php' class=\"item\">Help</a>
+";
 if($isAdmin == 1)
 {
 echo "<a href='admin.php' class=\"item\">Admin</a>";
