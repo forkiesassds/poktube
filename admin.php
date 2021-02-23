@@ -1,18 +1,8 @@
 <?php include("header_admin.php");
 include("admin_check.php");
 include("db.php"); ?>
-<title>PokTube</title>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello, world!</title>
-  </head>
-  <body>
-  <div class="container-fluid">
-    <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
+<div class="ui container">
+	<h1>Welcome, <?php echo $_SESSION["username"];?></h1>
 <pre>
 <strong>Uptime:</strong>
 <?php system("uptime"); ?>
