@@ -5,8 +5,8 @@
 			<a href="#" class="item">What's New</a>
 			<a href="#" class="item">About Us</a>
 			<a href="help.php" class="item">Help</a>
-			<a href="terms.php" class="item">Developers</a>
-			<a href="#" class="item">Terms of Use</a>
+			<a href="#" class="item">Developers</a>
+			<a href="terms.php" class="item">Terms of Use</a>
 			<a href="#" class="item">Privacy Policy</a>
 		</div>
 		<br/>
