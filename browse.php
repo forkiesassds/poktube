@@ -76,10 +76,6 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 				Added: ".$uploadvideolist."<br>
 				by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
 			</div>
-			<div class='moduleFeaturedDetails'>
-				Alt players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
-			</div>
-			
 		</td>";
 	$count++;
 	if($count == 4) {

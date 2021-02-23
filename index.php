@@ -114,9 +114,6 @@ echo "<div class='video-entry'>
       <div id='video-description-muP9eH2p2PI' class='video-description'>
          $descvideolist
       </div>
-	  <div class='video-facets'>
-		  Alternative players: (NOT AVAILABLE)
-	  </div>
       <div class='video-facets'>
          Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
       </div>

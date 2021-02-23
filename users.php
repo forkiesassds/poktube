@@ -4,7 +4,6 @@
 </head>
 <?php
 include "header.php";
-include "db.php";
 error_reporting(0); //fixing the query issue breaks comment sections.
 ?>
 <table width="800" cellspacing="0" cellpadding="0" border="0" align="center">

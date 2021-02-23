@@ -6,6 +6,7 @@ if(isset($_SESSION["username"])) {
 $username = htmlspecialchars($_SESSION["username"]);
 $detail = mysqli_query($connect, "SELECT * FROM users WHERE username='". $username ."'"); // selects details of user
 $detail2 = mysqli_fetch_assoc($detail); // function for getting details of user
+$isAdmin = $detail2['is_admin'];
 if ($detail2["registeredon"] == null) {
 	$stmt = $connect->prepare("UPDATE users SET registeredon = ? WHERE username = ?"); // prepares sql commands in prepared statement
 	$stmt->bind_param("ss", $datenow, $username);
@@ -24,6 +25,7 @@ if ($detail2["registeredon"] == null) {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
+<!---- header start ----->
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
 <table class="header1" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
@@ -93,6 +95,20 @@ if ($detail2["registeredon"] == null) {
 <div class="bar">
 			<a class="nav-item" href="index.php">Home</a>
 			<a class="nav-item" href="browse.php">Videos</a>
-			<a class="nav-item" href="https://discord.gg/72ZPaTtXct">Discord</a>
+			<a class="nav-item" href="https://discord.gg/FAEEuMhn3M">Discord</a>
+			<?php 
+if(isset($_SESSION["username"])) {
+if($isAdmin == 1) // is logged in?
+{
+echo "<a class='nav-item' href='admin.php'>Admin</a>";
+}
+else
+{
+    echo "";
+}
+}?>
 		</div>
 		<br>
+		
+		<h6>NOTICE: FILE UPLOADING IS BROKEN</h6>
+<!---- header end ----->

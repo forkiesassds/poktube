@@ -5524,12 +5524,12 @@ margin-bottom: 5px;
 margin-top: 5px;
 }
 .homepage-yellow-block{
-background: #FBF9E8 url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/pic_yellow_top_300x1000-vfl34680.gif) top left no-repeat;
+background: #FFFFDB url(./img/downloaded/pic_yellow_top_300x1000-vfl34680.gif) top left no-repeat;
 padding: 10px 15px 0px 15px;
 margin-bottom: 0px;
 }
 .homepage-yellow-block-bot{
-background: #FBF9E8 url(https://web.archive.org/web/20090101130645im_/http://s.ytimg.com/yt/img/pic_yellow_top_300x1000-vfl34680.gif) no-repeat scroll 0px -1000px;
+background: #FFFFDB url(./img/downloaded/pic_yellow_top_300x1000-vfl34680.gif) no-repeat scroll 0px -1000px;
 width: 300px;
 height: 13px;
 }

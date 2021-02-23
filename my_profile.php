@@ -1,14 +1,13 @@
 <?php 
 include("header.php"); 
 include("auth.php");
-error_reporting(1); //fixing the query issue breaks comment sections.
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else
 	make it a SQL query or whatever the fuck -->
 
 <?php
-$target_dir = "content/profpic/";
+$target_dir = "/usr/share/nginx/html/content/profpic/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
@@ -34,13 +33,13 @@ if(isset($_POST["submit"])) {
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-  //echo "Sorry, your file is too large.";
+  echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "png") {
-  //echo "Sorry, PNG files are only supported.";
+  echo "Sorry, PNG files are only supported.";
   $uploadOk = 0;
 }
 
@@ -53,10 +52,12 @@ if ($uploadOk == 0) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
     //echo "Sorry, there was an error uploading your file.";
+	echo htmlspecialchars($target_dir . $_SESSION['username'] . ".png");
   }
 }
 ?>
-<center><h1>My Profile</h1>
+<div class="tableSubTitle">My Profile</div>
+<h3>IMPORTANT NOTICE: Uploading does NOT work. I know this. Do not bother me about it.</h3>
 <h2>Profile Picture</h2>
 <img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
 <br>
@@ -65,7 +66,6 @@ if ($uploadOk == 0) {
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
-<hr style='border-top: solid black 2px; width: 30%;'>
 <h4>Set information you want others to see</h4>
   <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
   <br>
@@ -163,7 +163,5 @@ if ($uploadOk == 0) {
   </form>
    <br>
  <br>
- <hr style='border-top: solid black 2px; width: 30%;'>
-</center>
 <br>
 <?php include("footer.php"); ?>
