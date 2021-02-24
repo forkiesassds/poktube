@@ -15,12 +15,12 @@ if ($detail2["registeredon"] == null) {
 }
 ?>
 <head>
+<script src="assets/jquery-3.5.1.min.js"></script>
+<script src="semantic/dist/semantic.min.js"></script>
 <link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
 <link rel="stylesheet" type="text/css" href="semantic/dist/components/image.css">
 <link rel="stylesheet" type="text/css" href="semantic/dist/components/transition.css">
 <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-<script src="assets/jquery-3.5.1.min.js"></script>
-<script src="semantic/dist/semantic.min.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta name="theme-color" content="#f28900">
