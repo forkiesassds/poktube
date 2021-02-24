@@ -9,7 +9,7 @@ if(!isset($_GET["v"])){
 } else {
 	$vid = $_GET["v"];
 }
-$fuckyou = 2;
+$zero = 0;
 if (mysqli_connect_errno())
 {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -18,7 +18,7 @@ if(!$admin=1) {
     echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
 }
 $stmt = $connect->prepare("UPDATE videodb SET isApproved=? WHERE VideoID=?");
-$stmt->bind_param("ss", $fuckyou, $vid);
+$stmt->bind_param("ss", $zero, $vid);
 $stmt->execute();
 echo "<script>window.location = 'admin.php'</script>";
 ?>
