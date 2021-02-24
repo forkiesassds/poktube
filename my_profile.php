@@ -7,11 +7,13 @@ include("auth.php");
 	make it a SQL query or whatever the fuck -->
 
 <?php
-$target_dir = "/usr/share/nginx/html/content/profpic/";
+if(isset($_FILES["fileToUpload"]["tmp_name"])) {
+$target_dir = "content/profpic/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+}
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -32,18 +34,23 @@ if(isset($_POST["submit"])) {
 //}
 
 // Check file size
+if(isset($_FILES["fileToUpload"]["tmp_name"])) {
 if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
+}
 
 // Allow certain file formats
+if(isset($_FILES["fileToUpload"]["tmp_name"])) {
 if($imageFileType != "png") {
   echo "Sorry, PNG files are only supported.";
   $uploadOk = 0;
 }
+}
 
 // Check if $uploadOk is set to 0 by an error
+if(isset($_FILES["fileToUpload"]["tmp_name"])) {
 if ($uploadOk == 0) {
   //echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
@@ -54,6 +61,7 @@ if ($uploadOk == 0) {
     //echo "Sorry, there was an error uploading your file.";
 	echo htmlspecialchars($target_dir . $_SESSION['username'] . ".png");
   }
+}
 }
 ?>
 <div class="ui center aligned container">
