@@ -1,19 +1,9 @@
 <?php include("header.php"); ?>
 <title>PokTube</title>
-<table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
-	<tbody><tr>
-		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
-		
 
-
-
-
-		
-		
-
-<div class="tableSubTitle">Help</div>
-
-<br><br><span class="highlight">Q: Is this service really free?</span>
+<div class="ui text container">
+<h1 class="header">Help</h1>
+<span class="highlight">Q: Is this service really free?</span>
 <br><br>A: Yes, completely free.  No strings.
 <br><br><span class="highlight">Q: How can I share my videos and link to them from my website?</span>
 <br><br>A: Simply copy the watch URL and put them on your site, as easy as that. We are adding embed capabilities soon, do not worry.
@@ -67,8 +57,5 @@
 <br><br>If you have any account or video issues, please contact us at the <a href="https://discord.gg/72ZPaTtXct">Chaziz/PokTube Community</a> discord server.
 Also, if you have any ideas or suggestions to make our service better, please don't hesitate to drop us a line.
 
-
-		</td>
-	</tr>
-</tbody></table>
+</div>
 <?php include("footer.php"); ?>
