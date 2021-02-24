@@ -30,7 +30,7 @@ if ($detail2["registeredon"] == null) {
 </head>
 <!---- header start ----->
 <div class="ui menu inverted">
-	<div class="item"><img src="img/logo.png" alt="PokTube" border="0" style="scale: 5.5;margin-right: 78px;padding-left: 13px;"></img></div>
+	<div class="item"><img src="img/logo.png" alt="PokTube" border="0" style="transform: scale(6);margin-right: 78px;padding-left: 13px;"></img></div>
 	<a href="index.php" class="item">Home</a>
 	<a href="browse.php" class="item">Videos</a>
 	<a href="https://discord.gg/72ZPaTtXct" class="item">Discord</a>
