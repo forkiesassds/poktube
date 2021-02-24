@@ -69,8 +69,8 @@ $RegisteredYear = $DateTime->format('Y');
 <body>
 <div class="headerPROF"><!--Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST--></div>
 <div style="padding: 0px 5px 0px 5px;">
-<div class="two column stackable ui padded grid">
-<div class="two wide column">
+<div class="three column stackable ui padded grid">
+<div class="three wide column">
 <div class="ui card">
   <div class="image">
     <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
@@ -112,6 +112,9 @@ $RegisteredYear = $DateTime->format('Y');
           </div>
         </div>
 </div>
+</div>
+<div class="five wide column">
+placeholder
 </div>
 </div>
 </div>
