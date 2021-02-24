@@ -73,7 +73,7 @@ $RegisteredYear = $DateTime->format('Y');
 <div class="two wide column">
 <div class="ui card">
   <div class="image">
-    <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
+    <img src="content/profpic/<?php echo $Username?>.png" style="height: 139;" onerror="this.src='img/profiledef.png'">
   </div>
   <div class="content">
     <a class="header"><?php echo $Username ?></a>
