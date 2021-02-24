@@ -43,7 +43,7 @@ $RegisteredYear = $DateTime->format('Y');
     position: relative;
     width: 100%;
     height: 150px;
-	background-color: <?php echo $Foreground?>;
+	background-image: linear-gradient(<?php echo $Foreground?>, #000000);
     text-align: right;
 
 }
@@ -57,11 +57,11 @@ $RegisteredYear = $DateTime->format('Y');
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
 <body>
-<div class="headerPROF"></div>
+<div class="headerPROF">Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST</div>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="two column stackable ui padded grid">
 <div class="two wide column">
-<div style="box-shadow: 0 0 0 1px #d4d4d5,0 2px 0 0 <?php echo $Foreground?>,0 1px 3px 0 #d4d4d5;" class="ui card">
+<div class="ui card">
   <div class="image">
     <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
   </div>
