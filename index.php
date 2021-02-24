@@ -40,7 +40,7 @@ if(($_GET["vexist"]) == 0){
 ?>
 <div class="container">
   <div class="row">
-  <div class="col">
+  <div class="col-8">
 <div id="homepage-main-content">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
@@ -128,22 +128,47 @@ echo "<div class='video-entry'>
 ?>
 			<!-- end recently featured -->
 </div></div></div></div></div></div>
-<div class="col">
+<div class="col-4">
 <div id="homepage-side-content">
-   <div class="homepage-side-block" id="homepage-whats-new-block">
-      <div class="homepage-yellow-block">
-         <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
-         <div class="clear"></div>
-         <div class="bottomBorderDotted"></div>
-		 <b style="color:#CC6600">New server</b><br>
-		 PokTube is no longer hosted on a laptop. It has been moved to be hosted on a Debian server with Nginx.<br><br>
-		 Since we haven't figured everything out yet, video uploading and playback is broken for the time being.<br><br>
-		 <b style="color:#CC6600">New player</b><br>
-		 End my suffering, Flash and ActiveX players are no longer available for the time being.<br><br>
-         <div style="font-size: 1px; height: 1px;"><br></div>
+   <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        The Homer
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        It costs $82,000. Fuck you. Purchase it.
       </div>
-      <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
-   </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        New Server
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+			PokTube is no longer hosted on a laptop. It has been moved to be hosted on a Debian server with Nginx.<br><br>
+		 Since we haven't figured everything out yet, video uploading and playback is broken for the time being.
+		 </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        New player
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        End my suffering, Flash and ActiveX players are no longer available for the time being.
+      </div>
+    </div>
+  </div>
+</div>
 </div></div></div>
 
 
