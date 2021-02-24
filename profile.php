@@ -28,7 +28,11 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
-$Foreground = htmlspecialchars($cdf['channel_color']);
+if($cdf['channel_color']) {
+	$Foreground = htmlspecialchars($cdf['channel_color']);
+} else {
+	$Foreground = "#003366";
+}
 $Background = htmlspecialchars($cdf['channel_bg']);
 $color = new Color($Foreground);
 if($cdf['prof_website']) {
