@@ -14,101 +14,46 @@ if ($detail2["registeredon"] == null) {
 }
 }
 ?>
-<head>
-<link rel="stylesheet" href="main.css" type="text/css">
-<link rel="stylesheet" href="styles.css" type="text/css">
-<link rel="stylesheet" href="base_all-vfl70436.css" type="text/css">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<meta name="theme-color" content="#f28900">
-<meta name="description" content="Share your videos with friends and family">
-<meta property="og:image" content="/img/icon.png">
-<meta name="keywords" content="video,sharing,camera phone,video phone">
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	
+    <title>Hello, world!</title>
+  </head>
+  <body>
 <!---- header start ----->
-<div id="baseDiv" class="date-20090101 video-info">
-<div id="masthead">
-<table class="header1" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
-	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
-		<td valign="top">
-		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr valign="top">
-			<td align="left" class="headertext" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload your videos online!</td>
-				<td align="right">
-				<table cellpadding="0" cellspacing="0" border="0">
-					<tr>
-						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
-		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='logout.php'>Log Out</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='my_profile.php'>Settings</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
-	} else {
-		echo "<td><a class='headertext' href='signup.php'><strong>Sign Up</strong></a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='login.php'>Log In</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
-	}?>
-
-				
-			</tr>
-		</table>
-		</td>
-		</tr>
-		</table>
-		</td>
-	</tr>
-
-		<tr>
-		<td width="100%">
-		
-		<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
-		} else {
-			echo "";}?>
-		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
-		
-		<table cellpadding="2" cellspacing="0" border="0">
-			<tr>
-				<form method="GET" action="results.php">
-				<td>
-					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
-				</td>
-				<td>
-					<input class="button" type="submit" value="Search Videos">
-				</td>
-				</form>
-			</tr>
-		</table>
-		
-		</td>
-	</tr>
-
-			
-</table>
-<div class="bar">
-			<a class="nav-item" href="index.php">Home</a>
-			<a class="nav-item" href="browse.php">Videos</a>
-			<a class="nav-item" href="https://discord.gg/FAEEuMhn3M">Discord</a>
-			<?php 
-if(isset($_SESSION["username"])) {
-if($isAdmin == 1) // is logged in?
-{
-echo "<a class='nav-item' href='admin.php'>Admin</a>";
-}
-else
-{
-    echo "";
-}
-}?>
-		</div>
-		<br>
-		
-		<h6>NOTICE: FILE UPLOADING IS BROKEN</h6>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">[squareBracket]</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Discord</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 <!---- header end ----->
+<body>

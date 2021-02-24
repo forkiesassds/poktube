@@ -38,6 +38,9 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }
 ?>
+<div class="container">
+  <div class="row">
+  <div class="col">
 <div id="homepage-main-content">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
@@ -124,8 +127,8 @@ echo "<div class='video-entry'>
 //<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>
 			<!-- end recently featured -->
-</div></div></div></div></div>
-
+</div></div></div></div></div></div>
+<div class="col">
 <div id="homepage-side-content">
    <div class="homepage-side-block" id="homepage-whats-new-block">
       <div class="homepage-yellow-block">
@@ -141,7 +144,7 @@ echo "<div class='video-entry'>
       </div>
       <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
    </div>
-</div></div>
+</div></div></div>
 
 
 <div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">
