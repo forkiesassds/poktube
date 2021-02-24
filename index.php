@@ -24,7 +24,6 @@ if(($_GET["vexist"]) == 0){
 ?>
 <div class="two column stackable ui padded grid">
   <div class="ten wide column">
-    <div class="ui segment">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
 			<div class="ui inverted three column doubling stackable centered divided container segment">
@@ -96,7 +95,7 @@ echo "<div class='item'>
 </div>
 </div>
 			<!-- end recently featured -->
-</div></div></div>
+</div></div>
 
 <div class="six wide column">
    <div class="ui segment">

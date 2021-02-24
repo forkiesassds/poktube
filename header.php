@@ -18,7 +18,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" type="text/css" href="assets/components/menu.css">
 <link rel="stylesheet" type="text/css" href="assets/components/image.css">
 <link rel="stylesheet" type="text/css" href="assets/components/transition.css">
-<link rel="stylesheet" type="text/css" href="assets/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="assets/semantic.twitter.min.css">
 <script src="assets/jquery-3.5.1.min.js"></script>
 <script src="assets/semantic.min.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -30,7 +30,7 @@ if ($detail2["registeredon"] == null) {
 </head>
 <!---- header start ----->
 <div class="ui menu inverted">
-	<div class="item"><img src="img/logo.png" alt="PokTube" border="0" style="scale: 3.5;margin-right: 30px;padding-left: 10px;"></img></div>
+	<div class="item"><img src="img/logo.png" alt="PokTube" border="0" style="scale: 5.5;margin-right: 78px;padding-left: 13px;"></img></div>
 	<a href="index.php" class="item">Home</a>
 	<a href="browse.php" class="item">Videos</a>
 	<a href="https://discord.gg/72ZPaTtXct" class="item">Discord</a>
