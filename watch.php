@@ -225,7 +225,7 @@ $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 $count = 0;
 
 while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
-$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+$usercommentlist = htmlspecialchars($searchcomments['user']); // comment
 $datecommentlist = $searchcomments['date']; // comment date
 $messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
 $idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
