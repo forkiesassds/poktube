@@ -8,10 +8,10 @@ include("auth.php");
 
 <?php
 $target_dir = "/usr/share/nginx/html/content/profpic/";
-//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
-//$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -32,19 +32,19 @@ if(isset($_POST["submit"])) {
 //}
 
 // Check file size
-/*if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
-}*/
+}
 
 // Allow certain file formats
-/*if($imageFileType != "png") {
+if($imageFileType != "png") {
   echo "Sorry, PNG files are only supported.";
   $uploadOk = 0;
-}*/
+}
 
 // Check if $uploadOk is set to 0 by an error
-/*if ($uploadOk == 0) {
+if ($uploadOk == 0) {
   //echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
@@ -54,7 +54,7 @@ if(isset($_POST["submit"])) {
     //echo "Sorry, there was an error uploading your file.";
 	echo htmlspecialchars($target_dir . $_SESSION['username'] . ".png");
   }
-}*/
+}
 ?>
 <div class="ui center aligned container">
 	<h2 class="ui icon header">
