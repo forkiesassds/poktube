@@ -35,6 +35,7 @@ echo "<br>";
 }
 echo "</table>";
 ?>
+
 	<h3>Approved</h3>
 	<?php
 // Check connection
@@ -52,6 +53,27 @@ echo " (" . $row['0'] . ")";
 echo " by " . $row['3'];
 echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
 echo " - [<a href='../delete.php?v=".$row['0']."'>delete</a>]";
+echo "<br>";
+}
+echo "</table>";
+?>
+
+	<h3>Fail Binned</h3>
+	<?php
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($connect,"SELECT * FROM videodb WHERE `isApproved` = '2'");
+
+while($row = mysqli_fetch_array($result))
+{
+echo $row['1'];
+echo " (" . $row['0'] . ")";
+echo " by " . $row['3'];
+echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
 echo "<br>";
 }
 echo "</table>";

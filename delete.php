@@ -9,7 +9,7 @@ if(!isset($_GET["v"])){
 } else {
 	$vid = $_GET["v"];
 }
-$one = 1;
+$fuckyou = 2;
 if (mysqli_connect_errno())
 {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -17,14 +17,8 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 if(!$admin=1) {
     echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
 }
-$result = mysqli_query($connect,"SELECT * FROM videodb WHERE `VideoId` = '".$vid."'");
-$fetch = mysqli_fetch_assoc($result);
-unlink($fetch['VideoFile']);
-if(isset($fetch['HQVideoFile'])){
-unlink($fetch['HQVideoFile']);
-}
-$stmt = $connect->prepare("DELETE FROM `poktube`.`videodb` WHERE VideoID=?");
-$stmt->bind_param("s", $vid);
+$stmt = $connect->prepare("UPDATE videodb SET isApproved=? WHERE VideoID=?");
+$stmt->bind_param("ss", $fuckyou, $vid);
 $stmt->execute();
 echo "<script>window.location = 'admin.php'</script>";
 ?>
