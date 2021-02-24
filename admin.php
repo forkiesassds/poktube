@@ -1,5 +1,9 @@
 <?php include("header_admin.php");
 include("admin_check.php");
+include("db.php"); 
+if(!$admin=1) {
+    echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
+}?>
 include("db.php"); ?>
 <title>PokTube</title>
 <!doctype html>
@@ -35,7 +39,9 @@ while($row = mysqli_fetch_array($result))
 echo $row['1'];
 echo " (" . $row['0'] . ")";
 echo " by " . $row['3'];
-echo " - [link]";
+echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
+echo " - [<a href='../approve.php?v=".$row['0']."'>approve</a>]";
+echo " - [<a href='../delete.php?v=".$row['0']."'>delete</a>]";
 echo "<br>";
 }
 echo "</table>";
@@ -55,7 +61,8 @@ while($row = mysqli_fetch_array($result))
 echo $row['1'];
 echo " (" . $row['0'] . ")";
 echo " by " . $row['3'];
-echo " - [link]";
+echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
+echo " - [<a href='../delete.php?v=".$row['0']."'>delete</a>]";
 echo "<br>";
 }
 echo "</table>";
