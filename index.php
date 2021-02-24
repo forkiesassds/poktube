@@ -72,7 +72,9 @@ $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='item'>
     <div class='image'>
-      <img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+	  <a href='watch.php?v=$idvideolist&player=0'>
+		<img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+	  </a>
     </div>
     <div class='content'>
       <a href='watch.php?v=$idvideolist&player=0' class='header'>$namevideolist</a>
