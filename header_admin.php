@@ -17,10 +17,10 @@ if ($detail2["registeredon"] == null) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/components/menu.css">
-	<link rel="stylesheet" type="text/css" href="assets/components/image.css">
-	<link rel="stylesheet" type="text/css" href="assets/components/transition.css">
-	<link rel="stylesheet" type="text/css" href="assets/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/components/image.css">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/components/transition.css">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
 	<script src="assets/jquery-3.5.1.min.js"></script>
 	<script src="assets/semantic.min.js"></script>
     <title>Admin Panel - PokTube</title>

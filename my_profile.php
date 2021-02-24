@@ -68,7 +68,7 @@ if ($uploadOk == 0) {
 		<div class="column">
 			<div class="ui segment">
 				<h2>Profile Picture</h2>
-				<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
+				<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128" onerror="this.src='img/profiledef.png'">
 				<br>
 				<form action="my_profile.php" method="post" enctype="multipart/form-data">
 					Select profile picture to upload:<br><br>

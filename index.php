@@ -84,7 +84,7 @@ echo "<div class='item'>
       </div>
       <div class='extra'>
       Uploaded on $uploadvideolist<br>
-	  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png'>
+	  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
 	  <span>$uploadervideolist</span></a>
       </div>
     </div>
