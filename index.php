@@ -62,7 +62,7 @@ if(($_GET["vexist"]) == 0){
 	<div class="ui bottom attached segment">
 <div class="ui celled list">
 <?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
