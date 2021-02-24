@@ -38,12 +38,12 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "
 	<div class='item'>
 				<div class='image'>
-				  <a href='watch.php?v=$idvideolist&player=0'>
+				  <a href='watch.php?v=$idvideolist'>
 					<img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
 				  </a>
 				</div>
 				<div class='content'>
-				  <a href='watch.php?v=$idvideolist&player=0' class='header'>$namevideolist</a>
+				  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
 				  <div class='meta'>
 					<span>$descvideolist</span>
 				  </div>
