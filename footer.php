@@ -1,4 +1,3 @@
-<!---- footer start ----->
 <div class="ui inverted footer segment">
 	<div class="ui doubling stackable container">
 		<div class="ui inverted horizontal link list">
