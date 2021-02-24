@@ -434,7 +434,7 @@ echo "<div class='moduleFrameEntry'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Uploaded: ".$viewsvideolist."<br>
+										Uploaded: ".$uploadedvideolist."<br>
 									</div>
 		
 								</td>
