@@ -1,4 +1,6 @@
 <?php 
+require_once __DIR__ . '/lib/PHPColors/Color.php';
+use Mexitek\PHPColors\Color;
 include("header.php"); 
 
 if(isset($_GET["user"])) {
@@ -28,6 +30,7 @@ $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
 $Foreground = htmlspecialchars($cdf['channel_color']);
 $Background = htmlspecialchars($cdf['channel_bg']);
+$color = new Color($Foreground);
 if($cdf['prof_website']) {
 $Website = htmlspecialchars($cdf['prof_website']);
 } else {
@@ -43,21 +46,24 @@ $RegisteredYear = $DateTime->format('Y');
     position: relative;
     width: 100%;
     height: 150px;
-	background-image: linear-gradient(<?php echo $Foreground?>, #000000);
+	<?= $color->getCssGradient(10, true)?>
     text-align: right;
-
+	margin-top: -1rem;
 }
 
 .ui.padded.grid:not(.vertically):not(.horizontally) {
 	position: relative !important;
 	bottom: 125px;
 }
+.two.column.stackable.ui.padded.grid {
+	margin-top: -1rem !important;
+}
 </style>
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
 <body>
-<div class="headerPROF">Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST</div>
+<div class="headerPROF"><!--Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST--></div>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="two column stackable ui padded grid">
 <div class="two wide column">

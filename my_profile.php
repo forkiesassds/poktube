@@ -8,10 +8,10 @@ include("auth.php");
 
 <?php
 $target_dir = "/usr/share/nginx/html/content/profpic/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileToUpload = 0;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+//$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -32,19 +32,19 @@ if(isset($_POST["submit"])) {
 //}
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+/*if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
-}
+}*/
 
 // Allow certain file formats
-if($imageFileType != "png") {
+/*if($imageFileType != "png") {
   echo "Sorry, PNG files are only supported.";
   $uploadOk = 0;
-}
+}*/
 
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
+/*if ($uploadOk == 0) {
   //echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
@@ -54,114 +54,136 @@ if ($uploadOk == 0) {
     //echo "Sorry, there was an error uploading your file.";
 	echo htmlspecialchars($target_dir . $_SESSION['username'] . ".png");
   }
-}
+}*/
 ?>
-<div class="tableSubTitle">My Profile</div>
-<h3>IMPORTANT NOTICE: Uploading does NOT work. I know this. Do not bother me about it.</h3>
-<h2>Profile Picture</h2>
-<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
-<br>
-<form action="my_profile.php" method="post" enctype="multipart/form-data">
-  Select profile picture to upload:<br><br>
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
-<h4>Set information you want others to see</h4>
-  <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
-  <br>
-  <textarea rows="4" cols="50" maxlength="500" name="desc" form="setdesc" placeholder="Input your About Me here..." style="margin: 0px; height: 67px; width: 352px; resize: none;" required=""></textarea>
-  <p>500 character limit.</p>
-  <input type='submit' name="submit">
- </form>
- <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Name       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_name">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Age       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_age">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  City       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_city">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Hometown       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_hometown">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Country       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_country">
-  </form>
-   <br>
- <br>
-  <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Profile Foreground       :
-  <input type='color' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="channel_color">
-  </form>
-   <br>
- <br>
-  <!--
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Occupation       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_occupation">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Interests and Hobbies       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_interests">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Music       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_music">
-  </form>
-   <br>
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Books       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_books">
-  </form>
-   <br>
- <br>
- -->
- <!--
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Movies and Shows       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_movies">
-  </form>
-   <br>
-   -->
- <br>
- <form action="setinfo.php" method="post" enctype="multipart/form-data">
-  Website       :
-  <input type='text' id='textbox' style="width: 250px;" name='textbox'>
-  <input type="submit" value="Submit" name="prof_website">
-  </form>
-   <br>
- <br>
-<br>
+<div class="ui center aligned container">
+	<h2 class="ui icon header">
+	  <i class="settings icon"></i>
+	  <div class="content">
+		Profile Settings
+		<div class="sub header">Manage your profile settings.</div>
+	  </div>
+	</h2>
+	<div class="two column stackable ui padded grid">
+		<div class="column">
+			<div class="ui segment">
+				<h2>Profile Picture</h2>
+				<img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
+				<br>
+				<form action="my_profile.php" method="post" enctype="multipart/form-data">
+					Select profile picture to upload:<br><br>
+					<div class="ui action input">
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="ui button" name="submit">Upload Image</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="column">
+			<div class="ui segment">
+				<h4>Set information you want others to see</h4>
+				  <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
+				  <br>
+				  <p>500 character limit.</p>
+					<div class="ui form">
+						<div class="ui input">
+							<textarea placeholder="Input everything about yourself here..." name="desc" form="setdesc" rows="4" cols="50" maxlength="500"></textarea>
+						</div>
+						<input type='submit' name="submit" class="ui button">
+					</div>
+				 </form>
+				<form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Name       :
+					  <div class="ui fluid action input">
+						<input type="text" type='text' id='textbox' name='textbox'>
+						<button class="ui button" type="submit" value="Submit" name="prof_name">Submit</button>
+					  </div>
+				</form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Age       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_age">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  City       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_city">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Hometown       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_hometown">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Country       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_country">Submit</button>
+				  </div>
+				  </form>
+				  <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Profile Foreground       :
+				  <div class="ui fluid action input">
+					<input type="color" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="channel_color">Submit</button>
+				  </div>
+				  </form>
+				  <!--
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Occupation       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_occupation">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Interests and Hobbies       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_interests">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Music       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_music">Submit</button>
+				  </div>
+				  </form>
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Books       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_books">Submit</button>
+				  </div>
+				  </form>
+				 -->
+				 <!--
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Movies and Shows       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_movies">Submit</button>
+				  </div>
+				  </form>
+				   <br>
+				   -->
+				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
+				  Website       :
+				  <div class="ui fluid action input">
+					<input type="text" type='text' id='textbox' name='textbox'>
+					<button class="ui button" type="submit" value="Submit" name="prof_website">Submit</button>
+				  </div>
+				  </form>
+				</div>
+			</div>
+		<br>
+	</div>
+</div>
 <?php include("footer.php"); ?>
