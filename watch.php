@@ -234,7 +234,7 @@ $hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
 if ($idcommentlist == $vid AND $hidden != 1) {
 echo "<div class='comment'>
     <a class='avatar'>
-      <img src='content/profpic/$Uploader.png' onerror=\"this.src='img/profiledef.png'\" width='35' height='35' style='height:35px;width:35px;'>
+      <img src='content/profpic/$usercommentlist.png' onerror=\"this.src='img/profiledef.png'\" width='35' height='35' style='height:35px;width:35px;'>
     </a>
     <div class='content'>
       <a class='author' href='profile.php?user=$usercommentlist'>$usercommentlist</a>
