@@ -289,22 +289,24 @@ $viewsvideolist = $fetch['ViewCount'];
 $uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
-echo "<div class='item'>
-    <div class='image'>
-	  <a href='watch.php?v=$idvideolist'>
-		<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-	  </a>
-    </div>
-    <div class='content'>
-      <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
-      <div class='extra'>
-      Uploaded on $uploadedvideolist<br>
-	  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
-	  <span>$uploadervideolist</span></a>
-      </div>
-    </div>
-  </div>";
-$x++;
+	if (!($fetch['isApproved'] == 2)) {
+		echo "<div class='item'>
+			<div class='image'>
+			  <a href='watch.php?v=$idvideolist'>
+				<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+			  </a>
+			</div>
+			<div class='content'>
+			  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
+			  <div class='extra'>
+			  Uploaded on $uploadedvideolist<br>
+			  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
+			  <span>$uploadervideolist</span></a>
+			  </div>
+			</div>
+		  </div>";
+		$x++;
+	}
 }
 }
 ?>
@@ -318,29 +320,34 @@ $x++;
 <div class="ui bottom attached segment">
 <div class="ui celled list">
 					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC LIMIT 8"); //instructions for sql
-
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
+$x = 1;
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
-
-echo "<div class='item'>
-    <div class='image'>
-	  <a href='watch.php?v=$idvideolist'>
-		<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-	  </a>
-    </div>
-    <div class='content'>
-      <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
-      <div class='extra'>
-      Uploaded on $uploadedvideolist<br>
-	  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
-	  <span>$uploadervideolist</span></a>
-      </div>
-    </div>
-  </div>";
+if ($x == 9) {
+	break;
+}
+if (!($fetch['isApproved'] == 2)) {
+	echo "<div class='item'>
+		<div class='image'>
+		  <a href='watch.php?v=$idvideolist'>
+			<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+		  </a>
+		</div>
+		<div class='content'>
+		  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
+		  <div class='extra'>
+		  Uploaded on $uploadedvideolist<br>
+		  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
+		  <span>$uploadervideolist</span></a>
+		  </div>
+		</div>
+	  </div>";
+	  $x++;
+	}
 }
 ?>
 
