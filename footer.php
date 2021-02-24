@@ -14,7 +14,6 @@
 		<span class="item">Copyright &copy; 2021 Chaziz</a><br/>
 		<p><small><?php $output=null; $output2=null; exec("git show --format=\"Revision %h (%s) commited on %cI by %an\" --no-patch 2>&1", $output, $output2); echo $output[0]; ?></p></small>
 		<small><a href="githistory.php">More Git info</a></small>
-		</div>
 	</div>
 </div>
 <!---- footer end ----->
