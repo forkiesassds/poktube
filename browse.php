@@ -46,6 +46,7 @@ $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']);
 $uploadvideolist = $fetch['UploadDate'];
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+if (!($fetch['isApproved'] == 2)) {
 	if ($count > 20*$page-1) {
 	echo "<div class=\"four wide column\">
 			<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
@@ -65,6 +66,7 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 		$count = 20 * $page;
 		$row++;
 	}
+}
 }
 ?>
 			</div>

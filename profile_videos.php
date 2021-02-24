@@ -52,27 +52,29 @@ $uploadervideolist = htmlspecialchars($fetch['Uploader']);
 $uploadvideolist = $fetch['UploadDate'];
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 if ($uploadervideolist == $user) {
-	if ($count > 20*$page-1) {
-		echo "<div class=\"four wide column\">
-				<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
-				<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a></div>
-				<div class='moduleFeaturedDetails'>
-					Added: ".$uploadvideolist."<br>
-					by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
-				</div>
-			</div>";
-		}
-		if($fetch['Uploader'] == $user) {
-			$count++;
-		}
-		if ($count == 20*$page+4) {
-			if ($row == 4) {
-				break;
+	if (!($fetch['isApproved'] == 2)) {
+		if ($count > 20*$page-1) {
+			echo "<div class=\"four wide column\">
+					<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
+					<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a></div>
+					<div class='moduleFeaturedDetails'>
+						Added: ".$uploadvideolist."<br>
+						by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
+					</div>
+				</div>";
 			}
 			if($fetch['Uploader'] == $user) {
-				echo "</tr>";
-				$count = 20 * $page;
-				$row++;
+				$count++;
+			}
+			if ($count == 20*$page+4) {
+				if ($row == 4) {
+					break;
+				}
+				if($fetch['Uploader'] == $user) {
+					echo "</tr>";
+					$count = 20 * $page;
+					$row++;
+				}
 			}
 		}
 	}
