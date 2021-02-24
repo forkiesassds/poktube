@@ -179,7 +179,6 @@ $commentcount++; // count the amount of comments
 
 </div>
 
-<table width="895" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="515" style="padding-right: 15px;">
 		<div id="watch-vid-title" class="title">
