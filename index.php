@@ -38,58 +38,42 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }
 ?>
+<br>
 <div class="container">
   <div class="row">
   <div class="col-8">
 <div id="homepage-main-content">
-	<tr valign="top">
-		<td style="padding-right: 15px;">
-					<table class="roundedTable" width="650" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#e5ecf9">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td width="585">
-									<table width="100%" cellpadding="0" cellspacing="0" border="0">
-					<tr valign="top">
-					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/television.png"> <a href="browse.php">Watch</a></div>
-					Instantly find and watch streaming videos.
-					</td>
-					<td width="33%" style="border-right: 1px dashed #369; padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/add.png"> <a href="my_videos_upload.php">Upload</a></div>
-					Quickly upload and tag videos in almost any video format.
-					</td>
-					<td width="33%" style="padding: 0px 10px 10px 10px; color: #444;">
-					<div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><img src="img/silk/link.png"> <a href="my_friends_invite.php">Share</a></div>
-					Easily share your videos with your family, friends, or co-workers.
-					</td>
-					</tr>
-				</table>
-				
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
+
+<div class="card-group">
+  <div class="card">
+    <img src="img/why.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Watch</h5>
+      <p class="card-text">Instantly find and watch streaming videos. </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="img/why.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Upload</h5>
+      <p class="card-text">Quickly upload and tag videos in almost any video format. </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="img/why.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Share</h5>
+      <p class="card-text">Easily share your videos with your family, friends, or co-workers. </p>
+    </div>
+  </div>
+</div>
 <!-- begin recently featured -->
+<br>
 <div id="homepage-featured-heading">
-			<div id="homepage-featured-more-top"><a id="hpVideoListMoreLink" href="browse.php" onmousedown="urchinTracker('/Events/Home/SeeMore/Featured/Top');">See More Featured Videos</a></div>
-		<h1 id="hpVideoListHead">Featured Videos</h1>
-		<div id="homepage-featured-tabs">
-		<div class="clear"></div>
-	</div>
-		<div class="clear"></div>
-<div id='homepage-video-list' class='list-view'>
-	<div id='hpFeatured'>
-		<div class='video-entry'>
+<div class="card mb-3">
+  <div class="card-header">
+    Featured Videos
+  </div>
 <?php
 $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY RAND() DESC LIMIT 10"); //instructions for sql
 
@@ -100,34 +84,23 @@ $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendation
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-echo "<div class='video-entry'>
-   <div class='v120WideEntry'>
-      <div class='v120WrapperOuter'>
-         <div class='v120WrapperInner'>
-            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-         </div>
+echo "<div class='row g-0'>
+    <div class='col-md-4'>
+      <img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' alt='...'>
+    </div>
+    <div class='col-md-8'>
+      <div class='card-body'>
+        <h5 class='card-title'>$namevideolist</h5>
+        <p class='card-text'>$descvideolist</p>
+        <p class='card-text'><small class='text-muted'>uploaded $uploadvideolist by $uploadervideolist</small></p>
       </div>
-   </div>
-   <div class='video-main-content' id='video-main-content-muP9eH2p2PI'>
-      <div class='video-title '>
-         <div class='video-long-title'>
-            <a id='video-long-title-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0'  title='$namevideolist' rel='nofollow'>$namevideolist</a>
-         </div>
-      </div>
-      <div id='video-description-muP9eH2p2PI' class='video-description'>
-         $descvideolist
-      </div>
-      <div class='video-facets'>
-         Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
-      </div>
-   </div>
-   <div class='video-clear-list-left'></div>
-</div>";
+    </div>
+  </div>";
 }
 //<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>
 			<!-- end recently featured -->
-</div></div></div></div></div></div>
+</div></div><p class="text-end"><a href="browse.php">See More Featured Videos</a></p></div></div>
 <div class="col-4">
 <div id="homepage-side-content">
    <div class="accordion" id="accordionExample">
