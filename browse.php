@@ -33,7 +33,7 @@ if($count == 20) {
 <?php
 $vidlist = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC");
 
-$count = 0;
+$count = 1;
 
 while ($fetch = mysqli_fetch_assoc($vidlist)) {
 $idvideolist = $fetch['VideoID'];
