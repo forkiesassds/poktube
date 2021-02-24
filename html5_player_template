@@ -341,8 +341,6 @@ C27.533,0.1,33.367,0,41.1,0h8.05c10.8,0,20.367,0.583,28.7,1.75C82.317,2.417,85.3
 
     <button onclick=";return false;" title="Watch on YouTube" type="button" class="html5-watch-on-youtube-button html5-control-right html5-control-sep hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="12" role="button" aria-label="Watch on YouTube"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Watch on YouTube"></span></button>
 
-    <button onclick=";return false;" title="Watch later" type="button" class="html5-watch-later-button html5-control-right html5-control-sep hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="11" role="button" aria-label="Watch later"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Watch later"></span></button>
-
     <button onclick=";return false;" title="Settings" type="button" class="html5-quality-button html5-control-right html5-control-sep yt-uix-button-reverse flip hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="10" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="Settings"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Settings"></span><img class="yt-uix-button-arrow" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <div class="html5-settings-popup-menu html5-popup-menu list-style-menu">
     <ul class="html5-quality-popup-menu">
       <li class="html5-popup-menu-header">
@@ -391,41 +389,6 @@ Speed
       </li>
     </ul>
   </div>
-</div></button>
-
-    <button onclick=";return false;" title="Captions" type="button" class="html5-captions-button html5-module-button html5-control-right yt-uix-button-reverse flip yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="9" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="Captions toggle"><img class="yt-uix-button-arrow" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <ul class="html5-captions-popup-menu html5-popup-menu">
-    <li>
-      <div class="html5-captions-actions html5-popup-menu-item-group">
-        <ul>
-          <li class="yt-uix-button-menu-item" data-action="settings">
-Settings...
-          </li>
-        </ul>
-      </div>
-      <div class="captions-transforms html5-captions-actions html5-popup-menu-item-group">
-        <ul>
-          <li class="captions-transcribe-menu-item yt-uix-button-menu-item hid" data-action="transcribe">
-Transcribe Audio
-            <span class="html5-beta-label">BETA</span>
-          </li>
-          <li class="yt-uix-button-menu-item" data-action="translate">
-Translate Captions
-            <span class="html5-beta-label">BETA</span>
-          </li>
-        </ul>
-      </div>
-      <form class="html5-captions-tracks html5-popup-menu-item-group">
-        <ul></ul>
-      </form>
-      <div class="html5-captions-off html5-popup-menu-item-group">
-        <ul>
-          <li class="yt-uix-button-menu-item" data-action="captions-off">
-Turn Captions Off
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
 </div></button>
 
     <button onclick=";return false;" title="Annotations" type="button" class="html5-annotations-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="8" role="button" aria-label="Annotations"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Annotations"></span></button>
