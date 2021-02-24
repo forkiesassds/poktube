@@ -46,10 +46,10 @@ $vid_id = randstr(26);
 
 if(isset($_POST["upload"])){
 $vextension  = pathinfo( $_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION );
-$target_file = "content/preload/".$folder_id."/".$vid_id.".".$vextension;
-$hq_target_file = "content/preload/".$folder_id."/".$vid_id.".hq.".$vextension;
+$target_file = "uploads/preload/".$folder_id."/".$vid_id.".".$vextension;
+$hq_target_file = "uploads/preload/".$folder_id."/".$vid_id.".hq.".$vextension;
 $target_folder = "video/".$url_id;
-$preload_folder = "content/preload/".$folder_id;
+$preload_folder = "uploads/preload/".$folder_id;
 $target_thumb = "content/thumbs/".$url_id.".png";
 $none = 0;
 $category = "Gaming";
