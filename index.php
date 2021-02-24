@@ -86,11 +86,11 @@ $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='row g-0'>
     <div class='col-md-4'>
-      <img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' alt='...'>
+      <a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' alt='...'></a>
     </div>
     <div class='col-md-8'>
       <div class='card-body'>
-        <h5 class='card-title'>$namevideolist</h5>
+        <a href='watch.php?v=$idvideolist'><h5 class='card-title'>$namevideolist</h5></a>
         <p class='card-text'>$descvideolist</p>
         <p class='card-text'><small class='text-muted'>uploaded $uploadvideolist by $uploadervideolist</small></p>
       </div>
@@ -132,13 +132,14 @@ echo "<div class='row g-0'>
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        New player
+        Chaziz Community
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        End my suffering, Flash and ActiveX players are no longer available for the time being.
-      </div>
+        <iframe src="https://discord.com/widget?id=737791548435071037&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      <br>To do: Make this properly resize.
+	  </div>
     </div>
   </div>
 </div>
