@@ -19,6 +19,10 @@ if($count == 20) {
 	$pages++;
 	$count = 0;
 }
+if($count <= 20 && $count == 0) {
+	$pages++;
+	$count = 0;
+}
 }
 ?>
 <title>Browse - PokTube</title>
@@ -32,8 +36,9 @@ if($count == 20) {
 			<div class="ui center aligned grid">
 <?php
 $vidlist = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC");
+$count = 0;
 
-$count = 1;
+
 
 while ($fetch = mysqli_fetch_assoc($vidlist)) {
 $idvideolist = $fetch['VideoID'];
@@ -41,7 +46,7 @@ $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']);
 $uploadvideolist = $fetch['UploadDate'];
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-	if ($count > 20*$page) {
+	if ($count > 20*$page-1) {
 	echo "<div class=\"four wide column\">
 			<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
 			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a></div>
@@ -52,7 +57,7 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 		</div>";
 	}
 	$count++;
-	if ($count == 20*$page+5) {
+	if ($count == 20*$page+4) {
 		if ($row == 4) {
 			break;
 		}
