@@ -1,18 +1,7 @@
 <?php include("header.php"); ?>
-<table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
-	<tbody><tr>
-		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
-		
 
-
-
-
-
-<div style="padding: 0px 5px 0px 5px;">
-
-
-<div class="tableSubTitle">Terms of Use</div>
-
+<div class="ui text container">
+<h1 class="header">Terms of Use</h1>
 <strong>1. Your Acceptance</strong> 
 <br>BY USING AND/OR VISITING THIS WEBSITE (collectively, including all Content available through the PokTube.com domain name, the "PokTube Website", or "Website"), YOU SIGNIFY YOUR ASSENT TO BOTH THESE TERMS AND CONDITIONS (the "Terms of Service") AND THE TERMS AND CONDITIONS OF PokTube'S PRIVACY POLICY, WHICH ARE PUBLISHED AT www.PokTube.com/privacy.php, AND WHICH ARE INCORPORATED HEREIN BY REFERENCE. If you do not agree to any of these terms, please do not use the PokTube Website. 
 
@@ -55,8 +44,5 @@
 <br><br><strong>8. Ability to Accept Terms of Service</strong> 
 <br>You affirm that you are over the age of 13, as the PokTube Website is not intended for children under 13.  
 
-		</div>
-		</td>
-	</tr>
-</tbody></table>
+</div>
 <?php include("footer.php"); ?>

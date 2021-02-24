@@ -1,4 +1,6 @@
 <?php 
+require_once __DIR__ . '/lib/PHPColors/Color.php';
+use Mexitek\PHPColors\Color;
 include("header.php"); 
 
 if(isset($_GET["user"])) {
@@ -26,8 +28,13 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
-$Foreground = htmlspecialchars($cdf['channel_color']);
+if($cdf['channel_color']) {
+	$Foreground = htmlspecialchars($cdf['channel_color']);
+} else {
+	$Foreground = "#003366";
+}
 $Background = htmlspecialchars($cdf['channel_bg']);
+$color = new Color($Foreground);
 if($cdf['prof_website']) {
 $Website = htmlspecialchars($cdf['prof_website']);
 } else {
@@ -36,141 +43,82 @@ $Website = htmlspecialchars($cdf['prof_website']);
 $PreRegisteredOn = $cdf['registeredon'];
 $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
 ?>
+<style>
+.headerPROF {
+    position: relative;
+    width: 100%;
+    height: 150px;
+	<?= $color->getCssGradient(10, true)?>
+    text-align: right;
+	margin-top: -1rem;
+}
+
+.ui.padded.grid:not(.vertically):not(.horizontally) {
+	position: relative !important;
+	bottom: 125px;
+}
+.two.column.stackable.ui.padded.grid {
+	margin-top: -1rem !important;
+}
+</style>
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
+<body>
+<div class="headerPROF"><!--Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST--></div>
 <div style="padding: 0px 5px 0px 5px;">
-		
+<div class="three column stackable ui padded grid">
+<div class="three wide column">
+<div class="ui card">
+  <div class="image">
+    <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
+  </div>
+  <div class="content">
+    <a class="header"><?php echo $Username ?></a>
+    <div class="meta">
+      <span class="date">Joined in <?php echo $RegisteredYear?></span>
+    </div>
+    <div class="description">
+      <?php echo stripslashes($AboutMe) ?>
+    </div>
+  </div>
+</div>
+</div>
+<div class="four wide column">
+<div class="ui card">
+  <div class="content">
+    <div class="header">About me</div>
+  </div>
+          <div class="content">
+          <div class="summary">
+            <div class="meta">Name:</div> <div class="description"><?php echo $Name ?></div>
+          </div>
+		  <div class="summary">
+            <div class="meta">Age:</div> <div class="description"><?php echo $Age ?></div>
+          </div>
+		  <div class="summary">
+            <div class="meta">Hometown:</div> <div class="description"><?php echo $Hometown ?></div>
+          </div>
+		  <div class="summary">
+            <div class="meta">Current City:</div> <div class="description"><?php echo $City ?></div>
+          </div>
+		  <div class="summary">
+            <div class="meta">Country:</div> <div class="description"><?php echo $Country ?></div>
+          </div>
+		  <div class="summary">
+            <div class="meta">Website:</div> <div class="description"><?php echo $Website ?></div>
+          </div>
+        </div>
+</div>
+</div>
+<div class="five wide column">
+placeholder
+</div>
+</div>
+</div>
+</div>
 
 
-<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
-	<tr valign="top">
-		<td width="180">
-		
-		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="<?php echo $Foreground ?>">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td align="center" style="padding: 5px;">
-				
-				
-						<div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;"><?php echo $Username ?></div>
-						<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" height="128">
-		
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
-		
-		</td>
-		
-		<td style="padding: 0px 10px 0px 10px;">
-		
-		<table width="100%" cellpadding="5" cellspacing="0" border="0">
-			<tr>
-				<td width="120" align="right"><span class="label">User Name:</span></td>
-				<td><?php echo $Username ?></td>
-			</tr>
-		
-			<!-- Personal Information: -->
-			
-					
-					
-						<tr>
-				<td align="right"><span class="label">Name:</span></td>
-				<td><?php echo stripslashes($Name) ?></td>
-			</tr>
-			
-			<tr valign="top">
-				<td align="right"><span class="label">Age:</span></td>
-				<td><?php echo stripslashes($Age) ?></td>
-			</tr>
-					
-					
-					
-						<tr valign="top">
-				<td align="right"><span class="label">About Me:</span></td>
-				<td><?php echo stripslashes($AboutMe) ?></td>
-			</tr>
-					
-			<tr>
-				<td colspan="2">&nbsp;</td>
-			</tr>
-			
-			
-			
-			<!-- Location Information -->
-			
-
-			<tr valign="top">
-				<td align="right"><span class="label">Hometown:</span></td>
-				<td><?php echo stripslashes($Hometown) ?></td>
-			</tr>
-			
-			<tr valign="top">
-			<td align="right"><span class="label">Current City:</span></td>
-			<td><?php echo stripslashes($City) ?></td>
-					
-			<tr valign="top">
-			<td align="right"><span class="label">Country:</span></td>
-			<td><?php echo stripslashes($Country) ?></td>
-			<tr>
-				<td colspan="2">&nbsp;</td>
-			</tr>
-			
-			
-			
-			<!-- Random Information -->
-			<tr valign="top">
-			<td align="right"><span class="label">Personal Website:</span></td>
-			<td><a href="<?php echo $Website ?>"><?php echo $Website ?></a></td>		
-					
-					
-					
-					
-					
-					
-			<tr>
-				<td align="right"><span class="label"></span></td>
-				<td></td>
-			</tr>
-		</table>
-		
-		</td>
-			
-		<td width="180">
-		
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; Profile</div>
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos.php?user=<?php echo $Username ?>">Public Videos</a> (0)</div>
-		<!-- only show this link to friends in their network -->
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos_private.php?user=<?php echo $Username ?>">Private Videos</a> (0)</div>
-		<!-- only show this link to friends in their network -->
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_favorites.php?user=<?php echo $Username ?>">Favorites</a> (0)</div>
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 20px; color: #444;">&#187; <a href="profile_friends.php?user=<?php echo $Username ?>">Friends</a> (0)</div>
-		
-
-		
-		<div style="font-size: 12px; color: #444; margin: 10px 0px 0px 0px; text-align: center;"><strong>Like my videos?</strong><br>
-		<a href="#">Subscribe to my RSS Feed.</a></div>
-		
-		</td>
-
-			
-	</tr>
-</table>
-
-		</div>
-		</td>
-	</tr>
-</table>
 <?php include("footer.php"); ?>

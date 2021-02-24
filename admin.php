@@ -4,19 +4,8 @@ include("db.php");
 if(!$admin=1) {
     echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
 }?>
-include("db.php"); ?>
-<title>PokTube</title>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello, world!</title>
-  </head>
-  <body>
-  <div class="container-fluid">
-    <h1>Welcome, <?php echo $_SESSION["username"];?></h1>
+<div class="ui container">
+	<h1>Welcome, <?php echo $_SESSION["username"];?></h1>
 <pre>
 <strong>Uptime:</strong>
 <?php system("uptime"); ?>
@@ -39,13 +28,14 @@ while($row = mysqli_fetch_array($result))
 echo $row['1'];
 echo " (" . $row['0'] . ")";
 echo " by " . $row['3'];
-echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
-echo " - [<a href='../approve.php?v=".$row['0']."'>approve</a>]";
-echo " - [<a href='../delete.php?v=".$row['0']."'>delete</a>]";
+echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
+echo " - [<a href='approve.php?v=".$row['0']."'>approve</a>]";
+echo " - [<a href='delete.php?v=".$row['0']."'>decline</a>]";
 echo "<br>";
 }
 echo "</table>";
 ?>
+
 	<h3>Approved</h3>
 	<?php
 // Check connection
@@ -61,8 +51,29 @@ while($row = mysqli_fetch_array($result))
 echo $row['1'];
 echo " (" . $row['0'] . ")";
 echo " by " . $row['3'];
-echo " - [<a href='../watch.php?v=".$row['0']."'>link</a>]";
-echo " - [<a href='../delete.php?v=".$row['0']."'>delete</a>]";
+echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
+echo " - [<a href='unapprove.php?v=".$row['0']."'>unapprove</a>]";
+echo "<br>";
+}
+echo "</table>";
+?>
+
+	<h3>Declined</h3>
+	<?php
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($connect,"SELECT * FROM videodb WHERE `isApproved` = '2'");
+
+while($row = mysqli_fetch_array($result))
+{
+echo $row['1'];
+echo " (" . $row['0'] . ")";
+echo " by " . $row['3'];
+echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
 echo "<br>";
 }
 echo "</table>";

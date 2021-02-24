@@ -1,5 +1,5 @@
 # PokTube
-![Website](https://cdn.discordapp.com/attachments/807438920181743656/808707960086986759/unknown.png)
+![Website](screenshot.png)
 
 ## How to set up (DEVELOPEMENT PURPOSES)
 
