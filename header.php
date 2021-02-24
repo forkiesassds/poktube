@@ -36,7 +36,7 @@ if ($detail2["registeredon"] == null) {
 	<a href="https://discord.gg/72ZPaTtXct" class="item">Discord</a>
 	<div class="right menu"></div>
 	<div class="header item">
-		<form method="GET" action="results.php" style="padding: unset;margin: unset;">
+		<form method="GET" action="results.php" style="padding: 0;margin: 0;">
 			<div class="ui transparent inverted icon input">
 				<i class="search icon"></i>
 				<input type="text" name="search" value="" placeholder="Search">
