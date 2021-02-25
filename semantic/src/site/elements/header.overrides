@@ -1,3 +1,9 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.segment {
+	background-image: linear-gradient(#FFF, #f5f5f5);
+}
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background-image: linear-gradient(#242424, #141414);
+}

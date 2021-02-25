@@ -1,3 +1,10 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.inverted.blue.segment.segment.segment.segment.segment {
+    background-image: linear-gradient(#216dd0, #0753b5);
+    color: #fff;
+}
+.ui.inverted.attached.header {
+    background-image: linear-gradient(#242424, #141414);
+}
