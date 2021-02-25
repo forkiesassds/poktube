@@ -145,29 +145,47 @@ if (!file_exists($preload_folder)) {
 		
 	}
 ?>
-<div id="uploadVid">
-	<h2 style="color:green">Video Upload (Step 2 of 2)</h2>
-	<form name="uploadForm" id="uploadForm" method="post" action="my_videos_upload_2.php" enctype="multipart/form-data">
-	<input type="text" name="title" value="<?php echo $_POST["title"]; ?>" hidden>
-	<textarea name="desc" maxlength="500" form="uploadForm" style="width:295px;overflow:hidden;resize:none" rows="3" hidden><?php echo $_POST["desc"]; ?></textarea>
-	<center><table class="dataEntryTableSmall">
-		<tbody><tr>
-                <td width="125px" valign="top" align="right"><span style="font-size: 14px;font-weight:bold;">File:</span></td>
-                <td style="background-color:#FEFFE0; color:#808536; padding:13px;"><input type="file" name="fileToUpload" id="fileToUpload" style="color:black" accept="video/mp4" required=""><br>
-				<p><b>Max file size: 50 MB. No copyrighted, obscene, GoAnimate/Gacha, logokid or lazy reuploaded material.</b><br>After uploading, you can edit or remove this video at anytime under the "My Videos" link on the top of the page.</p></td>
-            </tr>
-            <tr>
-                <td valign="top" align="right"><span></span></td>
-                <td><br><h3>PLEASE BE PATIENT, THIS MAY TAKE SEVERAL MINUTES. ONCE COMPLETED, YOU WILL BE REDIRECTED INTO THE VIDEO PAGE. Note that thumbnails may not work.</h3></td>
-            </tr>
-<tr>
-                <td width="" align="right" style="white-space: nowrap;"></td>
-                <td>
-        <br>
-<input type="submit" id="upload" name="upload" value="Upload Video">
-        </td>
-            </tr>   
-    </tbody></table></center>
-	</form>
+<div class="ui container">
+	<div class="ui center aligned container">
+		<h2 class="ui icon header">
+		  <i class="upload icon"></i>
+		  <div class="content">
+			Upload Video
+			<div class="sub header">Here you can upload videos to share them arround the world!</div>
+		  </div>
+		</h2>
+	</div>
+	<div class="ui center aligned text container">
+		<div class="ui steps">
+		  <div class="completed step">
+			<i class="info icon"></i>
+			<div class="content">
+			  <div class="title">Video Info</div>
+			  <div class="description">Enter the name and description of your video.</div>
+			</div>
+		  </div>
+		  <div class="active step">
+			<i class="upload icon"></i>
+			<div class="content">
+			  <div class="title">Upload Video File</div>
+			  <div class="description">Choose the video you want to upload</div>
+			</div>
+		  </div>
+		</div>
+	<div class="ui secondary segment container">
+		<form name="uploadForm" id="uploadForm" method="post" action="my_videos_upload_2.php" enctype="multipart/form-data">
+			<input type="text" name="title" value="<?php echo $_POST["title"]; ?>" hidden>
+			<textarea name="desc" maxlength="500" form="uploadForm" style="width:295px;overflow:hidden;resize:none" rows="3" hidden><?php echo $_POST["desc"]; ?></textarea>
+            <div class="ui yellow segment">
+				<div class="ui input">
+					<input type="file" name="fileToUpload" id="fileToUpload" style="color:black" accept="video/mp4" required=""><br>
+				</div>
+				<p><b>Max file size: 50 MB. No copyrighted, obscene, GoAnimate/Gacha, logokid or lazy reuploaded material.</b><br>After uploading, you can edit or remove this video at anytime under the "My Videos" link on the top of the page.</p>
+			</div>
+            <td><h3>PLEASE BE PATIENT, THIS MAY TAKE SEVERAL MINUTES. ONCE COMPLETED, YOU WILL BE REDIRECTED INTO THE VIDEO PAGE.</h3></td>
+			<input class="ui primary button" type="submit" id="upload" name="upload" value="Upload Video">
+		</form>
+	</div>
+	</div>
 </div>
 <?php include("footer.php"); ?>
