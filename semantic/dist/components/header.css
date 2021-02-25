@@ -790,8 +790,11 @@ a.ui.inverted.black.header.header.header:hover {
          Site Overrides
 *******************************/
 
+<<<<<<< HEAD
 .ui.inverted.attached.header {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#242424), to(#141414));
   background-image: -webkit-linear-gradient(#242424, #141414);
   background-image: linear-gradient(#242424, #141414);
 }
+=======
+>>>>>>> parent of 88150ed (integrate custom css into the global overrides files in the fomantic ui source)
