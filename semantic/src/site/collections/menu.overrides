@@ -1,3 +1,13 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.inverted.menu {
+    background: #1B1C1D linear-gradient(rgba(255, 255, 255, 0.13), rgba(0, 0, 0, 0));
+}
+.ui.menu {
+    border-radius: 0;
+}
+.ui.inverted.menu .dropdown.item:hover, .ui.inverted.menu .link.item:hover, .ui.inverted.menu a.item:hover, .ui.link.inverted.menu .item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+}

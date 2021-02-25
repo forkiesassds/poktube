@@ -25,9 +25,9 @@ $result = mysqli_query($connect,"SELECT * FROM videodb WHERE `isApproved` = '0'"
 
 while($row = mysqli_fetch_array($result))
 {
-echo $row['1'];
+echo htmlspecialchars($row['1']);
 echo " (" . $row['0'] . ")";
-echo " by " . $row['3'];
+echo " by " . htmlspecialchars($row['3']);
 echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
 echo " - [<a href='approve.php?v=".$row['0']."'>approve</a>]";
 echo " - [<a href='delete.php?v=".$row['0']."'>decline</a>]";
@@ -48,9 +48,9 @@ $result = mysqli_query($connect,"SELECT * FROM videodb WHERE `isApproved` = '1'"
 
 while($row = mysqli_fetch_array($result))
 {
-echo $row['1'];
+echo htmlspecialchars($row['1']);
 echo " (" . $row['0'] . ")";
-echo " by " . $row['3'];
+echo " by " . htmlspecialchars($row['3']);
 echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
 echo " - [<a href='unapprove.php?v=".$row['0']."'>unapprove</a>]";
 echo "<br>";
@@ -70,9 +70,9 @@ $result = mysqli_query($connect,"SELECT * FROM videodb WHERE `isApproved` = '2'"
 
 while($row = mysqli_fetch_array($result))
 {
-echo $row['1'];
+echo htmlspecialchars($row['1']);
 echo " (" . $row['0'] . ")";
-echo " by " . $row['3'];
+echo " by " . htmlspecialchars($row['3']);
 echo " - [<a href='watch.php?v=".$row['0']."'>link</a>]";
 echo "<br>";
 }
