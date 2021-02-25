@@ -42,7 +42,7 @@ $name = "PLACEHOLDER";
   <div id="watch-longform-text">
 Advertisement
   </div>
-  <div id="watch-longform-ad-placeholder"><img src="//web.archive.org/web/20120609184833im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" height="60" width="300"></div>
+  <div id="watch-longform-ad-placeholder"><img src="" height="60" width="300"></div>
 </div>
 
 
