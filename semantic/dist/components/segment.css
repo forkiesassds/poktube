@@ -864,7 +864,6 @@
          Site Overrides
 *******************************/
 
-<<<<<<< HEAD
 .ui.inverted.blue.segment.segment.segment.segment.segment {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#216dd0), to(#0753b5));
   background-image: -webkit-linear-gradient(#216dd0, #0753b5);
@@ -882,5 +881,3 @@
   background-image: -webkit-linear-gradient(#FFF, #f5f5f5);
   background-image: linear-gradient(#FFF, #f5f5f5);
 }
-=======
->>>>>>> parent of 88150ed (integrate custom css into the global overrides files in the fomantic ui source)
