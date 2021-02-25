@@ -93,7 +93,7 @@ if ($uploadervideolist == $user) {
 					}
 					$pagecount++;
 
-					echo "<a class=\"ui button\" href='browse.php?page=".$pagecount."'>".$pagecount."</a>";
+					echo "<a class=\"ui button\" href='profile_videos.php?user=".$user."&page=".$pagecount."'>".$pagecount."</a>";
 					
 				}
 				?>
