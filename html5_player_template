@@ -183,7 +183,7 @@ By <span></span>
     <div class="html5-info-bar-logo hid">YouTube</div>
   </div>
 
-        <img class="html5-watermark html5-stop-propagation html5-scalable-icon hid" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="watermark">
+        <img class="html5-watermark html5-stop-propagation html5-scalable-icon hid" src="img/pixel-vfl3z5WfW.gif" alt="watermark">
 
           <svg class="html5-big-play-button html5-center-overlay html5-scalable-icon">
       <path fill="#380308" d="M89.2,34.4c-0.064,2.649-0.265,5.434-0.6,8.35c-0.467,3.733-1.05,6.867-1.75,9.4
@@ -221,9 +221,9 @@ C27.533,0.1,33.367,0,41.1,0h8.05c10.8,0,20.367,0.583,28.7,1.75C82.317,2.417,85.3
         <div class="html5-endscreen html5-stop-propagation">
     <div class="html5-endscreen-content"></div>
     <div class="html5-endscreen-actionbar">
-      <button type="button" class="html5-replay-button html5-control html5-control-sep yt-uix-button yt-uix-button-player" onclick=";return false;" role="button"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""></span><span class="yt-uix-button-content">Replay </span></button>
-      <button type="button" class="html5-like-button html5-control yt-uix-button yt-uix-button-player" onclick=";return false;" role="button"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""></span><span class="yt-uix-button-content">Like </span></button>
-      <button type="button" class="html5-dislike-button html5-control yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" onclick=";return false;" title="Dislike" role="button" aria-label="Dislike"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Dislike"></span></button>
+      <button type="button" class="html5-replay-button html5-control html5-control-sep yt-uix-button yt-uix-button-player" onclick=";return false;" role="button"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt=""></span><span class="yt-uix-button-content">Replay </span></button>
+      <button type="button" class="html5-like-button html5-control yt-uix-button yt-uix-button-player" onclick=";return false;" role="button"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt=""></span><span class="yt-uix-button-content">Like </span></button>
+      <button type="button" class="html5-dislike-button html5-control yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" onclick=";return false;" title="Dislike" role="button" aria-label="Dislike"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Dislike"></span></button>
 
       <button type="button" class="html5-share-button html5-text-button html5-control-right yt-uix-button yt-uix-button-player" onclick=";return false;" role="button"><span class="yt-uix-button-content">Share </span></button>
     </div>
@@ -303,26 +303,26 @@ C27.533,0.1,33.367,0,41.1,0h8.05c10.8,0,20.367,0.583,28.7,1.75C82.317,2.417,85.3
     </div>
   </div>
   <div class="html5-progress-tooltip hid">
-    <img class="html5-progress-tooltip-thumbnail" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif">
+    <img class="html5-progress-tooltip-thumbnail" src="img/pixel-vfl3z5WfW.gif">
     <span class="html5-progress-tooltip-timestamp"></span>
     <div class="html5-progress-tooltip-arrow"></div>
   </div>
 
         <div class="html5-storyboard">
     <div class="html5-storyboard-filmstrip">
-      <img class="html5-storyboard-thumbnail" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif">
+      <img class="html5-storyboard-thumbnail" src="img/pixel-vfl3z5WfW.gif">
     </div>
     <div class="html5-storyboard-lens">
-      <img class="html5-storyboard-lens-thumbnail" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif">
+      <img class="html5-storyboard-lens-thumbnail" src="img/pixel-vfl3z5WfW.gif">
       <span class="html5-storyboard-lens-timestamp"></span>
     </div>
   </div>
 
         <div class="html5-player-chrome html5-stop-propagation">
-    <button data-title-default="Play" title="Play" class="html5-play-button html5-control html5-control-sep yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" onclick=";return false;" data-title-pause="Pause" type="button" data-title-stop="Stop live playback" tabindex="3" role="button" aria-label="Play"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Play"></span></button>
+    <button data-title-default="Play" title="Play" class="html5-play-button html5-control html5-control-sep yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" onclick=";return false;" data-title-pause="Pause" type="button" data-title-stop="Stop live playback" tabindex="3" role="button" aria-label="Play"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Play"></span></button>
 
     <div class="yt-uix-button yt-uix-button-player html5-volume-control html5-control html5-control-sep">
-    <button data-title-default="Mute" title="Mute" data-title-alt="Unmute" onclick=";return false;" type="button" class="html5-volume-button yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="4" role="button" aria-label="Mute toggle"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Mute"></span></button>
+    <button data-title-default="Mute" title="Mute" data-title-alt="Unmute" onclick=";return false;" type="button" class="html5-volume-button yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="4" role="button" aria-label="Mute toggle"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Mute"></span></button>
 
       <div class="html5-volume-panel" role="slider" tabindex="5" aria-valuemin="0" aria-valuemax="100">
         <div class="html5-volume-slider html5-draggable">
@@ -333,15 +333,15 @@ C27.533,0.1,33.367,0,41.1,0h8.05c10.8,0,20.367,0.583,28.7,1.75C82.317,2.417,85.3
     <div class="progress-text html5-control"><span class="current-time html5-current-time">0:00</span><span class="html5-time-separator"> / </span><span class="duration-time html5-duration-time">0:00</span><span class="html5-live-indicator hid">Live</span></div>
 
 
-    <button data-title-default="Full screen" data-value="fullscreen" title="Full screen" data-title-alt="Exit full screen" onclick=";return false;" type="button" class="html5-fullscreen-button html5-control-right yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="15" role="button" aria-label="Full screen"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Full screen"></span></button>
+    <button data-title-default="Full screen" data-value="fullscreen" title="Full screen" data-title-alt="Exit full screen" onclick=";return false;" type="button" class="html5-fullscreen-button html5-control-right yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="15" role="button" aria-label="Full screen"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Full screen"></span></button>
 
-    <button onclick=";return false;" title="Large player" type="button" class="html5-large-player-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="14" role="button" aria-label="Large player"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Large player"></span></button>
+    <button onclick=";return false;" title="Large player" type="button" class="html5-large-player-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="14" role="button" aria-label="Large player"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Large player"></span></button>
 
-    <button onclick=";return false;" title="Small player" type="button" class="html5-small-player-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="13" role="button" aria-label="Small player"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Small player"></span></button>
+    <button onclick=";return false;" title="Small player" type="button" class="html5-small-player-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="13" role="button" aria-label="Small player"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Small player"></span></button>
 
-    <button onclick=";return false;" title="Watch on YouTube" type="button" class="html5-watch-on-youtube-button html5-control-right html5-control-sep hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="12" role="button" aria-label="Watch on YouTube"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Watch on YouTube"></span></button>
+    <button onclick=";return false;" title="Watch on YouTube" type="button" class="html5-watch-on-youtube-button html5-control-right html5-control-sep hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="12" role="button" aria-label="Watch on YouTube"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Watch on YouTube"></span></button>
 
-    <button onclick=";return false;" title="Settings" type="button" class="html5-quality-button html5-control-right html5-control-sep yt-uix-button-reverse flip hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="10" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="Settings"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Settings"></span><img class="yt-uix-button-arrow" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <div class="html5-settings-popup-menu html5-popup-menu list-style-menu">
+    <button onclick=";return false;" title="Settings" type="button" class="html5-quality-button html5-control-right html5-control-sep yt-uix-button-reverse flip hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="10" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="Settings"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Settings"></span><img class="yt-uix-button-arrow" src="img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <div class="html5-settings-popup-menu html5-popup-menu list-style-menu">
     <ul class="html5-quality-popup-menu">
       <li class="html5-popup-menu-header">
 Quality
@@ -391,9 +391,9 @@ Speed
   </div>
 </div></button>
 
-    <button onclick=";return false;" title="Annotations" type="button" class="html5-annotations-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="8" role="button" aria-label="Annotations"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt="Annotations"></span></button>
+    <button onclick=";return false;" title="Annotations" type="button" class="html5-annotations-button html5-control-right hid yt-uix-button yt-uix-button-player yt-uix-tooltip yt-uix-button-empty" tabindex="8" role="button" aria-label="Annotations"><span class="yt-uix-button-icon-wrapper"><img class="yt-uix-button-icon yt-uix-button-icon-html5" src="img/pixel-vfl3z5WfW.gif" alt="Annotations"></span></button>
 
-    <button type="button" class="html5-text-button html5-threed-button html5-control-right yt-uix-button-reverse flip hid yt-uix-button yt-uix-button-player" onclick=";return false;" tabindex="6" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="3D"><span class="yt-uix-button-content">3D </span><img class="yt-uix-button-arrow" src="//web.archive.org/web/20120609184925im_/http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <ul class="html5-threed-popup-menu html5-popup-menu">
+    <button type="button" class="html5-text-button html5-threed-button html5-control-right yt-uix-button-reverse flip hid yt-uix-button yt-uix-button-player" onclick=";return false;" tabindex="6" role="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true" aria-activedescendant="" aria-label="3D"><span class="yt-uix-button-content">3D </span><img class="yt-uix-button-arrow" src="img/pixel-vfl3z5WfW.gif" alt=""><div class="yt-uix-button-menu yt-uix-button-menu-player" style="display: none;">  <ul class="html5-threed-popup-menu html5-popup-menu">
     <li class="yt-uix-button-menu-item">
       <a class="html5-threed-popup-menu-change-mode-link">Change 3D viewing mode...</a>
     </li>

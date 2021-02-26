@@ -2054,7 +2054,7 @@ body[data-player-size=fullscreen] #playlist-bar {
  height:100%
 }
 .html5-scrubber-button {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -305px -41px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -305px -41px;
  height:17px;
  width:16px;
  border:none;
@@ -2074,7 +2074,7 @@ body[data-player-size=fullscreen] #playlist-bar {
 .seeking-mode .html5-scrubber-button,
 .html5-scrubber-button:focus,
 .html5-scrubber-button:hover {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) 0 0
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) 0 0
 }
 .playing-mode.hide-controls .html5-scrubber-button,
 .disabled-control-seek .html5-scrubber-button {
@@ -2318,31 +2318,31 @@ body[data-player-size=fullscreen] #playlist-bar {
  width:55px
 }
 .html5-play-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -151px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -151px;
  height:25px;
  width:55px
 }
 .html5-play-button:focus .yt-uix-button-icon,
 .html5-play-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -124px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -124px
 }
 .html5-pause-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -340px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -340px;
  height:25px;
  width:55px
 }
 .html5-pause-button:focus .yt-uix-button-icon,
 .html5-pause-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -70px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -70px
 }
 .html5-stop-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -89px -97px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -89px -97px;
  height:25px;
  width:55px
 }
 .html5-stop-button:focus .yt-uix-button-icon,
 .html5-stop-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -232px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -232px
 }
 .html5-volume-control {
  float:left
@@ -2402,37 +2402,37 @@ body[data-player-size=fullscreen] #playlist-bar {
 }
 .html5-volume-button[data-value=max] .yt-uix-button-icon,
 .html5-volume-button[data-value=loud] .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -232px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -232px
 }
 .html5-volume-button[data-value=max]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=max]:hover .yt-uix-button-icon,
 .html5-volume-button[data-value=loud]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=loud]:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -178px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -178px
 }
 .html5-volume-button[data-value=normal] .yt-uix-button-icon,
 .html5-volume-button[data-value=quiet] .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -178px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -178px
 }
 .html5-volume-button[data-value=normal]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=normal]:hover .yt-uix-button-icon,
 .html5-volume-button[data-value=quiet]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=quiet]:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -92px -259px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -92px -259px
 }
 .html5-volume-button[data-value=min] .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -124px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -124px
 }
 .html5-volume-button[data-value=min]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=min]:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -64px -178px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -64px -178px
 }
 .html5-volume-button[data-value=off] .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -57px -70px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -57px -70px
 }
 .html5-volume-button[data-value=off]:focus .yt-uix-button-icon,
 .html5-volume-button[data-value=off]:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -3px -259px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -3px -259px
 }
 .html5-video-player .html5-player-chrome .progress-text {
  font-size:11px;
@@ -2449,20 +2449,20 @@ body[data-player-size=fullscreen] #playlist-bar {
  display:block !important
 }
 .html5-fullscreen-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -128px -43px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -128px -43px;
  height:25px;
  width:30px
 }
 .html5-fullscreen-button:focus .yt-uix-button-icon,
 .html5-fullscreen-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -89px -340px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -89px -340px
 }
 body[data-player-size=fullscreen] .html5-fullscreen-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -205px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -205px
 }
 body[data-player-size=fullscreen] .html5-fullscreen-button:focus .yt-uix-button-icon,
 body[data-player-size=fullscreen] .html5-fullscreen-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -43px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -43px
 }
 .html5-small-player-button {
  width:30px
@@ -2473,24 +2473,24 @@ body[data-player-size=fullscreen] .html5-fullscreen-button:hover .yt-uix-button-
 .html5-small-player-button .yt-uix-button-icon,
 body[data-player-size=small] .html5-small-player-button:focus .yt-uix-button-icon,
 body[data-player-size=small] .html5-small-player-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -96px -151px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -96px -151px;
  height:25px;
  width:30px
 }
 .html5-small-player-button:focus .yt-uix-button-icon,
 .html5-small-player-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -97px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -97px
 }
 .html5-large-player-button .yt-uix-button-icon,
 body[data-player-size=large] .html5-large-player-button:focus .yt-uix-button-icon,
 body[data-player-size=large] .html5-large-player-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -121px -340px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -121px -340px;
  height:25px;
  width:30px
 }
 .html5-large-player-button:focus .yt-uix-button-icon,
 .html5-large-player-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -32px -43px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -32px -43px
 }
 body[data-player-size=small] .html5-small-player-button,
 body[data-player-size=small] .html5-small-player-button:focus,
@@ -2517,44 +2517,44 @@ body[data-player-size=large] .html5-large-player-button:hover img {
  width:30px
 }
 .html5-quality-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -89px -70px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -89px -70px;
  height:25px;
  width:30px
 }
 .html5-quality-button:focus .yt-uix-button-icon,
 .html5-quality-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -35px -259px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -35px -259px
 }
 .html5-captions-button {
  width:30px
 }
 .html5-captions-button .yt-uix-button-arrow {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 -151px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 -151px;
  height:25px;
  width:30px;
  margin:0
 }
 .html5-captions-button:focus .yt-uix-button-arrow,
 .html5-captions-button:hover .yt-uix-button-arrow {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -57px -340px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -57px -340px
 }
 .cc-loaded .html5-captions-button .yt-uix-button-arrow {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -128px -178px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -128px -178px
 }
 .html5-annotations-button {
  width:30px;
 }
 .html5-annotations-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -128px -232px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -128px -232px;
  height:25px;
  width:30px
 }
 .html5-annotations-button:focus .yt-uix-button-icon,
 .html5-annotations-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -64px -43px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -64px -43px
 }
 .iv-loaded .html5-annotations-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) 0 0
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) 0 0
 }
 .yt-uix-button.yt-uix-button-player.html5-text-button {
  padding:0 0 0 5px
@@ -2563,29 +2563,29 @@ body[data-player-size=large] .html5-large-player-button:hover img {
  width:30px
 }
 .html5-watch-later-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -96px -178px;
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -96px -178px;
  height:25px;
  width:30px
 }
 .html5-watch-later-button:focus .yt-uix-button-icon,
 .html5-watch-later-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-dark-vflf2FniH.png) -96px -124px
+ background:no-repeat url(player_asset/player-dark-vflf2FniH.png) -96px -124px
 }
 .html5-watch-on-youtube-button {
  width:52px;
  display: none !important
 }
 .html5-watch-on-youtube-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) 0 -35px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) 0 -35px;
  height:25px;
  width:52px
 }
 .html5-watch-on-youtube-button:focus .yt-uix-button-icon,
 .html5-watch-on-youtube-button:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -251px 0
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -251px 0
 }
 .html5-watermark {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -305px 0;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -305px 0;
  opacity:0.5;
  height:39px;
  width:87px;
@@ -2620,21 +2620,21 @@ body[data-player-size=large] .html5-large-player-button:hover img {
 .html5-video-player .yt-uix-button.html5-async-progress .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-progress:focus .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-progress:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -354px -41px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -354px -41px;
  height:17px;
  width:17px
 }
 .html5-video-player .yt-uix-button.html5-async-success .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-success:focus .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-success:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) 0 -19px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) 0 -19px;
  height:14px;
  width:12px
 }
 .html5-video-player .yt-uix-button.html5-async-error .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-error:focus .yt-uix-button-icon,
 .html5-video-player .yt-uix-button.html5-async-error:hover .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -213px -46px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -213px -46px;
  height:14px;
  width:12px
 }
@@ -3400,17 +3400,17 @@ body[data-player-size=fullscreen] .html5-tablet .html5-fullscreen-button:active 
  opacity:1
 }
 .html5-replay-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -106px 0;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -106px 0;
  width:15px;
  height:14px
 }
 .html5-like-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -323px -41px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -323px -41px;
  width:13px;
  height:15px
 }
 .html5-dislike-button .yt-uix-button-icon {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -338px -41px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -338px -41px;
  width:14px;
  height:16px
 }
@@ -3953,7 +3953,7 @@ body[data-player-size=fullscreen] .html5-tablet .html5-fullscreen-button:active 
  bottom:0
 }
 .html5-module-close {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -92px 0;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -92px 0;
  height:12px;
  width:12px;
  opacity:0.5;
@@ -3964,11 +3964,11 @@ body[data-player-size=fullscreen] .html5-tablet .html5-fullscreen-button:active 
  box-shadow:rgba(0,0,0,0.5) -1px -1px 3px
 }
 .html5-module-close:hover {
- background:no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -251px -27px;
+ background:no-repeat url(player_asset/player-common-vflzogr__.png) -251px -27px;
  opacity:1
 }
 .html5-module-recall {
- background:rgba(200,200,200,0.1) no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -54px -46px;
+ background:rgba(200,200,200,0.1) no-repeat url(player_asset/player-common-vflzogr__.png) -54px -46px;
  height:11px;
  width:26px;
  border:1px solid rgba(255,255,255,0.5);
@@ -3983,7 +3983,7 @@ body[data-player-size=fullscreen] .html5-tablet .html5-fullscreen-button:active 
  box-sizing:content-box
 }
 .html5-module-recall:hover {
- background:#fff no-repeat url(//web.archive.org/web/20120609184924im_/http://s.ytimg.com/yt/imgbin/player-common-vflzogr__.png) -92px -49px;
+ background:#fff no-repeat url(player_asset/player-common-vflzogr__.png) -92px -49px;
  border-color:#fff
 }
 .player-root {
