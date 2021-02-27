@@ -77,13 +77,12 @@ if (!($fetch['isApproved'] == 2)) {
 				<?php
 				$pagecount = 0;
 				while($pagecount !== $pages) {
-					if($pagecount == 0) {
-						echo "Browse Pages:";
-					}
 					$pagecount++;
-
-					echo "<a class=\"ui button\" href='browse.php?page=".$pagecount."'>".$pagecount."</a>";
-					
+					if ($page != $pagecount - 1) {
+						echo "<a class=\"ui button\" href='browse.php?page=".$pagecount."'>".$pagecount."</a>";
+					} else {
+						echo "<a class=\"ui active button\">".$pagecount."</a>";
+					}
 				}
 				?>
 			</div>
