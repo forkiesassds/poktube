@@ -180,7 +180,7 @@ if (!file_exists($preload_folder)) {
 				<div class="ui input">
 					<input type="file" name="fileToUpload" id="fileToUpload" style="color:black" accept="video/mp4" required=""><br>
 				</div>
-				<p><b>Max file size: <?php echo ini_get('upload_max_filesize')."B"?>. No copyrighted, obscene, GoAnimate/Gacha, logokid or lazy reuploaded material.</b><br>After uploading, you can edit or remove this video at anytime under the "My Videos" link on the top of the page.</p>
+				<p><b>Max file size: <?php echo ((int) filter_var(ini_get('upload_max_filesize'), FILTER_SANITIZE_NUMBER_INT) / 8).substr(ini_get('upload_max_filesize'), -1)."B"?>. No copyrighted, obscene, GoAnimate/Gacha, logokid or lazy reuploaded material.</b><br>After uploading, you can edit or remove this video at anytime under the "My Videos" link on the top of the page.</p>
 			</div>
             <td><h3>PLEASE BE PATIENT, THIS MAY TAKE SEVERAL MINUTES. ONCE COMPLETED, YOU WILL BE REDIRECTED INTO THE VIDEO PAGE.</h3></td>
 			<input class="ui primary button" type="submit" id="upload" name="upload" value="Upload Video">
