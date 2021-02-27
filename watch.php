@@ -181,8 +181,8 @@ $commentcount++; // count the amount of comments
 		<div class="ui segment">
 			<p><?php echo $VideoDesc ?></p>
 			<div>
-				<img class="ui avatar image" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'">
-				<?php echo $Uploader ?><br/>
+				<a href='profile.php?user=<?php echo $Uploader?>'><img class="ui avatar image" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'">
+				<?php echo $Uploader ?><br/></a>
 				Uploaded: <?php echo $UploadDate ?><br/>
 				<a href="#comment">Comments</a>: <?php echo $commentcount ?>
 			</div>
