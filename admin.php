@@ -8,7 +8,7 @@ if(!$admin=1) {
 	<h1>Welcome, <?php echo $_SESSION["username"];?></h1>
 <pre>
 <strong>PHP Version:</strong>
-<?php echo phpversion()."\n";?>
+<?php echo phpversion();?> (<a href="phpinfo.php">info</a>) <?php echo "\n";?>
 <strong>Uptime:</strong>
 <?php system("uptime"); ?>
 <strong>System Information:</strong>
