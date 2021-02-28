@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.1deb1~mx19
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 09, 2021 at 01:11 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Host: localhost:3306
+-- Generation Time: Feb 28, 2021 at 08:16 PM
+-- Server version: 10.3.27-MariaDB-0+deb10u1
+-- PHP Version: 7.3.27-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,7 +36,6 @@ CREATE TABLE `comments` (
   `date` text NOT NULL,
   `hidden` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,8 @@ CREATE TABLE `users` (
   `channel_bg` text NOT NULL,
   `brandingpic` text NOT NULL,
   `brandingurl` text NOT NULL,
-  `is_partner` tinyint(1) NOT NULL
+  `is_partner` tinyint(1) NOT NULL,
+  `is_admin` int(4) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,13 +86,13 @@ CREATE TABLE `videodb` (
   `VideoDesc` text NOT NULL,
   `Uploader` text NOT NULL,
   `UploadDate` text NOT NULL,
+  `isApproved` int(4) NOT NULL,
   `ViewCount` int(11) NOT NULL,
   `VideoCategory` text NOT NULL,
   `VideoFile` text NOT NULL,
   `HQVideoFile` text NOT NULL,
   `CustomThumbnail` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
