@@ -102,7 +102,7 @@ if (!file_exists($preload_folder)) {
 						} else {
 							$hq_target_file = "";
 						}
-						exec("ffmpeg -i ".$target_file." -vf scale=-320:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental video/".$url_id.".mp4"); 
+						exec("ffmpeg -i ".$target_file." -vf scale=-426:240  -c:v libx264 -b:v 350K -b:a 80k    -strict experimental video/".$url_id.".mp4"); 
 						$failcount = 0;
 						
 						clearstatcache();
