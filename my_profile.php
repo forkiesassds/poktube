@@ -1,6 +1,38 @@
 <?php 
 include("header.php"); 
 include("auth.php");
+
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$LastestVideo = htmlspecialchars($cdf['recent_vid']);
+$Username = htmlspecialchars($cdf['username']);
+$AboutMe = htmlspecialchars($cdf['aboutme']);
+$VidsWatched = $cdf['videos_watched'];
+$Name = htmlspecialchars($cdf['prof_name']);
+$Age = htmlspecialchars($cdf['prof_age']);
+$City = htmlspecialchars($cdf['prof_city']);
+$Hometown = htmlspecialchars($cdf['prof_hometown']);
+$Country = htmlspecialchars($cdf['prof_country']);
+$Occupation = htmlspecialchars($cdf['prof_occupation']);
+$Interests = htmlspecialchars($cdf['prof_interests']);
+$Music = htmlspecialchars($cdf['prof_music']);
+$Books = htmlspecialchars($cdf['prof_books']);
+$Movies = htmlspecialchars($cdf['prof_movies']);
+if($cdf['channel_color']) {
+	$Foreground = htmlspecialchars($cdf['channel_color']);
+} else {
+	$Foreground = "#003366";
+}
+$Background = htmlspecialchars($cdf['channel_bg']);
+if($cdf['prof_website']) {
+$Website = htmlspecialchars($cdf['prof_website']);
+} else {
+	$Website = "";
+}
+$PreRegisteredOn = $cdf['registeredon'];
+$DateTime = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else
@@ -95,7 +127,7 @@ if ($uploadOk == 0) {
 				  <p>500 character limit.</p>
 					<div class="ui form">
 						<div class="ui input">
-							<textarea placeholder="Input everything about yourself here..." name="desc" form="setdesc" rows="4" cols="50" maxlength="500"></textarea>
+							<textarea placeholder="Input everything about yourself here..." name="desc" form="setdesc" rows="4" cols="50" maxlength="500"><?php echo $AboutMe;?></textarea>
 						</div>
 						<input type='submit' name="submit" class="ui button">
 					</div>
@@ -103,42 +135,42 @@ if ($uploadOk == 0) {
 				<form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  Name       :
 					  <div class="ui fluid action input">
-						<input type="text" type='text' id='textbox' name='textbox'>
+						<input type="text" type='text' id='textbox' value="<?php echo $Name;?>" name='textbox'>
 						<button class="ui button" type="submit" value="Submit" name="prof_name">Submit</button>
 					  </div>
 				</form>
 				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  Age       :
 				  <div class="ui fluid action input">
-					<input type="text" type='text' id='textbox' name='textbox'>
+					<input type="text" type='text' id='textbox' value="<?php echo $Age;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="prof_age">Submit</button>
 				  </div>
 				  </form>
 				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  City       :
 				  <div class="ui fluid action input">
-					<input type="text" type='text' id='textbox' name='textbox'>
+					<input type="text" type='text' id='textbox' value="<?php echo $City;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="prof_city">Submit</button>
 				  </div>
 				  </form>
 				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  Hometown       :
 				  <div class="ui fluid action input">
-					<input type="text" type='text' id='textbox' name='textbox'>
+					<input type="text" type='text' id='textbox' value="<?php echo $Hometown;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="prof_hometown">Submit</button>
 				  </div>
 				  </form>
 				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  Country       :
 				  <div class="ui fluid action input">
-					<input type="text" type='text' id='textbox' name='textbox'>
+					<input type="text" type='text' id='textbox' value="<?php echo $Country;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="prof_country">Submit</button>
 				  </div>
 				  </form>
 				  <form action="setinfo.php" method="post" enctype="multipart/form-data">
-				  Profile Foreground       :
+				  Profile Banner Color     :
 				  <div class="ui fluid action input">
-					<input type="color" type='text' id='textbox' name='textbox'>
+					<input type="color" type='text' id='textbox' value="<?php echo $Foreground;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="channel_color">Submit</button>
 				  </div>
 				  </form>
@@ -185,7 +217,7 @@ if ($uploadOk == 0) {
 				 <form action="setinfo.php" method="post" enctype="multipart/form-data">
 				  Website       :
 				  <div class="ui fluid action input">
-					<input type="text" type='text' id='textbox' name='textbox'>
+					<input type="text" type='text' id='textbox' value="<?php echo $Website;?>" name='textbox'>
 					<button class="ui button" type="submit" value="Submit" name="prof_website">Submit</button>
 				  </div>
 				  </form>
