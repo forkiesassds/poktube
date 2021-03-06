@@ -283,6 +283,12 @@ if ($x == 9) {
 	break;
 }
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
@@ -292,9 +298,12 @@ if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
 	if (!($fetch['isApproved'] == 2)) {
 		echo "<div class='item'>
 			<div class='image'>
-			  <a href='watch.php?v=$idvideolist'>
-				<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-			  </a>
+				<div class='ui basic compact fitted segment'>
+				  <div class='ui black bottom right attached label'>".$lengthlist."</div>
+				  <a href='watch.php?v=$idvideolist'>
+					<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+				  </a>
+				</div>
 			</div>
 			<div class='content'>
 			  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
@@ -324,6 +333,12 @@ $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //i
 $x = 1;
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
@@ -333,9 +348,12 @@ if ($x == 9) {
 if (!($fetch['isApproved'] == 2)) {
 	echo "<div class='item'>
 		<div class='image'>
-		  <a href='watch.php?v=$idvideolist'>
-			<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-		  </a>
+			<div class='ui basic compact fitted segment'>
+			  <div class='ui black bottom right attached label'>".$lengthlist."</div>
+			  <a href='watch.php?v=$idvideolist'>
+				<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+			  </a>
+			</div>
 		</div>
 		<div class='content'>
 		  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>

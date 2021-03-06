@@ -74,6 +74,7 @@ if (!file_exists($preload_folder)) {
 						}
 						$width = exec("ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 ".$target_file);
 						$height = exec("ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 ".$target_file);
+						$length = round(exec("ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ".$target_file));
 						$checkerror = exec("ffmpeg -v error -i ".$target_file." -f null - >error.log 2>&1");
 						if ( '' == file_get_contents("error.log") )
 						{
@@ -122,8 +123,8 @@ if (!file_exists($preload_folder)) {
 						exec($thumbcmd);
 						$datenow = date("Y-m-d");
 						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, ViewCount, VideoCategory, VideoFile, HQVideoFile, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
-						$stmt->bind_param("ssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $category, $target_file, $hq_target_file, $none);
+						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, isApproved, ViewCount, VideoCategory, VideoFile, HQVideoFile, VideoLength, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
+						$stmt->bind_param("ssssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $none, $category, $target_file, $hq_target_file, $length, $none);
 						// set params
 						$target_file = "video/" . $url_id . ".mp4";
 						if (check_for_partner($connect, $username) && $width && $height > 240) {

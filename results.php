@@ -30,6 +30,12 @@ $sql = mysqli_query($connect, "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
@@ -39,9 +45,12 @@ if (!($fetch['isApproved'] == 2)) {
 	echo "
 		<div class='item'>
 					<div class='image'>
-					  <a href='watch.php?v=$idvideolist'>
-						<img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-					  </a>
+						<div class='ui basic compact fitted segment'>
+						  <div class='ui black bottom right attached label'>".$lengthlist."</div>
+						  <a href='watch.php?v=$idvideolist'>
+							<img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+						  </a>
+						</div>
 					</div>
 					<div class='content'>
 					  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>

@@ -14,7 +14,12 @@
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
 
 No, this will not give access to that The Homer folder.
-#### February 22nd 2021 database change
+#### March 6th 2021 database changes
+This adds the length of videos.
+```sql
+ALTER TABLE `videodb` ADD `VideoLength` BIGINT UNSIGNED NOT NULL AFTER `HQVideoFile`;
+```
+#### February 22nd 2021 database changes
 This adds the "Is admin" and the "Is approved" things, for the Admin Control Panel.
 ```sql
 ALTER TABLE `users` ADD `is_admin` INT(4) NOT NULL DEFAULT '0' AFTER `is_partner`; 
@@ -28,7 +33,6 @@ ALTER TABLE `users` ADD `is_partner` TINYINT NOT NULL AFTER `registeredon`;
 
 ALTER TABLE `videodb` ADD `HQVideoFile` TEXT NOT NULL AFTER `VideoFile`; 
 ```
-#### February 22nd 2021 database changes
 ## To do
 * Improve the All users page. (only some shitty internal incomplete admin control panel exists)
 * Add categories

@@ -42,6 +42,12 @@ $count = 0;
 
 while ($fetch = mysqli_fetch_assoc($vidlist)) {
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']);
 $uploadvideolist = $fetch['UploadDate'];
@@ -49,7 +55,10 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 if (!($fetch['isApproved'] == 2)) {
 	if ($count > 20*$page-1) {
 	echo "<div class=\"four wide column\">
-			<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
+			<div class='ui basic compact fitted clearing segment' style=\"padding-left: 50px;\"> <!--hacky hack, but trying to align it drives me insane.-->
+				<div class='ui black bottom right attached label'>".$lengthlist."</div>
+				<a href='watch.php?v=".$idvideolist."'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='160' height='120' class='moduleFeaturedThumb'></a>
+			</div>
 			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."'>".$namevideolist."</a></div>
 			<div class='moduleFeaturedDetails'>
 				Added: ".$uploadvideolist."<br>
