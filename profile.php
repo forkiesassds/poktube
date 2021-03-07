@@ -69,7 +69,7 @@ $RegisteredYear = $DateTime->format('Y');
 <body>
 <div class="headerPROF"></div>
 <div style="padding: 0px 5px 0px 5px;">
-<div class="three column stackable ui padded grid">
+<div class="four column stackable ui padded grid">
 <div class="three wide column">
 <div class="ui fluid card">
   <div class="image">
@@ -113,7 +113,7 @@ $RegisteredYear = $DateTime->format('Y');
         </div>
 </div>
 </div>
-<div class="five wide column">
+<div class="six wide column">
 <div class="ui fluid card">
   <div class="content">
     <div class="header">Most recent uploaded video:</div>
@@ -125,9 +125,18 @@ $RegisteredYear = $DateTime->format('Y');
           </div>
 </div>
 </div>
+<div class="three wide column">
+<div class="ui fluid card">
+  <div class="content">
+    <div class="header">Uploaded videos</div>
+  </div>
+          <div class="content">
+PLACEHOLDER
+          </div>
 </div>
 </div>
 </div>
-
+</div>
+</div>
 
 <?php include("footer.php"); ?>
