@@ -71,7 +71,7 @@ $RegisteredYear = $DateTime->format('Y');
 <div style="padding: 0px 5px 0px 5px;">
 <div class="three column stackable ui padded grid">
 <div class="three wide column">
-<div class="ui card">
+<div class="ui fluid card">
   <div class="image">
     <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'">
   </div>
