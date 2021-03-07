@@ -26,7 +26,9 @@ if(($_GET["vexist"]) == 0){
   <div class="ten wide column">
 	<tr valign="top">
 		<td style="padding-right: 15px;">
-			<div class="ui inverted three column doubling stackable centered divided container segment">
+		
+			<div class="ui blue message three column doubling stackable centered divided container">
+			<h3>Welcome to SquareBracket!</h1>
 				<div class="column">
 					<img src="img/silk/television.png"> 
 					<a href="browse.php">
@@ -115,7 +117,7 @@ if (!($fetch['isApproved'] == 2)) {
 </div></div>
 
 <div class="six wide column">
-   <div class="ui segment">
+   <div class="ui yellow segment">
         <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
         <div class="clear"></div>
         <div class="bottomBorderDotted"></div>
@@ -127,16 +129,5 @@ if (!($fetch['isApproved'] == 2)) {
 		<div style="font-size: 1px; height: 1px;"><br></div>
    </div>
 </div></div></div>
-
-
-<div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">
-	<table width="100%">
-		<tr>
-			<td align="center">
-				<div id="sheetContent" style="filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5; border: 1px solid black; background-color:#cccccc; width:40%; text-align:left;"></div>
-			</td>
-		</tr>
-	</table>
-</div>
 
 <?php include("footer.php"); ?>

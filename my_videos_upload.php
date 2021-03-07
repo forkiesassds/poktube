@@ -6,7 +6,6 @@
 		  <i class="upload icon"></i>
 		  <div class="content">
 			Upload Video
-			<div class="sub header">Here you can upload videos to share them arround the world!</div>
 		  </div>
 		</h2>
 	</div>

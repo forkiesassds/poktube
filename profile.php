@@ -67,7 +67,7 @@ $RegisteredYear = $DateTime->format('Y');
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
 <body>
-<div class="headerPROF"><!--Placeholder !!! Add proper functional CSS calculations - CHAZIZ FEB 23 2021 9:32 PM EST--></div>
+<div class="headerPROF"></div>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="three column stackable ui padded grid">
 <div class="three wide column">
@@ -87,7 +87,7 @@ $RegisteredYear = $DateTime->format('Y');
 </div>
 </div>
 <div class="four wide column">
-<div class="ui card">
+<div class="ui fluid card">
   <div class="content">
     <div class="header">About me</div>
   </div>
@@ -114,7 +114,16 @@ $RegisteredYear = $DateTime->format('Y');
 </div>
 </div>
 <div class="five wide column">
-placeholder
+<div class="ui fluid card">
+  <div class="content">
+    <div class="header">Most recent uploaded video:</div>
+  </div>
+          <div class="content">
+			<div>
+				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $LastestVideo ?>' width='100%' height='320' frameBorder='0' scrolling='no' debug='true'></iframe>
+			</div>
+          </div>
+</div>
 </div>
 </div>
 </div>
