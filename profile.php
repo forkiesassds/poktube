@@ -6,6 +6,13 @@ include("header.php");
 if(isset($_GET["user"])) {
 $user = $_GET["user"];
 }
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb");
+$vdf = mysqli_fetch_assoc($vidfetch);
+$Uploader = htmlspecialchars($vdf['Uploader']); // get all video information
+$VideoName = htmlspecialchars($vdf['VideoName']);
+$ViewCount = $vdf['ViewCount'];
+$PreUploadDate = htmlspecialchars($vdf['UploadDate']);
+$VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
 
 //if $FeaturedVideo is null then dont show anything
 if (!isset($_GET["user"])) {
@@ -23,11 +30,6 @@ $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
 $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
-$Occupation = htmlspecialchars($cdf['prof_occupation']);
-$Interests = htmlspecialchars($cdf['prof_interests']);
-$Music = htmlspecialchars($cdf['prof_music']);
-$Books = htmlspecialchars($cdf['prof_books']);
-$Movies = htmlspecialchars($cdf['prof_movies']);
 if($cdf['channel_color']) {
 	$Foreground = htmlspecialchars($cdf['channel_color']);
 } else {
@@ -131,8 +133,56 @@ $RegisteredYear = $DateTime->format('Y');
     <div class="header">Uploaded videos</div>
   </div>
           <div class="content">
-PLACEHOLDER
+					<?php				
+$x = 1; 
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC"); //instructions for sql
+
+while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+if ($x == 3) {
+	break;
+}
+$idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
+$namevideolist = htmlspecialchars($fetch['VideoName']);
+$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
+$viewsvideolist = $fetch['ViewCount'];
+$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
+
+if ($uploadervideolist == $user) {
+	if (!($fetch['isApproved'] == 2)) {
+		echo "<div class='center aligned item'>
+			<div class='image'>
+				<div class='ui basic compact fitted segment' style=\"margin-left: 8px;\">
+				  <div class='ui black bottom right attached label'>".$lengthlist."</div>
+				  <a href='watch.php?v=$idvideolist'>
+					<img width='180' height='140' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
+				  </a>
+				</div>
+			</div>
+			<div class='content'>
+			  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
+			  <div class='extra'>
+			  Uploaded on $uploadedvideolist<br>
+			  </div>
+			</div>
+		  </div>";
+		$x++;
+	}
+}
+}
+?>
           </div>
+		<div class="extra content">
+			<a class="right floated" href="profile_videos.php?user=<?php echo $user;?>">
+				<i class="arrow circle right icon"></i>
+				View more
+			</a>
+		</div>
 </div>
 </div>
 </div>
