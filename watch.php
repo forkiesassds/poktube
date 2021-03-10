@@ -22,6 +22,9 @@ function limit_echo($x, $length)
   }
 }
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 $VideoName = "No title.";
 $VideoDesc = "No description.";
