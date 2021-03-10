@@ -27,6 +27,12 @@ if ($result->num_rows > 0) {
 }
 $commentid = $i;
 $username = $_SESSION["username"];
+if($comment[0] === '>') {
+	$yes = $comment;
+	$comment = "[color=#5dae5d]";
+	$comment .= $yes;
+	$comment .= "[/color]";
+}
 if(!empty($_SESSION["username"])) {
 	$stmt = $connect->prepare("INSERT INTO comments (id, commentid, comment, user, date) VALUES (?, ?, ?, ?, ?)");
 	$stmt->bind_param("sisss", $id, $commentid, $comment, $username, $datenow); // prepared statements for inserting comments into db

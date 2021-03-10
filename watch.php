@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/lib/BBCode/BBCode.php';
+require_once __DIR__ . '/lib/BBCode/Tag.php';
 include("header.php");
 $share_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if(!isset($_GET["v"])){
@@ -230,7 +232,11 @@ $datecommentlist = $searchcomments['date']; // comment date
 $messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
 $idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
 $hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
-
+$bbcode = new ChrisKonnertz\BBCode\BBCode();
+$bbcode->ignoreTag('spoiler');
+$bbcode->ignoreTag('youtube');
+$bbcode->ignoreTag('img');
+$rendered = $bbcode->render($messagecommentlist);
 if ($idcommentlist == $vid AND $hidden != 1) {
 echo "<div class='comment'>
     <a class='avatar'>
@@ -242,7 +248,7 @@ echo "<div class='comment'>
         <div class='date'>$datecommentlist</div>
       </div>
       <div class='text'>
-		$messagecommentlist
+		$rendered
       </div>
       <div class='actions'>
         <a class='reply'>Reply (TODO)</a>

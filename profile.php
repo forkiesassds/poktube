@@ -127,12 +127,14 @@ $RegisteredYear = $DateTime->format('Y');
           </div>
 </div>
 </div>
-<div class="three wide column">
+<div class="three wide right floated column" style="width:250px !important;">
 <div class="ui fluid card">
   <div class="content">
     <div class="header">Uploaded videos</div>
   </div>
-          <div class="content">
+	<div class="ui center aligned grid">
+		<div class="twenty wide column">
+			<div class="content">
 					<?php				
 $x = 1; 
 $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC"); //instructions for sql
@@ -156,9 +158,9 @@ $uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 if ($uploadervideolist == $user) {
 	if (!($fetch['isApproved'] == 2)) {
 		echo "<div class='center aligned item'>
-			<div class='image'>
-				<div class='ui basic compact fitted segment' style=\"margin-left: 8px;\">
-				  <div class='ui black bottom right attached label'>".$lengthlist."</div>
+			<div class='image' style=\"display: grid;\">
+				<div class='ui basic compact fitted segment'>
+				  <div class='ui black bottom right attached label' style=\"margin-right: 22px;\">".$lengthlist."</div>
 				  <a href='watch.php?v=$idvideolist'>
 					<img width='180' height='140' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
 				  </a>
@@ -169,6 +171,7 @@ if ($uploadervideolist == $user) {
 			  <div class='extra'>
 			  Uploaded on $uploadedvideolist<br>
 			  </div>
+			  <br/>
 			</div>
 		  </div>";
 		$x++;
@@ -177,6 +180,8 @@ if ($uploadervideolist == $user) {
 }
 ?>
           </div>
+		</div>
+	</div>
 		<div class="extra content">
 			<a class="right floated" href="profile_videos.php?user=<?php echo $user;?>">
 				<i class="arrow circle right icon"></i>
