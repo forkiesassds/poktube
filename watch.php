@@ -169,8 +169,10 @@ $commentcount++; // count the amount of comments
 
 <table width="895" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="350">
-		<h1 class="header"><?php echo $VideoName ?></h1>
+		<td width="515" style="padding-right: 15px;">
+		<div id="watch-vid-title" class="title">
+			<h1><?php echo $VideoName ?></h1>
+		</div>
 		<!---<div style="font-size: 13px; font-weight: bold; text-align:center;">
 		<a href="#">Share</a>
 		// <a href="#comment">Comment</a>
@@ -183,15 +185,25 @@ $commentcount++; // count the amount of comments
 				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
-		<div class="ui segment">
-			<p><?php echo $VideoDesc ?></p>
-			<div>
-				<a href='profile.php?user=<?php echo $Uploader?>'><img class="ui avatar image" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'">
-				<?php echo $Uploader ?><br/></a>
-				Uploaded: <?php echo $UploadDate ?><br/>
-				<a href="#comment">Comments</a>: <?php echo $commentcount ?>
-			</div>
-		</div>
+		
+			<table style="margin-left: 8px;margin-right: 8px;" width="480" cellspacing="0" cellpadding="0" border="0" align="center">
+			<tr>
+				<td>
+					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
+										</div>
+					</div>
+					<div><img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
+					<div class="label" style="padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
+					<div class="watchAdded">
+					Uploaded: <?php echo $UploadDate ?>
+					</div>
+			
+					<div class="watchDetails">
+					<a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+
+				</td>
+			</tr>
+		</table>
 
 		<table width="400" cellpadding="0" cellspacing="0" border="0" align="center">
 	
@@ -199,73 +211,102 @@ $commentcount++; // count the amount of comments
 			</td>
 		</tr>
 	</tbody></table>
-	
-	<div class="ui blue center aligned inverted segment">
-		Share this video! Copy and paste this link:
-		<form name="linkForm" id="linkForm" class="ui input">
-		  <input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" size="50" readonly="true" style="text-align: center;">
-		</form>
-	</div>
+
+<!-- google_ad_section_end -->
+
+	<!-- watchTable -->
+		
+		<div style="padding: 15px 0px 10px 0px;">
+		<table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
+			<tr>
+				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
+				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
+			</tr>
+			<tr>
+				<form name="linkForm" id="linkForm">
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				<td align="center">
+		
+				<div style="font-size: 11px; color: #000; padding: 5px 0px 5px 0px;">Share this video! Copy and paste this link:</div>
+				<div style="font-size: 11px; padding-bottom: 15px;">
+				<input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" size="50" readonly="true" style="font-size: 10px; text-align: center;">
+				</div>
+				
+				</td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				</form>
+			</tr>
+			<tr>
+				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
+				<td><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
+			</tr>
+		</table>
+		</div>
+
+<br>
+<a name="comment"></a>
+
+		<div style="padding-bottom: 5px; font-weight: bold; color: #444;">Comment on this video:</div>
+				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="<?php echo $vid; ?>"><textarea tabindex="2" name="comment" cols="78" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" value="Post Comment" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm(&#39;main_comment&#39;,false);">		</form></div>
+		
+		
+<br>
 		
 <table width="650">
-<tbody>
+<tbody><tr>
 <td>
-<a name="comment"></a>
-Comments (<?php echo $commentcount; ?>):
-
-<div class="ui comments">
-  <form class="ui reply form" name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php">
-    <div class="field">
-	  <input type="hidden" name="video_id" value="<?php echo $vid; ?>">
-      <textarea tabindex="2" name="comment" cols="80" rows="2"></textarea>
-    </div>
-    <button type="submit" name="add_comment_button" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);" class="ui primary submit labeled icon button">
-      <i class="icon edit"></i> Add Comment
-    </button>
-  </form>
-		
+	<table class="commentsTitle" width="100%">
+	<tbody><tr>
+		<td>Comments (<?php echo $commentcount; ?>): </td>
+	</tr></tbody></table>
+</td>
+</tr>
 <?php
 $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
 $count = 0;
 
 while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
-$usercommentlist = htmlspecialchars($searchcomments['user']); // comment
+$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
 $datecommentlist = $searchcomments['date']; // comment date
 $messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
 $idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
 $hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+
 $bbcode = new ChrisKonnertz\BBCode\BBCode();
 $bbcode->ignoreTag('spoiler');
 $bbcode->ignoreTag('youtube');
 $bbcode->ignoreTag('img');
 $rendered = $bbcode->render($messagecommentlist);
 if ($idcommentlist == $vid AND $hidden != 1) {
-echo "<div class='comment'>
-    <a class='avatar'>
-      <img src='content/profpic/$usercommentlist.png' onerror=\"this.src='img/profiledef.png'\" width='35' height='35' style='height:35px;width:35px;'>
-    </a>
-    <div class='content'>
-      <a class='author' href='profile.php?user=$usercommentlist'>$usercommentlist</a>
-      <div class='metadata'>
-        <div class='date'>$datecommentlist</div>
-      </div>
-      <div class='text'>
-		$rendered
-      </div>
-      <div class='actions'>
-        <a class='reply'>Reply (TODO)</a>
-      </div>
-    </div>
-  </div>";
+echo "<tr>
+<td>
+      			<a name='8n9OjARLLDs'>
+					<table class='parentSection' cellspacing='0' cellpadding='0' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
+					<tbody><tr valign='top'>
+						<td>
+<!-- google_ad_section_start -->
+		".$rendered."
+<!-- google_ad_section_end -->
+			<div class='userStats'>
+				<a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
+				 - (".$datecommentlist.")
+			</div>
+	<div id='div_comment_form_id_8n9OjARLLDs'></div>
+							</td>
+					</tr>
+				</tbody></table>
+			</a></td>
+</tr>";
 $count++; // count the amount of comments
 }
 }
 if($count == 0) {
-	echo "<p style='font-size: 15px;'>No comments found.</p>"; // echos "no comments found" if no comments
+	echo "<tr><td><center><p style='padding: 10px; font-size: 15px;'>No comments found.</p></center></td></tr>"; // echos "no comments found" if no comments
 }
 ?>
-</div>
 </tbody></table>
 		
 
@@ -275,14 +316,27 @@ if($count == 0) {
 					<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEEEEE">
 						</table>
 		</div>
+			
+			<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
+				<tbody><tr>
+					<td><img src="./img/box_login_tl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_tr.gif" width="5" height="5"></td>
+				</tr>
+				<tr>
+					<td><img src="./img/pixel.gif" width="5" height="1"></td>
+					<td width="270">
+					<div class="moduleTitleBar">
+					<table width="270" cellpadding="0" cellspacing="0" border="0">
+						<tbody><tr valign="top">
 
-<h4 class="ui top attached inverted header">
-	<div id="homepage-featured-more-top">
-		<span>Videos from <?php echo $Uploader ?></span>
-	</div>
-</h4>
-<div class="ui bottom attached segment">
-<div class="ui celled list">
+							<td><div class="moduleFrameBarTitle">Videos from <?php echo $Uploader ?></div></td>
+							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
+						</tr>
+					</tbody></table>
+					</div>
+
+							<div id="side_results" name="side_results">
 					<?php				
 $x = 1; 
 $sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC"); //instructions for sql
@@ -292,89 +346,32 @@ if ($x == 9) {
 	break;
 }
 $idvideolist = $fetch['VideoID'];
-$lengthlist = 0;
-if($fetch['VideoLength'] > 3600) {
-	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
-} else { 
-	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
-};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
 $uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
-	if (!($fetch['isApproved'] == 2)) {
-		echo "<div class='item'>
-			<div class='image'>
-				<div class='ui basic compact fitted segment'>
-				  <div class='ui black bottom right attached label'>".$lengthlist."</div>
-				  <a href='watch.php?v=$idvideolist'>
-					<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-				  </a>
-				</div>
-			</div>
-			<div class='content'>
-			  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
-			  <div class='extra'>
-			  Uploaded on $uploadedvideolist<br>
-			  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
-			  <span>$uploadervideolist</span></a>
-			  </div>
-			</div>
-		  </div>";
-		$x++;
-	}
+echo "<div class='moduleFrameEntry'>
+<table width='235' cellpadding='0' cellspacing='0' border='0'>
+							<tbody><tr valign='top'>
+								<td width='90'>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
+								<td>
+									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
+									<div class='moduleFrameDetails'>
+										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
+									</div>
+									<div class='moduleFrameDetails'>
+										Uploaded: ".$uploadedvideolist."<br>
+									</div>
+		
+								</td>
+							</tr>
+						</tbody></table>
+					</div>";
+$x++;
 }
-}
-?>
-	</div>
-</div>
-<h4 class="ui top attached inverted header">
-	<div id="homepage-featured-more-top">
-		<span>Recommended Videos</span>
-	</div>
-</h4>
-<div class="ui bottom attached segment">
-<div class="ui celled list">
-					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC"); //instructions for sql
-$x = 1;
-while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
-$idvideolist = $fetch['VideoID'];
-$lengthlist = 0;
-if($fetch['VideoLength'] > 3600) {
-	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
-} else { 
-	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
-};
-$namevideolist = htmlspecialchars($fetch['VideoName']);
-$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
-$viewsvideolist = $fetch['ViewCount'];
-if ($x == 9) {
-	break;
-}
-if (!($fetch['isApproved'] == 2)) {
-	echo "<div class='item'>
-		<div class='image'>
-			<div class='ui basic compact fitted segment'>
-			  <div class='ui black bottom right attached label'>".$lengthlist."</div>
-			  <a href='watch.php?v=$idvideolist'>
-				<img width='90' height='70' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-			  </a>
-			</div>
-		</div>
-		<div class='content'>
-		  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
-		  <div class='extra'>
-		  Uploaded on $uploadedvideolist<br>
-		  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
-		  <span>$uploadervideolist</span></a>
-		  </div>
-		</div>
-	  </div>";
-	  $x++;
-	}
 }
 ?>
 
@@ -382,6 +379,71 @@ if (!($fetch['isApproved'] == 2)) {
 					<td><img src="./img/pixel.gif" width="5" height="1"></td>
 				</tr>
 				<tr>
+					<td><img src="./img/box_login_bl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_br.gif" width="5" height="5"></td>
+				</tr>
+			</tbody></table>
+			
+			<br/>
+			
+			<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
+				<tbody><tr>
+					<td><img src="./img/box_login_tl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_tr.gif" width="5" height="5"></td>
+				</tr>
+				<tr>
+					<td><img src="./img/pixel.gif" width="5" height="1"></td>
+					<td width="270">
+					<div class="moduleTitleBar">
+					<table width="270" cellpadding="0" cellspacing="0" border="0">
+						<tbody><tr valign="top">
+
+							<td><div class="moduleFrameBarTitle">Recommended Videos</div></td>
+							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
+						</tr>
+					</tbody></table>
+					</div>
+
+							<div id="side_results" name="side_results">
+					<?php
+$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC LIMIT 8"); //instructions for sql
+
+while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+$idvideolist = $fetch['VideoID'];
+$namevideolist = htmlspecialchars($fetch['VideoName']);
+$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
+$viewsvideolist = $fetch['ViewCount'];
+
+echo "<div class='moduleFrameEntry'>
+<table width='235' cellpadding='0' cellspacing='0' border='0'>
+							<tbody><tr valign='top'>
+								<td width='90'>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
+								<td>
+									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
+									<div class='moduleFrameDetails'>
+										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
+									</div>
+									<div class='moduleFrameDetails'>
+										Uploaded: ".$viewsvideolist."<br>
+									</div>
+		
+								</td>
+							</tr>
+						</tbody></table>
+					</div>";
+}
+?>
+
+					</td>
+					<td><img src="./img/pixel.gif" width="5" height="1"></td>
+				</tr>
+				<tr>
+					<td><img src="./img/box_login_bl.gif" width="5" height="5"></td>
+					<td><img src="./img/pixel.gif" width="1" height="5"></td>
+					<td><img src="./img/box_login_br.gif" width="5" height="5"></td>
 				</tr>
 			</tbody></table>
 		
