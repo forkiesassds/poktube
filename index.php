@@ -133,7 +133,7 @@ echo "<div class='video-entry'>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
 		 <b style="color:#CC6600">Reverted redesign</b><br>
-		 Squarebracket's Semantic UI redesign has been reverted.<br><br>
+		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="https://cdn.discordapp.com/attachments/805298283302879242/821111535442067476/unknown.png">Chief Bazinga from FulpTube<a>) didn't like it.<br><br>
 		 <b style="color:#CC6600">New server</b><br>
 		 PokTube is no longer hosted on a laptop. It has been moved to be hosted on a Debian server with Nginx.<br><br>
 		 Since we haven't figured everything out yet, video uploading and playback is broken for the time being.<br><br>
