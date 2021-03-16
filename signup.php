@@ -98,6 +98,13 @@ if(isset($_POST["signupsubmit"])){
     mysqli_close($link);
 }
 ?>
+<table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
+		
+
+
+
 
 
 <div style="padding: 0px 5px 0px 5px;">
@@ -122,41 +129,70 @@ function formValidator()
 }
 </script>
 
-<div class="ui center aligned container">
-	<h1 class="header">Sign Up</h1>
-	Please enter your account information below. All field are required.
+<div class="page_title">Sign Up</div>
+
+<div style="width:80%;margin:0 auto 20px;padding:0 5px 5px">
+    <div style="font-size:13px;margin: 0 0 15px;padding:0 0 0 10px">
+        Please enter your account information below. All field are required.
+            </div>
     <form action="signup.php" method="POST">
-			<div class="ui labeled input" width="50px" style="width: 35%;">
-			  <div class="ui label">
-				Username
-			  </div>
-			  <input tabindex="1" type="text" size="20" maxlength="20" name="username" value="">
-			</div>
-			<br/>
-			<div class="ui labeled input" width="50px" style="width: 35%;">
-			  <div class="ui label">
-				Password
-			  </div>
-			  <input tabindex="2" type="password" size="20" maxlength="20" name="password" value="">
-			</div>
-			<br/>
-			<div class="ui labeled input" width="50px" style="width: 35%;">
-			  <div class="ui label">
-				Repeat Password
-			  </div>
-			  <input tabindex="3" type="password" size="20" maxlength="20" name="confirm_password" value="">
-			</div><br/>
-            - I certify I am over 13 years old.<br/>
-            - I agree to the <a href="/web/20171203211120/http://www.bitview.net/terms.php" target="_blank">terms of use</a> and <a href="/web/20171203211120/http://www.bitview.net/privacy.php" target="_blank">privacy policy</a>.<br/>
-			<input class="ui primary button" name="signupsubmit" id="signupsubmit" type="submit" value="Sign Up">
-			<p>Or, <a href="/web/20171203211120/http://www.bitview.net/">return to the homepage</a>.</p>
-			<?php echo $username_err; ?>
-			<?php echo $password_err; ?>
-			<?php echo $confirm_password_err; ?>
+        <table width="720" cellspacing="0" cellpadding="5" border="0">
+            <tbody>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">User Name:</span></td>
+                <td><input type="text" size="20" maxlength="20" name="username" data-kwimpalastatus="alive" data-kwimpalaid="1611513448340-2"></td>
+            </tr>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">Password:</span></td>
+                <td><input type="password" size="20" maxlength="20" name="password" data-kwimpalastatus="alive" data-kwimpalaid="1611513448340-0"></td>
+            </tr>
+            <tr>
+                <td width="200" align="right"><span style="font-weight:bold">Retype Password:</span></td>
+                <td><input type="password" size="20" maxlength="20" name="confirm_password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    - I certify I am over 13 years old.
+                    <br>
+                    - I agree to the <a href="/web/20171203211120/http://www.bitview.net/terms.php" target="_blank">terms of use</a> and <a href="/web/20171203211120/http://www.bitview.net/privacy.php" target="_blank">privacy policy</a>.
+                </td>
+            </tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input name="signupsubmit" id="signupsubmit" type="submit" value="Sign Up"></td>
+	</tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    Or, <a href="/web/20171203211120/http://www.bitview.net/">return to the homepage</a>.
+                </td>
+            </tr>
+				<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $username_err; ?></td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $password_err; ?></td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td><?php echo $confirm_password_err; ?></td>
+	</tr>
+        </tbody></table>
     </form>
-	Please enter your account information below. All fields are required.
 </div>
-</div>
+
+Please enter your account information below. All fields are required.<br><br>
+		</div>
+		</td>
+	</tr>
+</tbody></table>
 <?php
 include("footer.php");
 ?>

@@ -339,7 +339,7 @@ if($count == 0) {
 							<div id="side_results" name="side_results">
 					<?php				
 $x = 1; 
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER by `UploadDate` DESC"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 if ($x == 9) {
@@ -408,7 +408,7 @@ $x++;
 
 							<div id="side_results" name="side_results">
 					<?php
-$sql = mysqli_query($connect, "SELECT * FROM videodb ORDER BY rand() DESC LIMIT 8"); //instructions for sql
+$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY rand() DESC LIMIT 8"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];

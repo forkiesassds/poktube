@@ -84,6 +84,10 @@ if(isset($_POST["loginsubmit"])){
     mysqli_close($link);
 }
 ?>
+<table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
+		
 
 
 
@@ -91,53 +95,84 @@ if(isset($_POST["loginsubmit"])){
 
 <div style="padding: 0px 5px 0px 5px;">
 
-<div class="ui container">
-	<h1 class="header">Log In</h1>
-		<div class="ui grid">
-			<div class="ui ten wide column">
-				<div class="ui conainer">
-					<span class="highlight">What is PokTube?</span>
 
-					PokTube is a way to get your videos to the people who matter to you. With PokTube you can:
-					
-					<ul>
-					<li> Show off your favorite videos to the world
-					</li><li> Blog the videos you take with your digital camera or cell phone
-					</li><li> Securely and privately show videos to your friends and family around the world
-					</li><li> ... and much, much more!
-					</li></ul>
+<div class="tableSubTitle">Log In</div>
 
-					<br><span class="highlight"><a href="signup.php">Sign up now</a> and open a free account.</span>
-					<br><br><br>
-					
-					To learn more about our service, please see our <a href="help.php">Help</a> section.<br><br><br>
-				</div>
-			</div>
-			<div class="ui four wide right floated column">
-				<div class="ui conainer">
-					<form method="post" name="loginForm" id="loginForm" action="login.php">
-					<input type="hidden" name="field_command" value="login_submit">
-						<div class="ui labeled input" width="300px" style="width: 100%;">
-						  <div class="ui label">
-							Username
-						  </div>
-						  <input tabindex="1" type="text" size="20" name="username" value="">
-						</div>
-						<div class="ui labeled input" width="300px" style="width: 100%;">
-						  <div class="ui label">
-							Password
-						  </div>
-						  <input tabindex="2" type="password" size="20" name="password">
-						</div>
-						<input class="ui primary button" type="submit" value="Log In" name="loginsubmit">
-						<td align="center" colspan="2"><a href="forgot.php">Forgot your password?</a><br><br></td>
-					</form>
-					<script language="javascript">
-						onLoadFunctionList.push(function(){ document.loginForm.field_login_username.focus(); });
-					</script>
-				</div>
-			</div>
+<table width="790" align="center" cellpadding="0" cellspacing="0" border="0">
+	<tbody><tr valign="top">
+		<td style="padding-right: 15px;" width="510">
+		
+		
+		<span class="highlight">What is PokTube?</span>
+
+		PokTube is a way to get your videos to the people who matter to you. With PokTube you can:
+		
+		<ul>
+		<li> Show off your favorite videos to the world
+		</li><li> Blog the videos you take with your digital camera or cell phone
+		</li><li> Securely and privately show videos to your friends and family around the world
+		</li><li> ... and much, much more!
+		</li></ul>
+
+		<br><span class="highlight"><a href="signup.php">Sign up now</a> and open a free account.</span>
+		<br><br><br>
+		
+		To learn more about our service, please see our <a href="help.php">Help</a> section.<br><br><br>
+		</td>
+		<td width="275">
+		
+		<table width="275" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ebf7ff">
+			<tbody><tr>
+				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
+				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
+			</tr>
+			<tr>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				<td align="center">
+		<table width="100%" cellpadding="5" cellspacing="0" border="0">
+			<form method="post" name="loginForm" id="loginForm" action="login.php">
+
+			<input type="hidden" name="field_command" value="login_submit">
+				<tbody><tr>
+					<td align="center" colspan="2"><div style="font-size: 14px; font-weight: bold; color:#003366; margin-bottom: 5px;"><img src="img/logo.png" alt="PokTube" border="0"><p>Log In</p></div></td>
+				</tr>
+				<tr>
+					<td align="right"><span class="label">User Name:</span></td>
+					<td><input tabindex="1" type="text" size="20" name="username" value=""></td>
+				</tr>
+				<tr>
+					<td align="right"><span class="label">Password:</span></td>
+					<td><input tabindex="2" type="password" size="20" name="password"></td>
+				</tr>
+				<tr>
+					<td align="right"><span class="label">&nbsp;</span></td>
+					<td><input type="submit" value="Log In" name="loginsubmit"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><a href="forgot.php">Forgot your password?</a><br><br></td>
+				</tr>
+			</form>
+			<script language="javascript">
+				onLoadFunctionList.push(function(){ document.loginForm.field_login_username.focus(); });
+			</script>
+			</tbody></table>
+			
+			</td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+			</tr>
+			<tr>
+				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
+				<td><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
+			</tr>
+		</tbody></table>
+			
+		</td>
+	</tr>
+</tbody></table>
 		</div>
-	</div>
-</div>
+		</td>
+	</tr>
+</tbody></table>
 <?php include("footer.php"); ?>

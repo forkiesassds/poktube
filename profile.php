@@ -62,7 +62,6 @@ if($cdf['channel_color']) {
     width: 100%;
     height: 150px;
 	<?= $color->getCssGradient(10, true)?>
-	margin-top: -1rem;
 	padding: none;
 }
 </style>
