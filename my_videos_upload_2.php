@@ -125,7 +125,7 @@ if (!file_exists($preload_folder)) {
 							die();
 						}
 						exec($thumbcmd);
-						$datenow = date("Y-m-d");
+						$datenow = date();
 						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, isApproved, ViewCount, VideoCategory, VideoFile, HQVideoFile, VideoLength, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
 						$stmt->bind_param("ssssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $none, $category, $target_file, $hq_target_file, $length, $none);
