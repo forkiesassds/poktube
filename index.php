@@ -127,16 +127,78 @@ echo "<div class='video-entry'>
 </div></div></div></div></div></div>
 
 <div id="homepage-side-content">
+<div class="homepage-content-block">
+<?php
+if(isset($_SESSION["username"])) // is logged in?
+{
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$LastestVideo = htmlspecialchars($cdf['recent_vid']);
+$Username = htmlspecialchars($cdf['username']);
+$AboutMe = htmlspecialchars($cdf['aboutme']);
+$VidsWatched = $cdf['videos_watched'];
+$Name = htmlspecialchars($cdf['prof_name']);
+$Age = htmlspecialchars($cdf['prof_age']);
+$City = htmlspecialchars($cdf['prof_city']);
+$Hometown = htmlspecialchars($cdf['prof_hometown']);
+$Country = htmlspecialchars($cdf['prof_country']);
+$Occupation = htmlspecialchars($cdf['prof_occupation']);
+$Interests = htmlspecialchars($cdf['prof_interests']);
+$Music = htmlspecialchars($cdf['prof_music']);
+$Books = htmlspecialchars($cdf['prof_books']);
+$Movies = htmlspecialchars($cdf['prof_movies']);
+$Foreground = htmlspecialchars($cdf['channel_color']);
+$Background = htmlspecialchars($cdf['channel_bg']);
+if($cdf['prof_website']) {
+$Website = htmlspecialchars($cdf['prof_website']);
+} else {
+	$Website = "";
+}
+$PreRegisteredOn = $cdf['registeredon'];
+$DateTime = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
+echo "            <div class='contentBox'>
+                <div>
+                    <div class='floatR'><span class='smallText'><b><a href='my_profile.php'>Profile Settings</a></b></span></div>
+					<img src='content/profpic/$Username.png' onerror='this.src='img/profiledef.png'' class='thumb' width='128'>
+                    <div class='floatL'>
+                        <span class='headerTitle hpBlockHeadingGray'>Welcome back, $Username!</span>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+                <table>
+                    <tbody>
+                </tbody></table>
+                <div class='hpLoginForgot smallText'>
+                    <p class='marT0 marB0' align='center'><a href='profile.php?user=$Username'>My Channel</a> | <a href='/my_videos.php'>My Videos</a></p>
+                <p class='marT0 marB0' align='center'>
+                </p></div>
+                <div class='bottomBorderDotted'></div>
+        </div>";
+} else {
+echo "<div class='homepage-content-block'>
+  <div class='signInBoxBorder'>
+    <div class='signInBoxContent'>
+            <strong>Want to participate in SquareBracket?</strong><br>
+        <a href='/login.php'><strong>Login to SquareBracket now!</strong></a>
+        <div class='homepage-border-dotted'></div>
+        <span class='smgrayText'>
+        <a href='/signup.php'>Don't have an account? Sign up!</a>
+        </span>
+        <a href='/about.php' rel='nofollow'><img src='img/pixel.gif' class='alignMid gaiaHelpBtn' alt='' border='0'></a>
+    </div>  
+        </div>  
+            </div>"; }
+?>
+<br>
    <div class="homepage-side-block" id="homepage-whats-new-block">
       <div class="homepage-yellow-block">
          <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
 		 <b style="color:#CC6600">Reverted redesign</b><br>
-		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="https://cdn.discordapp.com/attachments/805298283302879242/821111535442067476/unknown.png">Chief Bazinga from FulpTube<a>) didn't like it.<br><br>
-		 <b style="color:#CC6600">New server</b><br>
-		 PokTube is no longer hosted on a laptop. It has been moved to be hosted on a Debian server with Nginx.<br><br>
-		 Since we haven't figured everything out yet, video uploading and playback is broken for the time being.<br><br>
+		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="https://cdn.discordapp.com/attachments/805298283302879242/821111535442067476/unknown.png">Chief Bazinga from FulpTube<a>) didn't like it.
          <div style="font-size: 1px; height: 1px;"><br></div>
       </div>
       <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
