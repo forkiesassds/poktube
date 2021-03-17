@@ -57,7 +57,20 @@ $VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
 $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
-
+if ($isApproved != 1) {
+	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+	$adf = mysqli_fetch_assoc($result);
+	$admin = 0;
+	if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+	{
+	$admin = 1;
+	}
+	else
+	{
+		echo "<script>window.location.replace('/?vexist=1');</script>";
+		die();
+	}
+}
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
 $udf = mysqli_fetch_assoc($userfetch);
 
