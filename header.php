@@ -1,5 +1,7 @@
 <?php 
-session_start(); 
+if(!isset($_SESSION)){
+    session_start();
+}
 include("db.php");
 $datenow = date("Y-m-d");
 if(isset($_SESSION["username"])) {

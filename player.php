@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php"); 
 $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . ":\/\/$_SERVER[HTTP_HOST]";
 if(isset($_GET["v"])) {
@@ -8,6 +9,32 @@ $vid = htmlspecialchars($_GET["v"]);
 //if $vid is null then dont show anything
 if ($vid == null) {
 die();
+}
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+$Uploader = $vdf['Uploader'];
+$isApproved = $vdf['isApproved'];
+if ($isApproved != 1) {
+	if(isset($_SESSION["username"])) {
+		$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+		$adf = mysqli_fetch_assoc($result);
+		$admin = 0;
+		if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) { // is logged in?
+		$admin = 1;
+		} else {
+			include("header.php");
+			echo "<div class='tableSubTitle'>403</div>
+			Wow, just wow... Did you really try to bypass this video is private error by loading up the player directly?";
+			include("footer.php");
+			die();
+		}
+	} else {
+		include("header.php");
+		echo "<div class='tableSubTitle'>403</div>
+		Wow, just wow... Did you really try to bypass this video is private error by loading up the player directly?";
+		include("footer.php");
+		die();
+	}
 }
 
 $image = "content/thumbs/". $vid .".png"; // set this for thumbnail
