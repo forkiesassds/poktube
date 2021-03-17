@@ -14,7 +14,20 @@ if($_GET["page"] && $_GET["page"] > 1){
 if(isset($_GET["user"])) {
 $user = $_GET["user"];
 }
-
+$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+$adf = mysqli_fetch_assoc($result);
+$admin = 0;
+if($adf['is_admin'] == 1 || $user == $_SESSION["username"]) // is logged in?
+{
+$admin = 1;
+}
+else
+{
+    echo "<div class='tableSubTitle'>403</div>
+	You are not allowed to see ".$user."'s private videos!";
+	include("footer.php");
+	die();
+}
 //if $FeaturedVideo is null then dont show anything
 if (!isset($_GET["user"])) {
 die();
