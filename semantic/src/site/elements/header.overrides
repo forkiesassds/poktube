@@ -1,6 +1,0 @@
-/*******************************
-         Site Overrides
-*******************************/
-.ui.inverted.attached.header {
-    background-image: linear-gradient(#242424, #141414);
-}
