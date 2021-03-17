@@ -30,42 +30,49 @@ echo "<html>
 							<span style="color:#444;">Search results for <?php echo $_GET['search']?></span>
 						</div>
 					</div>
+					<div class="list-view">
 											<?php
 $sql = mysqli_query($connect, "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$name}%' AND `isApproved`='1'"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='moduleEntry'>
-						<table width='665' cellpadding='0' cellspacing='0' border='0'>
-							<tbody><tr valign='top'>
-								<td><a href='watch.php?v=$idvideolist&player=0'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
-								</td>
-								<td width='100%'>
-									<div class='moduleEntryTitle'>
-										<a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a>
-									</div>
-										<div class='moduleEntryDescription'>
-									".$descvideolist."
-									</div>
-							
-									<div class='moduleEntryDetails'>
-										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
-									</div>
-									
-									<div class='moduleEntryDetails'>
-										Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
-									</div>
-									<nobr>
-	</nobr>
-								</td>
-							</tr>
-						</tbody></table>
-					</div>";
+<div class='video-entry' style='padding: 0;'>
+   <div class='v120WideEntry'>
+      <div class='v120WrapperOuter'>
+         <div class='v120WrapperInner'>
+            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+         <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+		 </div>
+      </div>
+   </div>
+   <div class='video-main-content' id='video-main-content-muP9eH2p2PI'>
+      <div class='video-title '>
+         <div class='video-long-title'>
+            <a id='video-long-title-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0'  title='$namevideolist' rel='nofollow'>$namevideolist</a>
+         </div>
+      </div>
+      <div id='video-description-muP9eH2p2PI' class='video-description'>
+         $descvideolist
+      </div>
+      <div class='video-facets'>
+         Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
+      </div>
+   </div>
+   <div class='video-clear-list-left'></div>
+</div>
+</div>";
 }
 ?>
 				</td>
@@ -77,6 +84,7 @@ echo "<div class='moduleEntry'>
 				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
 			</tr>
 		</table>
+		</div>
 	</div>
 			<!-- end recently featured -->
 <?php include("footer.php"); ?>
