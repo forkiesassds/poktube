@@ -157,11 +157,13 @@ if($cdf['channel_color']) {
 		<td width="180">
 		
 		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; Profile</div>
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos.php?user=<?php echo $Username ?>">Public Videos</a> (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."';");
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos.php?user=<?php echo $Username ?>">Public Videos</a> (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` = '1';");
 		$vdf = mysqli_fetch_assoc($query);
 		echo $vdf['COUNT(VideoID)'];?>)</div>
 		<!-- only show this link to friends in their network -->
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos_private.php?user=<?php echo $Username ?>">Private Videos</a> (0)</div>
+		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos_private.php?user=<?php echo $Username ?>">Private Videos</a> (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` != '1';");
+		$vdf = mysqli_fetch_assoc($query);
+		echo $vdf['COUNT(VideoID)'];?>)</div>
 		<!-- only show this link to friends in their network -->
 		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_favorites.php?user=<?php echo $Username ?>">Favorites</a> (0)</div>
 		<div style="font-size: 14px; font-weight: bold; margin-bottom: 20px; color: #444;">&#187; <a href="profile_friends.php?user=<?php echo $Username ?>">Friends</a> (0)</div>
