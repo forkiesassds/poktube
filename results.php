@@ -1,4 +1,3 @@
-
 <?php
 include("header.php"); 
 $con = $connect;
@@ -8,7 +7,7 @@ if( $con->connect_error){
 $sql = "SELECT * FROM `videodb`";
 if( isset($_GET['search']) ){
     $name = mysqli_real_escape_string($connect, htmlspecialchars($_GET['search']));
-    $sql = "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$name}%'";
+    $sql = "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$name}%' AND `isApproved`='1'";
 }
 $result = $connect->query($sql);
 echo "<html>
@@ -17,63 +16,67 @@ echo "<html>
 ?>
 <div style="margin: auto; width: 95%;">
 <!-- begin recently featured -->
-<div class="ui container">
-	<h4 class="ui top attached inverted header">
-		<div id="homepage-featured-more-top">
-			Search results for <?php echo $_GET['search']?>
-		</div>
-	</h4>
-	<div class="ui bottom attached segment">
-		<div class="ui celled list">
-<?php
-$sql = mysqli_query($connect, "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$name}%'"); //instructions for sql
+					<table class="roundedTable" width="auto" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#cccccc">
+			<tr>
+				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
+				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
+			</tr>
+			<tr>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+				<td width="585">
+					<div class="sunkenTitleBar">
+						<div class="moduleTitle">
+							<span style="color:#444;">Search results for <?php echo $_GET['search']?></span>
+						</div>
+					</div>
+											<?php
+$sql = mysqli_query($connect, "SELECT * FROM `videodb` WHERE VideoName LIKE '%{$name}%' AND `isApproved`='1'"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 $idvideolist = $fetch['VideoID'];
-$lengthlist = 0;
-if($fetch['VideoLength'] > 3600) {
-	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
-} else { 
-	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
-};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-if (!($fetch['isApproved'] == 2)) {
-	echo "
-		<div class='item'>
-					<div class='image'>
-						<div class='ui basic compact fitted segment'>
-						  <div class='ui black bottom right attached label'>".$lengthlist."</div>
-						  <a href='watch.php?v=$idvideolist'>
-							<img width='160' height='120' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\">
-						  </a>
-						</div>
-					</div>
-					<div class='content'>
-					  <a href='watch.php?v=$idvideolist' class='header'>$namevideolist</a>
-					  <div class='meta'>
-						<span>$descvideolist</span>
-					  </div>
-					  <div class='description'>
-						<p></p>
-					  </div>
-					  <div class='extra'>
-					  Uploaded on $uploadvideolist<br>
-					  <a href='profile.php?user=$uploadervideolist'><img class='ui avatar image' src='content/profpic/$uploadervideolist.png' onerror=\"this.src='img/profiledef.png'\">
-					  <span>$uploadervideolist</span></a>
-					  </div>
-				  </div>
-				</div>
-	";
-}
+echo "<div class='moduleEntry'>
+						<table width='665' cellpadding='0' cellspacing='0' border='0'>
+							<tbody><tr valign='top'>
+								<td><a href='watch.php?v=$idvideolist&player=0'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='120' height='90'></a>
+								</td>
+								<td width='100%'>
+									<div class='moduleEntryTitle'>
+										<a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a>
+									</div>
+										<div class='moduleEntryDescription'>
+									".$descvideolist."
+									</div>
+							
+									<div class='moduleEntryDetails'>
+										Added: ".$uploadvideolist." by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
+									</div>
+									
+									<div class='moduleEntryDetails'>
+										Alternative players: <a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
+									</div>
+									<nobr>
+	</nobr>
+								</td>
+							</tr>
+						</tbody></table>
+					</div>";
 }
 ?>
-			</div>
-		</div>
+				</td>
+				<td><img src="img/pixel.gif" width="5" height="1"></td>
+			</tr>
+			<tr>
+				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
+				<td><img src="img/pixel.gif" width="1" height="5"></td>
+				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
+			</tr>
+		</table>
 	</div>
-</div>
-<!-- end recently featured -->
+			<!-- end recently featured -->
 <?php include("footer.php"); ?>
