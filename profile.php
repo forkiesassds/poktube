@@ -72,8 +72,16 @@ if($cdf['channel_color']) {
 <title><?php echo $Username ?> - PokTube</title>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="headerPROF">
-<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" style="border: solid white 3px;width: 128px;height: 128px">
-<div style="font-size: 14px; font-weight: bold; color:#FFFFFF; margin-bottom: 5px;"><?php echo $Username ?></div>
+<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" style="border: solid <?php if($color->isLight()) {
+	echo "#000000";
+} else {
+	echo "#FFFFFF";
+}	?> 3px;width: 128px;height: 128px">
+<div style="font-size: 14px; font-weight: bold; color:<?php if($color->isLight()) {
+	echo "#000000";
+} else {
+	echo "#FFFFFF";
+}	?>; margin-bottom: 5px;"><?php echo $Username ?></div>
 </div>
 
 
