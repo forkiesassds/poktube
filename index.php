@@ -48,22 +48,29 @@ if(($_GET["vexist"]) == 0){
 $sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC LIMIT 4"); //instructions for sql, also WHERE with ORDER BY works, icty, you said that it didn't in FEB 24 2021, you're wrong.
 while ($fetch = mysqli_fetch_assoc($sqlSponsered)) {
 $idvideolistSponsered = $fetch['VideoID'];
+$lengthlistSponsered = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlistSponsered = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlistSponsered = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolistSponsered = htmlspecialchars($fetch['VideoName']);
 $uploadervideolistSponsered = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $uploadvideolistSponsered = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolistSponsered = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolistSponsered = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='homepage-sponsored-video'>
-				<div class='videoIconWrapperOuter'>
+				<div class='videoIconWrapperOuter' style='margin-left: 12.6px;'>
 					<div class='videoIconWrapperInner'>
 					<div class='vstill'><a href='watch.php?v=$idvideolistSponsered'><img src='content/thumbs/".$idvideolistSponsered.".png' onerror=\"this.src='img/default.png'\"  class='vimg120'></a></div>
+					<div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlistSponsered</span></div>
 					</div>
 				</div>
 				<div class='vtitle smallText'>
 					<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
 				</div>
 				<div class='vfacets'>
-				<a href='/web/20090101130443/http://youtube.com/user/VenetianPrincess' class='dg'>$uploadervideolistSponsered</a>
+				<a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolistSponsered'>$uploadervideolistSponsered</a>
 				</div>
 			</div>";};
 		?>
@@ -142,13 +149,7 @@ $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
 $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
-$Occupation = htmlspecialchars($cdf['prof_occupation']);
-$Interests = htmlspecialchars($cdf['prof_interests']);
-$Music = htmlspecialchars($cdf['prof_music']);
-$Books = htmlspecialchars($cdf['prof_books']);
-$Movies = htmlspecialchars($cdf['prof_movies']);
 $Foreground = htmlspecialchars($cdf['channel_color']);
-$Background = htmlspecialchars($cdf['channel_bg']);
 if($cdf['prof_website']) {
 $Website = htmlspecialchars($cdf['prof_website']);
 } else {
@@ -161,7 +162,7 @@ $RegisteredYear = $DateTime->format('Y');
 echo "            <div class='contentBox'>
                 <div>
                     <div class='floatR'><span class='smallText'><b><a href='my_profile.php'>Profile Settings</a></b></span></div>
-					<img src='content/profpic/$Username.png' onerror='this.src='img/profiledef.png'' class='thumb' width='128'>
+					<img src='content/profpic/$Username.png' onerror='this.src='img/profiledef.png'' class='thumb' style='height: 64px;' width='64'>
                     <div class='floatL'>
                         <span class='headerTitle hpBlockHeadingGray'>Welcome back, $Username!</span>
                     </div>
@@ -198,7 +199,7 @@ echo "<div class='homepage-content-block'>
          <div class="clear"></div>
          <div class="bottomBorderDotted"></div>
 		 <b style="color:#CC6600">Reverted redesign</b><br>
-		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="https://cdn.discordapp.com/attachments/805298283302879242/821111535442067476/unknown.png">Chief Bazinga from FulpTube<a>) didn't like it.
+		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="img/bazinga.png">Chief Bazinga from FulpTube<a>) didn't like it.
          <div style="font-size: 1px; height: 1px;"><br></div>
       </div>
       <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">

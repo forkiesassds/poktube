@@ -61,6 +61,12 @@ $count = 0;
 
 while ($fetch = mysqli_fetch_assoc($vidlist)) {
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']);
 $uploadvideolist = $fetch['UploadDate'];
@@ -70,7 +76,12 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 		echo "<tr valign='top'>";
 	}
 	echo "<td width='20%' align='center'>
-			<a href='watch.php?v=".$idvideolist."&player=0'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width='120' height='90' class='moduleFeaturedThumb'></a>
+			<a href='watch.php?v=".$idvideolist."&player=0'>      <div class='v120WrapperOuter'>
+         <div class='v120WrapperInner'>
+            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+         <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+		 </div>
+      </div></a>
 			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a></div>
 			<div class='moduleFeaturedDetails'>
 				Added: ".$uploadvideolist."<br>

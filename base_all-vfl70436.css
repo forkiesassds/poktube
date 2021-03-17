@@ -2348,7 +2348,7 @@ float: left;
 .video-time,
 .video-corner-text{
 text-align: right;
-margin-top: -16px;
+margin-top: -22px;
 margin-right: 1px;
 font-family: Arial, sans-serif;
 white-space: nowrap;
@@ -5420,7 +5420,7 @@ color: #4A4A4A;
 .homepage-sponsored-video{
 float: left;
 width: 23%;
-padding: 0px 3px;
+padding: 0px 6.4px;
 }
 .homepage-sponsored-video .vtitle,
 .homepage-sponsored-video .vfacets{

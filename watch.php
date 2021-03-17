@@ -346,6 +346,12 @@ if ($x == 9) {
 	break;
 }
 $idvideolist = $fetch['VideoID'];
+$lengthlist = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
@@ -356,8 +362,13 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
-								<td>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><div class='v90WrapperOuter'>
+									 <div class='v90WrapperInner'>
+										<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg90' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+									 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+									 </div>
+								  </div></a></td>
+								<td style='padding-left: 10px;'>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
@@ -420,14 +431,19 @@ echo "<div class='moduleFrameEntry'>
 <table width='235' cellpadding='0' cellspacing='0' border='0'>
 							<tbody><tr valign='top'>
 								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><img src='./content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='moduleEntryThumb' width='80' height='60'></a></td>
-								<td>
+									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><div class='v90WrapperOuter'>
+									 <div class='v90WrapperInner'>
+										<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg90' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+									 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+									 </div>
+								  </div></a></td>
+								<td style='padding-left: 10px;'>
 									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
 									<div class='moduleFrameDetails'>
 										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
 									</div>
 									<div class='moduleFrameDetails'>
-										Uploaded: ".$viewsvideolist."<br>
+										Uploaded: ".$uploadedvideolist."<br>
 									</div>
 		
 								</td>

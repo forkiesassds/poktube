@@ -31,11 +31,6 @@ $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
 $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
-$Occupation = htmlspecialchars($cdf['prof_occupation']);
-$Interests = htmlspecialchars($cdf['prof_interests']);
-$Music = htmlspecialchars($cdf['prof_music']);
-$Books = htmlspecialchars($cdf['prof_books']);
-$Movies = htmlspecialchars($cdf['prof_movies']);
 $Foreground = htmlspecialchars($cdf['channel_color']);
 $Background = htmlspecialchars($cdf['channel_bg']);
 $color = new Color($Foreground);
@@ -63,6 +58,12 @@ if($cdf['channel_color']) {
     height: 150px;
 	<?= $color->getCssGradient(10, true)?>
 	padding: none;
+	text-align: center;
+	padding-top: 10px;
+	margin-top: -5px;
+	padding-bottom: 10px;
+	border: solid 1px #555;
+	border-radius: 10px;
 }
 </style>
 
@@ -71,7 +72,7 @@ if($cdf['channel_color']) {
 <title><?php echo $Username ?> - PokTube</title>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="headerPROF">
-<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128">
+<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" style="border: solid white 3px;width: 128px;height: 128px">
 <div style="font-size: 14px; font-weight: bold; color:#FFFFFF; margin-bottom: 5px;"><?php echo $Username ?></div>
 </div>
 
