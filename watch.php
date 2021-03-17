@@ -57,6 +57,7 @@ $VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
 $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
+$isApproved = $vdf['isApproved'];
 if ($isApproved != 1) {
 	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
 	$adf = mysqli_fetch_assoc($result);
