@@ -116,11 +116,11 @@ if ($detail2["registeredon"] == null) {
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="browse.php">Browse</a></td>
 							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="admin.php">Discord</a></td>
+							<td><a class="headertext" href="https://discord.gg/uGWvcDpmZS">Discord</a></td>
 							<?php if(isset($_SESSION['username'])) {
 								if($detail2["is_admin"] == 1) {
 									echo "<td>&nbsp;|&nbsp;</td>
-									<td><a class='headertext' href='https://discord.gg/uGWvcDpmZS'>Admin</a></td>";
+									<td><a class='headertext' href='admin.php'>Admin</a></td>";
 								}
 							}?>
 						</tr>
