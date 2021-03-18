@@ -11776,7 +11776,7 @@ if (!self.__WB_pmw) {
         };
         n.Mp = function(a) {
             var b = a.keyCode;
-            if (38 == b || 40 == b || 37 == b || 39 == b) 38 == b ? this.j("increasevolume") : 40 == b ? this.j("decreasevolume") : 37 == b ? this.j("seekby", -20) : 39 == b && this.j("seekby", 20), a.preventDefault();
+            if (38 == b || 40 == b || 37 == b || 39 == b) 38 == b ? this.j("increasevolume") : 40 == b ? this.j("decreasevolume") : 37 == b ? this.j("seekby", -5) : 39 == b && this.j("seekby", 5), a.preventDefault();
             27 == b && (this.j("exitfullscreen"), a.preventDefault())
         };
         n.$l = function(a) {

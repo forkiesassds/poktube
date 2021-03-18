@@ -57,6 +57,12 @@ $VideoDesc = nl2br(htmlspecialchars($vdf['VideoDesc']));
 $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
+$length = 0;
+if($vdf['VideoLength'] > 3600) {
+	$length = floor($vdf['VideoLength'] / 3600) . ":" . gmdate("i:s", $vdf['VideoLength'] % 3600);
+} else { 
+	$length = gmdate("i:s", $vdf['VideoLength'] % 3600) ;
+};
 $isApproved = $vdf['isApproved'];
 if ($isApproved != 1) {
 	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
@@ -109,6 +115,24 @@ $hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
 if ($idcommentlist == $vid AND $hidden != 1) {
 $commentcount++; // count the amount of comments
 }
+
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$LastestVideo = htmlspecialchars($cdf['recent_vid']);
+$Username = htmlspecialchars($cdf['username']);
+$AboutMe = htmlspecialchars($cdf['aboutme']);
+$VidsWatched = $cdf['videos_watched'];
+$Name = htmlspecialchars($cdf['prof_name']);
+$Age = htmlspecialchars($cdf['prof_age']);
+$City = htmlspecialchars($cdf['prof_city']);
+$Hometown = htmlspecialchars($cdf['prof_hometown']);
+$Country = htmlspecialchars($cdf['prof_country']);
+$Foreground = htmlspecialchars($cdf['channel_color']);
+$Background = htmlspecialchars($cdf['channel_bg']);
+$PreRegisteredOn = $cdf['registeredon'];
+$DateTime = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
 }
 ?>
 <html>
@@ -200,24 +224,57 @@ $commentcount++; // count the amount of comments
 			</div>
 		</div>
 		
-			<table style="margin-left: 8px;margin-right: 8px;" width="480" cellspacing="0" cellpadding="0" border="0" align="center">
-			<tr>
-				<td>
-					<div class="watchDescription"><?php echo $VideoDesc ?>					<div class="watchAdded" style="margin-top: 5px;">
-										</div>
-					</div>
-					<div><img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
-					<div class="label" style="padding: 5px 0px 0px 0px;"><?php echo $Uploader ?></div></div>
-					<div class="watchAdded">
-					Uploaded: <?php echo $UploadDate ?>
-					</div>
-			
-					<div class="watchDetails">
-					<a href="#comment">Comments</a>: <?php echo $commentcount ?>					</div>
+		<table width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+                <tbody><tr>
+                    <td>
 
-				</td>
-			</tr>
-		</table>
+                        <div class="watchDescription">
+                                                        <?php echo $VideoDesc ?>.                                                    </div>
+
+                        <div style="font-size: 11px; padding-bottom: 18px;">
+                            Added on <?php echo $PreUploadDate ?> by <a href="profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody></table>
+		
+		<table width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+                <tbody><tr valign="top">
+                    <td style="border-right: 1px dotted #AAAAAA; padding-right: 5px;" width="245">
+                        <div style="font-weight: bold; color:#003399; padding-bottom: 7px;">Video Details //</div>
+
+                        <div style="font-size: 11px; padding-bottom: 10px;">
+                            Runtime: <?php echo $length ?> | <a href="#comment">Comments</a>: <?php echo $commentcount ?>                        </div>
+                                                <div style="padding-bottom: 10px;"><span style="background-color: #FFFFAA; padding: 2px;">Category:</span>&nbsp;
+                            <?php echo $VideoCategory ?></div>
+
+                        <div style="font-size: 11px; padding-bottom: 10px;">
+                                                                                </div>
+
+                    </td>
+                    <td style="padding-left: 10px;" width="240">
+                        <div style="font-weight: bold; font-size: 12px; color:#003399; padding-bottom: 7px;">User Details //</div>
+
+                        <div style="font-size: 11px; padding-bottom: 10px;">
+                            <a href="profile_videos.php?user=<?php echo $Uploader ?>">Videos</a>: <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$Uploader."' AND `isApproved` = '1';");
+		$vdf_alt = mysqli_fetch_assoc($query);
+		echo $vdf_alt['COUNT(VideoID)'];?>          </div>
+
+<img style="float: left; margin: 0px 5px 10px 0px; padding: 5px 0px 0px 0px;" src="content/profpic/<?php echo $Uploader?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="48" height="48">
+                        <div style="padding-bottom: 10px;">
+                            <span style="background-color: #FFFFAA; padding: 2px;">User Name:</span>&nbsp; <a href="profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a>
+                        </div>
+						
+                        
+                        <div style="padding-bottom: 10px;">
+                                                        <div style="padding-bottom: 10px;">(Last signed in text, placeholder)</div>
+                                                        <div style="font-weight: bold; padding-bottom: 10px;">
+                                <a href="">Send Me a Private Message!</a>
+                            </div>
+                        </div></td>
+                </tr>
+                </tbody></table>
 
 		<table width="400" cellpadding="0" cellspacing="0" border="0" align="center">
 	
@@ -230,6 +287,36 @@ $commentcount++; // count the amount of comments
 
 	<!-- watchTable -->
 
+<table style="table-layout: fixed;" width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+                <tbody><tr>
+                    <td>
+                        <form name="linkForm" id="linkForm">
+                            <table style="table-layout:fixed;" width="525" cellspacing="0" cellpadding="0" border="0">
+                                <tbody><tr>
+                                    <td width="33%">
+                                        <div style="font-weight: bold; font-size: 12px; color:#003399; padding-bottom: 7px;" align="left">
+                                            Share Details // &nbsp;<a href="sharing.php">Help?</a>
+                                        </div>
+                                    </td>
+                                    <td width="67%">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td valign="top"><span style="background-color: #FFFFAA; padding: 2px;">Video URL (Permalink):</span><font style="color: #000000;">&nbsp;&nbsp;</font></td>
+                                    <td valign="top">
+                                        <input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" style="width: 300px;" readonly="true">
+                                        <div style="font-size: 11px;">(E-mail or link it)<br><br></div>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+
+
+                                </tr>
+                                                                </tbody></table>
+                        </form>
+                    </td>
+                </tr>
+                </tbody></table>
 <br>
 <a name="comment"></a>
 
