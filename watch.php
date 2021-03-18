@@ -187,12 +187,12 @@ $commentcount++; // count the amount of comments
 		<div id="watch-vid-title" class="title">
 			<h1><?php echo $VideoName ?></h1>
 		</div>
-		<!---<div style="font-size: 13px; font-weight: bold; text-align:center;">
+		<div style="font-size: 13px; font-weight: bold; text-align:center;">
 		<a href="#">Share</a>
 		// <a href="#comment">Comment</a>
 		// <a href="#" target="invisible" onclick="return FavoritesHandler();">Add to Favorites</a>
 		// <a href="#">Contact Me</a>
-		</div>-->	<tbody><tr valign="top">
+     	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
 		<br>
 			<div width="640" height="380">
@@ -229,35 +229,6 @@ $commentcount++; // count the amount of comments
 <!-- google_ad_section_end -->
 
 	<!-- watchTable -->
-		
-		<div style="padding: 15px 0px 10px 0px;">
-		<table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5ECF9">
-			<tr>
-				<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-				<td width="100%"><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-			</tr>
-			<tr>
-				<form name="linkForm" id="linkForm">
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				<td align="center">
-		
-				<div style="font-size: 11px; color: #000; padding: 5px 0px 5px 0px;">Share this video! Copy and paste this link:</div>
-				<div style="font-size: 11px; padding-bottom: 15px;">
-				<input name="video_link" type="text" onclick="javascript:document.linkForm.video_link.focus();document.linkForm.video_link.select();" value="<?php echo $share_link; ?>" size="50" readonly="true" style="font-size: 10px; text-align: center;">
-				</div>
-				
-				</td>
-				<td><img src="img/pixel.gif" width="5" height="1"></td>
-				</form>
-			</tr>
-			<tr>
-				<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-				<td><img src="img/pixel.gif" width="1" height="5"></td>
-				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-			</tr>
-		</table>
-		</div>
 
 <br>
 <a name="comment"></a>
@@ -305,6 +276,7 @@ echo "<tr>
 		".$rendered."
 <!-- google_ad_section_end -->
 			<div class='userStats'>
+			<img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' class='thumb' width='32'>
 				<a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
 				 - (".$datecommentlist.")
 			</div>
