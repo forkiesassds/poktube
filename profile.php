@@ -223,7 +223,7 @@ if(isset($_GET["page"]))
 			$bbcode->ignoreTag('youtube');
 			$bbcode->ignoreTag('img');
 			$rendered = $bbcode->render($messagecommentlist);
-			if ($idcommentlist == $Username AND $hidden != 1) {
+			if ($idcommentlist == $Username AND $hidden != 1 AND $count != 3) {
 				echo "<tr class=\"rowsLine normalinner\" id=\"cc_718\">
 						<td width=\"123\" align=\"center\" valign=\"top\" class=\"leftBg\" style=\"padding-right: 10px\">
 						<span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
@@ -238,6 +238,7 @@ if(isset($_GET["page"]))
 						".$rendered."                                    </div>
 					</td>
 				</tr>";
+				$count++;
 			}
 		}
 		echo "</div>";
@@ -1198,7 +1199,7 @@ if(isset($_GET["page"]))
                     </tr>
 
 					<?php
-					$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC LIMIT 4");
+					$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid");
 
 					$count = 0;
 
@@ -1216,7 +1217,7 @@ if(isset($_GET["page"]))
 						$bbcode->ignoreTag('youtube');
 						$bbcode->ignoreTag('img');
 						$rendered = $bbcode->render($messagecommentlist);
-						if ($idcommentlist == $Username AND $hidden != 1) {
+						if ($idcommentlist == $Username AND $hidden != 1 AND $count != 3) {
 							echo "<tr class=\"rowsLine normalinner\" id=\"cc_718\">
 									<td width=\"123\" align=\"center\" valign=\"top\" class=\"leftBg\" style=\"padding-right: 10px\">
 										<span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
@@ -1231,6 +1232,7 @@ if(isset($_GET["page"]))
 											".$rendered."                                    </div>
 																		</td>
 								</tr>";
+								$count++;
 						}
 					}
 					?>
