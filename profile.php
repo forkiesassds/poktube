@@ -1222,7 +1222,7 @@ if(isset($_GET["page"]))
 										<span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
 										<br>
 										<br>
-										<a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/<?php echo $usercommentlist?>.png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
+										<a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/".$usercommentlist.".png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
 										</a></td>
 									<td colspan=\"2\" style=\"padding-right: 5px;position:relative;\" valign=\"top\">
 										<span class=\"profileTitles\">".$Date."</span> <br>
