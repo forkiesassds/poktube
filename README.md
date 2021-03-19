@@ -20,6 +20,8 @@ This adds support for bulletins.
 CREATE TABLE `bulletins` ( `id` bigint(11) NOT NULL, `date` date NOT NULL, `subject` text NOT NULL, `body` text NOT NULL, `user` text NOT NULL );
 
 ALTER TABLE `videodb` CHANGE `UploadDate` `UploadDate` DATETIME NOT NULL; 
+
+CREATE TABLE `poktube`.`profile` ( `main` VARCHAR NOT NULL , `inside` VARCHAR NOT NULL , `border` VARCHAR NOT NULL , `text` VARCHAR NOT NULL ) ENGINE = InnoDB; 
 ```
 
 #### March 6th 2021 database changes
