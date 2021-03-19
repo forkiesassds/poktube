@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . '/lib/PHPColors/Color.php';
 use Mexitek\PHPColors\Color;
-include("header.php"); 
+include("header_profile.php"); 
 
 if(isset($_GET["user"])) {
 $user = $_GET["user"];
