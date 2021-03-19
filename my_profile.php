@@ -18,12 +18,10 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
-if($cdf['channel_color']) {
-	$Foreground = htmlspecialchars($cdf['channel_color']);
-} else {
-	$Foreground = "#003366";
-}
+$Foreground = htmlspecialchars($cdf['channel_color']);
 $Background = htmlspecialchars($cdf['channel_bg']);
+$Inside = htmlspecialchars($cdf['channel_inside']);
+$Text = htmlspecialchars($cdf['channel_text']);
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else
@@ -121,6 +119,21 @@ if(isset($_POST["upload"])) {
   Profile Foreground       :
   <input type='color' value="<?php echo stripslashes($Foreground);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="channel_color">
+  </form>
+  <form action="setinfo.php" method="post" enctype="multipart/form-data">
+  Profile Background       :
+  <input type='color' value="<?php echo stripslashes($Background);?>" id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Submit" name="channel_bg">
+  </form>
+  <form action="setinfo.php" method="post" enctype="multipart/form-data">
+  Profile Text       :
+  <input type='color' value="<?php echo stripslashes($Text);?>" id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Submit" name="channel_text">
+  </form>
+  <form action="setinfo.php" method="post" enctype="multipart/form-data">
+  Profile Interior       :
+  <input type='color' value="<?php echo stripslashes($Inside);?>" id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Submit" name="channel_inside">
   </form>
    <br>
  <br>

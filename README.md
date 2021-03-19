@@ -15,11 +15,13 @@ Type these commands on your PokTube database on PHPmyAdmin, why? Because the dat
 
 No, this will not give access to that The Homer folder.
 #### March 19th 2021 database changes
-This adds support for bulletins.
+This adds support for bulletins, as well as expanding customability for profiles.
 ```sql
 CREATE TABLE `bulletins` ( `id` bigint(11) NOT NULL, `date` date NOT NULL, `subject` text NOT NULL, `body` text NOT NULL, `user` text NOT NULL );
 
 ALTER TABLE `videodb` CHANGE `UploadDate` `UploadDate` DATETIME NOT NULL; 
+
+ALTER TABLE `users` ADD `channel_inside` VARCHAR(255) NOT NULL DEFAULT '#EDF5FB' AFTER `channel_bg`;
 ```
 
 #### March 6th 2021 database changes

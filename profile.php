@@ -35,6 +35,8 @@ $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
 $Foreground = htmlspecialchars($cdf['channel_color']);
 $Background = htmlspecialchars($cdf['channel_bg']);
+$Inside = htmlspecialchars($cdf['channel_inside']);
+$Text = htmlspecialchars($cdf['channel_text']);
 $color = new Color($Foreground);
 if($cdf['prof_website']) {
 $Website = htmlspecialchars($cdf['prof_website']);
@@ -102,20 +104,21 @@ if (isset($_POST['post_comment'])) {
 </div>
         <div class="wrapper">
             <style>
-    body { <?= $color->getCssGradient(10, true)?>  background-repeat: no-repeat; }
-	.bgtext { color: <?php if($color->isLight()) { echo "#000000"; } else { echo "#FFFFFF"; }?> }
-    .wrapper a { color: #<?php  if($color->isLight()) { echo $color->lighten(25); } else { echo $color->darken(25); } ?> !important }
+    body { background-color: <?php echo $Background ?>; }
+	.bgtext { color: <?php echo $Text?> }
+    .wrapper a { color: <?php echo $Text?> !important }
     tr.bulletin td { border-color: #000000 }
     .profileHeaders { background: #<?php echo $color->lighten()?> }
     .highlightheader { background: #<?php echo $color->lighten()?> }
-    .userTable, .bulletin td, .leftBg, .commentsMsg td { background: #ecf4fb !important; }
+    .userTable, .bulletin td, .leftBg, .commentsMsg td { background: <?php echo $Inside?> !important; }
     .userTable { border: 1px solid #<?php echo $color->lighten()?> !important; }
     .connectTable, .bulletinTable, .aboutTable, .commentPostTable { border: 1px solid #<?php echo $color->lighten()?> !important; }
     .bulletinTopFirstCells, tr.bulletinTitle td { border-color: #<?php echo $color->lighten()?> !important; }
-    .normalinner, .bulletinTitle { background: #ffffff }
+    .normalinner, .bulletinTitle { background: <?php echo $Inside?> }
+	#footer { background: <?php echo $Inside ?> !important; border-top: 1px solid <?php echo $Foreground ?>}
     .normalinner td { border-color: #<?php echo $color->lighten()?> !important; }
     .wrapper { color: #222222 }
-    .profileTitles { color: #<?php echo $color->lighten()?> }
+    .profileTitles { color: <?php echo $Text?> }
     .profileHeaders { color: #ffffff }
 	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
 </style>

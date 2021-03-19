@@ -96,4 +96,28 @@ $stmt->bind_param("ss", $setinfo, $user);
 $stmt->execute();
 echo "<br><br><center><h1>Set color.</h1></center><br><br>";
 }
+if(isset($_POST['channel_bg'])) {
+$setinfo = addslashes($_POST['textbox']); // addslashes for quotes
+$user = $_SESSION['username']; // get username to set about to
+$stmt = $connect->prepare("UPDATE users SET channel_bg=? WHERE username=?");
+$stmt->bind_param("ss", $setinfo, $user);
+$stmt->execute();
+echo "<br><br><center><h1>Set color.</h1></center><br><br>";
+}
+if(isset($_POST['channel_inside'])) {
+$setinfo = addslashes($_POST['textbox']); // addslashes for quotes
+$user = $_SESSION['username']; // get username to set about to
+$stmt = $connect->prepare("UPDATE users SET channel_inside=? WHERE username=?");
+$stmt->bind_param("ss", $setinfo, $user);
+$stmt->execute();
+echo "<br><br><center><h1>Set color.</h1></center><br><br>";
+}
+if(isset($_POST['channel_text'])) {
+$setinfo = addslashes($_POST['textbox']); // addslashes for quotes
+$user = $_SESSION['username']; // get username to set about to
+$stmt = $connect->prepare("UPDATE users SET channel_text=? WHERE username=?");
+$stmt->bind_param("ss", $setinfo, $user);
+$stmt->execute();
+echo "<br><br><center><h1>Set color.</h1></center><br><br>";
+}
 ?>

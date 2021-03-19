@@ -17,7 +17,7 @@ if ($detail2["registeredon"] == null) {
 ?>
 <head>
 <link rel="stylesheet" href="styles.css" type="text/css">
-<link rel="stylesheet" href="https _web.archive.org_web_20180722182545cs__https _www.bitview.net_css_main.css 10.css" type="text/css">
+<link rel="stylesheet" href="main_profile.css" type="text/css">
 <link rel="stylesheet" href="base_all-vfl70436.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
