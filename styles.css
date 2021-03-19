@@ -570,3 +570,7 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
     margin-top: -15px;
     margin-right: 15px;
 }
+#hpVideoListHead {
+	float: left;
+	padding-right: 400px;
+}
