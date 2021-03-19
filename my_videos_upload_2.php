@@ -44,6 +44,15 @@ function check_for_partner($sql, $user) {
 	}
 }
 
+function check_mime($mime) {
+	$mimes = array("video/3gpp2", "video/3gpp", "video/x-ms-asf", "video/x-msvideo", "video/mpeg", "video/x-flv", "video/x-h261", "video/x-h263", "video/x-m4v","video/x-matroska", "video/webm", "video/x-mjpeg", "video/mp4", "video/mpeg", "video/MP2T", "video/x-nut", "video/ogg");
+	if(!in_array($mime, $mimes)) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 $url_id = randstr(11);
 $folder_id = randstr(26);
 $vid_id = randstr(26);
@@ -72,7 +81,7 @@ if (!file_exists($preload_folder)) {
 					if($connect === false){
 						die("ERROR: Could not connect. " . mysqli_connect_error()); // cannot connect to database therefore it stops uploading
 						}
-						if($vextension != "mp4" && $vextension != "mkv" && $vextension != "wmv" && $vextension != "flv" && $vextension != "avi") {
+						if(!check_mime($_FILES['fileToUpload']['type'])) {
 							echo "<center><h1>Your video is an incompatible format.<br>To continue uploading this video, convert it to a supported format.</h1></center>";
 							die();
 						}
