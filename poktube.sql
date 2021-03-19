@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1deb1~mx19
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 28, 2021 at 08:16 PM
--- Server version: 10.3.27-MariaDB-0+deb10u1
--- PHP Version: 7.3.27-1~deb10u1
+-- Host: 127.0.0.1
+-- Generation Time: Mar 19, 2021 at 01:34 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `poktube`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bulletins`
+--
+
+CREATE TABLE `bulletins` (
+  `id` bigint(11) NOT NULL,
+  `date` date NOT NULL,
+  `subject` text NOT NULL,
+  `body` text NOT NULL,
+  `user` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -55,11 +68,6 @@ CREATE TABLE `users` (
   `prof_city` text NOT NULL,
   `prof_hometown` text NOT NULL,
   `prof_country` text NOT NULL,
-  `prof_occupation` text NOT NULL,
-  `prof_interests` text NOT NULL,
-  `prof_music` text NOT NULL,
-  `prof_books` text NOT NULL,
-  `prof_movies` text NOT NULL,
   `prof_website` text NOT NULL,
   `featured_vid` varchar(255) NOT NULL,
   `recent_vid` varchar(255) NOT NULL,
@@ -91,7 +99,9 @@ CREATE TABLE `videodb` (
   `VideoCategory` text NOT NULL,
   `VideoFile` text NOT NULL,
   `HQVideoFile` text NOT NULL,
-  `CustomThumbnail` int(11) NOT NULL
+  `VideoLength` bigint(20) UNSIGNED NOT NULL,
+  `CustomThumbnail` int(11) NOT NULL,
+  `IsFeatured` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
