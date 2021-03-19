@@ -976,7 +976,7 @@ if(isset($_GET["page"]))
 																	<div><a href=\"/watch.php?v=".$idvideolist."\"><img class=\"videobarthumbnail_white\" id=\"img_profile_videos_0\" title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width=\"80\" height=\"60\"></a>
 																	<div class='profile video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div></div>
 																	<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;\"><a href=\"/watch.php?v=".$idvideolist."\" title=\"".$namevideolist."\">".$namevideolist."</a></div>
-																	<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;\">4 minutes ago</div>
+																	<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;\">".$uploadvideolist."</div>
 																</center>
 															</div>";
 														}    
