@@ -30,14 +30,14 @@ $Background = htmlspecialchars($cdf['channel_bg']);
 	make it a SQL query or whatever the fuck -->
 
 <?php
-$target_dir = "content/profpic/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$fileToUpload = 0;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+if(isset($_POST["upload"])) {
+  $target_dir = "content/profpic/";
+  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  $uploadOk = 1;
+  //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  $name       = $_FILES['fileToUpload']['name']; 
+  $temp_name  = $_FILES['fileToUpload']['tmp_name'];
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
@@ -46,37 +46,21 @@ if(isset($_POST["submit"])) {
     echo "File is not an image.";
     $uploadOk = 0;
   }
-}
+  // Check if file already exists
+  //if (file_exists($target_file)) {
+  //  echo "Sorry, file already exists.";
+  //  $uploadOk = 0;
+  //}
 
-// Check if file already exists
-//if (file_exists($target_file)) {
-//  echo "Sorry, file already exists.";
-//  $uploadOk = 0;
-//}
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-  //echo "Sorry, your file is too large.";
-  $uploadOk = 0;
-}
-
-// Allow certain file formats
-if($imageFileType != "png") {
-  //echo "Sorry, PNG files are only supported.";
-  $uploadOk = 0;
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  //echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $_SESSION['username'] . ".png")) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-  } else {
-    //echo "Sorry, there was an error uploading your file.";
+  // Check file size
+  if ($_FILES["fileToUpload"]["size"] > 500000) {
+    //echo "Sorry, your file is too large.";
+    $uploadOk = 0;
   }
+  imagepng(imagescale(imagecreatefromstring(file_get_contents($_FILES["fileToUpload"]["tmp_name"])),256,256), $target_dir . $_SESSION['username'] . ".png");
+  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 }
+
 ?>
 <center><h1>My Profile</h1>
 <h2>Profile Picture</h2>
@@ -85,7 +69,7 @@ if ($uploadOk == 0) {
 <form action="my_profile.php" method="post" enctype="multipart/form-data">
   Select profile picture to upload:<br><br>
   <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
+  <input type="submit" value="Upload Image" name="upload">
 </form>
 <hr style='border-top: solid black 2px; width: 30%;'>
 <h4>Set information you want others to see</h4>
