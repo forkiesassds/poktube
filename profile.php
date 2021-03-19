@@ -197,6 +197,7 @@ if(isset($_GET["page"]))
 </form> 
         </div>
     </div>";
+	include "watermark.php";
 	die();
 	} else if ($_GET["page"] == "comments") {
 		echo "<div id=\"mainContent\">
@@ -240,6 +241,7 @@ if(isset($_GET["page"]))
 			}
 		}
 		echo "</div>";
+		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "videos") {
 		if(!isset($_GET["pagenum"])){
@@ -327,6 +329,7 @@ if(isset($_GET["page"]))
 				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
 			}
 		echo "</div>";
+		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "pvideos") {
 		if(!isset($_GET["pagenum"])){
@@ -370,10 +373,12 @@ if(isset($_GET["page"]))
 			$admin = 1;
 			} else {
 				echo "<tr><td style=\"font-size: 20px;text-align: center;\">You are not allowed to see ".$user."'s private videos!</td></tr>";
+				include "watermark.php";
 				die();
 			}
 		} else {
 			echo "<tr><td style=\"font-size: 20px;text-align: center;\">You are not allowed to see ".$user."'s private videos!</td></tr>";
+			include "watermark.php";
 			die();
 		}
 		$vidlist = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` != '1' AND `Uploader`='".$user."' ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
@@ -428,6 +433,7 @@ if(isset($_GET["page"]))
 				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
 			}
 		echo "</div>";
+		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "bulletins") {
 		if(!isset($_GET["pagenum"])){
@@ -496,6 +502,7 @@ if(isset($_GET["page"]))
 			echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=".$user."&page=bulletins&pagenum=".$pagecount."'>".$pagecount."</a></span>";
 		}
         echo "</table></center>";
+		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "bulletin") {
 		if(!isset($_GET["id"])){
@@ -655,6 +662,7 @@ if(isset($_GET["page"]))
             </center>
             <div>&nbsp;</div>
         </td></center>";
+		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "write_bulletin") {
 		if(isset($_POST["post_bulletin"])){
@@ -720,6 +728,7 @@ if(isset($_GET["page"]))
 		</form>
 		</div>
 		</div>";
+		include "watermark.php";
 		die();
 	}
 ?>
