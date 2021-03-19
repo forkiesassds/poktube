@@ -115,7 +115,7 @@ if (isset($_POST['post_comment'])) {
     .normalinner, .bulletinTitle { background: #ffffff }
     .normalinner td { border-color: #<?php echo $color->lighten()?> !important; }
     .wrapper { color: #222222 }
-    .profileTitles { color: #69a6dc }
+    .profileTitles { color: #<?php echo $color->lighten()?> }
     .profileHeaders { color: #ffffff }
 	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
 </style>
@@ -131,6 +131,9 @@ if (isset($_POST['post_comment'])) {
 		$cquery = mysqli_query($connect, "SELECT COUNT(commentid) FROM comments WHERE `id`='".$user."';");
 		$cvdf = mysqli_fetch_assoc($cquery);
 		$ccount = $cvdf['COUNT(commentid)'];
+		$bquery = mysqli_query($connect, "SELECT COUNT(id) FROM bulletins WHERE `user`='".$user."';");
+		$bvdf = mysqli_fetch_assoc($bquery);
+		$bcount = $bvdf['COUNT(id)'];
 		if (isset($_GET["page"])) {
 			echo "<a href=\"/profile.php?user=".$Username."\">Profile</a> | ";
 			if($_GET["page"] == "videos") {
@@ -159,9 +162,9 @@ if (isset($_POST['post_comment'])) {
 				echo "<a href=\"/profile.php?user=".$Username."&page=comments\">Comments</a> <span class=\"bgtext\">(".$ccount.")</span> | ";
 			}
 			if($_GET["page"] == "bulletins") {
-				echo "<b class=\"bgtext\">Bulletins (0)</b>";
+				echo "<b class=\"bgtext\">Bulletins (".$bcount.")</b>";
 			} else {
-				echo "<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(0)</span>";
+				echo "<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(".$bcount.")</span>";
 			}
 		} else {
 			echo "<b class=\"bgtext\">Profile</b> | 
@@ -170,7 +173,7 @@ if (isset($_POST['post_comment'])) {
 			<a href=\"/profile.php?user=".$Username."&page=favorites\">Favorites</a> <span class=\"bgtext\">(0)</span> | 
 			<a href=\"/profile.php?user=".$Username."&page=friends\">Friends</a> <span class=\"bgtext\">(0)</span> | 
 			<a href=\"/profile.php?user=".$Username."&page=comments\">Comments</a> <span class=\"bgtext\">(".$ccount.")</span> | 
-			<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(0)</span>";
+			<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(".$bcount.")</span>";
 		}
 	?>
 </div>
@@ -426,6 +429,298 @@ if(isset($_GET["page"]))
 			}
 		echo "</div>";
 		die();
+	} else if ($_GET["page"] == "bulletins") {
+		if(!isset($_GET["pagenum"])){
+		$page = 1;
+		}
+		if(isset($_GET["pagenum"])){
+		if($_GET["pagenum"] == 1) {
+			$page = 1;
+		}
+		if($_GET["pagenum"] && $_GET["pagenum"] > 1){
+			$page = $_GET["pagenum"] * 15;
+		}
+		}
+		
+		$page = $page - 1;
+		$sql = mysqli_query($connect, "SELECT * FROM bulletins"); //instructions for sql
+		$count = 0;
+		$pages = 0;
+
+		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+		$count++;
+		if($count == 15) {
+			$pages++;
+			$count = 0;
+		}
+		}
+		$bullfetch = mysqli_query($connect, "SELECT * FROM bulletins WHERE `user`='".$Username."' ORDER by `date` DESC LIMIT ".$page.", 15"); // calls for channel info
+		echo "<center>
+		        <table class=\"bulletinTable\" style=\"width:560px\" cellpadding=\"0\" cellspacing=\"0\">
+            <tbody><tr class=\"profileHeaders\">
+                <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Bulletin Board</div>
+                                            ";
+			if (isset($_SESSION['username'])) {
+				echo "<div style=\"float: right; padding-right: 5px\"><a href=\"/profile.php?user=".$user."&page=write_bulletin\" class=\"edit\">Write Bulletin</a>
+                <div></div>";
+			}
+                        echo "</div></td>
+            </tr>
+            <tr class=\"bulletinTitle\">
+                <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">From</span></td>
+                <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">Date</span></td>
+                <td align=\"center\" valign=\"top\"><span class=\"profileTitles\">Bulletin</span></td>
+            </tr>";
+		while ($bdf = mysqli_fetch_assoc($bullfetch)) {
+		$ID = $bdf['id'];
+		$User = htmlspecialchars($bdf['user']);
+		$Subject = htmlspecialchars($bdf['subject']);
+		$Date = htmlspecialchars($bdf['date']);
+                                        echo "<tr class=\"bulletin\">
+                    <td align=\"center\"><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a></span></td>
+                    <td align=\"center\">".$Date."</td>
+                    <td align=\"center\">
+                        <a href=\"/profile.php?user=".$Username."&page=bulletin&id=".$ID."\">".$Subject."</a>
+                    </td>
+                </tr>";
+		}
+                                               echo "<tr class=\"normalinner\">
+                <td colspan=\"3\">";
+		echo "<div style=\"font-size: 13px; font-weight: bold; color: #444; text-align: right; padding: 5px 0px 5px 0px;\">";
+		$pagecount = 0;
+		while($pagecount !== $pages) {
+			if($pagecount == 0) {
+				echo "Browse Pages:";
+			}
+			$pagecount++;
+			echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=".$user."&page=bulletins&pagenum=".$pagecount."'>".$pagecount."</a></span>";
+		}
+        echo "</table></center>";
+		die();
+	} else if ($_GET["page"] == "bulletin") {
+		if(!isset($_GET["id"])){
+			die();
+		} else {
+			$id = $_GET["id"];
+		}
+		if(isset($_POST["post_reply"])){
+			if ($_POST['post_reply'] == "Post Reply") {
+			$i = 1; // i does the count
+			$id = $id; // get video id so it knows what video you are going to comment
+			$comment = $_POST["content"]; // what are you going to comment?
+			$commentid = 0; // initialize
+			$datenow = date("Y-m-d"); // get the current date
+
+			// Check connection
+			if ($connect->connect_error) {
+			  die('Connection failed: ' . $conn->connect_error);
+			}
+
+			$sqllist = 'SELECT id, commentid, comment, user, date FROM comments ORDER by commentid DESC'; // to count what comment id is next
+			$result = $connect->query($sqllist);
+
+			if ($result->num_rows > 0) {
+			  // output data of each row
+			  while($row = $result->fetch_assoc()) {
+				  if($row["id"] = $id) {
+					  $i++;
+				  }
+			  }
+			} else {
+
+			}
+			$commentid = $i;
+			$username = $_SESSION["username"];
+			if($comment[0] === '>') {
+				$yes = $comment;
+				$comment = "[color=#5dae5d]";
+				$comment .= $yes;
+				$comment .= "[/color]";
+			}
+			if(!empty($_SESSION["username"])) {
+				$stmt = $connect->prepare("INSERT INTO comments (id, commentid, comment, user, date) VALUES (?, ?, ?, ?, ?)");
+				$stmt->bind_param("sisss", $id, $commentid, $comment, $username, $datenow); // prepared statements for inserting comments into db
+				$stmt->execute();
+			} else {
+				echo "You are not logged in.";
+			}
+		}
+		}
+		$bullfetch = mysqli_query($connect, "SELECT * FROM bulletins WHERE `id`='".$id."'"); // calls for channel info
+		$bdf = mysqli_fetch_assoc($bullfetch);
+		$ID = $bdf['id'];
+		$User = htmlspecialchars($bdf['user']);
+		$Subject = htmlspecialchars($bdf['subject']);
+		$Body = htmlspecialchars($bdf['body']);
+		$Date = htmlspecialchars($bdf['date']);
+		$bbcode = new ChrisKonnertz\BBCode\BBCode();
+		$bbcode->ignoreTag('spoiler');
+		$bbcode->ignoreTag('youtube');
+		$bbcode->ignoreTag('img');
+		$rendered = $bbcode->render($Body);
+		echo "<center>
+		        <td valign=\"top\">
+            <div>&nbsp;</div>
+
+            <table class=\"bulletinReadTable\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\"
+                <tbody><tr class=\"profileHeaders\">
+                    <td colspan=\"2\">&nbsp;&nbsp;Bulletin Post </td>
+                </tr>
+
+                <tr class=\"rows normalinner\">
+                    <td class=\"bulletinRead\" valign=\"top\"><div align=\"center\"><span class=\"profileTitles\">From:</span></div></td>
+                    <td class=\"bulletinReadRight\"><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a><br>
+				    <br>
+				</span></td>
+                </tr>
+                <tr class=\"rows normalinner\">
+                    <td class=\"bulletinRead\" valign=\"top\"><div align=\"center\"><span class=\"profileTitles\">Date:</span></div></td>
+                    <td class=\"bulletinReadRight\"><span class=\"profileTitles\">".$Date."</span></td>
+                </tr>
+                <tr class=\"rows normalinner\">
+                    <td class=\"bulletinRead\" valign=\"top\"><div align=\"center\"><span class=\"profileTitles\">Subject:</span></div></td>
+                    <td class=\"bulletinReadRight\"><span class=\"profileTitles\">".$Subject."</span></td>
+                </tr>
+                <tr class=\"rows normalinner\">
+                    <td class=\"bulletinReadBottom\" width=\"111\" valign=\"top\"><div align=\"center\"><span class=\"profileTitles\">Body:</span></div></td>
+                    <td width=\"447\" valign=\"top\">
+                        <div style=\"overflow: flow; width: 447px;word-break:break-all\">
+							".$rendered."
+						</div>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <br>
+            <center>
+                <table class=\"commentPostTable\" style=\"width:560px\" cellspacing=\"0\" cellpadding=\"0\">
+                    <tbody><tr class=\"profileHeaders\">
+                        <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">Bulletin Comments</div>
+
+                            </td>
+                    </tr>";
+					$sql= mysqli_query($connect, "SELECT * FROM comments WHERE `id`='".$id."' ORDER BY commentid DESC");
+
+					$count = 0;
+
+					while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
+						$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+						$datecommentlist = $searchcomments['date']; // comment date
+						$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
+						$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
+						$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+						$PreDate = $searchcomments['date'];
+						$DateTime = new DateTime($PreDate);
+						$Daate = $DateTime->format('F j Y');
+						$bbcode = new ChrisKonnertz\BBCode\BBCode();
+						$bbcode->ignoreTag('spoiler');
+						$bbcode->ignoreTag('youtube');
+						$bbcode->ignoreTag('img');
+						$rendered = $bbcode->render($messagecommentlist);
+						if ($hidden != 1) {
+							echo "<tr class=\"rowsLine normalinner\" id=\"bc_698\">
+                                <td class=\"leftBg\" style=\"padding-right: 10px\" width=\"123\" valign=\"top\" align=\"center\">
+                                    <span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
+                                    <br>
+                                    <br>
+                                    <a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/<?php echo $usercommentlist?>.png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
+                                    </a></td>
+                                <td colspan=\"2\" style=\"position:relative;padding-right: 5px;\" valign=\"top\">
+                                    <span class=\"profileTitles\">".$Daate."</span> <br>
+                                    <br>
+                                    <div style=\"overflow: flow; width: 333px;word-break: break-all\">
+                                        ".$rendered."                                    </div>
+                                                                    </td>
+                            </tr>";
+						}
+					}
+                    echo "                              
+                    <tr class=\"commentsMsg\">
+                                                <td colspan=\"3\" align=\"center\">";
+												if (isset($_SESSION["username"])) {
+													echo "
+														<div style=\"font-weight:bold;margin-bottom:4px;text-align:left;margin-left:5px\">Post Reply:</div>
+														<form action=\"/profile.php?user=".$user."&page=bulletin&id=".$id."\" method=\"POST\" style=\"text-align:left;margin-left:5px\">
+															<textarea cols=\"45\" rows=\"3\" maxlength=\"500\" name=\"content\"></textarea><br>
+															<input style=\"margin-top:5px\" type=\"submit\" name=\"post_reply\" value=\"Post Reply\">
+														</form><br>";
+												} else {
+													echo "<span class=\"bulletinPost\" style=\"padding-left: 5px; padding-right: 5px\"><a href=\"/web/20180722182904/https://www.bitview.net/login.php\">Please log in</a> to post a reply to this bulletin!<br></span>";
+												}
+													"</td>
+                                            </tr>
+
+
+                    </tbody></table>
+            </center>
+            <div>&nbsp;</div>
+        </td></center>";
+		die();
+	} else if ($_GET["page"] == "write_bulletin") {
+		if(isset($_POST["post_bulletin"])){
+			if ($_POST['post_bulletin'] == "Post Bulletin") {
+			$i = 1; // i does the count
+			$subject = $_POST["subject"];
+			$body = $_POST["bulletin"]; // what are you going to comment?
+			$id = 0; // initialize
+			$datenow = date("Y-m-d"); // get the current date
+
+			// Check connection
+			if ($connect->connect_error) {
+			  die('Connection failed: ' . $conn->connect_error);
+			}
+
+			$sqllist = 'SELECT id, date, subject, body, user FROM bulletins ORDER by id DESC'; // to count what comment id is next
+			$result = $connect->query($sqllist);
+
+			if ($result->num_rows > 0) {
+			  // output data of each row
+			  while($row = $result->fetch_assoc()) {
+				$i++;
+			  }
+			} else {
+
+			}
+			$id = $i;
+			$username = $_SESSION["username"];
+			if($body[0] === '>') {
+				$yes = $body;
+				$body = "[color=#5dae5d]";
+				$body .= $yes;
+				$body .= "[/color]";
+			}
+			if(!empty($_SESSION["username"])) {
+				$stmt = $connect->prepare("INSERT INTO bulletins (id, date, subject, body, user) VALUES (?, ?, ?, ?, ?)");
+				$stmt->bind_param("issss", $id, $datenow, $subject, $body, $user); // prepared statements for inserting comments into db
+				$stmt->execute();
+			} else {
+				echo "You are not logged in.";
+			}
+		}
+		}
+		echo "<div style=\"width: 875px; text-align: left;\">
+			<div id=\"mainContent\"> 
+		<h2 style=\"margin:0 0 2px\" class=\"bgtext\">Write a bulletin</h2>
+		<div style=\"margin-bottom:3px;font-family:arial,helvetica,sans-serif;\" class=\"bgtext\">Bulletins appear on your own and your friends channel pages</div>
+		<form action=\"/profile.php?user=".$user."&amp;page=write_bulletin\" method=\"POST\">
+		<table style=\"position:relative;right:4px\" cellpadding=\"4px\">
+			<tbody><tr>
+				<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"middle\"><b class=\"bgtext\">Subject:</b></td>
+				<td><input type=\"text\" name=\"subject\" maxlength=\"128\" style=\"width:260px\"></td>
+			</tr>
+			<tr>
+				<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"top\"><b class=\"bgtext\">Bulletin:</b></td>
+				<td><textarea maxlength=\"1000\" name=\"bulletin\" cols=\"48\" rows=\"6\"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type=\"submit\" name=\"post_bulletin\" value=\"Post Bulletin\"> <a href=\"/profile.php?user=".$user."\"><button type=\"button\">Cancel</button></a></td>
+			</tr>
+		</tbody></table>
+		</form>
+		</div>
+		</div>";
+		die();
 	}
 ?>
     <table width="865" cellpadding="0" cellspacing="0">
@@ -512,31 +807,37 @@ if(isset($_GET["page"]))
                     </tbody></table>
 
                 <div>&nbsp;</div>
-                                <table class="bulletinTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Bulletin Board</div>
-                                                        <div style="float: right; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=bulletins" class="edit">View All Bulletins</a>
+				<?php if($bcount > 0) {
+					$bullfetch = mysqli_query($connect, "SELECT * FROM bulletins WHERE `user`='".$user."' ORDER by `date` DESC LIMIT 5"); // calls for channel info
+                    echo "<table class=\"bulletinTable\" cellpadding=\"0\" cellspacing=\"0\">
+                    <tbody><tr class=\"profileHeaders\">
+                        <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Bulletin Board</div>
+                                                        <div style=\"float: right; padding-right: 5px\"><a href=\"/profile.php?user=".$user."&page=bulletins\" class=\"edit\">View All Bulletins</a>
                             
                             </div></td>
                     </tr>
-                    <tr class="bulletinTitle">
-                        <td align="center" class="bulletinTopFirstCells" valign="top"><span class="profileTitles">From</span></td>
-                        <td align="center" class="bulletinTopFirstCells" valign="top"><span class="profileTitles">Date</span></td>
-                        <td align="center" valign="top"><span class="profileTitles">Bulletin</span></td>
-                    </tr>
-                                        <tr class="bulletin">
-                        <td align="center"><span class="profileTitles"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView">TODO</a></span></td>
-                        <td align="center">03.19.21</td>
-                        <td align="center">
-                            <a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=bulletin&amp;id=368">IMPLEMENT BULLETINS</a>
-                        </td>
-                    </tr>
-                                        <!--End only show this row if no postings-->
-
-                    </tbody>
-                </table>
-                
-
+                    <tr class=\"bulletinTitle\">
+                        <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">From</span></td>
+                        <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">Date</span></td>
+                        <td align=\"center\" valign=\"top\"><span class=\"profileTitles\">Bulletin</span></td>
+                    </tr>";
+						while ($bdf = mysqli_fetch_assoc($bullfetch)) {
+							$ID = $bdf['id'];
+							$User = htmlspecialchars($bdf['user']);
+							$Subject = htmlspecialchars($bdf['subject']);
+							$Date = htmlspecialchars($bdf['date']);
+							echo "<tr class=\"bulletin\">
+							<td align=\"center\"><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a></span></td>
+							<td align=\"center\">".$Date."</td>
+							<td align=\"center\">
+								<a href=\"/profile.php?user=".$User."&page=bulletin&id=".$ID."\">".$Subject."</a>
+							</td>
+							</tr>";
+						}
+                    echo "</tbody>
+					</table>";
+				}
+				?>
             </td>
 
             <td valign="top"><div style="width:15px"></div></td>
