@@ -1,12 +1,14 @@
 <?php 
 require_once __DIR__ . '/lib/PHPColors/Color.php';
+require_once __DIR__ . '/lib/BBCode/BBCode.php';
+require_once __DIR__ . '/lib/BBCode/Tag.php';
 use Mexitek\PHPColors\Color;
 include("header_profile.php"); 
 
 if(isset($_GET["user"])) {
 $user = $_GET["user"];
 }
-
+$share_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //if $FeaturedVideo is null then dont show anything
 if (!isset($_GET["user"])) {
 die();
@@ -49,146 +51,888 @@ if($cdf['channel_color']) {
 } else {
 	$Foreground = "#003366";
 }
+if (isset($_POST['post_comment'])) {
+	if ($_POST['post_comment'] == "Post Comment") {
+		$i = 1; // i does the count
+		$id = $Username; // get video id so it knows what video you are going to comment
+		$comment = $_POST["comment"]; // what are you going to comment?
+		$commentid = 0; // initialize
+		$datenow = date("Y-m-d"); // get the current date
 
-?>
-<style>
-.headerPROF {
-    position: relative;
-    width: 100%;
-    height: 150px;
-	<?= $color->getCssGradient(10, true)?>
-	padding: none;
-	text-align: center;
-	padding-top: 10px;
-	margin-top: -5px;
-	padding-bottom: 10px;
-	border: solid 1px #555;
-	border-radius: 10px;
+		// Check connection
+		if ($connect->connect_error) {
+		  die('Connection failed: ' . $conn->connect_error);
+		}
+
+		$sqllist = 'SELECT id, commentid, comment, user, date FROM comments ORDER by commentid DESC'; // to count what comment id is next
+		$result = $connect->query($sqllist);
+
+		if ($result->num_rows > 0) {
+		  // output data of each row
+		  while($row = $result->fetch_assoc()) {
+			  if($row["id"] = $id) {
+				  $i++;
+			  }
+		  }
+		} else {
+
+		}
+		$commentid = $i;
+		$username = $_SESSION["username"];
+		if($comment[0] === '>') {
+			$yes = $comment;
+			$comment = "[color=#5dae5d]";
+			$comment .= $yes;
+			$comment .= "[/color]";
+		}
+		if(!empty($_SESSION["username"])) {
+			$stmt = $connect->prepare("INSERT INTO comments (id, commentid, comment, user, date) VALUES (?, ?, ?, ?, ?)");
+			$stmt->bind_param("sisss", $id, $commentid, $comment, $username, $datenow); // prepared statements for inserting comments into db
+			$stmt->execute();
+		} else {
+			echo "You are not logged in.";
+		}
+	}
 }
-</style>
+?>
 
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
 <title><?php echo $Username ?> - PokTube</title>
-<div style="padding: 0px 5px 0px 5px;">
-<div class="headerPROF">
-<img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" style="border: solid <?php if($color->isLight()) {
-	echo "#000000";
-} else {
-	echo "#FFFFFF";
-}	?> 3px;width: 128px;height: 128px">
-<div style="font-size: 14px; font-weight: bold; color:<?php if($color->isLight()) {
-	echo "#000000";
-} else {
-	echo "#FFFFFF";
-}	?>; margin-bottom: 5px;"><?php echo $Username ?></div>
 </div>
+        <div class="wrapper">
+            <style>
+    body { <?= $color->getCssGradient(10, true)?>  background-repeat: no-repeat; }
+	.bgtext { color: <?php if($color->isLight()) { echo "#000000"; } else { echo "#FFFFFF"; }?> }
+    .wrapper a { color: #<?php  if($color->isLight()) { echo $color->lighten(25); } else { echo $color->darken(25); } ?> !important }
+    tr.bulletin td { border-color: #000000 }
+    .profileHeaders { background: #<?php echo $color->lighten()?> }
+    .highlightheader { background: #<?php echo $color->lighten()?> }
+    .userTable, .bulletin td, .leftBg, .commentsMsg td { background: #ecf4fb !important; }
+    .userTable { border: 1px solid #<?php echo $color->lighten()?> !important; }
+    .connectTable, .bulletinTable, .aboutTable, .commentPostTable { border: 1px solid #<?php echo $color->lighten()?> !important; }
+    .bulletinTopFirstCells, tr.bulletinTitle td { border-color: #<?php echo $color->lighten()?> !important; }
+    .normalinner, .bulletinTitle { background: #ffffff }
+    .normalinner td { border-color: #<?php echo $color->lighten()?> !important; }
+    .wrapper { color: #222222 }
+    .profileTitles { color: #69a6dc }
+    .profileHeaders { color: #ffffff }
+	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
+</style>
 
-
-<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
-	<tr valign="top">
-		
-		<td style="padding: 0px 10px 0px 10px;">
-		
-		<table width="100%" cellpadding="5" cellspacing="0" border="0">
-			<tr>
-				<td width="120" align="right"><span class="label">User Name:</span></td>
-				<td><?php echo $Username ?></td>
-			</tr>
-		
-			<!-- Personal Information: -->
-			
-					
-					
-						<tr>
-				<td align="right"><span class="label">Name:</span></td>
-				<td><?php echo stripslashes($Name) ?></td>
-			</tr>
-			
-			<tr valign="top">
-				<td align="right"><span class="label">Age:</span></td>
-				<td><?php echo stripslashes($Age) ?></td>
-			</tr>
-					
-					
-					
-						<tr valign="top">
-				<td align="right"><span class="label">About Me:</span></td>
-				<td><?php echo stripslashes($AboutMe) ?></td>
-			</tr>
-					
-			<tr>
-				<td colspan="2">&nbsp;</td>
-			</tr>
-			
-			
-			
-			<!-- Location Information -->
-			
-
-			<tr valign="top">
-				<td align="right"><span class="label">Hometown:</span></td>
-				<td><?php echo stripslashes($Hometown) ?></td>
-			</tr>
-			
-			<tr valign="top">
-			<td align="right"><span class="label">Current City:</span></td>
-			<td><?php echo stripslashes($City) ?></td>
-					
-			<tr valign="top">
-			<td align="right"><span class="label">Country:</span></td>
-			<td><?php echo stripslashes($Country) ?></td>
-			<tr>
-				<td colspan="2">&nbsp;</td>
-			</tr>
-			
-			
-			
-			<!-- Random Information -->
-			<tr valign="top">
-			<td align="right"><span class="label">Personal Website:</span></td>
-			<td><a href="<?php echo $Website ?>"><?php echo $Website ?></a></td>		
-					
-					
-					
-					
-					
-					
-			<tr>
-				<td align="right"><span class="label"></span></td>
-				<td></td>
-			</tr>
-		</table>
-		
-		</td>
-			
-		<td width="180">
-		
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; Profile</div>
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos.php?user=<?php echo $Username ?>">Public Videos</a> (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` = '1';");
+<div style="margin: 0 0 13px;text-align:center">
+	<?php
+		$query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` = '1';");
 		$vdf = mysqli_fetch_assoc($query);
-		echo $vdf['COUNT(VideoID)'];?>)</div>
-		<!-- only show this link to friends in their network -->
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_videos_private.php?user=<?php echo $Username ?>">Private Videos</a> (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` != '1';");
-		$vdf = mysqli_fetch_assoc($query);
-		echo $vdf['COUNT(VideoID)'];?>)</div>
-		<!-- only show this link to friends in their network -->
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #444;">&#187; <a href="profile_favorites.php?user=<?php echo $Username ?>">Favorites</a> (0)</div>
-		<div style="font-size: 14px; font-weight: bold; margin-bottom: 20px; color: #444;">&#187; <a href="profile_friends.php?user=<?php echo $Username ?>">Friends</a> (0)</div>
-		
+		$count = $vdf['COUNT(VideoID)'];
+		$pquery = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` != '1';");
+		$pvdf = mysqli_fetch_assoc($pquery);
+		$pcount = $pvdf['COUNT(VideoID)'];
+		$cquery = mysqli_query($connect, "SELECT COUNT(commentid) FROM comments WHERE `id`='".$user."';");
+		$cvdf = mysqli_fetch_assoc($cquery);
+		$ccount = $cvdf['COUNT(commentid)'];
+		if (isset($_GET["page"])) {
+			echo "<a href=\"/profile.php?user=".$Username."\">Profile</a> | ";
+			if($_GET["page"] == "videos") {
+				echo "<b class=\"bgtext\">Public Videos (".$count.")</b> | ";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=videos\">Public Videos</a> <span class=\"bgtext\">(".$count.")</span> | ";
+			}
+			if($_GET["page"] == "pvideos") {
+				echo "<b class=\"bgtext\">Private Videos (".$pcount.")</b> | ";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=pvideos\">Private Videos</a> <span class=\"bgtext\">(".$pcount.")</span> | ";
+			}
+			if($_GET["page"] == "favorites") {
+				echo "<b class=\"bgtext\">Favorites (0)</b> | ";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=favorites\">Favorites</a> <span class=\"bgtext\">(0)</span> | ";
+			}
+			if($_GET["page"] == "friends") {
+				echo "<b class=\"bgtext\">Friends (0)</b> | ";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=friends\">Friends</a> <span class=\"bgtext\">(0)</span> | ";
+			}
+			if($_GET["page"] == "comments") {
+				echo "<b class=\"bgtext\">Comments (".$ccount.")</b> | ";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=comments\">Comments</a> <span class=\"bgtext\">(".$ccount.")</span> | ";
+			}
+			if($_GET["page"] == "bulletins") {
+				echo "<b class=\"bgtext\">Bulletins (0)</b>";
+			} else {
+				echo "<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(0)</span>";
+			}
+		} else {
+			echo "<b class=\"bgtext\">Profile</b> | 
+			<a href=\"/profile.php?user=".$Username."&page=videos\">Public Videos</a> <span class=\"bgtext\">(".$count.")</span> | 
+			<a href=\"/profile.php?user=".$Username."&page=pvideos\">Private Videos</a> <span class=\"bgtext\">(".$pcount.")</span> | 
+			<a href=\"/profile.php?user=".$Username."&page=favorites\">Favorites</a> <span class=\"bgtext\">(0)</span> | 
+			<a href=\"/profile.php?user=".$Username."&page=friends\">Friends</a> <span class=\"bgtext\">(0)</span> | 
+			<a href=\"/profile.php?user=".$Username."&page=comments\">Comments</a> <span class=\"bgtext\">(".$ccount.")</span> | 
+			<a href=\"/profile.php?user=".$Username."&page=bulletins\">Bulletins</a> <span class=\"bgtext\">(0)</span>";
+		}
+	?>
+</div>
+<div>
+<?php 
+if(isset($_GET["page"]))
+	if($_GET["page"] == "comment") {
+		echo "<div style=\"width: 875px; text-align: left;\">
+    <div id=\"mainContent\"> 
+    <h2 class=\"bgtext\" style=\"margin:0 0 2px\">Write a comment<span style=\"font-size:12px;color:lightgray\"> (for ".$Username.")</span></h2>
+<div class=\"bgtext\" style=\"margin-bottom:3px;font-family:arial,helvetica,sans-serif;\">Channel comments appear on the users channel.</div>
+<form action=\"/profile.php?user=".$Username."\" method=\"POST\">
+<table style=\"position:relative;right:4px\" cellpadding=\"4px\">
+    <tbody><tr>
+        <td><textarea maxlength=\"500\" name=\"comment\" cols=\"66\" rows=\"6\"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type=\"submit\" name=\"post_comment\" value=\"Post Comment\"> <a href=\"/profile.php?user=".$Username."\"><button type=\"button\">Cancel</button></a></td>
+    </tr>
+</tbody></table>
+</form> 
+        </div>
+    </div>";
+	die();
+	} else if ($_GET["page"] == "comments") {
+		echo "<div id=\"mainContent\">
+		<table class=\"commentPostTable\" style=\"width: 570px;\" cellpadding=\"0\" cellspacing=\"0\">
+			<tbody><tr class=\"profileHeaders\">
+				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Comments</div>
+                </div></td>
+            </tr>
+		";
+		$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
+		$count = 0;
+		while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
+			$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+			$datecommentlist = $searchcomments['date']; // comment date
+			$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
+			$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
+			$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+			$PreDate = $searchcomments['date'];
+			$DateTime = new DateTime($PreDate);
+			$Date = $DateTime->format('F j Y');
+			$bbcode = new ChrisKonnertz\BBCode\BBCode();
+			$bbcode->ignoreTag('spoiler');
+			$bbcode->ignoreTag('youtube');
+			$bbcode->ignoreTag('img');
+			$rendered = $bbcode->render($messagecommentlist);
+			if ($idcommentlist == $Username AND $hidden != 1) {
+				echo "<tr class=\"rowsLine normalinner\" id=\"cc_718\">
+						<td width=\"123\" align=\"center\" valign=\"top\" class=\"leftBg\" style=\"padding-right: 10px\">
+						<span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
+						<br>
+						<br>
+						<a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/<?php echo $usercommentlist?>.png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
+						</a></td>
+						<td colspan=\"2\" style=\"padding-right: 5px;position:relative;\" valign=\"top\">
+							<span class=\"profileTitles\">".$Date."</span> <br>
+						<br>
+						<div style=\"overflow: flow; width: 333px;word-break:break-all\">
+						".$rendered."                                    </div>
+					</td>
+				</tr>";
+			}
+		}
+		echo "</div>";
+		die();
+	} else if ($_GET["page"] == "videos") {
+		if(!isset($_GET["pagenum"])){
+		$page = 1;
+		}
+		if(isset($_GET["pagenum"])){
+		if($_GET["pagenum"] == 1) {
+			$page = 1;
+		}
+		if($_GET["pagenum"] && $_GET["pagenum"] > 1){
+			$page = $_GET["pagenum"] * 20;
+		}
+		}
 
-		
-		<div style="font-size: 12px; color: #444; margin: 10px 0px 0px 0px; text-align: center;"><strong>Like my videos?</strong><br>
-		<a href="#">Subscribe to my RSS Feed.</a></div>
-		
-		</td>
+		$page = $page - 1;
+		$sql = mysqli_query($connect, "SELECT * FROM videodb"); //instructions for sql
+		$count = 0;
+		$pages = 0;
 
-			
-	</tr>
-</table>
+		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+		$count++;
+		if($count == 20) {
+			$pages++;
+			$count = 0;
+		}
+		}
+		echo "<table class=\"commentPostTable\" style=\"width: 865px;\" cellpadding=\"0\" cellspacing=\"0\">
+			<tbody><tr class=\"profileHeaders\">
+				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">".$Username."'s Videos</div>
+                </div></td>
+            </tr>
+			<table class=\"rowsLine normalinner\" style=\"padding-top: 10px;padding-bottom: 10px;\" id=\"cc_718\" width=\"865\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
 
-		</div>
-		</td>
-	</tr>
-</table>
+			<tbody>
+		";
+		$vidlist = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$user."' ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
+		$count = 0;
+
+		while ($fetch = mysqli_fetch_assoc($vidlist)) {
+		$idvideolist = $fetch['VideoID'];
+		$lengthlist = 0;
+		if($fetch['VideoLength'] > 3600) {
+			$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+		} else { 
+			$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+		};
+		$namevideolist = htmlspecialchars($fetch['VideoName']);
+		$uploadervideolist = htmlspecialchars($fetch['Uploader']);
+		$uploadvideolist = $fetch['UploadDate'];
+		$viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+
+		if($count == 0) {
+			echo "<tr valign='top'>";
+		}
+		echo "<td width='20%' align='center'>
+				<a href='watch.php?v=".$idvideolist."&player=0'>      <div class='v120WrapperOuter'>
+			 <div class='v120WrapperInner'>
+				<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+			 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+			 </div>
+		  </div></a>
+			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a></div>
+			<div class='moduleFeaturedDetails'>
+				Added: ".$uploadvideolist."<br>
+				by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
+			</div>		
+		</td>";
+		$count++;
+		if($count == 5) {
+			echo "</tr>";
+			$count = 0;
+		}
+		}
+		echo "</tbody></table>
+
+		</div>";
+
+		echo "<div style=\"font-size: 13px; font-weight: bold; color: #444; text-align: right; padding: 5px 0px 5px 0px;\">";
+			$pagecount = 0;
+			while($pagecount !== $pages) {
+				if($pagecount == 0) {
+					echo "Browse Pages:";
+				}
+				$pagecount++;
+				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
+			}
+		echo "</div>";
+		die();
+	} else if ($_GET["page"] == "pvideos") {
+		if(!isset($_GET["pagenum"])){
+		$page = 1;
+		}
+		if(isset($_GET["pagenum"])){
+		if($_GET["pagenum"] == 1) {
+			$page = 1;
+		}
+		if($_GET["pagenum"] && $_GET["pagenum"] > 1){
+			$page = $_GET["pagenum"] * 20;
+		}
+		}
+		
+		$page = $page - 1;
+		$sql = mysqli_query($connect, "SELECT * FROM videodb"); //instructions for sql
+		$count = 0;
+		$pages = 0;
+
+		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+		$count++;
+		if($count == 20) {
+			$pages++;
+			$count = 0;
+		}
+		}
+		echo "<table class=\"commentPostTable\" style=\"width: 865px;\" cellpadding=\"0\" cellspacing=\"0\">
+			<tbody><tr class=\"profileHeaders\">
+				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">".$Username."'s Private Videos</div>
+                </div></td>
+            </tr>
+			<table class=\"rowsLine normalinner\" style=\"padding-top: 10px;padding-bottom: 10px;\" id=\"cc_718\" width=\"865\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
+
+			<tbody>
+		";
+		if(isset($_SESSION["username"])) {
+			$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+			$adf = mysqli_fetch_assoc($result);
+			$admin = 0;
+			if($adf['is_admin'] == 1 || $user == $_SESSION["username"]) { // is logged in?
+			$admin = 1;
+			} else {
+				echo "<tr><td style=\"font-size: 20px;text-align: center;\">You are not allowed to see ".$user."'s private videos!</td></tr>";
+				die();
+			}
+		} else {
+			echo "<tr><td style=\"font-size: 20px;text-align: center;\">You are not allowed to see ".$user."'s private videos!</td></tr>";
+			die();
+		}
+		$vidlist = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` != '1' AND `Uploader`='".$user."' ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
+		$count = 0;
+
+		while ($fetch = mysqli_fetch_assoc($vidlist)) {
+		$idvideolist = $fetch['VideoID'];
+		$lengthlist = 0;
+		if($fetch['VideoLength'] > 3600) {
+			$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+		} else { 
+			$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+		};
+		$namevideolist = htmlspecialchars($fetch['VideoName']);
+		$uploadervideolist = htmlspecialchars($fetch['Uploader']);
+		$uploadvideolist = $fetch['UploadDate'];
+		$viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+
+		if($count == 0) {
+			echo "<tr valign='top'>";
+		}
+		echo "<td width='20%' align='center'>
+				<a href='watch.php?v=".$idvideolist."&player=0'>      <div class='v120WrapperOuter'>
+			 <div class='v120WrapperInner'>
+				<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
+			 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
+			 </div>
+		  </div></a>
+			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a></div>
+			<div class='moduleFeaturedDetails'>
+				Added: ".$uploadvideolist."<br>
+				by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
+			</div>		
+		</td>";
+		$count++;
+		if($count == 5) {
+			echo "</tr>";
+			$count = 0;
+		}
+		}
+		echo "</tbody></table>
+
+		</div>";
+
+		echo "<div style=\"font-size: 13px; font-weight: bold; color: #444; text-align: right; padding: 5px 0px 5px 0px;\">";
+			$pagecount = 0;
+			while($pagecount !== $pages) {
+				if($pagecount == 0) {
+					echo "Browse Pages:";
+				}
+				$pagecount++;
+				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
+			}
+		echo "</div>";
+		die();
+	}
+?>
+    <table width="865" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            <td width="325" valign="top">
+                <table class="userTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders highlightheader">
+
+                        <td colspan="2">
+                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">Hello. I'm <?php echo $Username ?></div>
+                            <div style="float: right; padding-right: 5px">
+
+
+
+                            </div></td>
+                    </tr>
+                    <tr class="rows">
+
+
+                        <td width="142" align="left">
+                            <img class="aboutImg" src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128">
+                        </td>
+						
+                        <td width="144" align="left">
+                                                                                    <span class="profileTitles">Gender: </span> TODO: ADD IT IN THE DB                            <br>
+                                                        
+                        </td>
+
+                    </tr>
+
+                    <tr class="rows" style="word-break:break-all">
+						<td colspan="3">
+						<?php if($cdf['aboutme']) {
+							echo "                                                        <span class=\"profileTitles\">About Me: </span>".$AboutMe."                            <br><br>
+                                                                                   ";
+						}
+						?>
+                                                                                    <span class="profileTitles">Last Login: </span>TODO: ADD IT IN THE DB                            <br>
+                                                        <span class="profileTitles">Signed Up: </span><?php echo $RegisteredOn?>                            <br>
+                            <span class="profileTitles">URL: </span> <a href="<?php echo $share_link ?>"><?php echo $share_link ?></a>
+                        </td>
+                    </tr>
+                    </tbody></table>
+
+                <div>&nbsp;</div>
+
+
+
+                <table class="connectTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td colspan="5">&nbsp;&nbsp;Connect with <?php echo $Username ?></td>
+                    </tr>
+                    <tr class="connectRowsTop normalinner">
+                        <td width="5">&nbsp;</td>
+                        <td width="21" valign="middle"><img src="/img/SendMessage.gif"></td>
+                        <td><span class="connectLinks"><?php if (!isset($_SESSION["username"])) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert(Please log in to send <?php echo $Username ?> a message!)\">";
+						} else {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('The messaging system is not done.')\">";
+						}?>Send Message</a></span></td>
+                        <td width="21" valign="middle"><img src="/img/AddToFriends.gif"></td>
+                        <td><span class="connectLinks"><?php if (!isset($_SESSION["username"])) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to add ".$Username." to friends!')\">";
+						} else {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('The friends system is not done.')\">";
+						}?>Add to Friends</a></span></td>
+                    </tr>
+                    <tr class="connectRows normalinner">
+                        <td width="5">&nbsp;</td>
+                        <td width="21" valign="middle"><img src="/img/AddComment.gif" class="connectImages"></td>
+                        <td><span class="connectLinks"><?php if (!isset($_SESSION["username"])) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to comment!')\">";
+						} else {
+							echo "<a href=\"".$share_link."&page=comment\">";
+						}?>Add Comment</a></span></td>
+                        <td width="21" valign="middle"><img src="/img/MiniSubscribe.gif"></td>
+                        <td><span class="connectLinks"><?php if (!isset($_SESSION["username"])) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to subscribe!')\">";
+						} else {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('The subscription system is not done.')\">";
+						}?>Subscribe</a></span></td>
+                    </tr>
+
+                    </tbody></table>
+
+                <div>&nbsp;</div>
+                                <table class="bulletinTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Bulletin Board</div>
+                                                        <div style="float: right; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=bulletins" class="edit">View All Bulletins</a>
+                            
+                            </div></td>
+                    </tr>
+                    <tr class="bulletinTitle">
+                        <td align="center" class="bulletinTopFirstCells" valign="top"><span class="profileTitles">From</span></td>
+                        <td align="center" class="bulletinTopFirstCells" valign="top"><span class="profileTitles">Date</span></td>
+                        <td align="center" valign="top"><span class="profileTitles">Bulletin</span></td>
+                    </tr>
+                                        <tr class="bulletin">
+                        <td align="center"><span class="profileTitles"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView">TODO</a></span></td>
+                        <td align="center">03.19.21</td>
+                        <td align="center">
+                            <a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=bulletin&amp;id=368">IMPLEMENT BULLETINS</a>
+                        </td>
+                    </tr>
+                                        <!--End only show this row if no postings-->
+
+                    </tbody>
+                </table>
+                
+
+            </td>
+
+            <td valign="top"><div style="width:15px"></div></td>
+            <td width="515px" valign="top">
+                <table class="aboutTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td>	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">More About Me</div>
+                            <div style="float: right; padding-right: 5px">
+
+                            </div></td>
+                    </tr>
+
+                    <tr class="rows normalinner">
+                        <td>
+                            
+                            </div>
+                            <div class="spaceMaker">
+                                <span class="profileTitles">Subscribers: </span> TODO: IMPLEMENT SUBSCRIBERS                                <br>
+                            </div>
+
+
+                            <div class="spaceMaker">
+                                <span class="profileTitles">Videos Watched: </span> <?php echo $VidsWatched?>                                <br>
+                            </div>
+
+
+                            <div class="spaceMaker">
+                                <span class="profileTitles">Profile Viewed: </span> TODO: IMPLEMENT THIS                                <br>
+                            </div>
+
+                                                        <div class="spaceMaker">
+                                <span class="profileTitles">Last Login: </span> TODO: IMPLEMENT THIS                                <br>
+                            </div>
+                            
+
+                            <div class="spaceMaker">
+                                <span class="profileTitles">Member Since: </span> <?php echo $RegisteredOn?>                                <br>
+                            </div>
+						
+							<?php 
+							if($cdf['prof_website']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">Personal Website: </span> <a target=\"_blank\" rel=\"nofollow\" href=\"".$Website."\">".$Website."</a>
+									<br>
+								</div>";
+							}
+							if($cdf['prof_name']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">Name: </span> ".$Name."                                    <br>
+								</div>";
+							}
+							
+							if($cdf['prof_age']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">Age: </span> ".$Age."                                    <br>
+								</div>";
+							}
+							
+							if($cdf['prof_city']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">City: </span> ".$City."                                    <br>
+								</div>";
+							}
+							
+							if($cdf['prof_hometown']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">Hometown: </span> ".$Hometown."                                    <br>
+								</div>";
+							}
+							
+							if($cdf['prof_country']) {
+								echo "<div class=\"spaceMaker\">
+									<span class=\"profileTitles\">Country: </span> ".$Country."                                    <br>
+								</div>";
+							}
+							?>
+                        </td>
+                    </tr>
+                    </tbody></table>
+
+                <div>&nbsp;</div>
+
+                <!--Begin Insert My Recent Videos Video Bar Here-->
+                                <table class="aboutTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td>
+                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Recent Videos</div>
+                            <div style="float: right; padding-right: 5px"><a href="/profile.php?user=<?php echo $Username?>&page=videos" class="edit">See All Videos</a>
+
+                                &nbsp;
+                            </div></td>
+                    </tr>
+                    <tr class="normalinner">
+                        <td align="center">
+
+                            <div style="padding-left: 1px;">
+                                <table width="21" height="121" cellpadding="0" cellspacing="0">
+                                    <tbody><tr>
+                                        <td><img src="/img/LeftSingleArrowOff.gif" onclick="vids_change(0)" id="vidarr" style="cursor:pointer" border="0"></td>
+                                        <td>
+                                            <table width="443" height="121" style="background-color: #FFFFFF; " cellpadding="0" cellspacing="0">
+                                                <tbody><tr class="normalinner">
+                                                    <td style="border-bottom:none;">
+													<?php $count = 1;
+													while ($count != 5) {
+														$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."' ORDER by `UploadDate` DESC LIMIT ". $count * 4 - 4 .", 4");
+														if($count == 1) {
+															echo "<div id=\"vidsl".$count."\">\n";
+														} else {
+															echo "<div id=\"vidsl".$count."\" style=\"display:none\">\n";
+														}
+														while ($fetch = mysqli_fetch_assoc($sql)) {
+															$idvideolist = $fetch['VideoID'];
+															$lengthlist = 0;
+															if($fetch['VideoLength'] > 3600) {
+																$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+															} else { 
+																$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+															};
+															$namevideolist = htmlspecialchars($fetch['VideoName']);
+															$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
+															$uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
+															$descvideolist = htmlspecialchars($fetch['VideoDesc']);
+															$viewsvideolist = htmlspecialchars($fetch['ViewCount']);
+															echo "<div class=\"videobarthumbnail_block\" id=\"div_profile_videos_0\">
+																<center>
+																	<div><a href=\"/watch.php?v=".$idvideolist."\"><img class=\"videobarthumbnail_white\" id=\"img_profile_videos_0\" title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" width=\"80\" height=\"60\"></a></div>
+																	<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;\"><a href=\"/watch.php?v=".$idvideolist."\" title=\"".$namevideolist."\">".$namevideolist."</a></div>
+																	<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;\">4 minutes ago</div>
+																</center>
+															</div>";
+														}    
+														echo "</div>\n";
+														$count++;
+													}
+													?>
+													</td>
+                                                </tr>
+                                                </tbody></table>
+                                        </td>
+                                        <td><img src="/img/RightSingleArrowOff.gif" onclick="vids_change(2)" id="vidarr2" style="cursor:pointer" border="0"></td>
+                                    </tr>
+                                    </tbody></table>
+                                <script>
+                                    function vids_change(num) {
+                                        if (num != 0 && num != 4 && document.getElementById("vidsl"+num)) {
+                                            document.getElementById("vidsl1").style.display = "none";
+                                            if (document.getElementById("vidsl2")) {
+                                                document.getElementById("vidsl2").style.display = "none";
+                                            }
+                                            if (document.getElementById("vidsl3")) {
+                                                document.getElementById("vidsl3").style.display = "none";
+                                            }
+                                            if (document.getElementById("vidsl4")) {
+                                                document.getElementById("vidsl4").style.display = "none";
+                                            }
+
+                                            document.getElementById("vidarr").setAttribute("onClick","vids_change("+(num - 1)+")");
+                                            document.getElementById("vidarr2").setAttribute("onClick","vids_change("+(num + 1)+")");
+                                            document.getElementById("vidsl"+num).style.display = "block";
+                                        }
+                                    }
+                                </script>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                    </tbody></table>
+
+                <!--End Insert My Recent Videos Video Bar Here-->
+
+                <div>&nbsp;</div>
+                                                <!--Begin Insert My Friends Video Bar Here-->
+                                <table class="aboutTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td>
+                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Friends</div>
+                            <div style="float: right; padding-right: 5px"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=doinyourmom4&amp;page=friends" class="edit">See All Friends</a>
+
+                                &nbsp;
+                            </div></td></tr>
+                    <tr class="normalinner">
+                        <td align="center">
+
+                            <div style="padding-left: 1px;">
+                                <table width="21" height="121" cellpadding="0" cellspacing="0">
+                                    <tbody><tr class="normalinner">
+                                        <td><img src="/img/LeftSingleArrowOff.gif" onclick="fri_change(0)" style="cursor:pointer" id="friarr" border="0"></td>
+                                        <td>
+                                            <table width="443" height="121" style="background-color: #FFFFFF; " cellpadding="0" cellspacing="0">
+                                                <tbody><tr class="normalinner">
+                                                    <td style="border-bottom:none;">
+                                                                                                                                                                                                                                                                                            <div id="fril1">                                                            <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=ParadoxAgent"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/MmTcW4ljsz4.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=ParadoxAgent" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=pie1994"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/P19TLoexido.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=pie1994" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=JakeOnline"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/UQU1bIo2JKx.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=JakeOnline" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Xxxhumanbeingxxx"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/12diEvjHLlL.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Xxxhumanbeingxxx" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                            </div>                                                                                                                                                                                                                                            <div id="fril2" style="display:none">                                                            <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Clippy"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/3sCpx53aAUk.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Clippy" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=white2000ss"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/PT15WqpxtRg.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=white2000ss" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Realedgenoodle64"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/jkUcTmCdmUb.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Realedgenoodle64" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=tarciotcb"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/32yzTwWujvJ.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=tarciotcb" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                            </div>                                                                                                                                                                                                                                            <div id="fril3" style="display:none">                                                            <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Emiliano2008"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/lBV4E94otrD.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Emiliano2008" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=ASACAPRA"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/img/no_videos_140.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=ASACAPRA" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=PedroTheGamer"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/kZp4sPPDAKz.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=PedroTheGamer" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=MaxThePotato"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/andgiwLuXwH.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=MaxThePotato" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                            </div>                                                                                                                                                                                                                                            <div id="fril4" style="display:none">                                                            <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Clygro"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/VG6ZrYU6vtA.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Clygro" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=TacoFilms87"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/ioxWQUU6NE_.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=TacoFilms87" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=Legobot144"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/bO_SH6f4_sB.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=Legobot144" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                    <div class="videobarthumbnail_block" id="div_recent_friends_0">
+                                                                <center>
+                                                                    <div><a id="href_recent_friends_0" href="/web/20180704185928/http://www.bitview.net/profile.php?user=klasky678"><img class="videobarthumbnail_white" id="img_recent_friends_0" src="/web/20180704185928im_/http://www.bitview.net/u/thmp/RsjsHdyIN8A.jpg" width="80" height="60"></a></div>
+                                                                    <div id="title1_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=klasky678" title="FriendlyPlaceHolder">FriendlyPlaceHolder</a></div>
+                                                                    <div id="title2_recent_friends_0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-color: #666666; padding-bottom: 3px;"></div>
+                                                                </center>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                        </td>
+                                                </tr>
+                                                </tbody></table>
+                                        </td>
+                                        <td><img src="/img/RightSingleArrowOff.gif" onclick="fri_change(2)" style="cursor:pointer" id="friarr2" border="0"></td>
+                                    </tr>
+                                    </tbody></table>
+                                <script>
+                                    function fri_change(num) {
+                                        if (num != 0 && num != 4 && document.getElementById("fril"+num)) {
+                                            document.getElementById("fril1").style.display = "none";
+                                            if (document.getElementById("fril2")) {
+                                                document.getElementById("fril2").style.display = "none";
+                                            }
+                                            if (document.getElementById("fril3")) {
+                                                document.getElementById("fril3").style.display = "none";
+                                            }
+                                            if (document.getElementById("fril4")) {
+                                                document.getElementById("fril4").style.display = "none";
+                                            }
+
+                                            document.getElementById("friarr").setAttribute("onClick","fri_change("+(num - 1)+")");
+                                            document.getElementById("friarr2").setAttribute("onClick","fri_change("+(num + 1)+")");
+                                            document.getElementById("fril"+num).style.display = "block";
+                                        }
+                                    }
+                                </script>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                    </tbody></table>
+
+                <!--End Insert My Friends Video Bar Here-->
+                <div>&nbsp;</div>
+                <table class="commentPostTable" cellpadding="0" cellspacing="0">
+                    <tbody><tr class="profileHeaders">
+                        <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Comments</div>
+                            <div style="float: right; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=comments" class="edit">View All Comments</a>
+
+                            </div></td>
+                    </tr>
+
+					<?php
+					$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC LIMIT 4");
+
+					$count = 0;
+
+					while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
+						$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
+						$datecommentlist = $searchcomments['date']; // comment date
+						$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
+						$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
+						$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
+						$PreDate = $searchcomments['date'];
+						$DateTime = new DateTime($PreDate);
+						$Date = $DateTime->format('F j Y');
+						$bbcode = new ChrisKonnertz\BBCode\BBCode();
+						$bbcode->ignoreTag('spoiler');
+						$bbcode->ignoreTag('youtube');
+						$bbcode->ignoreTag('img');
+						$rendered = $bbcode->render($messagecommentlist);
+						if ($idcommentlist == $Username AND $hidden != 1) {
+							echo "<tr class=\"rowsLine normalinner\" id=\"cc_718\">
+									<td width=\"123\" align=\"center\" valign=\"top\" class=\"leftBg\" style=\"padding-right: 10px\">
+										<span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
+										<br>
+										<br>
+										<a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/<?php echo $usercommentlist?>.png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
+										</a></td>
+									<td colspan=\"2\" style=\"padding-right: 5px;position:relative;\" valign=\"top\">
+										<span class=\"profileTitles\">".$Date."</span> <br>
+										<br>
+										<div style=\"overflow: flow; width: 333px;word-break:break-all\">
+											".$rendered."                                    </div>
+																		</td>
+								</tr>";
+						}
+					}
+					?>
+                                                                    
+                    <tr class="commentsMsg">
+                        <td colspan="3" align="center"><span class="bulletinPost" style="padding-left: 5px; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/login.php">Leave a comment</a> for <?php echo $Username?>. The comments you post will be visible to anyone who views <?php echo $Username?>'s profile. <br></span></td>
+                    </tr>
+
+
+                    </tbody></table>
+
+            </td>
+        </tr>
+        </tbody></table>
+</div>        </div>
 <?php include("footer.php"); ?>

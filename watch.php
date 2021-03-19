@@ -224,7 +224,7 @@ $RegisteredYear = $DateTime->format('Y');
 			</div>
 		</div>
 		
-		<table width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+		<table width="640" cellspacing="0" cellpadding="0" border="0" align="center">
                 <tbody><tr>
                     <td>
 
@@ -239,7 +239,7 @@ $RegisteredYear = $DateTime->format('Y');
                 </tr>
                 </tbody></table>
 		
-		<table width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+		<table width="640" cellspacing="0" cellpadding="0" border="0" align="center">
                 <tbody><tr valign="top">
                     <td style="border-right: 1px dotted #AAAAAA; padding-right: 5px;" width="245">
                         <div style="font-weight: bold; color:#003399; padding-bottom: 7px;">Video Details //</div>
@@ -276,7 +276,7 @@ $RegisteredYear = $DateTime->format('Y');
                 </tr>
                 </tbody></table>
 
-		<table width="400" cellpadding="0" cellspacing="0" border="0" align="center">
+		<table width="400" cellpadding="0" cellspacing="0" border="0" align="center"> <?php //what does this table even do! ?>
 	
 					</div>
 			</td>
@@ -287,11 +287,11 @@ $RegisteredYear = $DateTime->format('Y');
 
 	<!-- watchTable -->
 
-<table style="table-layout: fixed;" width="525" cellspacing="0" cellpadding="0" border="0" align="center">
+<table style="table-layout: fixed;" width="640" cellspacing="0" cellpadding="0" border="0" align="center">
                 <tbody><tr>
                     <td>
                         <form name="linkForm" id="linkForm">
-                            <table style="table-layout:fixed;" width="525" cellspacing="0" cellpadding="0" border="0">
+                            <table style="table-layout:fixed;" width="640" cellspacing="0" cellpadding="0" border="0">
                                 <tbody><tr>
                                     <td width="33%">
                                         <div style="font-weight: bold; font-size: 12px; color:#003399; padding-bottom: 7px;" align="left">
@@ -359,16 +359,13 @@ echo "<tr>
 					<table class='parentSection' cellspacing='0' cellpadding='0' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
 					<tbody><tr valign='top'>
 						<td>
-<!-- google_ad_section_start -->
-		".$rendered."
-<!-- google_ad_section_end -->
-			<div class='userStats'>
-			<img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' class='thumb' width='32'>
-				<a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
-				 - (".$datecommentlist.")
-			</div>
-	<div id='div_comment_form_id_8n9OjARLLDs'></div>
-							</td>
+							<div class='userStats'>
+							<img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' class='thumb' width='32' height='32'>
+								<span style='vertical-align: top;'><a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
+								 - (".$datecommentlist.")</span>
+							</div>
+							<span>".$rendered."</span>
+						</td>
 					</tr>
 				</tbody></table>
 			</a></td>
