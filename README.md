@@ -22,6 +22,8 @@ CREATE TABLE `bulletins` ( `id` bigint(11) NOT NULL, `date` date NOT NULL, `subj
 ALTER TABLE `videodb` CHANGE `UploadDate` `UploadDate` DATETIME NOT NULL; 
 
 ALTER TABLE `users` ADD `channel_inside` VARCHAR(255) NOT NULL DEFAULT '#EDF5FB' AFTER `channel_bg`;
+
+ALTER TABLE `users` ADD `channel_text` VARCHAR(255) NOT NULL DEFAULT '#0033CC' AFTER `channel_inside`; 
 ```
 
 #### March 6th 2021 database changes
