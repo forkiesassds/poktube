@@ -1,4 +1,9 @@
 <html>
+<script>
+function onclick(event) {
+  _hbLink('NursingMonkeyinmylaplooksforanswers', 'VidHorz');
+}
+</script> 
 <?php 
 include("header.php"); 
 ?>
@@ -80,29 +85,25 @@ $uploadervideolistSponsered = htmlspecialchars($fetch['Uploader']); // get recom
 $uploadvideolistSponsered = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolistSponsered = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolistSponsered = htmlspecialchars($fetch['ViewCount']);
-echo "<div class='homepage-sponsored-video'>
-				<div class='videoIconWrapperOuter' style='margin-left: 12.6px;'>
-					<div class='videoIconWrapperInner'>
-					<div class='vstill'><a href='watch.php?v=$idvideolistSponsered'><img src='content/thumbs/".$idvideolistSponsered.".png' onerror=\"this.src='img/default.png'\"  class='vimg120'></a></div>
-					<div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlistSponsered</span></div>
-					</div>
-				</div>
+echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
+				<div class='vstill'><a href='watch.php?v=$idvideolistSponsered'><img src='content/thumbs/".$idvideolistSponsered.".png' onerror=\"this.src='img/default.png'\" class='vimg90'></a></div>
 				<div class='vtitle smallText'>
-					<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
+				<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
 				</div>
-				<div class='vfacets'>
-				<a class='dg' class='hLink' href='profile.php?user=$uploadervideolistSponsered'>$uploadervideolistSponsered</a>
+				<div class='vfacets' style='margin-bottom: 0px;'>
+				<a href='profile.php?user=$uploadervideolistSponsered' class='dg'>$uploadervideolistSponsered</a>
 				</div>
+				
 			</div>";};
 		?>
 				<div class='spacer-sm'></div>
 		</div>
 <!-- begin recently featured -->
+<br><br><br><br><br><br><br><br>
 <div id="homepage-featured-heading">
-			<div id="homepage-featured-more-top"><a id="hpVideoListMoreLink" href="browse.php" onmousedown="urchinTracker('/Events/Home/SeeMore/Featured/Top');">See More Featured Videos</a></div>
-		<h1 id="hpVideoListHead">Featured Videos</h1>
-		<div id="homepage-featured-tabs">
-		<div class="clear"></div>
+<div id="hpFeaturedHeading">
+		<div id="hpFeaturedMoreTop"><a href="browse.php">See More Featured Videos</a></div>
+		<h1>Featured Videos</h1>
 	</div>
 		<div class="clear"></div>
 <div id='homepage-video-list' class='list-view'>
@@ -124,30 +125,43 @@ $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendation
 $uploadvideolist = htmlspecialchars($fetch['UploadDate']); // get recommendations information
 $descvideolist = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
-echo "<div class='video-entry'>
-   <div class='v120WideEntry'>
-      <div class='v120WrapperOuter'>
-         <div class='v120WrapperInner'>
-            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-         <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
-		 </div>
-      </div>
-   </div>
-   <div class='video-main-content' id='video-main-content-muP9eH2p2PI'>
-      <div class='video-title '>
-         <div class='video-long-title'>
-            <a id='video-long-title-muP9eH2p2PI' href='watch.php?v=$idvideolist&player=0'  title='$namevideolist' rel='nofollow'>$namevideolist</a>
-         </div>
-      </div>
-      <div id='video-description-muP9eH2p2PI' class='video-description'>
-         $descvideolist
-      </div>
-      <div class='video-facets'>
-         Uploaded on $uploadvideolist by: <span class='video-username'><a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolist'>$uploadervideolist</a></span>
-      </div>
-   </div>
-   <div class='video-clear-list-left'></div>
-</div>";
+$categoryvideolist = htmlspecialchars($fetch['VideoCategory']);
+echo "<div class='vEntry'>
+	<table width='100%' cellspacing='0' cellpadding='0'>
+		<tbody><tr>
+		<td rowspan='2' width='130' valign='top'>
+			<div id='QLContainer'>
+				<a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120'></a>
+			</div>
+		</td>
+		<td valign='top'>
+			<div class='vtitle'>
+			<a href='watch.php?v=$idvideolist'>$namevideolist</a><br> 
+			<span class='runtime'>$lengthlist</span>
+			</div>
+			<div class='vdesc'>
+						
+				<span id='BeginvidDesc_5QUdvUhCZc'>
+	$descvideolist
+	</span>
+	
+
+
+
+			</div>
+		</td>
+		</tr><tr>
+		<td valign='bottom'>
+			<div class='vfacets'>
+			<div class='hpVfacetRight'><span class='grayText'>More in</span> <a href='#' class='dg'>$categoryvideolist</a></div>
+			<div class='hpVfacetLeft'>
+				<span class='grayText'>From:</span> <a href='profile.php?user=$uploadervideolist' class='dg'>$uploadervideolist</a>
+			</div>
+			</div> <!-- end vfacets -->
+		</td>
+		</tr>
+	</tbody></table>
+	<div></div></div>";
 };
 //<a href='watch.php?v=$idvideolist&player=1'>Flash Player</a> - <a href='watch.php?v=$idvideolist&player=2'>ActiveX</a>
 ?>

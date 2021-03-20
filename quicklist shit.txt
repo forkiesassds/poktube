@@ -1,0 +1,1 @@
+<div id='QLIcon'><a href='#' onclick='clicked_add_icon('_5QUdvUhCZc', 0);return false;' title='Add Video to QuickList'><img id='add_button__5QUdvUhCZc' onmouseover='mouse_over_add_icon('_5QUdvUhCZc');return false;' onmouseout='mouse_out_add_icon('_5QUdvUhCZc');return false;' src='/img/icn_add_20x20.gif' alt='Add Video to QuickList' border='0'></a></div>
