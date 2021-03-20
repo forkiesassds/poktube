@@ -87,6 +87,7 @@ $descvideolistSponsered = htmlspecialchars($fetch['VideoDesc']);
 $viewsvideolistSponsered = htmlspecialchars($fetch['ViewCount']);
 echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
 				<div class='vstill'><a href='watch.php?v=$idvideolistSponsered'><img src='content/thumbs/".$idvideolistSponsered.".png' onerror=\"this.src='img/default.png'\" class='vimg90'></a></div>
+				<div class='small home video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlistSponsered</span></div>
 				<div class='vtitle smallText'>
 				<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
 				</div>
@@ -132,12 +133,12 @@ echo "<div class='vEntry'>
 		<td rowspan='2' width='130' valign='top'>
 			<div id='QLContainer'>
 				<a href='watch.php?v=$idvideolist'><img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120'></a>
+				<div class='home video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
 			</div>
 		</td>
 		<td valign='top'>
 			<div class='vtitle'>
 			<a href='watch.php?v=$idvideolist'>$namevideolist</a><br> 
-			<span class='runtime'>$lengthlist</span>
 			</div>
 			<div class='vdesc'>
 						
