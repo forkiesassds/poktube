@@ -9846,7 +9846,7 @@ if (!self.__WB_pmw) {
             if (!c) return -1;
             var c = c.replace(/https?:\/\//g, ""),
                 d;
-            if (!(d = !Qn(c))) d = (d = zc(c)[5] || k) && decodeURIComponent(d) || "", d = d.split("/"), d = "/" + (1 < d.length ? d[1] : ""), d = "/watch" != d;
+            if (!(d = !Qn(c))) d = (d = zc(c)[5] || k) && decodeURIComponent(d) || "", d = d.split("/"), d = "/" + (1 < d.length ? d[1] : ""), d = "/watch.php" != d;
             if (d) return -1;
             d = Ye(c);
             if (!d || d.v != b.A || d.list || d.p) return -1;
@@ -13075,7 +13075,7 @@ if (!self.__WB_pmw) {
             };
             a.a.eventLabel && (b.feature = "player_" + a.a.eventLabel);
             c && v(b, c);
-            return R(a.a.ra + "://" + ("www.youtube-nocookie.com" == window.location.host ? "www.youtube.com" : window.location.host) + "/watch", b)
+            return R(a.a.ra + "://" + ("www.youtube-nocookie.com" == window.location.host ? "www.youtube.com" : window.location.host) + "/watch.php", b)
         }
         n.dq = function() {};
         n.ho = function(a) {
