@@ -18,10 +18,26 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
-$Foreground = htmlspecialchars($cdf['channel_color']);
-$Background = htmlspecialchars($cdf['channel_bg']);
-$Inside = htmlspecialchars($cdf['channel_inside']);
-$Text = htmlspecialchars($cdf['channel_text']);
+if($cdf['channel_color']) {
+	$Foreground = htmlspecialchars($cdf['channel_color']);
+} else {
+	$Foreground = "#3399cc";
+}
+if($cdf['channel_bg']) {
+	$Background = htmlspecialchars($cdf['channel_bg']);
+} else {
+	$Background = "#ffffff";
+}
+if($cdf['channel_inside']) {
+	$Inside = htmlspecialchars($cdf['channel_inside']);
+} else {
+	$Inside = "#ecf4fb";
+}
+if($cdf['channel_inside']) {
+	$Text = htmlspecialchars($cdf['channel_text']);
+} else {
+	$Text = "#000000";
+}
 ?>
 <title>My Profile</title>
 <!-- the profile pic is asked with the png command, for anything else

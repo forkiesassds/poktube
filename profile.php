@@ -33,13 +33,29 @@ $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
 $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
-$Foreground = htmlspecialchars($cdf['channel_color']);
-$Background = htmlspecialchars($cdf['channel_bg']);
-$Inside = htmlspecialchars($cdf['channel_inside']);
-$Text = htmlspecialchars($cdf['channel_text']);
+if($cdf['channel_color']) {
+	$Foreground = htmlspecialchars($cdf['channel_color']);
+} else {
+	$Foreground = "#3399cc";
+}
+if($cdf['channel_bg']) {
+	$Background = htmlspecialchars($cdf['channel_bg']);
+} else {
+	$Background = "#ffffff";
+}
+if($cdf['channel_inside']) {
+	$Inside = htmlspecialchars($cdf['channel_inside']);
+} else {
+	$Inside = "#ecf4fb";
+}
+if($cdf['channel_inside']) {
+	$Text = htmlspecialchars($cdf['channel_text']);
+} else {
+	$Text = "#000000";
+}
 $color = new Color($Foreground);
 if($cdf['prof_website']) {
-$Website = htmlspecialchars($cdf['prof_website']);
+	$Website = htmlspecialchars($cdf['prof_website']);
 } else {
 	$Website = "";
 }
