@@ -956,7 +956,7 @@ if(isset($_GET["page"]))
                                                     <td style="border-bottom:none;">
 													<?php $count = 1;
 													while ($count != 5) {
-														$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."' ORDER by `UploadDate` DESC LIMIT ". $count * 4 - 4 .", 4");
+														$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."' ORDER by `UploadDate` DESC LIMIT ". ($count * 4 - 4) .", 4");
 														if($count == 1) {
 															echo "<div id=\"vidsl".$count."\">\n";
 														} else {
@@ -1197,8 +1197,8 @@ if(isset($_GET["page"]))
                     <tbody><tr class="profileHeaders">
                         <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Comments</div>
                             <div style="float: right; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=comments" class="edit">View All Comments</a>
-
-                            </div></td>
+                            
+							</div></td>
                     </tr>
 
 					<?php
@@ -1212,8 +1212,7 @@ if(isset($_GET["page"]))
 						$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
 						$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
 						$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
-						$PreDate = $searchcomments['date'];
-						$DateTime = new DateTime($PreDate);
+						$DateTime = new DateTime($searchcomments['date']);
 						$Date = $DateTime->format('F j Y');
 						$bbcode = new ChrisKonnertz\BBCode\BBCode();
 						$bbcode->ignoreTag('spoiler');
