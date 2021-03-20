@@ -1196,9 +1196,9 @@ if(isset($_GET["page"]))
                 <table class="commentPostTable" cellpadding="0" cellspacing="0">
                     <tbody><tr class="profileHeaders">
                         <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Comments</div>
-                            <div style="float: right; padding-right: 5px"><a href="/web/20180722182543/https://www.bitview.net/profile.php?user=PF94onBitView&amp;page=comments" class="edit">View All Comments</a>
-                            
-							</div></td>
+                            <div style="float: right; padding-right: 5px"><a href="/profile.php?user=<?php echo $Username?>&page=comments" class="edit">View All Comments</a>
+
+                            </div></td>
                     </tr>
 
 					<?php
