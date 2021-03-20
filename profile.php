@@ -54,6 +54,9 @@ if($cdf['channel_inside']) {
 	$Text = "#000000";
 }
 $color = new Color($Foreground);
+$colorbg = new Color($Background);
+$colorint = new Color($Inside);
+$colortext = new Color($Text);
 if($cdf['prof_website']) {
 	$Website = htmlspecialchars($cdf['prof_website']);
 } else {
@@ -64,11 +67,6 @@ $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
 $RegisteredYear = $DateTime->format('Y');
 
-if($cdf['channel_color']) {
-	$Foreground = htmlspecialchars($cdf['channel_color']);
-} else {
-	$Foreground = "#003366";
-}
 if (isset($_POST['post_comment'])) {
 	if ($_POST['post_comment'] == "Post Comment") {
 		$i = 1; // i does the count
@@ -123,7 +121,7 @@ if (isset($_POST['post_comment'])) {
     body { background-color: <?php echo $Background ?>; }
 	.bgtext { color: <?php echo $Text?> }
     .wrapper a { color: <?php echo $Text?> !important }
-    tr.bulletin td { border-color: #000000 }
+    tr.bulletin td { border-color: #<?php echo $color->lighten()?> }
     .profileHeaders { background: #<?php echo $color->lighten()?> }
     .highlightheader { background: #<?php echo $color->lighten()?> }
     .userTable, .bulletin td, .leftBg, .commentsMsg td { background: <?php echo $Inside?> !important; }
@@ -137,6 +135,7 @@ if (isset($_POST['post_comment'])) {
     .profileTitles { color: <?php echo $Text?> }
     .profileHeaders { color: #ffffff }
 	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
+	td.bulletinRead, td.bulletinReadBottom { background-color: #<?php echo $Inside?> !important; }
 </style>
 
 <div style="margin: 0 0 13px;text-align:center">
@@ -486,7 +485,7 @@ if(isset($_GET["page"]))
             <tbody><tr class=\"profileHeaders\">
                 <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Bulletin Board</div>
                                             ";
-			if (isset($_SESSION['username'])) {
+			if (isset($_SESSION['username']) AND $_SESSION['username'] == $user) {
 				echo "<div style=\"float: right; padding-right: 5px\"><a href=\"/profile.php?user=".$user."&page=write_bulletin\" class=\"edit\">Write Bulletin</a>
                 <div></div>";
 			}
@@ -685,69 +684,73 @@ if(isset($_GET["page"]))
 		include "watermark.php";
 		die();
 	} else if ($_GET["page"] == "write_bulletin") {
-		if(isset($_POST["post_bulletin"])){
-			if ($_POST['post_bulletin'] == "Post Bulletin") {
-			$i = 1; // i does the count
-			$subject = $_POST["subject"];
-			$body = $_POST["bulletin"]; // what are you going to comment?
-			$id = 0; // initialize
-			$datenow = date("Y-m-d"); // get the current date
+		if (isset($_SESSION['username']) AND $_SESSION['username'] == $user) {
+			if(isset($_POST["post_bulletin"])){
+				if ($_POST['post_bulletin'] == "Post Bulletin") {
+				$i = 1; // i does the count
+				$subject = $_POST["subject"];
+				$body = $_POST["bulletin"]; // what are you going to comment?
+				$id = 0; // initialize
+				$datenow = date("Y-m-d"); // get the current date
 
-			// Check connection
-			if ($connect->connect_error) {
-			  die('Connection failed: ' . $conn->connect_error);
-			}
+				// Check connection
+				if ($connect->connect_error) {
+				  die('Connection failed: ' . $conn->connect_error);
+				}
 
-			$sqllist = 'SELECT id, date, subject, body, user FROM bulletins ORDER by id DESC'; // to count what comment id is next
-			$result = $connect->query($sqllist);
+				$sqllist = 'SELECT id, date, subject, body, user FROM bulletins ORDER by id DESC'; // to count what comment id is next
+				$result = $connect->query($sqllist);
 
-			if ($result->num_rows > 0) {
-			  // output data of each row
-			  while($row = $result->fetch_assoc()) {
-				$i++;
-			  }
-			} else {
+				if ($result->num_rows > 0) {
+				  // output data of each row
+				  while($row = $result->fetch_assoc()) {
+					$i++;
+				  }
+				} else {
 
+				}
+				$id = $i;
+				$username = $_SESSION["username"];
+				if($body[0] === '>') {
+					$yes = $body;
+					$body = "[color=#5dae5d]";
+					$body .= $yes;
+					$body .= "[/color]";
+				}
+				if(!empty($_SESSION["username"])) {
+					$stmt = $connect->prepare("INSERT INTO bulletins (id, date, subject, body, user) VALUES (?, ?, ?, ?, ?)");
+					$stmt->bind_param("issss", $id, $datenow, $subject, $body, $user); // prepared statements for inserting comments into db
+					$stmt->execute();
+				} else {
+					echo "You are not logged in.";
+				}
 			}
-			$id = $i;
-			$username = $_SESSION["username"];
-			if($body[0] === '>') {
-				$yes = $body;
-				$body = "[color=#5dae5d]";
-				$body .= $yes;
-				$body .= "[/color]";
 			}
-			if(!empty($_SESSION["username"])) {
-				$stmt = $connect->prepare("INSERT INTO bulletins (id, date, subject, body, user) VALUES (?, ?, ?, ?, ?)");
-				$stmt->bind_param("issss", $id, $datenow, $subject, $body, $user); // prepared statements for inserting comments into db
-				$stmt->execute();
-			} else {
-				echo "You are not logged in.";
-			}
+			echo "<div style=\"width: 875px; text-align: left;\">
+				<div id=\"mainContent\"> 
+			<h2 style=\"margin:0 0 2px\" class=\"bgtext\">Write a bulletin</h2>
+			<div style=\"margin-bottom:3px;font-family:arial,helvetica,sans-serif;\" class=\"bgtext\">Bulletins appear on your own and your friends channel pages</div>
+			<form action=\"/profile.php?user=".$user."&amp;page=write_bulletin\" method=\"POST\">
+			<table style=\"position:relative;right:4px\" cellpadding=\"4px\">
+				<tbody><tr>
+					<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"middle\"><b class=\"bgtext\">Subject:</b></td>
+					<td><input type=\"text\" name=\"subject\" maxlength=\"128\" style=\"width:260px\"></td>
+				</tr>
+				<tr>
+					<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"top\"><b class=\"bgtext\">Bulletin:</b></td>
+					<td><textarea maxlength=\"1000\" name=\"bulletin\" cols=\"48\" rows=\"6\"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type=\"submit\" name=\"post_bulletin\" value=\"Post Bulletin\"> <a href=\"/profile.php?user=".$user."\"><button type=\"button\">Cancel</button></a></td>
+				</tr>
+			</tbody></table>
+			</form>
+			</div>
+			</div>";
+		} else {
+			echo "<center style=\"font-size: 24px;\">You are not allowed to post here!</center>";
 		}
-		}
-		echo "<div style=\"width: 875px; text-align: left;\">
-			<div id=\"mainContent\"> 
-		<h2 style=\"margin:0 0 2px\" class=\"bgtext\">Write a bulletin</h2>
-		<div style=\"margin-bottom:3px;font-family:arial,helvetica,sans-serif;\" class=\"bgtext\">Bulletins appear on your own and your friends channel pages</div>
-		<form action=\"/profile.php?user=".$user."&amp;page=write_bulletin\" method=\"POST\">
-		<table style=\"position:relative;right:4px\" cellpadding=\"4px\">
-			<tbody><tr>
-				<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"middle\"><b class=\"bgtext\">Subject:</b></td>
-				<td><input type=\"text\" name=\"subject\" maxlength=\"128\" style=\"width:260px\"></td>
-			</tr>
-			<tr>
-				<td style=\"font-family:arial,helvetica,sans-serif;color:#222222 !important\" valign=\"top\"><b class=\"bgtext\">Bulletin:</b></td>
-				<td><textarea maxlength=\"1000\" name=\"bulletin\" cols=\"48\" rows=\"6\"></textarea></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type=\"submit\" name=\"post_bulletin\" value=\"Post Bulletin\"> <a href=\"/profile.php?user=".$user."\"><button type=\"button\">Cancel</button></a></td>
-			</tr>
-		</tbody></table>
-		</form>
-		</div>
-		</div>";
 		include "watermark.php";
 		die();
 	}
