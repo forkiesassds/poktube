@@ -28,7 +28,7 @@ if ($detail2["registeredon"] == null) {
 </head>
 <table class="header1" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
+		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="squareBracket" border="0"></a></td>
 		<td valign="top">
 		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
@@ -65,10 +65,14 @@ if ($detail2["registeredon"] == null) {
 		<td width="100%">
 		
 		<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
+		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
+					<span class='action-button-leftcap'></span>
+					<span class='action-button-text'>Upload</span>
+					<span class='action-button-rightcap'></span>
+				</a></div>";
 		} else {
 			echo "";}?>
-		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
+		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>-->
 		
 		<table cellpadding="2" cellspacing="0" border="0">
 			<tr>
@@ -77,7 +81,7 @@ if ($detail2["registeredon"] == null) {
 					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
 				</td>
 				<td>
-					<input class="button" type="submit" value="Search Videos">
+					<input class="button" type="submit" value="Search">
 				</td>
 				</form>
 			</tr>

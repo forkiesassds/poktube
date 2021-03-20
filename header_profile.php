@@ -17,8 +17,8 @@ if ($detail2["registeredon"] == null) {
 ?>
 <head>
 <link rel="stylesheet" href="styles.css" type="text/css">
-<link rel="stylesheet" href="main_profile.css" type="text/css">
 <link rel="stylesheet" href="base_all-vfl70436.css" type="text/css">
+<link rel="stylesheet" href="main_profile.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta name="theme-color" content="#f28900">
@@ -65,10 +65,14 @@ if ($detail2["registeredon"] == null) {
 		<td width="100%">
 		
 		<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href=\"my_videos_upload.php\"><img src=\"img/pic_upload_130x28.png\" alt=\"Upload Videos\"></a>";
+		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
+					<span class='action-button-leftcap'></span>
+					<span class='action-button-text'>Upload</span>
+					<span class='action-button-rightcap'></span>
+				</a></div>";
 		} else {
 			echo "";}?>
-		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
+		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>-->
 		
 		<table cellpadding="2" cellspacing="0" border="0">
 			<tr>
@@ -77,7 +81,7 @@ if ($detail2["registeredon"] == null) {
 					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
 				</td>
 				<td>
-					<input class="button" type="submit" value="Search Videos">
+					<input class="button" type="submit" value="Search">
 				</td>
 				</form>
 			</tr>
