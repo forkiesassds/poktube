@@ -120,24 +120,3 @@ console.log("2012 player loaded: by Crazy frog. Modified by Chaziz and Icanttell
 
 </body>
 </html>
-<!--
-     FILE ARCHIVED ON 18:48:33 Jun 09, 2012 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 13:50:30 Jan 21, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  captures_list: 3478.604
-  exclusion.robots: 0.364
-  exclusion.robots.policy: 0.345
-  RedisCDXSource: 42.508
-  load_resource: 277.14
-  LoadShardBlock: 3372.678 (3)
-  esindex: 0.019
-  PetaboxLoader3.resolve: 739.112 (4)
-  PetaboxLoader3.datanode: 687.403 (4)
-  CDXLines.iter: 26.368 (3)
--->
