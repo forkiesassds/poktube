@@ -276,7 +276,7 @@ if(isset($_GET["page"]))
 		}
 
 		$page = $page - 1;
-		$sql = mysqli_query($connect, "SELECT * FROM videodb"); //instructions for sql
+		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$user."'"); //instructions for sql
 		$count = 0;
 		$pages = 0;
 
@@ -345,7 +345,7 @@ if(isset($_GET["page"]))
 					echo "Browse Pages:";
 				}
 				$pagecount++;
-				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
+				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=".$Username."&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
 			}
 		echo "</div>";
 		include "watermark.php";
@@ -364,7 +364,7 @@ if(isset($_GET["page"]))
 		}
 		
 		$page = $page - 1;
-		$sql = mysqli_query($connect, "SELECT * FROM videodb"); //instructions for sql
+		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` != '1' AND `Uploader`='".$user."'"); //instructions for sql
 		$count = 0;
 		$pages = 0;
 
@@ -449,7 +449,7 @@ if(isset($_GET["page"]))
 					echo "Browse Pages:";
 				}
 				$pagecount++;
-				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=icanttellyou&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
+				echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='/profile.php?user=".$Username."&page=videos&pagenum=".$pagecount."'>".$pagecount."</a></span>";
 			}
 		echo "</div>";
 		include "watermark.php";
