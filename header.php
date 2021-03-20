@@ -21,7 +21,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" href="base_all-vfl70436.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f28900">
 <meta name="description" content="Share your videos with friends and family">
