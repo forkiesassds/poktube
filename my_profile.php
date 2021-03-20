@@ -86,7 +86,7 @@ if(isset($_POST["upload"])) {
     //echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
-  imagepng(resizeImageAndKeepAspectRatio(file_get_contents($_FILES["fileToUpload"]["tmp_name"]),$_FILES['fileToUpload']['tmp_name'],256,256), $target_dir . $_SESSION['username'] . ".png");
+  imagepng(resizeImageAndKeepAspectRatio(file_get_contents($_FILES["fileToUpload"]["tmp_name"]),$_FILES['fileToUpload']['tmp_name'],512,512), $target_dir . $_SESSION['username'] . ".png");
   echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 }
 
