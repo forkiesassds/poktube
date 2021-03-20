@@ -1,10 +1,7 @@
+<html>
 <?php 
 include("header.php"); 
 ?>
-<html>
-<head>
-<title>Chaziz PokTube</title>
-<body>
 <?php 
 if(isset($_GET["vexist"])) {
 if(($_GET["vexist"]) == 0){
@@ -64,7 +61,7 @@ if(($_GET["vexist"]) == 0){
 
 <div id='homepage-main-content'>
 <div class='homepage-content-block sponsored-videos-block'>
-		<div class='homepage-block-heading homepage-block-heading-gray'>Promoted Videos</div>
+		<div id="hpSVidHeader">Promoted Videos</div>
 		<div>
 
 <?php
@@ -94,7 +91,7 @@ echo "<div class='homepage-sponsored-video'>
 					<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
 				</div>
 				<div class='vfacets'>
-				<a id='video-from-username-muP9eH2p2PI' class='hLink' href='profile.php?user=$uploadervideolistSponsered'>$uploadervideolistSponsered</a>
+				<a class='dg' class='hLink' href='profile.php?user=$uploadervideolistSponsered'>$uploadervideolistSponsered</a>
 				</div>
 			</div>";};
 		?>
@@ -183,13 +180,20 @@ $PreRegisteredOn = $cdf['registeredon'];
 $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
 $RegisteredYear = $DateTime->format('Y');
-echo "            <div class='contentBox'>
+echo "            
+<div class='headerRCBox'>
+	<b class='rch'>
+	<b class='rch1'><b></b></b>
+	<b class='rch2'><b></b></b>
+	<b class='rch3'></b>
+	<b class='rch4'></b>
+	<b class='rch5'></b>
+	</b> <div class='content'><span class='headerTitle'>Welcome back, $Username!</span></div>
+	</div>
+	<div class='contentBox'>
                 <div>
                     <div class='floatR'><span class='smallText'><b><a href='my_profile.php'>Profile Settings</a></b></span></div>
 					<img src='content/profpic/$Username.png' onerror='this.src='img/profiledef.png'' class='thumb' style='height: 64px;' width='64'>
-                    <div class='floatL'>
-                        <span class='headerTitle hpBlockHeadingGray'>Welcome back, $Username!</span>
-                    </div>
                     <div class='clear'></div>
                 </div>
                 <table>
@@ -217,16 +221,53 @@ echo "<div class='homepage-content-block'>
             </div>"; }
 ?>
 <br>
-   <div class="homepage-side-block" id="homepage-whats-new-block">
-      <div class="homepage-yellow-block">
-         <div class="homepage-block-heading" style="color:#CC6600">What's New</div>
-         <div class="clear"></div>
-         <div class="bottomBorderDotted"></div>
-		 <b style="color:#CC6600">Reverted redesign</b><br>
-		 Squarebracket's Semantic UI redesign has been reverted. Chaziz (and even <a href="img/bazinga.png">Chief Bazinga from FulpTube<a>) didn't like it.
-         <div style="font-size: 1px; height: 1px;"><br></div>
-      </div>
-      <img class="homepage-yellow-block-bot" src="https://web.archive.org/web/20090101094601im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif">
+<div class="hpContentBlock">
+			<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">What's New on SquareBracket</span></div>
+	</div>
+
+		<div class="contentBox">
+			<div class="hpWNentry">
+				<div class="hpWNimage">
+				<a href="my_profile.php"><img src="img/downloaded/pic_home_chnlcustom_30x37.gif" border="0"></a>
+				</div>
+				<div class="hpWNdesc">
+				<b><a href="my_profile.php">More Channel Customizations and New Channel Redesign</a></b><br>
+				Now you can choose more colors for your Profile. Additionally, the 2006 YouTube Channel layout has been implemented.
+				</div>
+			</div> <!-- end hpWNentry -->
+		</div>
+	</div>
+	<!--<div class="hpContentBlock">
+			<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Active Channels</span></div>
+	</div>
+
+		<div class="contentBox">
+			<div class="hpChannelEntry v80hEntry">
+				<div class="vstill"><a href="/web/20070214121244/http://youtube.com/profile?user=openingmind"><img src="https://web.archive.org/web/20070214121244im_/http://sjc-static10.sjc.youtube.com/vi/lytExpvDAlU/2.jpg" class="vimg" style="background: #333;"></a></div>
+				<div class="vinfo">
+					<b><a href="/web/20070214121244/http://youtube.com/profile?user=openingmind">openingmind</a></b>
+					<div class="vfacets">23 Videos | 102 Subscribers</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div style="text-align: right;"><a href="/web/20070214121244/http://youtube.com/members">See More Channels</a></div>
+		</div>
+	</div>-->
    </div>
 </div></div>
 

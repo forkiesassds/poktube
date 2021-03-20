@@ -168,7 +168,6 @@ width: 145px;
 height: 12px;
 }
 .contentBox{
-margin-top: 10px;
 padding: 6px;
 border: 1px solid #CCC;
 }
@@ -188,10 +187,6 @@ padding: 1px 5px 0px 0px;
 font-size: 12px;
 font-weight: bold;
 color: #333;
-}
-.headerRCBox{
-background: #CCC;
-padding: 6px 6px 2px 6px;
 }
 #sectionHeader{
 height: 2.5em;
