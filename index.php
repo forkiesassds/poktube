@@ -214,26 +214,46 @@ echo "
                 <table>
                     <tbody>
                 </tbody></table>
+                <div class='bottomBorderDotted'></div>
+        </div>
+		<br>
+		<div id='hpAccountLinksDiv'>
+		<div class='mar38L'>
+			<a href='profile.php?user=$Username&page=videos'>Videos</a>
+			-
+			<!---<a href='/web/20070115185031/http://youtube.com/my_favorites' onclick='_hbLink('myFavorites','MyLinks');'>Favorites</a>
+			-
+			<a href='/web/20070115185031/http://youtube.com/my_playlists' onclick='_hbLink('myPlaylists','MyLinks');'>Playlists</a>
+			-
+			<a href='/web/20070115185031/http://youtube.com/my_messages' onclick='_hbLink('myMessages','MyLinks');'>Inbox</a>
+			-
+			<a href='/web/20070115185031/http://youtube.com/subscription_center' onclick='_hbLink('mySubscriptions','MyLinks');'>Subscriptions</a>--->
+		</div>
+	</div>";
+} else {
+echo "<div class='headerRCBox'>
+	<b class='rch'>
+	<b class='rch1'><b></b></b>
+	<b class='rch2'><b></b></b>
+	<b class='rch3'></b>
+	<b class='rch4'></b>
+	<b class='rch5'></b>
+	</b> <div class='content'><span class='headerTitle'>Want to be part of SquareBracket?</span></div>
+	</div>
+	<div class='contentBox'>
+                <div>
+					<a href='/login.php'><strong>Login to SquareBracket now!</strong></a><br>
+                    <div class='clear'></div>
+                </div>
+                <table>
+                    <tbody>
+                </tbody></table>
                 <div class='hpLoginForgot smallText'>
-                    <p class='marT0 marB0' align='center'><a href='profile.php?user=$Username'>My Channel</a> | <a href='/my_videos.php'>My Videos</a></p>
+                    <a href='/signup.php'>Don't have an account? Sign up!</a><a href='/about.php' rel='nofollow'></a>    <a href='/about.php' rel='nofollow'><img src='img/pixel.gif' class='alignMid gaiaHelpBtn' alt='' border='0'></a>
                 <p class='marT0 marB0' align='center'>
                 </p></div>
                 <div class='bottomBorderDotted'></div>
-        </div>";
-} else {
-echo "<div class='homepage-content-block'>
-  <div class='signInBoxBorder'>
-    <div class='signInBoxContent'>
-            <strong>Want to participate in SquareBracket?</strong><br>
-        <a href='/login.php'><strong>Login to SquareBracket now!</strong></a>
-        <div class='homepage-border-dotted'></div>
-        <span class='smgrayText'>
-        <a href='/signup.php'>Don't have an account? Sign up!</a>
-        </span>
-        <a href='/about.php' rel='nofollow'><img src='img/pixel.gif' class='alignMid gaiaHelpBtn' alt='' border='0'></a>
-    </div>  
-        </div>  
-            </div>"; }
+        </div>"; }
 ?>
 <br>
 <div class="hpContentBlock">

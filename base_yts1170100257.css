@@ -1131,7 +1131,7 @@ img.rating {
 #hpEmbedRatingDiv { float: right; }
 #hpEmbedInfoDiv {}
 #hpAccountLinksDiv {
-	background: url(/web/20070131215327im_/http://www.youtube.com/img/pic_mycontrolpanel_300x30.png) top left no-repeat;
+	background: url(/img/pic_mycontrolpanel_300x30.png) top left no-repeat;
 	width: 300px;
 	height: 30px;
 	line-height: 30px;
