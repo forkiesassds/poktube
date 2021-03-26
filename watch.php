@@ -266,6 +266,32 @@ $RegisteredYear = $DateTime->format('Y');
                             <span style="background-color: #FFFFAA; padding: 2px;">User Name:</span>&nbsp; <a href="profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a>
                         </div>
 						
+						<div style="padding-bottom: 5px;">
+                            <img src="/img/SubscribeIcon.gif" align="absmiddle">&nbsp;
+                            <a <?php 
+                            if(!isset($_SESSION['username'])) {
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\"> subscribe </a> to";
+							} else if ($Uploader == $_SESSION['username']) {
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\"> subscribe </a> to";
+							} else {
+								$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
+								$cdf = mysqli_fetch_assoc($chanfetch);
+								$Subscriptions = $cdf['subscriptions'];
+								$learray = json_decode($Subscriptions);
+								//sphagetti code, but this makes it shut up if using an existing db.
+								if(!isset($Subscriptions) OR $Subscriptions == "") {
+									echo "href=\"/subscribe.php?user=".$Uploader."\"> subscribe </a> to";
+								} else if(count(json_decode($Subscriptions)) == 0) {
+									echo "href=\"/subscribe.php?user=".$Uploader."\"> subscribe </a> to";
+								} else if (in_array($Uploader, $learray)) {
+									echo "href=\"/unsubscribe.php?user=".$Uploader."\"> unsubscribe </a> from";
+								} else {
+									echo "href=\"/subscribe.php?user=".$Uploader."\"> subscribe </a> to";
+								}
+							}
+                            ?>
+                             <?php echo $Uploader ?>'s videos
+                        </div>
                         
                         <div style="padding-bottom: 10px;">
                                                         <div style="padding-bottom: 10px;">(Last signed in text, placeholder)</div>

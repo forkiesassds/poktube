@@ -27,6 +27,7 @@ $cdf = mysqli_fetch_assoc($chanfetch);
 $LastestVideo = htmlspecialchars($cdf['recent_vid']);
 $Username = htmlspecialchars($cdf['username']);
 $AboutMe = htmlspecialchars($cdf['aboutme']);
+$Subscribers = $cdf['subscribers'];
 $VidsWatched = $cdf['videos_watched'];
 $Name = htmlspecialchars($cdf['prof_name']);
 $Age = htmlspecialchars($cdf['prof_age']);
@@ -887,7 +888,7 @@ if(isset($_GET["page"]))
                             
                             </div>
                             <div class="spaceMaker">
-                                <span class="profileTitles">Subscribers: </span> TODO: IMPLEMENT SUBSCRIBERS                                <br>
+                                <span class="profileTitles">Subscribers: </span> <?php echo $Subscribers?>                                <br>
                             </div>
 
 
@@ -1216,8 +1217,8 @@ if(isset($_GET["page"]))
                     <tbody><tr class="profileHeaders">
                         <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Comments</div>
                             <div style="float: right; padding-right: 5px"><a href="/profile.php?user=<?php echo $Username?>&page=comments" class="edit">View All Comments</a>
-                            
-							</div></td>
+
+                            </div></td>
                     </tr>
 
 					<?php
