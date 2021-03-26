@@ -14,6 +14,11 @@
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
 
 No, this will not give access to that The Homer folder.
+#### March 26th 2021 database changes
+This adds support for subscriptions
+```sql
+ALTER TABLE `users` ADD `subscriptions` TEXT NOT NULL AFTER `subscribers`; 
+```
 #### March 19th 2021 database changes
 This adds support for bulletins, as well as expanding customability for profiles.
 ```sql

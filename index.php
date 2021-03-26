@@ -113,7 +113,7 @@ echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
 				<div class='spacer-sm'></div>
 </div>
 </div>
-<br><br><br><br><br><br><br><br>";
+<br><br><br><br><br><br><br><hr>";
 }
 }
 ?>
