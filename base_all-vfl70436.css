@@ -5411,6 +5411,8 @@ text-align: center;
 }
 .sponsored-videos-block{
 margin-left: 0;
+float: left;
+width: 100%;
 }
 #homepage-subscriptions-top,
 #homepage-subscriptions{

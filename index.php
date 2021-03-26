@@ -78,7 +78,7 @@ if(!isset($Subscriptions) OR $Subscriptions == "") {
 } else if(count(json_decode($Subscriptions)) == 0) {
 } else {
 echo "
-<div class='homepage-content-block sponsored-videos-block'>
+<div class='homepage-content-block subcription-videos-block'>
 		<div id=\"hpSVidHeader\">Subscriptions</div>
 		<div>
 ";
@@ -113,7 +113,7 @@ echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
 				<div class='spacer-sm'></div>
 </div>
 </div>
-<br><br><br><br><br><br><br><hr>";
+<br><br><br><br><br><br><br><br>";
 }
 }
 ?>
