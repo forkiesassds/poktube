@@ -6,6 +6,9 @@ function onclick(event) {
 </script> 
 <?php 
 include("header.php"); 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 <?php 
 if(isset($_GET["vexist"])) {
@@ -65,6 +68,56 @@ if(($_GET["vexist"]) == 0){
 }?>
 
 <div id='homepage-main-content'>
+<!--subscription videos-->
+<?php
+if(isset($_SESSION['username'])) {
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$Subscriptions = $cdf['subscriptions'];
+if(!isset($Subscriptions) OR $Subscriptions == "") {
+} else if(count(json_decode($Subscriptions)) == 0) {
+} else {
+echo "
+<div class='homepage-content-block sponsored-videos-block'>
+		<div id=\"hpSVidHeader\">Subscriptions</div>
+		<div>
+";
+$users = implode('\', \'', json_decode($Subscriptions));
+$sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader` IN ('$users') ORDER by `UploadDate` DESC LIMIT 4"); //instructions for sql
+while ($fetch = mysqli_fetch_assoc($sqlSponsered)) {
+$idvideolistSponsered = $fetch['VideoID'];
+$lengthlistSponsered = 0;
+if($fetch['VideoLength'] > 3600) {
+	$lengthlistSponsered = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlistSponsered = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
+$namevideolistSponsered = htmlspecialchars($fetch['VideoName']);
+$uploadervideolistSponsered = htmlspecialchars($fetch['Uploader']); // get recommendations information
+$uploadvideolistSponsered = htmlspecialchars($fetch['UploadDate']); // get recommendations information
+$descvideolistSponsered = htmlspecialchars($fetch['VideoDesc']);
+$viewsvideolistSponsered = htmlspecialchars($fetch['ViewCount']);
+echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
+				<div class='vstill'><a href='watch.php?v=$idvideolistSponsered'><img src='content/thumbs/".$idvideolistSponsered.".png' onerror=\"this.src='img/default.png'\" class='vimg90'></a></div>
+				<div class='small home video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlistSponsered</span></div>
+				<div class='vtitle smallText'>
+				<a href='watch.php?v=$idvideolistSponsered'>$namevideolistSponsered</a>
+				</div>
+				<div class='vfacets' style='margin-bottom: 0px;'>
+				<a href='profile.php?user=$uploadervideolistSponsered' class='dg'>$uploadervideolistSponsered</a>
+				</div>
+				
+			</div>";
+}
+			echo "
+				<div class='spacer-sm'></div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br>";
+}
+}
+?>
+<!--promoted videos-->
 <div class='homepage-content-block sponsored-videos-block'>
 		<div id="hpSVidHeader">Promoted Videos</div>
 		<div>
@@ -180,6 +233,7 @@ $LastestVideo = htmlspecialchars($cdf['recent_vid']);
 $Username = htmlspecialchars($cdf['username']);
 $AboutMe = htmlspecialchars($cdf['aboutme']);
 $VidsWatched = $cdf['videos_watched'];
+$Subscribers = $cdf['subscribers'];
 $Name = htmlspecialchars($cdf['prof_name']);
 $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
