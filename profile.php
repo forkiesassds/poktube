@@ -831,10 +831,25 @@ if(isset($_GET["page"]))
 						}?>Add Comment</a></span></td>
                         <td width="21" valign="middle"><img src="/img/MiniSubscribe.gif"></td>
                         <td><span class="connectLinks"><?php if (!isset($_SESSION["username"])) {
-							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to subscribe!')\">";
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to subscribe!')\">Subscribe";
+						}  else if ($user == $_SESSION['username']) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\"> Subscribe";
 						} else {
-							echo "<a href=\"javascript:void(0)\" onclick=\"alert('The subscription system is not done.')\">";
-						}?>Subscribe</a></span></td>
+							$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
+							$cdf = mysqli_fetch_assoc($chanfetch);
+							$Subscriptions = $cdf['subscriptions'];
+							$learray = json_decode($Subscriptions);
+							//sphagetti code, but this makes it shut up if using an existing db.
+							if(!isset($Subscriptions) OR $Subscriptions == "") {
+								echo "<a href=\"/subscribe.php?user=".$user."\"> Subscribe";
+							} else if(count(json_decode($Subscriptions)) == 0) {
+								echo "<a href=\"/subscribe.php?user=".$user."\"> Subscribe";
+							} else if (in_array($user, $learray)) {
+								echo "<a href=\"/unsubscribe.php?user=".$user."\"> Unsubscribe";
+							} else {
+								echo "<a href=\"/subscribe.php?user=".$user."\"> Subscribe";
+							}
+						}?></a></span></td>
                     </tr>
 
                     </tbody></table>
