@@ -30,7 +30,7 @@ body {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
-<table class="vibriwentuwu" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
+<table class="vibriwentuwu" id="dadminpanel" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
 	</tr>
@@ -39,7 +39,7 @@ body {
 		<td width="100%">
 		
 		<?php
-		echo "<div style=\"font-size: 12px; color: white; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\">" . date("F jS Y h:i:s A") . "</a>";
+		echo "<div id='needsToBeBlack' style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\">" . date("F jS Y h:i:s A") . "</a>";
 		?>
 		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>--></div>
 		
@@ -48,7 +48,7 @@ body {
 
 			
 </table>
-<table class="header2" align="center" width="100%" bgcolor="#3C3C3C" cellpadding="0" cellspacing="0" border="0" style="margin: 0px 0px 10px 0px;">
+<table class="header2" id="dadminpanel" align="center" width="100%" bgcolor="#3C3C3C" cellpadding="0" cellspacing="0" border="0" style="margin: 0px 0px 10px 0px;">
 	<tr>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
 	</tr>

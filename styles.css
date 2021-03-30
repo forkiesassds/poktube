@@ -519,8 +519,23 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 	margin: 0 auto;
 }
 
+#dadminPanel {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
+}
+
+#needsToBeBlack {
+	color: #222 !important;
+}
+
 .header_profile {
 	background-image: url(img/header_profile.gif);
+	-webkit-box-shadow: #777 0 0 10px;
+	-moz-box-shadow: #777 0 0 10px;
+	box-shadow: #777 0 0 5px;
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
 }
 
 /* pictoboi please don't be horny as fuck to a wireframe rabbit */
@@ -532,11 +547,11 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 	height: 30px;
 	line-height: 0;
 	background-image: url(img/subheader.gif);
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
 	border-radius: 10px 10px 0 0;
-	border-radius: 10px 10px 0 0;
-	border-radius: 10px 10px 0 0;
-	box-shadow: #777 0 0 10px;
-	box-shadow: #777 0 0 10px;
+	-webkit-box-shadow: #777 0 0 10px;
+	-moz-box-shadow: #777 0 0 10px;
 	box-shadow: #777 0 0 5px;
 	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
 }
