@@ -124,7 +124,7 @@ echo "<div class='hpSVidEntry ' style='margin-bottom: 0px;'>
 
 <?php
 
-$sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC LIMIT 4"); //instructions for sql, also WHERE with ORDER BY works, icty, you said that it didn't in FEB 24 2021, you're wrong.
+$sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC LIMIT 5"); //instructions for sql, also WHERE with ORDER BY works, icty, you said that it didn't in FEB 24 2021, you're wrong.
 while ($fetch = mysqli_fetch_assoc($sqlSponsered)) {
 $idvideolistSponsered = $fetch['VideoID'];
 $lengthlistSponsered = 0;

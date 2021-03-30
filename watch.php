@@ -311,15 +311,7 @@ function showRelatedUserContent() {
 		
 <br>
 		
-<table width="650">
-<tbody><tr>
-<td>
-	<table class="commentsTitle" width="100%">
-	<tbody><tr>
-		<td>Comments (<?php echo $commentcount; ?>): </td>
-	</tr></tbody></table>
-</td>
-</tr>
+<h2>Comments (<?php echo $commentcount; ?>):</h2>
 <?php
 $sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 
@@ -338,31 +330,23 @@ $bbcode->ignoreTag('youtube');
 $bbcode->ignoreTag('img');
 $rendered = $bbcode->render($messagecommentlist);
 if ($idcommentlist == $vid AND $hidden != 1) {
-echo "<tr>
-<td>
-      			<a name='8n9OjARLLDs'>
-					<table class='parentSection' cellspacing='0' cellpadding='0' id='comment_8n9OjARLLDs' width='100%' style='margin-left: 0px'>
-					<tbody><tr valign='top'>
-						<td>
-							<div class='userStats'>
-							<img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' class='thumb' width='32' height='32'>
-								<span style='vertical-align: top;'><a href='profile.php?user=".$usercommentlist."'>".$usercommentlist."</a>
-								 - (".$datecommentlist.")</span>
-							</div>
-							<span>".$rendered."</span>
-						</td>
-					</tr>
-				</tbody></table>
-			</a></td>
-</tr>";
+echo "<div class='commentEntry' id='comment_LdOoXgR5prs'>
+				<div class='commentHead'>
+				<div id='watch-channel-icon' class='user-thumb-small'><a href='/profile.php?user=$usercommentlist' onmousedown=''><img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' alt='Channel Icon'></a></div>
+					<b><a href='profile.php?user=$usercommentlist'>$usercommentlist</a></b>
+					<span class='smallText'> $datecommentlist </span>
+				</div>
+				<div class='commentBody'>
+					$rendered
+				</div>
+			</div>";
 $count++; // count the amount of comments
 }
 }
 if($count == 0) {
-	echo "<tr><td><center><p style='padding: 10px; font-size: 15px;'>No comments found.</p></center></td></tr>"; // echos "no comments found" if no comments
+	echo "<p style='padding: 10px; font-size: 15px;'>No comments found.</p>"; // echos "no comments found" if no comments
 }
 ?>
-</tbody></table>
 		
 
 		</td>
@@ -433,15 +417,15 @@ if($count == 0) {
         
         <div id="subscribeDiv" class="smallText" style="line-height: 26px;">
 		
-        <a id="upload-button" class="action-button"		<?php 
+        <a class="action-button"		<?php 
                             if(!isset($_SESSION['username'])) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 								<span class=\"action-button-text\">Subscribe</span>
-								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's videos";
+								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
 							} else if ($Uploader == $_SESSION['username']) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 								<span class=\"action-button-text\">Subscribe</span>
-								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's videos";
+								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
 							} else {
 								$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
 								$cdf = mysqli_fetch_assoc($chanfetch);
@@ -449,21 +433,21 @@ if($count == 0) {
 								$learray = json_decode($Subscriptions);
 								//sphagetti code, but this makes it shut up if using an existing db.
 								if(!isset($Subscriptions) OR $Subscriptions == "") {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's videos";
+									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
 								} else if(count(json_decode($Subscriptions)) == 0) {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's videos";
+									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
 								} else if (in_array($Uploader, $learray)) {
-									echo "href=\"/unsubscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									echo "href=\"/unsubscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Unsubscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> from $Username's videos";
+									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> from $Username's channel";
 								} else {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's videos";
+									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
 								}
 							}
                             ?> 

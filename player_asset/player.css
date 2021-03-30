@@ -2312,7 +2312,7 @@ body[data-player-size=fullscreen] #playlist-bar {
 .yt-uix-button-menu.yt-uix-button-menu-player .yt-uix-button-menu-item:focus,
 .yt-uix-button-menu.yt-uix-button-menu-player .yt-uix-button-menu-item:hover {
  color: #fff;
- background-color: #601212;
+ background-color: #2a55d5;
 }
 
 .yt-uix-button-menu.yt-uix-button-menu-player .yt-uix-button-menu-item.disabled:focus,
@@ -2579,15 +2579,16 @@ body[data-player-size=fullscreen] #playlist-bar {
  position: absolute;
  bottom: 44px;
  left: 0;
- width: 50px;
+ width: 36px;
  height: 20px;
- padding: 2px;
- margin: 0;
+ padding: 0px;
+ margin: 0 0 -3 0;
  overflow: visible;
- background-color: rgba(22, 22, 22, 0.8);
+ background-color: rgb(233, 233, 233);
  border-radius: 4px;
  border-radius: 4px;
  border-radius: 4px;
+ /*! color: black !important; */
 }
 
 .html5-progress-tooltip.with-thumbnail {
@@ -2605,13 +2606,13 @@ body[data-player-size=fullscreen] #playlist-bar {
 
 .html5-progress-tooltip-timestamp {
  display: block;
- width: 50px;
+ width: 36px;
  height: 20px;
  padding: 0;
- margin: 0;
+ margin: 0px;
  font-size: 11px;
  line-height: 20px;
- color: #e3e3e3;
+ color: #000;
  text-align: center;
 }
 
@@ -2627,7 +2628,7 @@ body[data-player-size=fullscreen] #playlist-bar {
  left: 49px;
  width: 0;
  height: 0;
- border-top: 5px solid rgba(22, 22, 22, 0.8);
+ border-top: 5px solid rgb(233, 233, 233);
  border-right: 5px solid transparent;
  border-left: 5px solid transparent;
 }

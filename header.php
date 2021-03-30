@@ -45,7 +45,7 @@ if ($detail2["registeredon"] == null) {
 				</form>
 			</tr>
 		</table>
-		<table align="right" width="40%" cellpadding="0" cellspacing="0" border="0">
+		<table align="right" width="50%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
 				<td align="right">
 				<table cellspacing="0" cellpadding="2" border="0">
@@ -54,6 +54,8 @@ if ($detail2["registeredon"] == null) {
 		echo "<td><b>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
+<td style='padding: 0px 5px 0px 5px;'>|</td>
+<td><a href='my_profile.php'>Settings</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a  href='logout.php'>Log Out</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
@@ -104,9 +106,9 @@ if ($detail2["registeredon"] == null) {
 							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
 							-->
 							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="my_profile.php">Settings</a></td>
+							<td><a class="headertext" href="browse.php">Videos</a></td>
 							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="browse.php">Browse</a></td>
+							<td><a class="headertext" href="members.php">Channels</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="https://discord.gg/uGWvcDpmZS">Discord</a></td>
 							<?php if(isset($_SESSION['username'])) {

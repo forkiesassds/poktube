@@ -137,6 +137,7 @@ if (isset($_POST['post_comment'])) {
     .profileHeaders { color: #ffffff }
 	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
 	td.bulletinRead, td.bulletinReadBottom { background-color: #<?php echo $Inside?> !important; }
+	#baseDiv { background-color: #0000 !important; }	/* FIXES WHITE BACKGROUND BUG */
 </style>
 
 <div style="margin: 0 0 13px;text-align:center">

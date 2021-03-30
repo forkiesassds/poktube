@@ -58,12 +58,13 @@ border-top: 1px dashed #999;
 #baseDiv {
 position: relative;
 width: 960px;
-margin-top: -2px;
 margin-right: auto;
 margin-left: auto;
 
 /*! padding: 0 5px 25px 5px; */
 background-color: white;
+/*! border-radius: 8px; */
+margin-top: -2px;
 }
 
 #mainContent {
@@ -463,7 +464,7 @@ width: auto;
 }
 
 #masthead {
-width: 900px;
+width: 925px;
 margin: 2px auto 0;
 }
 
@@ -6758,7 +6759,7 @@ border: 0;
 
 #homepage-main-content {
 float: left;
-width: 555px;
+width: 605px;
 margin-top: 10px;
 }
 
