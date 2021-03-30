@@ -381,7 +381,7 @@ if($count == 0) {
 		<div id="uploaderInfo">
 				<div>
 				<div id="watch-channel-icon" class="user-thumb-medium">
-				<a href="/profile.php?user=<?php echo $Uploader ?>" onmousedown=""><img src="content/profpic/<?php echo $Uploader ?>.png" onerror="this.src=""img/profiledef.png" alt="Channel Icon"></a>
+				<a href="/profile.php?user=<?php echo $Uploader ?>" onmousedown=""><img src="content/profpic/<?php echo $Uploader ?>.png" onerror="this.src='img/profiledef.png'" alt="Channel Icon"></a>
 			</div>
 					<span class="smallLabel">Added on</span> <b class="smallText"><?php echo $UploadDate ?></b><br>
 					<span class="smallLabel">by</span> <b><a href="/profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a></b>
