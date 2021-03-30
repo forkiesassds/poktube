@@ -42,7 +42,7 @@ if ($detail2["registeredon"] == null) {
 						<?php if(isset($_SESSION["username"])) {
 		echo "<td><b>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a  href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
+<td><a href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
 <td><a  href='logout.php'>Log Out</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
@@ -127,7 +127,7 @@ if ($detail2["registeredon"] == null) {
 							<?php if(isset($_SESSION['username'])) {
 								if($detail2["is_admin"] == 1) {
 									echo "<td>&nbsp;|&nbsp;</td>
-									<td><a  href='admin.php'>Admin</a></td>";
+									<td><a class='headertext' href='admin.php'>Admin</a></td>";
 								}
 							}?>
 						</tr>

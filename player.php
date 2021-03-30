@@ -75,7 +75,7 @@ Advertisement
 
 
 
-  <div id="player" class="full-frame"></div>
+  <div id="player" class="light-theme full-frame"></div>
 
         
     <script src="./player_asset/embed.js" data-loaded="true"></script>
