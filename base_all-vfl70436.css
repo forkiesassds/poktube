@@ -1739,7 +1739,7 @@ border: 1px solid #ccc;
 
 .vimg {
 width: 130px;
-height: 97px;
+/*! height: 97px; */
 border: 1px solid #999;
 }
 

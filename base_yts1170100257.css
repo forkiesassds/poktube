@@ -910,8 +910,8 @@ on the contest page) */
 	}
 
 .vimg {
-	width: 130px;
-	height: 100px;
+	/*! width: 130px; */
+	/*! height: 100px; */
 	border: 1px solid #ccc;
 	}
 

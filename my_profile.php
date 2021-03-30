@@ -55,9 +55,6 @@ function resizeImageAndKeepAspectRatio ($image, $filename, $width, $height) {
 
 ?>
 <title>My Profile</title>
-<!-- the profile pic is asked with the png command, for anything else
-	make it a SQL query or whatever the fuck -->
-
 <?php
 // Check if image file is a actual image or fake image
 if(isset($_POST["upload"])) {
@@ -91,17 +88,46 @@ if(isset($_POST["upload"])) {
 }
 
 ?>
-<center><h1>My Profile</h1>
-<h2>Profile Picture</h2>
+            <style>
+    .panel1 { 
+	float: left;
+margin-top: 10px;
+	}
+	
+	    .panel2 { 
+	float: right;
+margin-top: 10px;
+	}
+</style>
+<h1>Settings</h1>
+<div class="panel1">
+<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Profile Picture</span></div>
+	</div>
+	<div class="contentBox">
 <img src="content/profpic/<?php echo $_SESSION['username']?>.png" width="128" height="128"">
 <br>
 <form action="my_profile.php" method="post" enctype="multipart/form-data">
   Select profile picture to upload:<br><br>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="upload">
-</form>
-<hr style='border-top: solid black 2px; width: 30%;'>
-<h4>Set information you want others to see</h4>
+</form></div></div><div class="panel2">
+<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Profile Infomation</span></div>
+	</div>
+	<div class="contentBox">
   <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
   <br>
   <textarea rows="4" cols="50" maxlength="500" name="desc" form="setdesc" placeholder="Input your About Me here..." style="margin: 0px; height: 67px; width: 352px; resize: none;" required="">
@@ -145,7 +171,16 @@ if(isset($_POST["upload"])) {
   <input type="submit" value="Submit" name="prof_country">
   </form>
    <br>
- <br>
+ <br></div><br>
+ <div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Profile Color</span></div>
+	</div><div class="contentBox">
   <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Profile Foreground       :
   <input type='color' value="<?php echo stripslashes($Foreground);?>" id='textbox' style="width: 250px;" name='textbox'>
@@ -165,7 +200,7 @@ if(isset($_POST["upload"])) {
   Profile Interior       :
   <input type='color' value="<?php echo stripslashes($Inside);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="channel_inside">
-  </form>
+  </form></div>
    <br>
  <br>
   <!--
@@ -206,7 +241,5 @@ if(isset($_POST["upload"])) {
   </form>
    <br>
    -->
- <hr style='border-top: solid black 2px; width: 30%;'>
-</center>
-<br>
+<br></div>
 <?php include("footer.php"); ?>
