@@ -37,7 +37,7 @@ if ($detail2["registeredon"] == null) {
 			<tr>
 				<form method="GET" action="results.php">
 				<td>
-					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
+					<input class="search_input" type="text" value="" name="search" size="30" maxlength="128">
 				</td>
 				<td>
 					<input class="button" type="submit" value="Search">

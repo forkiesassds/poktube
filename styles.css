@@ -2,6 +2,14 @@
 	color: #fff !important;;
 }
 
+.search_input {
+font:12px Arial,Helvetica,sans-serif;
+width: 292px;
+padding: 2px 4px 3px;
+margin: 0;
+box-sizing: border-box;
+}
+
 /* The alert message box */
 .alert {
   color: white;
@@ -20,7 +28,7 @@ body {
 	font-size: 12px;
 	color: #222;
 	background-color: #eaeaea;
-	background-image: "/img/www-refreshbg-vflC3wnbM.png";
+	background: url("/img/www-refreshbg-vflC3wnbM.png");
 }
 
 a:link,
@@ -239,7 +247,13 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 }
 
 .button {
-    padding: 2px 12px;
+    padding: 3.6px 1em;
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#efefef));
+    margin-left: 0px;
+    border-radius: 3px;
+    font: 12px Arial,Helvetica,sans-serif;
 }
 
 .moduleFeaturedTitle {
