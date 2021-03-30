@@ -32,24 +32,24 @@ if ($detail2["registeredon"] == null) {
 		<td valign="top">
 		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
-			<td align="left" class="headertext" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide!</td>
+			<td align="left" class="headertext" id="needsToBeBlack" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide!</td>
 				<td align="right">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
+		echo "<td><b id='needsToBeBlack' class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
+<td><a id='needsToBeBlack' class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='logout.php'>Log Out</a></td>
+<td><a id='needsToBeBlack' class='headertext' href='logout.php'>Log Out</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
+<td style='padding-right: 5px;'><a id='needsToBeBlack' class='headertext' href='help.php'>Help</a></td>";
 	} else {
-		echo "<td><a class='headertext' href='signup.php'><strong>Sign Up</strong></a></td>
+		echo "<td><a id='needsToBeBlack' class='headertext' href='signup.php'><strong>Sign Up</strong></a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a class='headertext' href='login.php'>Log In</a></td>
+<td><a id='needsToBeBlack' class='headertext' href='login.php'>Log In</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
+<td style='padding-right: 5px;'><a id='needsToBeBlack' class='headertext' href='help.php'>Help</a></td>";
 	}?>
 
 				
