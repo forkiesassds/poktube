@@ -31,11 +31,22 @@ if ($detail2["registeredon"] == null) {
 </head>
 <table class="header1" width="960px" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="squareBracket" border="0"></a></td>
+		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="squareBracket" border="0"></a></td>
 		<td valign="top">
-		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
+				<table width="35%" align="left" cellpadding="2" cellspacing="0" border="0">
+			<tr>
+				<form method="GET" action="results.php">
+				<td>
+					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
+				</td>
+				<td>
+					<input class="button" type="submit" value="Search">
+				</td>
+				</form>
+			</tr>
+		</table>
+		<table align="right" width="35%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
-			<td align="left" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide!</td>
 				<td align="right">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
@@ -65,32 +76,6 @@ if ($detail2["registeredon"] == null) {
 	</tr>
 
 		<tr>
-		<td width="100%">
-		
-		<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 1px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
-					<span class='action-button-leftcap'></span>
-					<span class='action-button-text'>Upload</span>
-					<span class='action-button-rightcap'></span>
-				</a></div>";
-		} else {
-			echo "";}?>
-		<!--&nbsp;//&nbsp; <a href="browse.php">Browse</a>-->
-		
-		<table cellpadding="2" cellspacing="0" border="0">
-			<tr>
-				<form method="GET" action="results.php">
-				<td>
-					<input type="text" value="" name="search" size="30" maxlength="128" style="color:#e67402; font-size: 14px; padding: 2px;">
-				</td>
-				<td>
-					<input class="button" type="submit" value="Search">
-				</td>
-				</form>
-			</tr>
-		</table>
-		
-		</td>
 	</tr>
 
 			
@@ -130,6 +115,14 @@ if ($detail2["registeredon"] == null) {
 									<td><a class='headertext' href='admin.php'>Admin</a></td>";
 								}
 							}?>
+									<?php if(isset($_SESSION["username"])) {
+		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
+					<span class='action-button-leftcap'></span>
+					<span class='action-button-text'>Upload</span>
+					<span class='action-button-rightcap'></span>
+				</a></div>";
+		} else {
+			echo "";}?>
 						</tr>
 						</table>
 					</td>
