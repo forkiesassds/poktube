@@ -450,7 +450,7 @@ if($count == 0) {
 									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Subscribe";
 								} else if (in_array($Uploader, $learray)) {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									echo "href=\"/unsubscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
 									<span class=\"action-button-text\">Unsubscribe";
 								} else {
 									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
