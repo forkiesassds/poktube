@@ -408,29 +408,71 @@ if($count == 0) {
 
 		</td>
 		<td width="280">
-				<div style="padding-bottom: 10px;">
-					<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEEEEE">
-						</table>
 		</div>
-			
-			<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
-				<tbody><tr>
-					<td><img src="./img/box_login_tl.gif" width="5" height="5"></td>
-					<td><img src="./img/pixel.gif" width="1" height="5"></td>
-					<td><img src="./img/box_login_tr.gif" width="5" height="5"></td>
-				</tr>
-				<tr>
-					<td><img src="./img/pixel.gif" width="5" height="1"></td>
-					<td width="270">
-					<div class="moduleTitleBar">
-					<table width="270" cellpadding="0" cellspacing="0" border="0">
-						<tbody><tr valign="top">
+		<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitleLite">About This Video</span></div>
+	</div>
+	<div id="aboutVidDiv" class="contentBox">
+		<div id="uploaderInfo">
+				<div>
+					<span class="smallLabel">Added on</span> <b class="smallText">June 08, 2006, 08:11 AM</b><br>
+					<span class="smallLabel">by</span> <b><a href="/web/20060624045545/http://www.youtube.com/profile?user=Blunty3000">Blunty3000</a></b>
+					<span class="xsmallText">
+							(75 videos)
+						<!-- 1 hour ago) -->
+						<!-- 38 favorites -->
+					</span>
+				</div>
 
-							<td><div class="moduleFrameBarTitle">Videos from <?php echo $Uploader ?></div></td>
-							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
-						</tr>
-					</tbody></table>
-					</div>
+
+		</div> <!-- end uploaderInfo -->
+		
+		
+        <div id="vidNameDescDiv">
+        	<!-- <b>Vblog - how to be popular on youtube</b>
+			(<span class="runtime">06:27</span>)<br/> -->
+			<span id="vidDescBegin">
+			I talk, mostly about how to be popular on youtube, but also about the beard, smoking, users worth watching, and I dance, poorly! amongst other things
+			</span>
+		</div>
+		
+		<div id="vidTagsWrapper">
+			<div id="vidTagsLabel" class="label">Tags:</div>
+			<div id="vidTagsDiv">
+			<span id="vidTagsBegin">
+<a href="/web/20060624045545/http://www.youtube.com/results?search=winekone">winekone</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=filthywhore">filthywhore</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=utnow">utnow</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=morbeck">morbeck</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=boh3m3">boh3m3</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=strip">strip</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=dance">dance</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=panties">panties</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=popular">popular</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=utube">utube</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=users">users</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=mime">mime</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=beard">beard</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=kevin">kevin</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=smith">smith</a> &nbsp; <a href="/web/20060624045545/http://www.youtube.com/results?search=topless">topless</a>			</span>
+			</div> <!-- end vidTagsDiv -->
+		</div> <!-- end vidTagsWrapper -->
+		
+		<div id="vidURLDiv">
+            <form name="urlForm" id="urlForm">
+            <table id="vidURLTable">
+            <tbody><tr><td><span class="label">URL</span></td>
+            <td>
+            <input name="video_link" type="text" value="http://www.youtube.com/watch?v=RFxh75UJcCE" class="vidURLField" onclick="javascript:document.urlForm.video_link.focus();document.urlForm.video_link.select();" readonly="true">
+            </td>
+            </tr>
+            <tr><td><span class="smallLabel">Embed</span></td>
+            <td>
+            <input name="embed_code" type="text" value="<object width=&quot;425&quot; height=&quot;350&quot;><param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/RFxh75UJcCE&quot;></param><embed src=&quot;http://www.youtube.com/v/RFxh75UJcCE&quot; type=&quot;application/x-shockwave-flash&quot; width=&quot;425&quot; height=&quot;350&quot;></embed></object>" class="vidURLField" onclick="javascript:document.urlForm.embed_code.focus();document.urlForm.embed_code.select();" readonly="true">
+            </td></tr>
+            </tbody></table>
+            </form>
+        </div>
+        
+        
+        <div id="subscribeDiv" class="smallText">
+        <a href="/web/20060624045545/http://www.youtube.com/subscription_center?add_user=Blunty3000" title="subscribe to Blunty3000's videos"><img src="/img/sub_button.gif" class="alignMid" alt="subscribe" title="subscribe to Blunty3000's videos" width="81" border="0"></a> to Blunty3000's videos
+        </div>
+        
+	</div>
+			Videos from <?php echo $Uploader ?>
 
 							<div id="side_results" name="side_results">
 					<?php				
@@ -454,110 +496,59 @@ $viewsvideolist = $fetch['ViewCount'];
 $uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
 if ($uploadervideolist == $Uploader && $idvideolist !== $vid) {
-echo "<div class='moduleFrameEntry'>
-<table width='235' cellpadding='0' cellspacing='0' border='0'>
-							<tbody><tr valign='top'>
-								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><div class='v90WrapperOuter'>
-									 <div class='v90WrapperInner'>
-										<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg90' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-									 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
-									 </div>
-								  </div></a></td>
-								<td style='padding-left: 10px;'>
-									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
-									<div class='moduleFrameDetails'>
-										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
-									</div>
-									<div class='moduleFrameDetails'>
-										Uploaded: ".$uploadedvideolist."<br>
-									</div>
-		
-								</td>
-							</tr>
-						</tbody></table>
-					</div>";
+echo "<div class='vWatchEntry'>
+		<table><tbody><tr>
+		<td><div class='img'>
+				<a href='watch?v=$idvideolist'><img class='vimgSm'img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\"></a></div></td>
+		<td><div class='title'><b><a href='watch?v=$idvideolist'>$namevideolist</a></b><br>
+			<span class='runtime'>$lengthlist</span>
+			</div>
+			<div class='facets'>
+				<span class='grayText'>From:</span> <a href='profile.php?user=$uploadervideolist'>$uploadervideolist</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div>";
 $x++;
 }
 }
 ?>
-
-					</td>
-					<td><img src="./img/pixel.gif" width="5" height="1"></td>
-				</tr>
-				<tr>
-					<td><img src="./img/box_login_bl.gif" width="5" height="5"></td>
-					<td><img src="./img/pixel.gif" width="1" height="5"></td>
-					<td><img src="./img/box_login_br.gif" width="5" height="5"></td>
-				</tr>
-			</tbody></table>
 			
 			<br/>
 			
-			<table width="280" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
-				<tbody><tr>
-					<td><img src="./img/box_login_tl.gif" width="5" height="5"></td>
-					<td><img src="./img/pixel.gif" width="1" height="5"></td>
-					<td><img src="./img/box_login_tr.gif" width="5" height="5"></td>
-				</tr>
-				<tr>
-					<td><img src="./img/pixel.gif" width="5" height="1"></td>
-					<td width="270">
-					<div class="moduleTitleBar">
-					<table width="270" cellpadding="0" cellspacing="0" border="0">
-						<tbody><tr valign="top">
-
-							<td><div class="moduleFrameBarTitle">Recommended Videos</div></td>
-							<td align="right"><div style="font-size: 11px; margin-right: 5px;"></div></td>
-						</tr>
-					</tbody></table>
-					</div>
+			Recommended Videos
 
 							<div id="side_results" name="side_results">
 					<?php
 $sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY rand() DESC LIMIT 8"); //instructions for sql
 
 while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
+if($fetch['VideoLength'] > 3600) {
+	$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
+} else { 
+	$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
+};
 $idvideolist = $fetch['VideoID'];
 $namevideolist = htmlspecialchars($fetch['VideoName']);
 $uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
 $viewsvideolist = $fetch['ViewCount'];
+$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
 
-echo "<div class='moduleFrameEntry'>
-<table width='235' cellpadding='0' cellspacing='0' border='0'>
-							<tbody><tr valign='top'>
-								<td width='90'>
-									<a href='watch.php?v=".$idvideolist."' class='bold' target='_parent'><div class='v90WrapperOuter'>
-									 <div class='v90WrapperInner'>
-										<a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg90' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-									 <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
-									 </div>
-								  </div></a></td>
-								<td style='padding-left: 10px;'>
-									<div class='moduleFrameTitle'><a href='watch.php?v=".$idvideolist."' target='_parent'>".$namevideolist."</a></div>
-									<div class='moduleFrameDetails'>
-										by <a href='profile.php?user=".$uploadervideolist."' target='_parent'>".$uploadervideolist."</a>
-									</div>
-									<div class='moduleFrameDetails'>
-										Uploaded: ".$uploadedvideolist."<br>
-									</div>
-		
-								</td>
-							</tr>
-						</tbody></table>
-					</div>";
+echo "<div class='vWatchEntry'>
+		<table><tbody><tr>
+		<td><div class='img'>
+				<a href='watch?v=$idvideolist'><img class='vimgSm'img src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\"></a></div></td>
+		<td><div class='title'><b><a href='watch?v=$idvideolist'>$namevideolist</a></b><br>
+			<span class='runtime'>$lengthlist</span>
+			</div>
+			<div class='facets'>
+				<span class='grayText'>From:</span> <a href='profile.php?user=$uploadervideolist'>$uploadervideolist</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div>";
 }
 ?>
-
-					</td>
-					<td><img src="./img/pixel.gif" width="5" height="1"></td>
-				</tr>
-				<tr>
-					<td><img src="./img/box_login_bl.gif" width="5" height="5"></td>
-					<td><img src="./img/pixel.gif" width="1" height="5"></td>
-					<td><img src="./img/box_login_br.gif" width="5" height="5"></td>
-				</tr>
-			</tbody></table>
 		
 		</td>
 	</tr>
