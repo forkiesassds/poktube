@@ -33,7 +33,7 @@ if ($detail2["registeredon"] == null) {
 	<tr valign="top">
 		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="squareBracket" border="0"></a></td>
 		<td valign="top">
-				<table width="35%" align="left" cellpadding="2" cellspacing="0" border="0">
+				<table width="40%" align="left" cellpadding="2" cellspacing="0" border="0">
 			<tr>
 				<form method="GET" action="results.php">
 				<td>
@@ -45,10 +45,10 @@ if ($detail2["registeredon"] == null) {
 				</form>
 			</tr>
 		</table>
-		<table align="right" width="35%" cellpadding="0" cellspacing="0" border="0">
+		<table align="right" width="40%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
 				<td align="right">
-				<table cellpadding="0" cellspacing="0" border="0">
+				<table cellspacing="0" cellpadding="2" border="0">
 					<tr>
 						<?php if(isset($_SESSION["username"])) {
 		echo "<td><b>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
@@ -92,7 +92,7 @@ if ($detail2["registeredon"] == null) {
 		<table width="100%" cellpadding="0" cellspacing="0" border="0">
 				<tr>
 					<td>
-											<table cellpadding="2" cellspacing="0" border="0">
+											<table cellpadding="2" cellspacing="0" border="0" style="padding-top: 3px;">
 						<tr>
 							<td>&nbsp;<a class="headertext" href="index.php">Home</a></td>
 							<!--
