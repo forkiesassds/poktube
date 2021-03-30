@@ -1,6 +1,6 @@
 
 html{height: 100%}
-body{font-family: Arial, sans-serif;font-size: 12px;background-color: #FFF;color: #000;margin: 0;}
+body{font-family: Arial, sans-serif;font-size: 12px;/*! background-color: #FFF; */color: #000;margin: 0;}
 a:link, a:visited, a:active{color: #03C;}
 code{font-family: Courier, "Courier New", monospace;font-size: 12px;}
 img{border: none;}
@@ -20,7 +20,9 @@ position: relative;
 width: 960px;
 margin-left: auto;
 margin-right: auto;
-padding: 0 5px 25px 5px;
+/*! padding: 0 5px 25px 5px; */
+background-color: white;
+margin-top: -2px;
 }
 #mainContent{width: 700px;margin-right: 12px;}
 #sideContent{float: right;width: 160px;padding-top: 2px;}

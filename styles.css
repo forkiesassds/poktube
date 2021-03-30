@@ -16,7 +16,8 @@
 body {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
-	background-color: #FFFFFF;
+	background-color: #EAEAEA;
+	background-image: "/img/www-refreshbg-vflC3wnbM.png";
 	color: #222222;
 	margin: 0px;
 }
@@ -479,7 +480,8 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 }
 
 .header1 {
-	background-image: url(img/header.gif);
+	margin: 0px auto;
+	padding: 5px 0px 0px 0px;
 }
 
 .header_profile {
