@@ -136,10 +136,10 @@ $RegisteredYear = $DateTime->format('Y');
 }
 ?>
 <html>
-<title><?php echo $VideoName ?> - PokTube</title>
+<title><?php echo $VideoName ?> - SquareBracket</title>
 <meta name="title" content="<?php echo $VideoName ?> - PokTube">
 <meta name="description" content="<?php echo $VideoDesc ?>">
-<body><table width="950" cellpadding="0" cellspacing="0" border="0" align="center">
+<body><table width="900" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>
 		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
 <script>
