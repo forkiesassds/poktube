@@ -777,5 +777,5 @@ tr.commentsMsg td {
 }
 
 .headertext {
-	color: #222;
+	color: #222 !important;
 }
