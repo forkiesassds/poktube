@@ -59,21 +59,29 @@ td {
 	color: #fff;
 }
 
-a.title:link { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+a.title:link { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
+ font-size: 12px;
  font-weight: bold;
- color: #cff; }
+ color: #cff;
+ }
 
-a.title:active { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+a.title:active { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
+ font-size: 12px;
  font-weight: bold;
- color: #cff; }
+ color: #cff;
+ }
 
-a.title:visited { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+a.title:visited { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
+ font-size: 12px;
  font-weight: bold;
- color: #cff; }
+ color: #cff;
+ }
 
-a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
+ font-size: 12px;
  font-weight: bolder;
- color: #cff; }
+ color: #cff;
+ }
 
 .table_top {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */

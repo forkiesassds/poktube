@@ -33,8 +33,10 @@ dd { padding-bottom: 15px; }
 
 emphasis { font-style: italic; }
 
-form { padding: 0;
- margin: 0; }
+form {
+ padding: 0;
+ margin: 0;
+ }
 
 h1,
 h2,
@@ -95,14 +97,20 @@ hr {
 .grayText { color: #666; }
 .dgText { color: #333; }
 
-.smgrayText { font-size: 11px;
- color: #666; }
+.smgrayText {
+ font-size: 11px;
+ color: #666;
+ }
 
-.smdgText { font-size: 11px;
- color: #333; }
+.smdgText {
+ font-size: 11px;
+ color: #333;
+ }
 
-.label { font-weight: bold;
- color: #333; }
+.label {
+ font-weight: bold;
+ color: #333;
+ }
 
 .standardLabel {
 	font-family: Arial, Helvetica, sans-serif;
@@ -202,9 +210,11 @@ hr {
 .clearL { clear: left; }
 .clearR { clear: right; }
 
-.spacer { height: 1px;
+.spacer {
+ height: 1px;
  clear: both;
- font-size: 1px; }
+ font-size: 1px;
+ }
 
 .alignMid { vertical-align: middle; }
 .alignTop { vertical-align: top; }
@@ -457,19 +467,27 @@ on the contest page) */
 	margin-left: 10px;
 	}
 
-#mainContent { width: 700px;
- margin-right: 12px; }
+#mainContent {
+ width: 700px;
+ margin-right: 12px;
+ }
 
-#sideContent { float: right;
+#sideContent {
+ float: right;
  width: 160px;
- padding-top: 2px; }
+ padding-top: 2px;
+ }
 
-#sideAd { float: right;
+#sideAd {
+ float: right;
  width: 160px;
- padding-top: 6px; }
+ padding-top: 6px;
+ }
 
-#sideNav { float: left;
- width: 150px; }
+#sideNav {
+ float: left;
+ width: 150px;
+ }
 #sideNav .body { }
 
 #sideNav .navHead {
@@ -492,8 +510,10 @@ on the contest page) */
 	}
 #sideNav .navButton { padding-bottom: 4px; }
 
-#sideNav #bottomAdDiv { padding: 20px 0;
- text-align: center; }
+#sideNav #bottomAdDiv {
+ padding: 20px 0;
+ text-align: center;
+ }
 
 #mainContentWithNav {
 	width: 545px; /* this should be 550, but IE6 doesn't like it */
@@ -578,8 +598,10 @@ on the contest page) */
 	margin-left: auto;
 	}
 
-#logoTagDiv { float: left;
-  padding-top: 6px; }
+#logoTagDiv {
+ float: left;
+  padding-top: 6px;
+ }
 
 #logoHomeTip {
 	position: absolute;
@@ -596,8 +618,10 @@ on the contest page) */
 	text-align: right;
 	}
 
-.utilDelim { padding-right: 3px;
- padding-left: 3px; }
+.utilDelim {
+ padding-right: 3px;
+ padding-left: 3px;
+ }
 
 #iconMail {
 	padding: 1px 0;
@@ -615,15 +639,21 @@ on the contest page) */
 	color: #000;
 	}
 
-#gNavDiv { height: 28px;
- text-align: right; }
+#gNavDiv {
+ height: 28px;
+ text-align: right;
+ }
 
-#gNavDiv #upload { float: right;
- width: 220px; }
+#gNavDiv #upload {
+ float: right;
+ width: 220px;
+ }
 
-#gNavDiv .tab { float: right;
+#gNavDiv .tab {
+ float: right;
  width: 124px;
- border: 0 #333 solid; }
+ border: 0 #333 solid;
+ }
 
 #gSubNavDiv {
 	padding: 8px 0;
@@ -647,8 +677,10 @@ on the contest page) */
 	background: #ddd;
 	}
 
-#accountQuickLinks { font-size: 11px;
- text-align: right; }
+#accountQuickLinks {
+ font-size: 11px;
+ text-align: right;
+ }
 
 
 
@@ -672,11 +704,15 @@ on the contest page) */
 	border-bottom: 1px solid #ccc;
 	}
 
-#footCopyright { padding-top: 12px;
- text-align: center; }
+#footCopyright {
+ padding-top: 12px;
+ text-align: center;
+ }
 
-#footBotDiv { height: 50px;
- line-height: 15px; }
+#footBotDiv {
+ height: 50px;
+ line-height: 15px;
+ }
 
 #footTopDiv {
 	padding-bottom: 8px;
@@ -713,8 +749,10 @@ on the contest page) */
 	font-size: 11px;
 	}
 
-.footValues .column { float: left;
- margin-right: 20px; }
+.footValues .column {
+ float: left;
+ margin-right: 20px;
+ }
 
 
 
@@ -1073,31 +1111,43 @@ img.rating {
 	}
 .vMicroEntry img { margin-bottom: 4px; }
 
-.v120vEntry { width: 120px;
- margin-bottom: 10px; }
+.v120vEntry {
+ width: 120px;
+ margin-bottom: 10px;
+ }
 .v120vEntry .vstill { margin-bottom: 4px; }
 
-.v120vEntry .vimg { width: 120px;
+.v120vEntry .vimg {
+ width: 120px;
  height: 90px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 
-.v90vEntry { width: 90px;
- margin-bottom: 6px; }
+.v90vEntry {
+ width: 90px;
+ margin-bottom: 6px;
+ }
 .v90vEntry .vstill { margin-bottom: 2px; }
 .v90vEntry .vtitle { font-weight: bold; }
 
-.v90vEntry .vimg { width: 90px;
+.v90vEntry .vimg {
+ width: 90px;
  height: 70px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 
-.v80vEntry { width: 80px;
- margin-bottom: 6px; }
+.v80vEntry {
+ width: 80px;
+ margin-bottom: 6px;
+ }
 .v80vEntry .vstill { margin-bottom: 2px; }
 .v80vEntry .vtitle { font-weight: bold; }
 
-.v80vEntry .vimg { width: 80px;
+.v80vEntry .vimg {
+ width: 80px;
  height: 60px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 
 .v120hEntry { clear: left; }
 .v120hEntry .vstill { float: left; }
@@ -1106,25 +1156,31 @@ img.rating {
 .v90hEntry { clear: left; }
 .v90hEntry .vstill { float: left; }
 
-.v90hEntry .vimg { width: 90px;
+.v90hEntry .vimg {
+ width: 90px;
  height: 70px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 .v90hEntry .vinfo { margin-left: 96px; }
 
 .v80hEntry { clear: left; }
 .v80hEntry .vstill { float: left; }
 
-.v80hEntry .vimg { width: 80px;
+.v80hEntry .vimg {
+ width: 80px;
  height: 60px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 .v80hEntry .vinfo { margin-left: 86px; }
 
 .v50hEntry { clear: left; }
 .v50hEntry .vstill { float: left; }
 
-.v50hEntry .vimg { width: 50px;
+.v50hEntry .vimg {
+ width: 50px;
  height: 38px;
- border: 1px solid #ccc; }
+ border: 1px solid #ccc;
+ }
 .v50hEntry .vinfo { margin-left: 56px; }
 
 .vimgFaded {
@@ -1170,8 +1226,10 @@ img.rating {
 	color: #999;
 	}
 
-#hpSVidAboutLink { float: right;
- font-size: 11px; }
+#hpSVidAboutLink {
+ float: right;
+ font-size: 11px;
+ }
 
 .hpSVidEntry {
 	float: left;
@@ -1232,8 +1290,10 @@ img.rating {
 .hpAboutTable { width: 100%; }
 .hpAboutTable td { vertical-align: top; }
 
-.hpAboutTable td.label { font-size: 14px;
- font-weight: bold; }
+.hpAboutTable td.label {
+ font-size: 14px;
+ font-weight: bold;
+ }
 .hpAboutTable td.desc { padding-bottom: 8px; }
 
 .hpLoginField { width: 170px; }
@@ -1242,9 +1302,11 @@ img.rating {
 .hpChannelEntry { margin-bottom: 5px; }
 .hpGroupEntry { margin-bottom: 5px; }
 
-#hpEmbedTopCap { height: 35px;
+#hpEmbedTopCap {
+ height: 35px;
  padding-bottom: 1px;
- overflow: hidden; }
+ overflow: hidden;
+ }
 #hpEmbedVideo { }
 #hpEmbedUnderBlock { padding-top: 5px; }
 #hpEmbedRatingDiv { float: right; }
@@ -1261,13 +1323,17 @@ img.rating {
 
 .hpWNentry { padding-top: 3px; }
 
-.hpWNimage { float: left;
+.hpWNimage {
+ float: left;
  width: 30px;
  height: 37px;
- margin-bottom: 12px; }
+ margin-bottom: 12px;
+ }
 
-.hpWNdesc { margin-bottom: 12px;
- margin-left: 36px; }
+.hpWNdesc {
+ margin-bottom: 12px;
+ margin-left: 36px;
+ }
 
 #hpFeaturedHeading {
 	float: left;
@@ -1290,11 +1356,15 @@ img.rating {
 	text-align: right;
 	}
 
-.hpVfacetRight { float: right;
- padding-top: 1px; }
+.hpVfacetRight {
+ float: right;
+ padding-top: 1px;
+ }
 
-.hpVfacetLeft { float: left;
- padding: 1px 10px 0 0; }
+.hpVfacetLeft {
+ float: left;
+ padding: 1px 10px 0 0;
+ }
 
 
 
@@ -1341,15 +1411,21 @@ img.rating {
 	}
 .catVEntry { height: 45px; }
 
-.catVstill { float: left;
- padding-right: 4px; }
+.catVstill {
+ float: left;
+ padding-right: 4px;
+ }
 
-.catVtitle { font-size: 11px;
- font-weight: bold; }
-
-.catVfrom { padding-top: 1px;
+.catVtitle {
  font-size: 11px;
- color: #333; }
+ font-weight: bold;
+ }
+
+.catVfrom {
+ padding-top: 1px;
+ font-size: 11px;
+ color: #333;
+ }
 
 .catPrimaryVidDiv {
 	float: left;
@@ -1358,9 +1434,11 @@ img.rating {
 	margin-right: 6px;
 	}
 
-.catPriVstill { width: 85px;
+.catPriVstill {
+ width: 85px;
  height: 65px;
- border: 0; }
+ border: 0;
+ }
 .catSecondaryVidDiv { }
 
 .catSecVstill {
@@ -1532,18 +1610,24 @@ img.rating {
 	margin-left: 5px;
 }
 
-#contestInteractDiv { width: 350px;
+#contestInteractDiv {
+ width: 350px;
  margin-right: 15px;
- margin-bottom: 10px; }
+ margin-bottom: 10px;
+ }
 
-#aboutExploreContestDiv { float: right;
+#aboutExploreContestDiv {
+ float: right;
  width: 325px;
- margin: 0; }
+ margin: 0;
+ }
 
 #contestVideoDesc { margin-top: 15px; }
 
-#contestVoting { margin-top: 10px;
- text-align: left; }
+#contestVoting {
+ margin-top: 10px;
+ text-align: left;
+ }
 
 #contestVoted { display: none; }
 
@@ -1669,7 +1753,6 @@ img.rating {
 	width: 360px;
 	margin-top: 5px;
 	}
-
 
 .formLabelLong {
 	width: 210px;
@@ -2023,11 +2106,15 @@ size: 11px;
 
 /* My Account Elements */
 
-#myaLeftCol { float: left;
- width: 360px; }
+#myaLeftCol {
+ float: left;
+ width: 360px;
+ }
 
-#myaRightCol { width: 360px;
- margin-left: 375px; }
+#myaRightCol {
+ width: 360px;
+ margin-left: 375px;
+ }
 
 .myAccountExplanatoryText {
 	float: right;
@@ -2066,12 +2153,16 @@ size: 11px;
 
 
 /* TestTube Elements */
-#ttLeft { float: left;
- width: 475px; }
+#ttLeft {
+ float: left;
+ width: 475px;
+ }
 
-#ttLeft p { font-size: 14px;
+#ttLeft p {
+ font-size: 14px;
  line-height: 20px;
- color: #333; }
+ color: #333;
+ }
 #ttRight { margin-left: 500px; }
 
 

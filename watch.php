@@ -451,7 +451,9 @@ if($count == 0) {
 									echo "href=\"/subscribe.php?user=".$Uploader."\"";
 								}
 							}
-                            ?> title="subscribe to <?php echo $Username?>'s videos"><img src="/img/sub_button.gif" class="alignMid" alt="subscribe" title="subscribe to <?php echo $Username?>'s videos" width="81" border="0"></a> to <?php echo $Username?>'s videos
+                            ?> title="subscribe to <?php echo $Username?>'s videos">					<span class="action-button-leftcap"></span>
+					<span class="action-button-text">Subscribe</span>
+					<span class="action-button-rightcap"></span></a> to <?php echo $Username?>'s videos
         </div>
         
 	</div>

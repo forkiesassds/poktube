@@ -92,8 +92,10 @@
 .statRow { margin-bottom: 6px; }
 #linksToLabel { float: left; }
 
-#linksToValue { padding-top: 4px;
- margin-left: 55px; }
+#linksToValue {
+ padding-top: 4px;
+ margin-left: 55px;
+ }
 
 #honorsDiv {
 	position: absolute;
