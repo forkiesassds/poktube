@@ -17,7 +17,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: 700;
-	color: #333333;
+	color: #333;
 }
 
 .nav {
@@ -32,124 +32,136 @@
 	font-weight: 400;
 }
 
-
 .title_login {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: 400;
-	color: #FFFFFF;
+	color: #fff;
 }
 
-a.title:link {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:active {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:visited {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-size: 12px; font-weight: bolder;}
+a.title:link { font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:active { font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:visited { font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:hover { font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ font-weight: bolder;
+ color: #cff; }
 
 .table_top {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: 700;
-	color:#333333;
+	color: #333;
 }
-
 
 .success {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: 700;
-	color: #333333;
+	color: #333;
 }
 
 .error {
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 700;
-	color: #FF0000;
+	color: #f00;
 }
 
-
 .tableFavRemove {
-	margin-right: 5px;
-	margin-left: 10px;
 	margin-top: 8px;
+	margin-right: 5px;
 	margin-bottom: 5px;
-	
+	margin-left: 10px;
+
 }
 
 .tableVideoStats {
 	width: 100%;
-	background-image: url(/web/20070219123638im_/http://www.youtube.com/css/img/table_results_selected_bg.gif);
-	background-repeat: repeat-x;
-	background-color: #FFFFCC;
-	background-position: left top;
-	border: 1px dashed #CCCC66;
 	padding-top: 5px;
 	padding-bottom: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	background-color: #ffc;
+	background-image: url(/web/20070219123638im_/http://www.youtube.com/css/img/table_results_selected_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border: 1px dashed #cc6;
 }
 
 .tableSubTitle {
-	padding: 0px 0px 5px 0px;
-	border-bottom: 1px dashed #CCC;
+	padding: 0 0 5px;
 	margin-bottom: 10px;
 	font-size: 14px;
 	font-weight: bold;
-	color: #CC6633;
+	color: #c63;
+	border-bottom: 1px dashed #ccc;
 }
 
 .brownSubTitle {
 	font-size: 13px;
 	font-weight: bold;
-	color: #CC6633;
+	color: #c63;
 }
 
 .SubTitle {
 	font-size: 14px;
 	font-weight: bold;
-	color: #CC6633;
+	color: #c63;
 }
 
 .tableSubTitleInfo {
-	font-size: 12px;
 	padding: 3px;
 	padding-left: 10px;
+	font-size: 12px;
 }
 
 /* Form Elements */
 
 .formTitle {
 	padding: 4px;
-	padding-left: 7px;
 	padding-bottom: 5px;
+	padding-left: 7px;
 	margin-bottom: 10px;
-	background-color: #E5ECF9;
-	border-bottom: 1px dashed #3366CC;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
+	background-color: #e5ecf9;
+	border-bottom: 1px dashed #36c;
 }
 
 .formTable {
 	width: 80%;
 	padding: 5px;
+	margin-right: auto;
 	margin-bottom: 20px;
 	margin-left: auto;
-	margin-right: auto;
 }
 
 .formIntro {
+	padding-left: 10px;
+	margin-bottom: 15px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
-	margin-bottom: 15px;
-	padding-left: 10px;
 }
 
 .formFieldInfo {
-	font-size: 11px;
-	color: #555555;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	font-size: 11px;
+	color: #555;
 }
 
 
@@ -158,30 +170,30 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 .pageTitle {
 	padding: 4px;
-	padding-left: 7px;
 	padding-bottom: 5px;
+	padding-left: 7px;
 	margin-bottom: 15px;
-	background-color: #E5ECF9;
-	border-bottom: 1px dashed #3366CC;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
+	background-color: #e5ecf9;
+	border-bottom: 1px dashed #36c;
 }
 
 .pageTable {
-	padding: 0px 5px 0px 5px;
+	padding: 0 5px;
 	margin-bottom: 20px;
 }
 
 .pageText {
-	padding: 0px 5px 0px 5px;
+	padding: 0 5px;
 }
 
 .pageIntro {
+	margin-bottom: 15px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
-	margin-bottom: 15px;
 }
 
 
@@ -189,140 +201,139 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 /* Mail Elements */
 
 .mailMessageArea {
-	background-color: #FFFFFF;
-	border: 1px dashed #999999;
 	padding: 7px;
 	padding-bottom: 10px;
 	margin-bottom: 15px;
+	background-color: #fff;
+	border: 1px dashed #999;
 }
 
 
 
 /* Watch Elements */
 
-
 .watchTitleBar {
-	background-color: #CCCCCC;
-	border-bottom: 1px dashed #999999;
+	background-color: #ccc;
+	border-bottom: 1px dashed #999;
 }
 
 .watchTitle {
+	margin-bottom: 6px;
+	margin-left: 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: bold;
-	margin-left: 5px;
-	margin-bottom: 6px;
-	color: #333333;
-	
+	color: #333;
+
 }
 
 .watchTable {
-	background-color: #DDDDDD;
-	background-image: url(/web/20070219123638im_/http://www.youtube.com/css/img/table_results_bg.gif);
-	background-repeat: repeat-x;
-	background-position: left top;
-	border-bottom: 1px dashed #999999;
 	padding: 5px;
 	padding-bottom: 10px;
 	text-align: center;
+	background-color: #ddd;
+	background-image: url(/web/20070219123638im_/http://www.youtube.com/css/img/table_results_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-bottom: 1px dashed #999;
 }
-
 
 .watchInfoArea {
 	width: 395px;
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	background-color:#FFFFFF;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	text-align: left;
+	background-color: #fff;
 }
 
 .watchDescription {
+	padding: 10px 0 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	padding: 10px 0px 5px 0px;
 	color: #000;
-	border-top: 1px dotted #CCCCCC;
+	border-top: 1px dotted #ccc;
 }
 
 .watchTags {
+	margin: 5px 0 10px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	margin: 5px 0px 10px 0px;
-	color: #333333;
+	color: #333;
 }
 
 .watchAdded {
+	margin-bottom: 10px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
-	margin-bottom: 10px;
-	color: #333333;
+	color: #333;
 }
 
 .watchDetails {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: normal;
-	color: #333333;
+	color: #333;
 }
 
 .commentsTitle {
+	padding: 5px;
+	padding-bottom: 6px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
-	color: #333333;
-	background-color: #EEEEEE;
-	padding: 5px;
-	padding-bottom: 6px;
-	border-top: 1px dashed #999999;
-	border-bottom: 1px dashed #999999;
+	color: #333;
+	background-color: #eee;
+	border-top: 1px dashed #999;
+	border-bottom: 1px dashed #999;
 
 }
 
 .groupCommentsTitle {
+	padding: 5px;
+	padding-bottom: 6px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
-	color: #333333;
-	background-color: #EEEEEE;
-	padding: 5px;
-	padding-bottom: 6px;
+	color: #333;
+	background-color: #eee;
 }
-
 
 .BoxedBorderTable {
 	padding-left: 10px;
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
 }
+
 .vertLeftDashTable {
-	border-left: 1px dashed #CCCCCC;
 	background-image: url(/web/20070219123638im_/http://www.youtube.com/css/img/long_grad_bg.jpg);
 	background-repeat: repeat-x;
 	background-repeat: repeat-y;
+	border-left: 1px dashed #ccc;
 }
+
 .commentsEntry {
-	font-size: 11px;
-	background-color: #FFFFCC;
 	padding: 10px;
-	border-bottom: 1px dashed #999999;
+	font-size: 11px;
+	background-color: #ffc;
+	border-bottom: 1px dashed #999;
 }
 
 .commentsThumb {
-	border: 5px solid #FFFFFF;
 	margin-right: 5px;
+	border: 5px solid #fff;
 }
 
 .profileLabel {
+	margin: 10px 0 2px;
 	font-size: 12px;
 	font-weight: bold;
-	color:#DD8833;
-	margin: 10px 0px 2px 0px;
+	color: #d83;
 }
 
 
@@ -330,18 +341,18 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 
 #QLIcon {
 	position: absolute;
-	z-index: 2;
-	width: 25px;
 	top: 66px;
 	left: 1px;
-}	
+	z-index: 2;
+	width: 25px;
+}
 
 #QLIconRelated {
         position: absolute;
-        z-index: 2;
-	width: 25px;
         top: 46px;
         left: 1px;
+        z-index: 2;
+	width: 25px;
 }
 
 #QLContainer {
@@ -353,32 +364,33 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
-	color: #000000;
-}	
+	color: #000;
+}
+
 .brightLabel {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
-	color: #FFFFFF;
-}	
+	color: #fff;
+}
 
 .SubscriptionTables {
 	border: none;
 }
 
 .SubscriptionTables td {
-	padding-top: 10px; 
+	padding-top: 10px;
+	padding-right: 1px;
 	padding-bottom: 10px;
 	padding-left: 1px;
-	padding-right: 1px; 
-	text-align:center; 
-	border-bottom: 1px dashed #666666;
-	color: #666666;
+	color: #666;
+	text-align: center;
+	border-bottom: 1px dashed #666;
 }
 
 .SubscriptionVideos {
-	background-color:#FFFFFF; 
 	text-align: center;
+	background-color: #fff;
 }
 
 .SubscriptionVideos td {
@@ -386,46 +398,48 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 }
 
 .parentSection {
-	/*! background: #FFFFCC; */	
+	/*! background: #FFFFCC; */
 }
 
 .parentSection td {
-	font-family: Arial, Helvetica, sans-serif;
 	/*! font-size: 11px; */
 	padding-top: 5px;
 	padding-right: 2px;
 	padding-bottom: 5px;
-	margin-top: 1px;	
+	margin-top: 1px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .childrenSection {
-	background: #FFFFFF;
-	border-bottom: 1px dashed #CCCCCC;		
+	background: #fff;
+	border-bottom: 1px dashed #ccc;
 }
 
 .childrenSection td {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
 	padding-top: 5px;
 	padding-right: 2px;
 	padding-bottom: 5px;
 	margin-top: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
 }
 
 .parentSection td {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
 	padding-top: 5px;
 	padding-right: 2px;
 	padding-bottom: 5px;
-	margin-top: 1px;	
-	border-bottom: 1px dashed #CCCCCC;		
+	margin-top: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border-bottom: 1px dashed #ccc;
+
 	/*! margin: none; */
 }
+
 .commentButtons td {
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-	border-bottom: 0px
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: 0;
 }
 
 .commentsSpecifics {
@@ -437,18 +451,18 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 }
 
 .devIndent {
-	margin-left: 15px; 
-	margin-right: 15px; 
-	padding-top: 15px; 
+	padding-top: 15px;
 	padding-bottom: 15px;
+	margin-right: 15px;
+	margin-left: 15px;
 }
 
 .apiShadedBox {
-	background-color: #E5ECF9; 
-	padding-left: 5px; 
-	padding-right: 5px; 
-	padding-top: 5px; 
+	padding-top: 5px;
+	padding-right: 5px;
 	padding-bottom: 5px;
+	padding-left: 5px;
+	background-color: #e5ecf9;
 }
 
 .apiDef {
@@ -459,20 +473,20 @@ a.title:hover {font-family: Arial, Helvetica, sans-serif; color: #CCFFFF; font-s
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
-	color: #AA0000;
+	color: #a00;
 }
 
 
 
 /* msolo remix */
 .roundedTable {
-margin: 0px auto 1em auto;
+margin: 0 auto 1em;
 }
 
 .sunkenTitle {
+	margin: 0 0 5px 5px;
 	font-size: 14px;
 	font-weight: bold;
-	margin: 0px 0px 5px 5px;
 }
 
 .sunkenTitleBar {
@@ -480,102 +494,100 @@ margin: 0px auto 1em auto;
 	border-bottom: 1px dashed #999;
 }
 
-
-.videobarthumbnail_block
-{
+.videobarthumbnail_block {
 	float: left;
 	width: 120px;
 	padding: 1px;
 }
-img.videobarthumbnail_gray
-{
-	border: 3px solid #FFFFFF;
-}
-img.videobarthumbnail_white
-{
-	border: 3px solid #DDD;
+
+img.videobarthumbnail_gray {
+	border: 3px solid #fff;
 }
 
-.videotitlebarHeading
-{
-	float: left; 
-	font-size: 13px;
-	color: #6D6D6D;
-	padding-left: 10px;
+img.videobarthumbnail_white {
+	border: 3px solid #ddd;
+}
+
+.videotitlebarHeading {
+	float: left;
 	padding-right: 10px;
+	padding-left: 10px;
+	font-size: 13px;
+	color: #6d6d6d;
 }
-.videotitlebarComment
-{
-	float: left; 
+
+.videotitlebarComment {
+	float: left;
 	font-size: 10px;
-	color: #999999;
+	color: #999;
 }
+
 .videotitleBarLinkBlock {
-	width: 173px;
 	float: right;
+	width: 173px;
 }
-.videotitlebarLink
-{
-	text-align: right; 
+
+.videotitlebarLink {
 	width: 150px;
+	text-align: right;
 }
 
 .tag_list {
-	margin: 1em 0px 0.5em 0px;
+	margin: 1em 0 0.5em;
 	font-weight: bold;
 	color: #333;
 }
 
 .tag_list p {
-	margin: 0px 0px 0.5em 0px;
 	padding-left: 0.5em;
+	margin: 0 0 0.5em;
 	font-weight: normal;
 	color: #999;
 }
 
 .moduleEntry input {
-	margin: 1em 0px 0px 0px;
+	margin: 1em 0 0;
 }
 
 
 /*  Groups and Colleges  */
 #groupHeaderBox {
-	border-bottom: 1px dashed #999; 
-	padding-bottom: 10px; 
+	padding-bottom: 10px;
 	margin-bottom: 10px;
 	clear: both;
+	border-bottom: 1px dashed #999;
 	}
 
-#groupMainContentWithLeftNav { 
+#groupMainContentWithLeftNav {
 	width: 710px;
-	margin-left: 165px;
 	height: 100%;
+	margin-left: 165px;
 	}
 
 
 /*  New classes/IDs for Ches' visual redesign  */
 #baseContainer {
 	padding-top: 5px;
-	padding-left: 25px;
 	padding-right: 25px;
+	padding-left: 25px;
 	}
-	
-#groupMainContent { 
-	width: 685px; 
+
+#groupMainContent {
+	width: 685px;
 	height: 100%;
 	}
 
 .leadParaIndent {
-	font-size: 13px;
-	padding-left: 75px;
 	padding-right: 75px;
+	padding-left: 75px;
+	font-size: 13px;
 	}
-	
+
 .fieldText {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	}
-	
+
 
 /*
      FILE ARCHIVED ON 12:36:38 Feb 19, 2007 AND RETRIEVED FROM THE
@@ -585,6 +597,7 @@ img.videobarthumbnail_white
      ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
      SECTION 108(a)(3)).
 */
+
 /*
 playback timings (ms):
   exclusion.robots.policy: 0.328

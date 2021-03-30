@@ -1,29 +1,32 @@
 .headertext {
-	color: #FFFFFF !important; 
+	color: #fff !important;
 }
 
 /* The alert message box */
 .alert {
-  background-color: #f44336; /* Red */
   color: white;
   vertical-align: baseline;
+  background-color: #f44336; /* Red */
 }
 
 .alert:hover {
   background-color: #f03c30; /* Red */
-} 
-
-body {
-	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
-	font-size: 12px;
-	background-color: #EAEAEA;
-	background-image: "/img/www-refreshbg-vflC3wnbM.png";
-	color: #222222;
-	margin: 0px;
 }
 
-a:link, a:visited, a:active {
-    color: #123BB7;
+body {
+	margin: 0;
+
+	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
+	font-size: 12px;
+	color: #222;
+	background-color: #eaeaea;
+	background-image: "/img/www-refreshbg-vflC3wnbM.png";
+}
+
+a:link,
+ a:visited,
+ a:active {
+    color: #123bb7;
 }
 
 td {
@@ -39,33 +42,44 @@ td {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	font-weight: bold;
-	color: #222222;
+	color: #222;
 }
 
 .title {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 16px;
 	font-weight: 700;
-	color: #003366;
+	color: #036;
 }
 
 .title_login {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	font-weight: 400;
-	color: #FFFFFF;
+	color: #fff;
 }
 
-a.title:link {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:active {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:visited {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ color: #CCFFFF; font-size: 12px; font-weight: bold;}
-a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ color: #CCFFFF; font-size: 12px; font-weight: bolder;}
+a.title:link { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:active { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:visited { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+ font-weight: bold;
+ color: #cff; }
+
+a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */ font-size: 12px;
+ font-weight: bolder;
+ color: #cff; }
 
 .table_top {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	font-weight: 700;
-	color:#333333;
+	color: #333;
 }
 
 .bold {
@@ -76,7 +90,7 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 14px;
 	font-weight: 700;
-	color: #333333;
+	color: #333;
 }
 
 .nav {
@@ -94,21 +108,21 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 .footer {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
-	color: #111111;
+	color: #111;
 }
 
 .success {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 14px;
 	font-weight: 700;
-	color: #333333;
+	color: #333;
 }
 
 .error {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 14px;
 	font-weight: 700;
-	color: #FF0000;
+	color: #f00;
 }
 
 .bodystyle {
@@ -118,101 +132,102 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 
 /* Modules */
 
-.moduleEntrySelected, .moduleEntry:hover {
+.moduleEntrySelected,
+ .moduleEntry:hover {
+	padding: 10px;
+	background-color: #ffc;
 	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
-	background-color: #FFFFCC;
 	background-position: left top;
-	border-bottom: 1px dashed #999999;
-	padding: 10px;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleEntry {
-	background-color: #DDD;
-	background-image: url(img/table_results_bg.gif);
-	background-position: left top;
-	background-repeat: repeat-x;
-	border-bottom: 1px dashed #999999;
 	padding: 10px;
+	background-color: #ddd;
+	background-image: url(img/table_results_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleEntry_alt:hover {
-	background-color: #FFFFCC;
-	background-image: url(img/table_results_selected_bg.gif);
-	background-position: left top;
-	background-repeat: repeat-x;
-	border-bottom: 1px dashed #999999;
-	border-right: 1px dashed #999999;
 	padding: 10px;
+	background-color: #ffc;
+	background-image: url(img/table_results_selected_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-right: 1px dashed #999;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleEntry_alt {
-	background-color: #DDD;
-	background-image: url(img/table_results_bg.gif);
-	background-position: left top;
-	background-repeat: repeat-x;
-	border-bottom: 1px dashed #999999;
-	border-right: 1px dashed #999999;
 	padding: 10px;
+	background-color: #ddd;
+	background-image: url(img/table_results_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-right: 1px dashed #999;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleEntryThumb {
-	border: 5px solid #FFFFFF;
 	margin-right: 10px;
+	border: 5px solid #fff;
 }
 
 .moduleEntryTitle {
+	margin-bottom: 2px;
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 2px;
-	color: #333333;
+	color: #333;
 }
 
 .moduleEntryDescription {
-	font-size: 12px;
-	margin-bottom: 6px;
-	color: #333;
 	padding-right: 10px;
+	margin-bottom: 6px;
+	font-size: 12px;
+	color: #333;
 
 }
 
 .moduleEntryTags {
-	font-size: 12px;
 	margin-bottom: 5px;
+	font-size: 12px;
 	color: #444;
 }
 
 .moduleEntryDetails {
-	font-size: 11px;
 	margin-bottom: 5px;
+	font-size: 11px;
 	color: #444;
 }
 
 .moduleTitle {
+	margin: 0 0 5px 5px;
 	font-size: 14px;
 	font-weight: bold;
-	margin: 0px 0px 5px 5px;
 	color: #444;
 }
 
 .moduleTitleBar {
 	width: 100%;
-	background-color: #CCC;
+	background-color: #ccc;
 	border-bottom: 1px dashed #999;
 }
 
 .moduleFeatured {
-	background-color: #DDD;
+	padding: 5px 5px 15px;
+	background-color: #ddd;
 	background-image: url(img/table_results_bg.gif);
-	background-position: left top;
 	background-repeat: repeat-x;
-	border-bottom: 1px dashed #999999;
-	padding: 5px 5px 15px 5px;
+	background-position: left top;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleFeaturedThumb {
-	border: 5px solid #FFFFFF;
 	margin: 5px;
+	border: 5px solid #fff;
 }
 
 .button {
@@ -220,100 +235,106 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 }
 
 .moduleFeaturedTitle {
+	margin-bottom: 3px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
 	font-weight: bold;
-	margin-bottom: 3px;
-	color: #0033CC;
-	
+	color: #03c;
+
 }
 
 .moduleFeaturedDetails {
+	margin-bottom: 3px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 10px;
 	font-weight: normal;
-	color: #666666;
-	margin-bottom: 3px;
+	color: #666;
 }
 
 .moduleFrameBarTitle {
+	margin: 0 5px 5px;
 	font-size: 12px;
 	font-weight: bold;
-	margin: 0px 5px 5px 5px;
 	color: #444;
 }
 
-.moduleFrameEntrySelected, .moduleFrameEntry:hover {
+.moduleFrameEntrySelected,
+ .moduleFrameEntry:hover {
 	width: 270;
-	background-color: #FFFFCC;
+	padding: 8px;
+	background-color: #ffc;
 	background-image: url(img/table_results_selected_bg.gif);
 	background-repeat: repeat-x;
 	background-position: left top;
-	border-bottom: 1px dashed #999999;
-	padding: 8px;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleFrameEntry {
 	width: 270;
-	background-color: #DDD;
-	background-image: url(img/table_results_bg.gif);
-	background-position: left top;
-	background-repeat: repeat-x;
-	border-bottom: 1px dashed #999999;
 	padding: 8px;
+	background-color: #ddd;
+	background-image: url(img/table_results_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-bottom: 1px dashed #999;
 }
 
 .moduleFrameTitle {
+	margin-bottom: 3px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
 	font-weight: bold;
-	margin-bottom: 3px;
-	color: #0033CC;
-	
+	color: #03c;
+
 }
 
 .moduleFrameDetails {
+	margin-bottom: 5px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 10px;
 	font-weight: normal;
-	margin-bottom: 5px;
 	color: #737373;
-	
+
 }
+
 .tableFavRemove {
-	margin-right: 5px;
-	margin-left: 10px;
 	margin-top: 8px;
+	margin-right: 5px;
 	margin-bottom: 5px;
-	
+	margin-left: 10px;
+
 }
 
 .tableVideoStats {
 	width: 100%;
-	background-image: url(img/table_results_selected_bg.gif);
-	background-repeat: repeat-x;
-	background-color: #FFFFCC;
-	background-position: left top;
-	border: 1px dashed #CCCC66;
 	padding-top: 5px;
 	padding-bottom: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	background-color: #ffc;
+	background-image: url(img/table_results_selected_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border: 1px dashed #cc6;
 }
 
 .tableSubTitle {
-	padding: 0px 0px 5px 0px;
-	border-bottom: 1px dashed #CCC;
+	padding: 0 0 5px;
 	margin-bottom: 10px;
 	font-size: 14px;
 	font-weight: bold;
-	color: #CC6633;
+	color: #c63;
+	border-bottom: 1px dashed #ccc;
 }
 
 .tableSubTitleInfo {
-	font-size: 12px;
 	padding: 3px;
 	padding-left: 10px;
+	font-size: 12px;
 }
 
 
@@ -322,57 +343,60 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 
 .formTitle {
 	padding: 4px;
-	padding-left: 7px;
 	padding-bottom: 5px;
+	padding-left: 7px;
 	margin-bottom: 10px;
-	background-color: #E5ECF9;
-	border-bottom: 1px dashed #3366CC;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 14px;
 	font-weight: bold;
+	background-color: #e5ecf9;
+	border-bottom: 1px dashed #36c;
 }
 
 .formTable {
 	width: 80%;
 	padding: 5px;
+	margin-right: auto;
 	margin-bottom: 20px;
 	margin-left: auto;
-	margin-right: auto;
 }
 
 .formIntro {
+	padding-left: 10px;
+	margin-bottom: 15px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 13px;
 	font-weight: normal;
-	margin-bottom: 15px;
-	padding-left: 10px;
 }
 
 .formHighlight {
-	background-image: url(img/table_results_selected_bg.gif);
-	background-repeat: repeat-x;
-	background-color: #FFFFCC;
-	background-position: left top;
-	border: 1px dashed #CCCC66;
 	padding: 7px;
 	padding-bottom: 10px;
 	margin-bottom: 5px;
+	background-color: #ffc;
+	background-image: url(img/table_results_selected_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border: 1px dashed #cc6;
 }
 
 .formHighlightText {
+	margin-top: 5px;
+	margin-left: 6px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
 	font-weight: normal;
-	color: #666633;
-	margin-top: 5px;
-	margin-left: 6px;
+	color: #663;
 }
 
 .formFieldInfo {
-	font-size: 11px;
-	color: #555555;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	font-size: 11px;
+	color: #555;
 }
 
 
@@ -381,107 +405,110 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 
 .pageTitle {
 	padding: 4px;
-	padding-left: 7px;
 	padding-bottom: 5px;
+	padding-left: 7px;
 	margin-bottom: 15px;
-	background-color: #E5ECF9;
-	border-bottom: 1px dashed #3366CC;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 14px;
 	font-weight: bold;
+	background-color: #e5ecf9;
+	border-bottom: 1px dashed #36c;
 }
 
 .pageTable {
-	padding: 0px 5px 0px 5px;
+	padding: 0 5px;
 	margin-bottom: 20px;
 }
 
 .pageText {
-	padding: 0px 5px 0px 5px;
+	padding: 0 5px;
 }
 
 .pageIntro {
+	margin-bottom: 15px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	font-weight: normal;
-	margin-bottom: 15px;
 }
 
 /* Mail Elements */
 
 .mailMessageArea {
-	background-color: #FFFFFF;
-	border: 1px dashed #999999;
 	padding: 7px;
 	padding-bottom: 10px;
 	margin-bottom: 15px;
+	background-color: #fff;
+	border: 1px dashed #999;
 }
 
 
 
 /* Watch Elements */
 
-
 .watchTitleBar {
-	background-color: #CCCCCC;
-	border-bottom: 1px dashed #999999;
+	background-color: #ccc;
+	border-bottom: 1px dashed #999;
 }
 
 .watchTitle {
+	margin-bottom: 6px;
+	margin-left: 5px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 13px;
 	font-weight: bold;
-	margin-left: 5px;
-	margin-bottom: 6px;
-	color: #333333;
-	
+	color: #333;
+
 }
 
 .watchTable {
-	background-color: #DDDDDD;
-	background-image: url(img/table_results_bg.gif);
-	background-repeat: repeat-x;
-	background-position: left top;
-	border-bottom: 1px dashed #999999;
 	padding: 5px;
 	padding-bottom: 10px;
 	text-align: center;
+	background-color: #ddd;
+	background-image: url(img/table_results_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-bottom: 1px dashed #999;
 }
 
 #flashcontent {
-	background-color: #FFFFFF;
 	width: 425px;
 	height: 350px;
 	margin-top: 10px;
-	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid #CCC;
+	margin-left: auto;
+	background-color: #fff;
+	border: 1px solid #ccc;
 }
 
 .watchInfoArea {
 	width: 395px;
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	background-color:#FFFFFF;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	text-align: left;
+	background-color: #fff;
 }
 
 .watchDescription {
+	padding-top: 10px;
+	padding-bottom: 5px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
-	padding-bottom: 5px;
 	color: #000;
-	border-bottom: 1px dashed #CCC;
-	padding-top: 10px;
+	border-bottom: 1px dashed #ccc;
 }
 
 .header1 {
-	margin: 0px auto;
-	padding: 5px 0px 0px 0px;
+	padding: 5px 0 0;
+	margin: 0 auto;
 }
 
 .header_profile {
@@ -494,107 +521,115 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 }
 
 .header2 {
+	height: 30px;
+	line-height: 0;
 	background-image: url(img/subheader.gif);
-	height: 30px; 
-	line-height: 0
-	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
 	border-radius: 10px 10px 0 0;
-	-webkit-box-shadow: #777 0px 0px 10px;
-	-moz-box-shadow: #777 0px 0px 10px;
-	box-shadow: #777 0px 0px 5px;
-	-webkit-border-radius: 10px 10px 0 0;
-	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	box-shadow: #777 0 0 10px;
+	box-shadow: #777 0 0 10px;
+	box-shadow: #777 0 0 5px;
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
 }
 
 .watchTags {
+	margin: 5px 0 10px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
-	margin: 5px 0px 10px 0px;
-	color: #333333;
+	color: #333;
 }
 
 .watchAdded {
+	margin-bottom: 5px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
-	margin-bottom: 5px;
-	color: #333333;
+	color: #333;
 }
 
 .watchDetails {
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
 	font-weight: normal;
-	color: #333333;
+	color: #333;
 }
 
 .commentsTitle {
+	padding: 5px;
+	padding-bottom: 6px;
+
 	/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif"; /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 11px;
 	font-weight: bold;
-	color: #333333;
-	background-color: #EEEEEE;
-	padding: 5px;
-	padding-bottom: 6px;
-	border-top: 1px dashed #999999;
-	border-bottom: 1px dashed #999999;
+	color: #333;
+	background-color: #eee;
+	border-top: 1px dashed #999;
+	border-bottom: 1px dashed #999;
 
 }
 
 .commentsEntry {
-	font-size: 11px;
-	background-color: #FFFFCC;
 	padding: 10px;
-	border-bottom: 1px dashed #999999;
+	font-size: 11px;
+	background-color: #ffc;
+	border-bottom: 1px dashed #999;
 }
 
 .commentsThumb {
-	border: 5px solid #FFFFFF;
 	margin-right: 5px;
+	border: 5px solid #fff;
 }
 
 .profileLabel {
+	margin: 10px 0 2px;
 	font-size: 12px;
 	font-weight: bold;
-	color:#DD8833;
-	margin: 10px 0px 2px 0px;
+	color: #d83;
 }
 
 /* Code Elements */
 
 .codeArea {
-	background-color: #FFFFFF;
-	border: 1px dashed #999999;
 	padding: 7px;
 	margin-bottom: 15px;
+	background-color: #fff;
+	border: 1px dashed #999;
 }
 
 .apiLabel {
-	background-color: #E5ECF9; 
-	margin-top: 20px; 
-	margin-bottom: 10px; 
-	padding-left: 10px; 
-	padding-right: 10px; 
-	padding-top: 10px; 
+	padding-top: 10px;
+	padding-right: 10px;
 	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	background-color: #e5ecf9;
 }
+
 .profile.video-time {
     margin-top: -15px;
     margin-right: 15px;
 }
+
 #hpVideoListHead {
 	float: left;
 	padding-right: 400px;
 }
+
 .home.video-time {
     margin-top: -15px;
     margin-right: 10px;
 }
+
 .small.home.video-time {
     margin-right: 19px;
 }
+
 .subcription-videos-block {
-    border-bottom: 1px dashed #CCC;
-    padding-bottom: 10px;
     float: left;
     width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
 }

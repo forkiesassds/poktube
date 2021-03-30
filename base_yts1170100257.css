@@ -1,50 +1,60 @@
 /* HTML Overrides */
 
-html { height: 100% }
+html { height: 100%; }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+
 	/*! background-color: #FFF; */
 	color: #000;
 	}
-	
-a:link, a:visited, a:active { color: #03C; }
+
+a:link,
+ a:visited,
+ a:active { color: #03c; }
 
 a.dg { color: #333 !important; }
 a.noul { text-decoration: none; }
-	
+
 code {
 	font-family: Courier, "Courier New", monospace;
 	font-size: 12px;
 	}
 
 img { border: none; }
-	
+
 dt {
-	font-weight: bold;
 	padding-bottom: 5px;
+	font-weight: bold;
 	}
-	
+
 dd { padding-bottom: 15px; }
-	
+
 emphasis { font-style: italic; }
 
-form { margin: 0px; padding: 0px; }
+form { padding: 0;
+ margin: 0; }
 
-h1,h2,h3,h4,h5,h6 {
-	font-weight: bold;
-	color: #000;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	padding: 0;
 	margin-top: 5px;
 	margin-bottom: 3px;
-	padding: 0px;
+	font-weight: bold;
+	color: #000;
 	}
 
 h1 { font-size: 19px; }
-	
+
 h1.leftNavNoContent { margin-bottom: 8px; }
 
 h2 { font-size: 16px; }
-	
+
 h3 { font-size: 14px; }
 
 h4 { font-size: 12px; }
@@ -52,12 +62,12 @@ h4 { font-size: 12px; }
 h5 { font-size: 10px; }
 
 h6 { font-size: 10px; }
-	
+
 hr {
-	border: 0px; 
-	margin-top: 12px;
-	border-top: 1px dashed #999;
 	height: 1px;
+	margin-top: 12px;
+	border: 0;
+	border-top: 1px dashed #999;
 	}
 
 
@@ -71,7 +81,7 @@ hr {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
-	color: #000000;
+	color: #000;
 	}
 .normalText { font-size: 12px; }
 .smallText { font-size: 11px; }
@@ -83,77 +93,83 @@ hr {
 .xxxlargeText { font-size: 21px; }
 
 .grayText { color: #666; }
-.dgText {color: #333; }
-.smgrayText { font-size: 11px; color: #666; }
-.smdgText { font-size: 11px; color: #333; }
+.dgText { color: #333; }
 
-.label { font-weight: bold; color: #333333; }
+.smgrayText { font-size: 11px;
+ color: #666; }
+
+.smdgText { font-size: 11px;
+ color: #333; }
+
+.label { font-weight: bold;
+ color: #333; }
 
 .standardLabel {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
-	color: #333333;
+	color: #333;
 	}
 
 .smallLabel {
-	font-weight: bold;
 	font-size: 11px;
+	font-weight: bold;
 	color: #333;
 	}
+
 .xsmallLabel {
-	font-weight: bold;
 	font-size: 10px;
+	font-weight: bold;
 	color: #333;
 	}
+
 .largeLabel {
-	font-weight: bold;
 	font-size: 14px;
+	font-weight: bold;
 	color: #333;
 	}
 
 .headerTitle {
-	color: #000;
 	font-size: 14px;
 	font-weight: bold;
+	color: #000;
 	}
 
 .headerTitleLite {
-	color: #333;
 	font-size: 13px;
 	font-weight: bold;
+	color: #333;
 	}
 
 .headerTitleRight {
-	float: right; 
-	padding: 1px 5px 0px 0px;
+	float: right;
+	padding: 1px 5px 0 0;
 	font-size: 12px;
 	font-weight: bold;
 	color: #333;
 	}
 
 .headerTitleCenter {
-	padding: 1px 5px 0px 0px;
-	text-align: center;
+	padding: 1px 5px 0 0;
 	font-size: 12px;
 	font-weight: normal;
-	}
-	
-.eLink {
-	text-decoration: none;
-	border-bottom: 1px dotted #03C;
+	text-align: center;
 	}
 
+.eLink {
+	text-decoration: none;
+	border-bottom: 1px dotted #03c;
+	}
 
 .000C { color: #000; }
 .cccC { color: #ccc; }
 .fffC { color: #fff; }
-.cccBG { background: #CCC; }
-.dddBG { background: #DDD; }
-.eeeBG { background: #EEE; }
-.fffBG { background: #FFF; }
+.cccBG { background: #ccc; }
+.dddBG { background: #ddd; }
+.eeeBG { background: #eee; }
+.fffBG { background: #fff; }
 
-.marB0 { margin-bottom: 0px; }
+.marB0 { margin-bottom: 0; }
 .marB3 { margin-bottom: 3px; }
 .marB5 { margin-bottom: 5px; }
 .marB10 { margin-bottom: 10px; }
@@ -161,11 +177,11 @@ hr {
 .marL15 { margin-left: 15px; }
 .marR6 { margin-right: 6px; }
 .marR15 { margin-right: 15px; }
-.marT0 { margin-top: 0px;}
+.marT0 { margin-top: 0; }
 .marT3 { margin-top: 3px; }
 .marT4 { margin-top: 4px; }
-.marT5 { margin-top: 5px;}
-.marT10 { margin-top: 10px;}
+.marT5 { margin-top: 5px; }
+.marT10 { margin-top: 10px; }
 .marT15 { margin-top: 15px; }
 .marL20 { margin-left: 20px; }
 .mar38L { margin-left: 38px; }
@@ -178,15 +194,17 @@ hr {
 .padT20 { padding-top: 20px; }
 .padB10 { padding-bottom: 10px; }
 .padB5 { padding-bottom: 5px; }
-.padL25  { padding-left: 25px; }
-.padL50  { padding-left: 50px; }
+.padL25 { padding-left: 25px; }
+.padL50 { padding-left: 50px; }
 .padR15 { padding-right: 15px; }
-
 
 .clear { clear: both; }
 .clearL { clear: left; }
 .clearR { clear: right; }
-.spacer { clear: both; height: 1px; font-size: 1px; }
+
+.spacer { height: 1px;
+ clear: both;
+ font-size: 1px; }
 
 .alignMid { vertical-align: middle; }
 .alignTop { vertical-align: top; }
@@ -209,184 +227,197 @@ on the contest page) */
 .topMar5 { margin-top: 5px; }
 .topMar2 { margin-top: 2px; }
 
-
-.required { color: #FF0000; }
+.required { color: #f00; }
 
 .rating {
 	font-size: 11px;
+
 /*
 	margin-top: 3px;
 	font-size: 11px;
-	height: 14px; 
+	height: 14px;
 */
 	}
 
 .confirmBox {
-	border: 3px solid #666;
 	padding: 6px;
 	margin-top: 6px;
 	margin-bottom: 6px;
-	text-align: center;
-	font-weight: bold;
 	font-size: 14px;
+	font-weight: bold;
 	color: #006;
+	text-align: center;
+	border: 3px solid #666;
 	}
 
 .errorBox {
-	border: 3px solid #C00;
 	padding: 6px;
 	margin-top: 6px;
 	margin-bottom: 6px;
-	text-align: center;
-	font-weight: bold;
 	font-size: 14px;
-	color: #C00;
+	font-weight: bold;
+	color: #c00;
+	text-align: center;
+	border: 3px solid #c00;
 	}
 
 .codeBox {
-	background-color: #EEE;
-	border: 1px solid #999;
 	padding: 8px;
 	margin-bottom: 15px;
+	background-color: #eee;
+	border: 1px solid #999;
 	}
 
 .headerBox {
 	padding: 3px 5px;
-	border: 1px solid #CCC;
-	background-color: #CCC; 
+	background-color: #ccc;
+	border: 1px solid #ccc;
 	}
 
 .headerRCBox { }
 .headerRCBox .rch { display: block; }
+
 .headerRCBox .rch * {
 	display: block;
 	height: 1px;
 	overflow: hidden;
-	background: #CCC;
+	background: #ccc;
 	}
+
 .headerRCBox .rch1 {
-	border-right: 1px solid #E9E9E9;
 	padding-right: 1px;
-	margin-right: 3px;
-	border-left: 1px solid #E9E9E9;
 	padding-left: 1px;
+	margin-right: 3px;
 	margin-left: 3px;
-	background: #D9D9D9; /* rch5 */
+	background: #d9d9d9; /* rch5 */
+	border-right: 1px solid #e9e9e9;
+	border-left: 1px solid #e9e9e9;
 	}
+
 .headerRCBox .rch2 {
-	border-right: 1px solid #FAFAFA;
-	border-left: 1px solid #FAFAFA;
-	padding: 0px 1px;
-	background: #D6D6D6; /* rch3 */
-	margin: 0px 1px;
+	padding: 0 1px;
+	margin: 0 1px;
+	background: #d6d6d6; /* rch3 */
+	border-right: 1px solid #fafafa;
+	border-left: 1px solid #fafafa;
 	}
+
 .headerRCBox .rch3 {
-	border-right: 1px solid #D6D6D6;
-	border-left: 1px solid #D6D6D6;
-	margin: 0px 1px;
+	margin: 0 1px;
+	border-right: 1px solid #d6d6d6;
+	border-left: 1px solid #d6d6d6;
 	}
+
 .headerRCBox .rch4 {
-	border-right: 1px solid #E9E9E9;
-	border-left: 1px solid #E9E9E9;
+	border-right: 1px solid #e9e9e9;
+	border-left: 1px solid #e9e9e9;
 	}
+
 .headerRCBox .rch5 {
-	border-right: 1px solid #D9D9D9;
-	border-left: 1px solid #D9D9D9;
+	border-right: 1px solid #d9d9d9;
+	border-left: 1px solid #d9d9d9;
 	}
+
 .headerRCBox .content {
-	background: #CCC;
-	padding: 0px 6px 2px 6px;
+	padding: 0 6px 2px;
+	background: #ccc;
 	}
 
 .headerHighlight {
-	display:block;
+	display: block;
 	}
-.headerHighlight *{
-	display:block;
-	height:1px;
-	overflow:hidden;
-	background:#ffcc00;
+
+.headerHighlight * {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #fc0;
 	}
-	
+
 .headerHighlight1 {
-	border-right:1px solid #ffe991;
-	padding-right:1px;
-	margin-right:3px;
-	border-left:1px solid #ffe991;
-	padding-left:1px;
-	margin-left:3px;
-	background:#ffd83f;
+	padding-right: 1px;
+	padding-left: 1px;
+	margin-right: 3px;
+	margin-left: 3px;
+	background: #ffd83f;
+	border-right: 1px solid #ffe991;
+	border-left: 1px solid #ffe991;
 	}
-	
+
 .headerHighlight2 {
-	border-right:1px solid #fff9e5;
-	border-left:1px solid #fff9e5;
-	padding:0px 1px;
-	background:#ffd530;
-	margin:0px 1px;
+	padding: 0 1px;
+	margin: 0 1px;
+	background: #ffd530;
+	border-right: 1px solid #fff9e5;
+	border-left: 1px solid #fff9e5;
 	}
 
 .headerHighlight3 {
-	border-right:1px solid #ffd530;
-	border-left:1px solid #ffd530;
-	margin:0px 1px;
+	margin: 0 1px;
+	border-right: 1px solid #ffd530;
+	border-left: 1px solid #ffd530;
 	}
 
 .headerHighlight4 {
-	border-right:1px solid #ffe991;
-	border-left:1px solid #ffe991;
+	border-right: 1px solid #ffe991;
+	border-left: 1px solid #ffe991;
 	}
+
 .headerHighlight5 {
-	border-right:1px solid #ffd83f;
-	border-left:1px solid #ffd83f;
+	border-right: 1px solid #ffd83f;
+	border-left: 1px solid #ffd83f;
 	}
-	
-.headerHighlight_content{
-	padding: 0px 6px 2px 6px;
-	background:#ffcc00;
+
+.headerHighlight_content {
+	padding: 0 6px 2px;
+	background: #fc0;
 	}
 
 .footerBox {
-	background-color: #CCC; 
+	margin-top: 0;
 	margin-bottom: 15px;
-	margin-top: 0px;
+	background-color: #ccc;
 	}
 
 .contentBox {
-	padding: 6px; 
-	border: 1px solid #CCC;
-	}
-	
-.highlightBox {
-	padding: 6px; 
-	background-color: #FFC;
-	border: 1px solid #FC3;
-	}
-	
-.lowlightBox {
-	text-align: left;
 	padding: 6px;
-	border: 1px solid #333;
-	background-color: #BBB;
+	border: 1px solid #ccc;
 	}
+
+.highlightBox {
+	padding: 6px;
+	background-color: #ffc;
+	border: 1px solid #fc3;
+	}
+
+.lowlightBox {
+	padding: 6px;
+	text-align: left;
+	background-color: #bbb;
+	border: 1px solid #333;
+	}
+
 .lowlightBox div.head {
 	margin-left: 6px;
 	font-weight: bold;
 }
+
 .boxdates {
+	padding: 3px;
 	margin: 3px;
 	font-size: 90%;
-	padding: 3px;
 	}
+
 .boxdates.hi {
-	background-color: #DDD;
+	background-color: #ddd;
 	}
+
 .attentionBox {
-	font-weight: bold;
 	padding: 6px;
+	font-weight: bold;
 	text-align: center;
-	background-color: #FFC;
-	border: 1px solid #FC3;
+	background-color: #ffc;
+	border: 1px solid #fc3;
 	}
 
 .spOffersDiv {
@@ -415,41 +446,54 @@ on the contest page) */
 #sidebarRight245 {
 	float: right;
 	width: 245px;
-	margin-left: 15px;
 	margin-bottom: 9px;
+	margin-left: 15px;
 	}
 
 #sidebarRight305 {
 	float: right;
 	width: 305px;
-	margin-left: 10px;
 	margin-bottom: 9px;
+	margin-left: 10px;
 	}
 
-#mainContent { width: 700px; margin-right: 12px; }
-#sideContent { float: right; width: 160px; padding-top: 2px; }
-#sideAd { float: right; width: 160px; padding-top: 6px; }
+#mainContent { width: 700px;
+ margin-right: 12px; }
 
-#sideNav { float: left; width: 150px; }
+#sideContent { float: right;
+ width: 160px;
+ padding-top: 2px; }
+
+#sideAd { float: right;
+ width: 160px;
+ padding-top: 6px; }
+
+#sideNav { float: left;
+ width: 150px; }
 #sideNav .body { }
+
 #sideNav .navHead {
-	font-weight: bold;
+	padding: 8px 0 1px;
 	font-size: 14px;
-	padding: 8px 0px 1px 0px;
+	font-weight: bold;
 	}
 #sideNav .navBody { padding-bottom: 10px; }
+
 #sideNav .navBody12 {
+	padding-bottom: 10px;
 	font-size: 12px;
 	line-height: 18px;
-	padding-bottom: 10px;
 	}
+
 #sideNav .navBody11 {
+	padding-bottom: 10px;
 	font-size: 11px;
 	line-height: 15px;
-	padding-bottom: 10px;
 	}
 #sideNav .navButton { padding-bottom: 4px; }
-#sideNav #bottomAdDiv { padding: 20px 0px; text-align: center; }
+
+#sideNav #bottomAdDiv { padding: 20px 0;
+ text-align: center; }
 
 #mainContentWithNav {
 	width: 545px; /* this should be 550, but IE6 doesn't like it */
@@ -466,32 +510,37 @@ on the contest page) */
 	width: 150px;
 	vertical-align: top;
 	}
+
 #manageNav ul {
-	margin: 0px;
-	padding: 0px;
+	padding: 0;
+	margin: 0;
 	}
+
 #manageNav li {
-	list-style: none;
-	margin: 0px;
 	padding: 5px;
+	margin: 0;
 	font-weight: bold;
+	list-style: none;
 	}
-#manageNav .selected { background: #CCC; }
+#manageNav .selected { background: #ccc; }
 
 #manageContent {
-	border: 3px solid #CCC;
 	vertical-align: top;
+	border: 3px solid #ccc;
 	}
+
 #manageContent .controls {
-	background: #CCC;
 	padding: 4px;
+	background: #ccc;
 	}
+
 #manageContent .pager {
-	text-align: right;
 	padding: 4px;
+	text-align: right;
 	}
+
 #manageContent .empty {
-	padding: 24px 0px;
+	padding: 24px 0;
 	text-align: center;
 	}
 
@@ -501,12 +550,14 @@ on the contest page) */
 	border-bottom: 1px solid #999;
 	}
 #sectionHeader .my { float: right; }
+
 #sectionHeader .name {
 	float: left;
 	width: 150px;
 	font-size: 21px;
 	font-weight: bold;
 	}
+
 #sectionHeader .title {
 	font-size: 16px;
 	font-weight: bold;
@@ -523,17 +574,18 @@ on the contest page) */
 #baseDiv {
 	position: relative;
 	width: 875px;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 	}
 
-#logoTagDiv { float: left;  padding-top: 6px; }
+#logoTagDiv { float: left;
+  padding-top: 6px; }
 
 #logoHomeTip {
-	display: none;
 	position: absolute;
 	top: 25px;
 	left: 130px;
+	display: none;
 	font-size: 11px;
 	color: #666;
 	}
@@ -543,47 +595,60 @@ on the contest page) */
 	padding-bottom: 12px;
 	text-align: right;
 	}
-.utilDelim { padding-left: 3px; padding-right: 3px; }
+
+.utilDelim { padding-right: 3px;
+ padding-left: 3px; }
+
 #iconMail {
+	padding: 1px 0;
 	vertical-align: text-bottom;
-	padding: 1px 0px 1px 0px;
 	}
+
 #searchDiv {
 	padding-bottom: 8px;
 	text-align: right;
 	}
+
 .searchField {
 	width: 250px;
-	color: #000000;
 	font-size: 12px;
+	color: #000;
 	}
 
-#gNavDiv { height: 28px; text-align: right; }
-#gNavDiv #upload { float: right; width: 220px; }
-#gNavDiv .tab { float: right; width: 124px; border:0px #333 solid; }
+#gNavDiv { height: 28px;
+ text-align: right; }
+
+#gNavDiv #upload { float: right;
+ width: 220px; }
+
+#gNavDiv .tab { float: right;
+ width: 124px;
+ border: 0 #333 solid; }
 
 #gSubNavDiv {
-	clear: both;
-	background: #DDD;
-	text-align: center;
-	padding: 8px 0px;
+	padding: 8px 0;
 	margin-bottom: 10px;
+	clear: both;
+	text-align: center;
+	background: #ddd;
 	}
+
 #gNavBottom {
 	height: 24px;
-	background: #DDD url(/web/20070131215327im_/http://www.youtube.com/img/pic_globalnav_gradation_875x24.png) top left no-repeat;
 	margin-bottom: 6px;
-	}
-	
-#gSubNavDiv {
-	clear: both;
-	background: #DDD;
-	text-align: center;
-	padding: 8px 0px;
-	margin-bottom: 10px;
+	background: #ddd url(/web/20070131215327im_/http://www.youtube.com/img/pic_globalnav_gradation_875x24.png) top left no-repeat;
 	}
 
-#accountQuickLinks { font-size: 11px; text-align: right; }
+#gSubNavDiv {
+	padding: 8px 0;
+	margin-bottom: 10px;
+	clear: both;
+	text-align: center;
+	background: #ddd;
+	}
+
+#accountQuickLinks { font-size: 11px;
+ text-align: right; }
 
 
 
@@ -593,51 +658,63 @@ on the contest page) */
 /* Footer Elements */
 
 #footerDiv {
-	clear: both;
 	width: 875px;
-	margin-top: 12px;
 	padding-bottom: 12px;
+	margin-top: 12px;
+	clear: both;
 	font-size: 11px;
 	}
+
 #footContent {
-	background: #EEE;
-	border-top: 1px solid #CCC;
-	border-bottom: 1px solid #CCC;
-	padding: 8px 0px;
+	padding: 8px 0;
+	background: #eee;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 	}
-#footCopyright { padding-top: 12px; text-align: center; }
-#footBotDiv { height: 50px; line-height: 15px; }
+
+#footCopyright { padding-top: 12px;
+ text-align: center; }
+
+#footBotDiv { height: 50px;
+ line-height: 15px; }
+
 #footTopDiv {
-	border-bottom: 1px solid #CCC;
 	padding-bottom: 8px;
 	margin-bottom: 8px;
+	border-bottom: 1px solid #ccc;
 	}
 #footPromoAssetRight { float: right; }
 #footPromoTextRight { font-weight: bold; }
+
 .footColumnLeft {
 	width: 215px;
 	padding-left: 10px;
 	margin-right: 20px;
-	border-right: 1px solid #CCC;
+	border-right: 1px solid #ccc;
 	}
+
 .footColumnMid {
 	width: 295px;
 	margin-right: 20px;
-	border-right: 1px solid #CCC;
+	border-right: 1px solid #ccc;
 	}
 .footColumnRight { padding-right: 10px; }
+
 .footLabel {
-	font-weight: bold;
 	font-size: 11px;
+	font-weight: bold;
 	color: #333;
 	}
+
 .footValues {
-	margin-left: 0px;
-	padding-bottom: 6px;
-	font-size: 11px;
 	height: 30px;
+	padding-bottom: 6px;
+	margin-left: 0;
+	font-size: 11px;
 	}
-.footValues .column { float: left; margin-right: 20px; }
+
+.footValues .column { float: left;
+ margin-right: 20px; }
 
 
 
@@ -645,29 +722,29 @@ on the contest page) */
 #subnavContent { width: 670px; }
 
 #subnavSidebar {
-	border: 1px solid #CCC;
-	float: right; 
-	width: 185px; 
-	background-color: #EEE;
-	padding: 0px;
-	margin-top: 0px;
+	float: right;
+	width: 185px;
+	padding: 0;
+	margin-top: 0;
 	margin-left: 15px;
+	background-color: #eee;
+	border: 1px solid #ccc;
 	}
-	
+
 .navItem {
-	list-style: none;
-	margin: 0px;
-	padding: 6px; 
-	border-bottom: 1px dashed #999;
+	padding: 6px;
+	margin: 0;
 	font-weight: bold;
+	list-style: none;
+	border-bottom: 1px dashed #999;
 	}
-	
+
 .navItemHighlight {
-	list-style: none;
-	padding: 6px; 
-	background-color: #BCE;
-	border-bottom: 1px dashed #999;
+	padding: 6px;
 	font-weight: bold;
+	list-style: none;
+	background-color: #bce;
+	border-bottom: 1px dashed #999;
 	}
 
 .sidebarLinks {
@@ -682,27 +759,31 @@ on the contest page) */
 
 
 /* htmlForm Elements */
- 
+
 .dataEntryTable { width: 650px; }
 
-.formLabel  {
+.formLabel {
+	width: 200px;
 	font-weight: bold;
 	text-align: right;
-	width: 200px;
 	}
+
 .formImg {
 	padding-right: 2px;
 	vertical-align: middle;
 	}
+
 #contestOwnerInfo {
 	margin-top: 20px;
 	font-size: 95%;
 }
+
 #contestOwnerInfo form {
 	width: 120px;
+	margin: 0 0 20px;
 	text-align: center;
-	margin: 0 0 20px 0;
 }
+
 #contestVoted {
 	margin: 20px 0 0 5px;
 }
@@ -710,20 +791,20 @@ on the contest page) */
 
 .dataEntryTableSmall { width: 400px; }
 
-.formLabelSmall  {
+.formLabelSmall {
+	width: 125px;
 	font-weight: bold;
 	text-align: right;
-	width: 125px;
 	}
-		
+
 .formFieldSmall { width: 275px; }
 
 .formHighlight {
-	background-color: #BCE;
-	background-position: left top;
-	border: 1px dashed #006;
 	padding: 9px;
 	margin-bottom: 5px;
+	background-color: #bce;
+	background-position: left top;
+	border: 1px dashed #006;
 	}
 
 .defaultTextarea {
@@ -734,35 +815,39 @@ on the contest page) */
 }
 
 .contestAddForm {
-	text-align: center;
-	width: 130px;
 	float: right;
+	width: 130px;
 	padding: 3px 0;
 	margin: 0;
+	text-align: center;
 }
 #contestVidHead { width: 680px; }
 #contestVids { width: 680px; }
-#contestFooterInfo{line-height: 1.3em;}
+#contestFooterInfo { line-height: 1.3em; }
+
 .thumbArrowL {
-	padding: 10px 0;
 	width: 40px;
+	padding: 10px 0;
 }
+
 .thumbArrowR {
 	padding: 10px 0;
 }
 
 .contestThumb {
-	vertical-align: top;
-	text-align: center;
 	width: 100px;
 	height: 180px;
-	overflow: auto;
 	padding: 10px 5px;
+	overflow: auto;
+	text-align: center;
+	vertical-align: top;
 }
+
 .thumbInfo {
-	text-align: left;
 	padding: 3px 0 0 5px;
+	text-align: left;
 }
+
 .thumbHilite {
 	border: 2px #fc3 solid;
 }
@@ -776,125 +861,125 @@ on the contest page) */
 
 .vGridBox {
 	padding: 6px;
-	border: 1px solid #CCC;
-	background: #EEE;
+	background: #eee;
+	border: 1px solid #ccc;
 	}
 
 .vListBox {
-	padding: 0px 6px; 
-	border: 1px solid #CCC;
-	background: #EEE;
+	padding: 0 6px;
+	background: #eee;
+	border: 1px solid #ccc;
 	}
 
 .vimg {
 	width: 130px;
 	height: 100px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
-	
+
 .vimgSm {
 	width: 90px;
 	height: 70px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg130 {
 	width: 130px;
 	height: 100px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg120 {
 	width: 120px;
 	height: 90px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg110 {
 	width: 110px;
 	height: 82px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg100 {
 	width: 100px;
 	height: 75px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg90 {
 	width: 90px;
 	height: 70px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg80 {
 	width: 80px;
 	height: 60px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
-	
+
 .vimg60 {
 	width: 60px;
 	height: 45px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 .vimg50 {
 	width: 50px;
 	height: 38px;
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
-	
-.addtoQL { 
-	width:20px;
-	left:1px;
-	top:71px;
-	position:relative;	
+
+.addtoQL {
+	position: relative;
+	top: 71px;
+	left: 1px;
+	width: 20px;
 	}
 
 .addtoQLIE {
-	width:20px;
-	left:1px;
-	top:74px;
-	position:relative;
+	position: relative;
+	top: 74px;
+	left: 1px;
+	width: 20px;
 	}
 
 .addtoQLRelated {
-	width:20px;
-	margin-top:-26px;
-	margin-left:1px;
+	width: 20px;
+	margin-top: -26px;
+	margin-left: 1px;
 	}
 
 .addtoQLRelatedIE {
-	width:20px;
-	margin-top:-29px;
-	margin-left:1px;
+	width: 20px;
+	margin-top: -29px;
+	margin-left: 1px;
 	}
-	
+
 img.rating {
-	border: 0px;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	vertical-align: middle;
+	border: 0;
 	}
 
 .runtime {
 	font-size: 11px;
+	font-weight: bold;
 	color: #000;
+	}
+
+.title {
+	font-size: 12px;
 	font-weight: bold;
 	}
 
-.title { 
-	font-weight: bold;
-	font-size: 12px; 
-	}
-	
 .desc {
-	margin: 3px 0px;
+	margin: 3px 0;
 	font-size: 12px;
 	}
-	
+
 .facets {
 	margin-top: 2px;
 	margin-bottom: 3px;
@@ -905,64 +990,67 @@ img.rating {
 .vstill { margin-bottom: 2px; }
 
 .vtitle { font-weight: bold; }
-	
-.vdesc { margin: 3px 0px; }
-	
+
+.vdesc { margin: 3px 0; }
+
 .vfacets {
-	margin: 3px 0px;
+	margin: 3px 0;
 	font-size: 11px;
 	line-height: 13px;
 	}
 
 .vruntime {
 	font-size: 11px;
-	color: #000;
 	font-weight: bold;
+	color: #000;
 	}
 
 .vtagLabel { float: left; }
+
 .vtagValue {
-	margin-left: 35px;
 	margin-bottom: 3px;
+	margin-left: 35px;
 	}
-	
+
 .vTable {
-	border-spacing: 0px;
-	padding: 0px;
+	padding: 0;
+	border-spacing: 0;
 	}
 .vTable td { vertical-align: top; }
 .vTable .vinfo { padding-left: 8px; }
 
 .vDirectorBox { width: 100px; }
 
-
 .vEntry {
-	padding: 10px 0px;
+	padding: 10px 0;
 	border-bottom: 1px dashed #999;
 	}
+
 .vDetailEntry {
+	padding: 8px 0;
 	clear: left;
-	padding: 8px 0px;
 	border-bottom: 1px dashed #999;
 	}
+
 .vDetailEntry table {
-	border-spacing: 0px;
-	padding: 0px;
+	padding: 0;
+	border-spacing: 0;
 	}
 .vDetailEntry td { vertical-align: top; }
 
 .vDetailEntry .image { margin-right: 12px; }
 
 .vDetailEntry .tagLabel { float: left; }
+
 .vDetailEntry .tagValue {
+	margin-bottom: 3px;
 	margin-left: 35px;
-	margin-bottom: 3px;
 	}
-	
+
 .vDetailEntry .tagTable {
-	border-spacing: 0px;
-	padding: 0px;
+	padding: 0;
 	margin-bottom: 3px;
+	border-spacing: 0;
 	}
 
 .vDetailEntry .tagTable td {
@@ -970,37 +1058,46 @@ img.rating {
 	vertical-align: top;
 	}
 
-
 .vBriefEntry {
 	width: 130px;
 	padding: 3px;
 	margin-bottom: 6px;
 	}
-	
+
 .vBriefEntry .img { margin-bottom: 4px; }
 
 .vMicroEntry {
 	width: 90px;
-	margin-bottom: 6px;
 	margin-right: 15px;
+	margin-bottom: 6px;
 	}
 .vMicroEntry img { margin-bottom: 4px; }
 
-
-.v120vEntry { width: 120px; margin-bottom: 10px; }
+.v120vEntry { width: 120px;
+ margin-bottom: 10px; }
 .v120vEntry .vstill { margin-bottom: 4px; }
-.v120vEntry .vimg { width: 120px; height: 90px; border: 1px solid #CCC; }
 
-.v90vEntry { width: 90px; margin-bottom: 6px; }
+.v120vEntry .vimg { width: 120px;
+ height: 90px;
+ border: 1px solid #ccc; }
+
+.v90vEntry { width: 90px;
+ margin-bottom: 6px; }
 .v90vEntry .vstill { margin-bottom: 2px; }
 .v90vEntry .vtitle { font-weight: bold; }
-.v90vEntry .vimg { width: 90px; height: 70px; border: 1px solid #CCC; }
 
-.v80vEntry { width: 80px; margin-bottom: 6px; }
+.v90vEntry .vimg { width: 90px;
+ height: 70px;
+ border: 1px solid #ccc; }
+
+.v80vEntry { width: 80px;
+ margin-bottom: 6px; }
 .v80vEntry .vstill { margin-bottom: 2px; }
 .v80vEntry .vtitle { font-weight: bold; }
-.v80vEntry .vimg { width: 80px; height: 60px; border: 1px solid #CCC; }
 
+.v80vEntry .vimg { width: 80px;
+ height: 60px;
+ border: 1px solid #ccc; }
 
 .v120hEntry { clear: left; }
 .v120hEntry .vstill { float: left; }
@@ -1008,34 +1105,42 @@ img.rating {
 
 .v90hEntry { clear: left; }
 .v90hEntry .vstill { float: left; }
-.v90hEntry .vimg { width: 90px; height: 70px; border: 1px solid #CCC; }
+
+.v90hEntry .vimg { width: 90px;
+ height: 70px;
+ border: 1px solid #ccc; }
 .v90hEntry .vinfo { margin-left: 96px; }
 
 .v80hEntry { clear: left; }
 .v80hEntry .vstill { float: left; }
-.v80hEntry .vimg { width: 80px; height: 60px; border: 1px solid #CCC; }
+
+.v80hEntry .vimg { width: 80px;
+ height: 60px;
+ border: 1px solid #ccc; }
 .v80hEntry .vinfo { margin-left: 86px; }
 
 .v50hEntry { clear: left; }
 .v50hEntry .vstill { float: left; }
-.v50hEntry .vimg { width: 50px; height: 38px; border: 1px solid #CCC; }
+
+.v50hEntry .vimg { width: 50px;
+ height: 38px;
+ border: 1px solid #ccc; }
 .v50hEntry .vinfo { margin-left: 56px; }
 
 .vimgFaded {
 	width: 120px;
 	height: 90px;
-	border: 1px solid #CCC;
-	opacity : .3;
-	-moz-opacity : .3;
-	filter : alpha(opacity=30);
+	filter: alpha(opacity=30);
+	border: 1px solid #ccc;
+	-moz-opacity: 0.3;
+	opacity: 0.3;
 }
 
-
 .playlistHeading {
-	float:left;
-	width:320px;
-	margin-left:5px;
-	margin-bottom:8px;
+	float: left;
+	width: 320px;
+	margin-bottom: 8px;
+	margin-left: 5px;
 }
 
 
@@ -1049,6 +1154,7 @@ img.rating {
 	float: left;
 	width: 555px;
 	}
+
 #hpSideContent {
 	float: right;
 	width: 300px;
@@ -1058,65 +1164,76 @@ img.rating {
 .hpSideBlock { margin-bottom: 15px; }
 
 #hpSVidHeader {
-	font-weight: bold;
-	font-size: 12px;
-	color: #999;
 	margin-bottom: 6px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #999;
 	}
-#hpSVidAboutLink { float: right; font-size: 11px; }
+
+#hpSVidAboutLink { float: right;
+ font-size: 11px; }
+
 .hpSVidEntry {
 	float: left;
 	width: 23%;
+	padding: 0 3px;
 	text-align: center;
-	padding: 0px 3px;
 	}
 
 #hpSubsBoxTop {
-	border-left: 1px solid #E4E4E4;
-	border-right: 1px solid #E4E4E4;
-	background: #EEE;
-	padding: 0px 8px;
+	padding: 0 8px;
 	padding-bottom: 2px;
+	background: #eee;
+	border-right: 1px solid #e4e4e4;
+	border-left: 1px solid #e4e4e4;
 	}
+
 #hpSubsBox {
-	border-left: 1px solid #E4E4E4;
-	border-right: 1px solid #E4E4E4;
-	background: #EEE;
 	padding-left: 8px;
+	background: #eee;
+	border-right: 1px solid #e4e4e4;
+	border-left: 1px solid #e4e4e4;
 	}
+
 #hpSubsBlock {
-	border-top: 1px dashed #999;
 	margin-top: 6px;
+	border-top: 1px dashed #999;
 	}
-#hpSubsHeader { padding: 5px 0px; }
+#hpSubsHeader { padding: 5px 0; }
+
 #hpSubsTable {
 	width: 100%;
-	border-spacing: 0px;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
 	}
 #hpSubsTable td { vertical-align: top; }
 #hpSubsTable td.next { vertical-align: middle; }
+
 .hpSubsHeading {
-	font-weight: bold;
-	font-size: 13px;
 	margin-bottom: 2px;
+	font-size: 13px;
+	font-weight: bold;
 	}
-.hpSubsEntry { 
+
+.hpSubsEntry {
 	width: 90px;
 	font-size: 11px;
 	}
 
 .hpStatsEntry { margin-top: 8px; }
+
 .hpStatsHeading {
-	font-weight: bold;
-	font-size: 13px;
 	margin-bottom: 2px;
+	font-size: 13px;
+	font-weight: bold;
 	}
 
 .hpAboutTable { width: 100%; }
 .hpAboutTable td { vertical-align: top; }
-.hpAboutTable td.label { font-size: 14px; font-weight: bold; }
+
+.hpAboutTable td.label { font-size: 14px;
+ font-weight: bold; }
 .hpAboutTable td.desc { padding-bottom: 8px; }
 
 .hpLoginField { width: 170px; }
@@ -1125,45 +1242,59 @@ img.rating {
 .hpChannelEntry { margin-bottom: 5px; }
 .hpGroupEntry { margin-bottom: 5px; }
 
-#hpEmbedTopCap { height: 35px; overflow: hidden; padding-bottom: 1px; }
+#hpEmbedTopCap { height: 35px;
+ padding-bottom: 1px;
+ overflow: hidden; }
 #hpEmbedVideo { }
 #hpEmbedUnderBlock { padding-top: 5px; }
 #hpEmbedRatingDiv { float: right; }
 #hpEmbedInfoDiv {}
+
 #hpAccountLinksDiv {
-	background: url(/img/pic_mycontrolpanel_300x30.png) top left no-repeat;
 	width: 300px;
 	height: 30px;
-	line-height: 30px;
-	font-size: 11px;
 	margin-bottom: 10px;
+	font-size: 11px;
+	line-height: 30px;
+	background: url(/img/pic_mycontrolpanel_300x30.png) top left no-repeat;
 }
 
 .hpWNentry { padding-top: 3px; }
-.hpWNimage { float: left; width: 30px; height: 37px; margin-bottom: 12px; }
-.hpWNdesc { margin-left: 36px; margin-bottom: 12px;}
 
+.hpWNimage { float: left;
+ width: 30px;
+ height: 37px;
+ margin-bottom: 12px; }
+
+.hpWNdesc { margin-bottom: 12px;
+ margin-left: 36px; }
 
 #hpFeaturedHeading {
-	padding: 10px 0px 0px 1px;
-	border-bottom: 1px solid #CCC;
 	float: left;
 	width: 100%;
+	padding: 10px 0 0 1px;
+	border-bottom: 1px solid #ccc;
 	}
 #hpFeaturedList { }
+
 #hpFeaturedMoreTop {
 	float: right;
 	padding-top: 4px;
 	font-weight: bold;
 	}
+
 #hpFeaturedMoreBottom {
-	margin-bottom: 15px;
 	padding-top: 8px;
-	text-align: right;
+	margin-bottom: 15px;
 	font-weight: bold;
+	text-align: right;
 	}
-.hpVfacetRight { float: right; padding-top: 1px; }
-.hpVfacetLeft { float: left; padding: 1px 10px 0px 0px; }
+
+.hpVfacetRight { float: right;
+ padding-top: 1px; }
+
+.hpVfacetLeft { float: left;
+ padding: 1px 10px 0 0; }
 
 
 
@@ -1172,20 +1303,22 @@ img.rating {
 /* Category Elements */
 
 .catNameHeader {
+	padding: 6px 0 4px;
 	font-size: 16px;
 	font-weight: bold;
-	padding: 6px 0px 4px 0px;
 	}
 .catNameHeader a { text-decoration: none; }
 .catNameHeader a:hover { text-decoration: underline; }
 .catFeatureVidDiv { padding-bottom: 5px; }
 .catMoreDiv { font-size: 11px; }
+
 .catSearchDiv {
-	margin: 4px 0px 12px 0px;
 	padding: 6px;
-	background: #EEE;
-	border: 1px solid #CCC;
+	margin: 4px 0 12px;
+	background: #eee;
+	border: 1px solid #ccc;
 	}
+
 .catEntry {
 	position: relative;
 	width: 174px;
@@ -1194,52 +1327,69 @@ img.rating {
 	cursor: pointer;
 	cursor: hand;
 	}
+
 .catHeading {
+	margin-bottom: 6px;
 	font-size: 13px;
 	font-weight: bold;
-	margin-bottom: 6px;
 	}
+
 .catBox {
-	background: url(/web/20070131215327im_/http://www.youtube.com/img/pic_catbox_174x100.gif) top left no-repeat;
-	padding: 8px 0px 0px 8px;
 	height: 100px;
+	padding: 8px 0 0 8px;
+	background: url(/web/20070131215327im_/http://www.youtube.com/img/pic_catbox_174x100.gif) top left no-repeat;
 	}
 .catVEntry { height: 45px; }
-.catVstill { float: left; padding-right: 4px; }
-.catVtitle { font-size: 11px; font-weight: bold; }
-.catVfrom { font-size: 11px; color: #333; padding-top: 1px; }
+
+.catVstill { float: left;
+ padding-right: 4px; }
+
+.catVtitle { font-size: 11px;
+ font-weight: bold; }
+
+.catVfrom { padding-top: 1px;
+ font-size: 11px;
+ color: #333; }
+
 .catPrimaryVidDiv {
 	float: left;
 	width: 85px;
 	height: 65px;
 	margin-right: 6px;
 	}
-.catPriVstill { width: 85px; height: 65px; border: 0px; }
+
+.catPriVstill { width: 85px;
+ height: 65px;
+ border: 0; }
 .catSecondaryVidDiv { }
+
 .catSecVstill {
 	float: left;
 	width: 21px;
 	height: 16px;
-	margin: 0px 3px 3px 0px;
-	background: #CCC;
+	margin: 0 3px 3px 0;
+	background: #ccc;
 	}
+
 .catSecVstill img {
 	width: 21px;
 	height: 16px;
-	
+
 }
+
 .catMore {
 	position: absolute;
-	bottom: 16px;
 	right: 8px;
+	bottom: 16px;
 	font-size: 11px;
 	text-align: right;
 	}
+
 .catSearchDiv {
-	margin: 4px 0px 12px 0px;
 	padding: 6px;
-	background: #EEE;
-	border: 1px solid #CCC;
+	margin: 4px 0 12px;
+	background: #eee;
+	border: 1px solid #ccc;
 	}
 
 
@@ -1248,33 +1398,37 @@ img.rating {
 
 
 
-	
+
 /* Community Elements */
- 
+
 .commEntry {
 	padding-top: 6px;
 	margin-bottom: 42px;
 	}
+
 .commHeading {
-	border-bottom: 1px solid #DDD;
 	margin-bottom: 4px;
+	border-bottom: 1px solid #ddd;
 	}
+
 .commHeading .count {
-	color: #666;
 	padding-left: 12px;
+	color: #666;
 	}
+
 .commHeading .more {
 	float: right;
+	padding-top: 6px;
 	font-size: 11px;
 	font-weight: bold;
-	padding-top: 6px
 	}
+
 .commCollegeDesc {
 	font-size: 15px;
 	line-height: 20px;
 	}
-	
-	
+
+
 
 
 
@@ -1283,18 +1437,20 @@ img.rating {
 /* Groups and Contests Elements */
 
 #groupCommonHeader {
-	border-bottom: 1px dashed #999;
 	padding-bottom: 12px;
 	margin-bottom: 12px;
+	border-bottom: 1px dashed #999;
 	}
 #groupStillDiv {}
 #groupHeaderInfo {}
+
 #groupName {
-	font-weight: bold;
 	font-size: 16px;
+	font-weight: bold;
 	}
-#groupLinks { margin: 6px 0px; }
+#groupLinks { margin: 6px 0; }
 #groupDesc {}
+
 #groupOptionsDiv {
 	float: right;
 	margin-left: 10px;
@@ -1303,79 +1459,91 @@ img.rating {
 #groupFlagAsDiv { padding-top: 5px; }
 
 #groupRecentVideosDiv { padding-top: 2px; }
-#groupRecentTopicsDiv { padding: 12px 0px 16px 0px; }
+#groupRecentTopicsDiv { padding: 12px 0 16px; }
 #groupAboutGroupDiv { padding-bottom: 6px; }
 
 .groupControlsTop {
-	text-align: right;
 	padding-bottom: 4px;
-	}
-.groupControlsBottom {
 	text-align: right;
+	}
+
+.groupControlsBottom {
 	padding-top: 4px;
+	text-align: right;
 	}
 
 .groupEmpty { padding-left: 24px; }
 
 #groupTopicTopEntry {
-	background: #DEF;
 	/* border: 1px solid #9CF; */
+
 	/*
 	background: #FFC;
 	border: 1px solid #FC3;
 	*/
 	padding: 6px;
 	margin-bottom: 24px;
+	background: #def;
 	}
-#groupTopicPostCommentDiv { padding: 10px 0px; }
+#groupTopicPostCommentDiv { padding: 10px 0; }
 
-.brandedInfoBox{
+.brandedInfoBox {
 	float: left;
 	width: 680px;
 	padding: 6px 0;
 	margin-top: 10px;
 	border-top: 1px dashed #999;
 }
+
 .brandedInfoMain {
-	width: 340px;
 	float: left;
+	width: 340px;
 }
+
 .brandedStatBox {
-	padding: 25px 0 0 0;
-	width: 285px;
 	float: right;
+	width: 285px;
+	padding: 25px 0 0;
 	font-size: 11px;
 }
+
 #contestHeadPic {
 	width: 120px;
 }
 
-#contestEntryNumHead { 
+#contestEntryNumHead {
 	width: 322px;
-	color: #333;
+	margin: 5px 0 4px;
 	font-size: 13px;
 	font-weight: bold;
-	margin: 5px 0 4px 0;
+	color: #333;
 	}
 
 .votingThumb {
+	display: inline;
+	padding: 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14pt;
 	font-weight: bold;
-	padding: 5px;
-	display: inline;
 }
+
 .votingThumb right {
 	float: right;
 	margin-left: 5px;
 }
-#contestInteractDiv { width: 350px; margin-right: 15px; margin-bottom: 10px;}
 
-#aboutExploreContestDiv { float: right; width: 325px; margin: 0; }
+#contestInteractDiv { width: 350px;
+ margin-right: 15px;
+ margin-bottom: 10px; }
 
-#contestVideoDesc{ margin-top: 15px; }
+#aboutExploreContestDiv { float: right;
+ width: 325px;
+ margin: 0; }
 
-#contestVoting { margin-top: 10px; text-align: left; }
+#contestVideoDesc { margin-top: 15px; }
+
+#contestVoting { margin-top: 10px;
+ text-align: left; }
 
 #contestVoted { display: none; }
 
@@ -1386,33 +1554,36 @@ img.rating {
 #contestArrowR {
 
 }
+
 .cfacets {
-	margin: 5px 0px;
+	margin: 5px 0;
 	font-size: 11px;
 	line-height: 13px;
 	}
+
 .cruntime {
 	font-size: 11px;
 	color: #000;
 	}
 
 #contestTerms {
-	display: none;
-	width: 655px;
-	z-index: 99;
 	position: absolute;
 	left: 5px;
-	background-color: #ddd;
+	z-index: 99;
+	display: none;
+	width: 655px;
+	padding: 15px 15px 50px;
 	margin: 5px 10px 0 0;
+	background-color: #ddd;
 	border: 2px #ccc solid;
-	padding: 15px 15px 50px 15px;
 }
+
 #termsBox {
-	padding: 5px;
-	text-align: left;
 	width: 600px;
 	height: 280px;
+	padding: 5px;
 	overflow: auto;
+	text-align: left;
 	background-color: #fff;
 }
 
@@ -1429,24 +1600,24 @@ img.rating {
 	width: 420px;
 	margin-bottom: 24px;
 	}
-	
+
 #suSignupDiv {
 	float: left;
-	background-color: #EEE;
 	margin-bottom: 24px;
+	background-color: #eee;
 	}
 
 #suInOrderToDiv {
-	background-color: #FFFFCC;
-	border: 1px solid #CCCC66;
-	margin: 6px 25%;
 	padding: 6px;
+	margin: 6px 25%;
 	font-weight: bold;
+	background-color: #ffc;
+	border: 1px solid #cc6;
 	}
 
 #suSigninDiv {
-	width: 400px;
 	float: right;
+	width: 400px;
 	}
 
 
@@ -1459,31 +1630,31 @@ img.rating {
 /* Sharing Popup Element */
 #set_of_links {
 	position: relative;
-	padding: 0px;
-	border: none;
-	background: #FFF;
+	padding: 0;
 	margin-bottom: 20px;
+	background: #fff;
+	border: none;
 	}
 
 #set_of_links a {
 	display: inline;
-	color: #03C;
+	color: #03c;
 	}
 
 #set_of_links a:hover {
-	background: #FFC;
-	text-decoration: none;
 	color: #000;
+	text-decoration: none;
+	background: #ffc;
 	}
 
-#set_of_links a span { display:none }
+#set_of_links a span { display: none; }
 
 #set_of_links a:hover span {
-	display: inline;
 	position: absolute;
-	left: 0px;
-	background: #FFC;
-	padding: 5px 15px 5px 0px;
+	left: 0;
+	display: inline;
+	padding: 5px 15px 5px 0;
+	background: #ffc;
 	}
 
 
@@ -1494,25 +1665,25 @@ img.rating {
 
 /* Channel Customization Code */
 
-.dataEntryTableSm { 
+.dataEntryTableSm {
 	width: 360px;
 	margin-top: 5px;
 	}
-	
-	
-.formLabelLong  {
+
+
+.formLabelLong {
+	width: 210px;
 	font-weight: bold;
 	text-align: right;
-	width: 210px;
 	}
 
 .formLabelSm {
+	width: 200px;
 	font-weight: bold;
 	text-align: right;
-	width: 200px;
 	}
-	
-.formFieldShortSm { width: 180px; } 
+
+.formFieldShortSm { width: 180px; }
 .formFieldShort { width: 327px; }
 
 .customizationTable { width: 875px; }
@@ -1534,30 +1705,32 @@ tr.inputSizeSs td { width: 316px; }
 .formTable { width: 537px; }
 
 .profileSubLinks {
-	color:  $theme_obj.link_color;	
+	color: $theme_obj.link_color;
 }
 
-#viewPublicChannel  {
-	clear: right;
+#viewPublicChannel {
 	float: right;
+	padding: 6px 8px;
+
 	/* margin-right: 10px; */
 	margin-left: 12px;
-	padding: 6px 8px;
+	clear: right;
+	font-weight: bold;
+
 	/* background: #FFC; */
 	border: 1px solid #999;
-	font-weight: bold;
 	}
 
 .horizontalDisplayTable {
-	margin-left: 30px;
-	margin-bottom: 15px;
 	width: 630px;
+	margin-bottom: 15px;
+	margin-left: 30px;
 	}
-	
+
 tr.horizontalDisplayTable td {
-	text-align: center; 
 	width: 90px;
 	font-weight: bold;
+	text-align: center;
 	}
 
 
@@ -1567,17 +1740,16 @@ tr.horizontalDisplayTable td {
 
 /* Bulletin code */
 
-.displayTable { border: 1px solid #CCC; }
+.displayTable { border: 1px solid #ccc; }
 
 tr.displayTable td {
 	padding-top: 4px;
 	padding-bottom: 8px;
-	border-bottom: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
-
-.displayPostTable { border: 1px solid #CCCCCC; }
+.displayPostTable { border: 1px solid #ccc; }
 
 tr.displayPostTable td {
 	padding-top: 4px;
@@ -1586,11 +1758,11 @@ tr.displayPostTable td {
 
 .columnTitles {
 	font-weight: bold;
-	color: #000000;
+	color: #000;
 }
 
 .imgBrdr {
-	border: 2px solid #CCCCCC;
+	border: 2px solid #ccc;
 
 }
 
@@ -1601,54 +1773,54 @@ tr.displayPostTable td {
 /* Musician Forms Code */
 
 .editDividerTable {
-	border-bottom: 1px dashed #CCCCCC;
 	width: 650px;
-	padding-bottom: 10px;
 	padding-top: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ccc;
 	}
 
 .editDividerTableEnd {
-	border-bottom: none;
 	width: 650px;
-	padding-bottom: 10px;
 	padding-top: 15px;
+	padding-bottom: 10px;
+	border-bottom: none;
 	}
 
 .formLabelTiny {
-	font-weight: bold;
 	width: 100px;
+	font-weight: bold;
 	text-align: right;
 }
 
 .alertBoxSm {
-	border: 2px solid #C00;
+	width: 420px;
 	padding: 6px;
 	margin-top: 6px;
 	margin-bottom: 6px;
-	text-align: left;
-	font-weight: bold;
 	font-size: 12px;
+	font-weight: bold;
 	color: #000;
-	width: 420px;
+	text-align: left;
+	border: 2px solid #c00;
 	}
 
 .descriptionTable {
-	border: 1px solid #CCC;
+	border: 1px solid #ccc;
 	}
 
 tr.descriptionTable td {
-	padding-left: 5px;
 	padding-top: 5px;
-	padding-bottom: 5px;
 	padding-right: 5px;
-	border-bottom: 1px solid #CCC;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	border-bottom: 1px solid #ccc;
 }
 
 tr.descriptionTableNB td {
-	padding-left: 5px;
 	padding-top: 5px;
-	padding-bottom: 5px;
 	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
 }
 
 
@@ -1658,8 +1830,9 @@ tr.descriptionTableNB td {
 
 /* QuickList Elements */
 .quicklist_container {
-	padding-top:12px;
+	padding-top: 12px;
 }
+
 div.scroll {
 	height: 206px;
 	overflow: auto;
@@ -1667,47 +1840,46 @@ div.scroll {
 
 div.watchlist_videos {
 	width: 448px;
-	background-color: #F7F7F7;
-	border: 1px #DDD solid;
+	background-color: #f7f7f7;
+	border: 1px #ddd solid;
 }
 
 .nextVideoRowDiv {
-	width:450px;
-	background-color:#DDD;
-	height:28px;
+	width: 450px;
+	height: 28px;
+	background-color: #ddd;
 }
 
 .saveRowDiv {
-	width:450px;
-	background-color:#DDD;	
+	width: 450px;
+	background-color: #ddd;
 }
 
 .quicklistActions {
-	float:right;
-	margin-top:4px;
-	margin-right:8px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 8px;
 }
 
 .hideShowButton {
-	margin-right:3px;
-	float:right;
+	float: right;
+	margin-right: 3px;
 }
 
 .saveRowSetting {
-	float:left;
-	margin-top:0px;
+	float: left;
+	margin-top: 0;
 }
 
 .nextVideoDisplay {
-	float:left;
-	margin-left:3px;
-	margin-top:1px;
+	float: left;
+	margin-top: 1px;
+	margin-left: 3px;
 }
 
-.quicklistClickableArea
-{
-	cursor:hand;
-	cursor:pointer;
+.quicklistClickableArea {
+	cursor: hand;
+	cursor: pointer;
 }
 
 
@@ -1720,68 +1892,83 @@ div.watchlist_videos {
 /* Ptch boxes - as seen on the post-signup page */
 #pitchSection {
 	margin: 10px 80px 10px 40px;
-	color: #333;
 	font-size: 12px;
+	color: #333;
 }
+
 #pitchDesc {
 margin-left: 50px;
 }
+
 .pitchBox {
-	height: 155px;
 	width: 790px;
-	margin: 10px 0;
+	height: 155px;
 	padding: 10px 0 0 160px;
+	margin: 10px 0;
 }
+
 #pitchSection #popularChannels {
 	background: url(/web/20070131215327im_/http://www.youtube.com/img/pic_postsignup_picks_790x155.gif) top left no-repeat;
 }
+
 #pitchSection #partnerChannels {
 	background: url(/web/20070131215327im_/http://www.youtube.com/img/pic_postsignup_partners_790x155.gif) top left no-repeat;
 }
+
 .pitchedItem {
-	width: 135px;
-	margin: 0 22px 0 0px;
 	float: left;
+	width: 135px;
+	margin: 0 22px 0 0;
 	text-align: left;
 }
+
 .pitchedItem img {
 	display: block;
 	margin: 2px 0 0 20px;
 }
+
 .pitchedItem .titleDiv {
-	text-indent: -20px;
 	margin-left: 20px;
+	text-indent: -20px;
 }
+
 .pitchedItem .title {
+margin: 0;
 font-weight: bold;
 color: #000;
 size: 11px;
-margin: 0px 0 0 0px;
 }
+
 .pitchedItem .info {
 	display: block;
 	margin: 2px 0 0 20px;
 	font-size: 11px;
 	color: #333;
 }
+
 .pitchedItem .info b {
 	font-weight: normal;
 	color: #000;
 }
+
 #pitchSkip {
-	vertical-align: middle;
 	padding-bottom: 30px;
 	margin-right: 20px;
+	vertical-align: middle;
 }
+
 #pitchSubscribe {
 	text-align: center;
 }
+
 #pitchButton {
 }
+
 #youtubeChannel {
-	color: #333;
 	margin-bottom: 10px;
+	color: #333;
 }
+
 #youtubeChannel #linetwo {
 	margin-left: 22px;
 }
@@ -1794,37 +1981,41 @@ margin: 0px 0 0 0px;
 /* Pagination Elements */
 
 .pagingDiv {
-	background: #CCC;
 	padding: 4px;
 	font-weight: bold;
 	text-align: right;
+	background: #ccc;
 	}
+
 .pagingDivClear {
 	padding: 3px;
 	font-weight: bold;
 	text-align: right;
 	}
+
 .pagingDivClearTop {
 	padding: 3px;
 	padding-top: 5px;
 	font-weight: bold;
 	text-align: right;
 	}
+
 .pagerCurrent {
+	padding: 1px 3px;
+	margin-right: 3px;
 	color: #000;
-	background-color: #FFF;
-	padding: 1px 3px;
-	margin-right: 3px;
+	background-color: #fff;
 	}
+
 .pagerNotCurrent {
-	color: #03C;
 	padding: 1px 3px;
 	margin-right: 3px;
+	color: #03c;
 	text-decoration: underline;
 	cursor: pointer;
 	cursor: hand;
 	}
-	
+
 
 
 
@@ -1832,17 +2023,20 @@ margin: 0px 0 0 0px;
 
 /* My Account Elements */
 
-#myaLeftCol { width: 360px; float: left; }
-#myaRightCol { width: 360px; margin-left: 375px; }
+#myaLeftCol { float: left;
+ width: 360px; }
 
-.myAccountExplanatoryText  {
+#myaRightCol { width: 360px;
+ margin-left: 375px; }
+
+.myAccountExplanatoryText {
 	float: right;
-	text-align: left;
-	margin-top: 6px;
-	width:150px;
-	margin-right: 6px;
+	width: 150px;
 	padding: 4px;
+	margin-top: 6px;
+	margin-right: 6px;
 	color: #666;
+	text-align: left;
 }
 
 
@@ -1853,22 +2047,31 @@ margin: 0px 0 0 0px;
 /* Section Color Elements */
 
 .videosColor { color: #000; }
+
 /* .videosColor { color: #900; } */
 .categoriesColor { color: #000; }
+
 /* .categoriesColor { color: #333366; } */
 .channelsColor { color: #000; }
+
 /* .channelsColor { color: #006600; } */
 .communityColor { color: #000; }
+
 /* .communityColor { color: #C60; } */
 .searchColor { color: #000; }
+
 /* .searchColor { color: #333; } */
 
 
 
 
 /* TestTube Elements */
-#ttLeft { float: left; width: 475px; }
-#ttLeft p { font-size: 14px; color: #333; line-height: 20px; }
+#ttLeft { float: left;
+ width: 475px; }
+
+#ttLeft p { font-size: 14px;
+ line-height: 20px;
+ color: #333; }
 #ttRight { margin-left: 500px; }
 
 
@@ -1882,6 +2085,7 @@ margin: 0px 0 0 0px;
      ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
      SECTION 108(a)(3)).
 */
+
 /*
 playback timings (ms):
   exclusion.robots.policy: 0.13
