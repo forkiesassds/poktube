@@ -495,6 +495,15 @@ a.title:hover {/* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "
 
 .header2 {
 	background-image: url(img/subheader.gif);
+	height: 30px; 
+	line-height: 0
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
+	border-radius: 10px 10px 0 0;
+	-webkit-box-shadow: #777 0px 0px 10px;
+	-moz-box-shadow: #777 0px 0px 10px;
+	box-shadow: #777 0px 0px 5px;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
 }
 
 .watchTags {
