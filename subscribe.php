@@ -20,7 +20,8 @@ $chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SE
 $cdf = mysqli_fetch_assoc($chanfetch);
 $Subscriptions = $cdf['subscriptions'];
 $learray = json_decode($Subscriptions);
-if (in_array($user, $learray)) {
+if ($learray == NULL) {
+} else if (in_array($user, $learray)) {
 	die("<script>window.location = 'unsubscribe.php?user=".$user."'</script>");
 }
 if ($user == $_SESSION['username']) {
