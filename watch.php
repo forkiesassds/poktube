@@ -428,13 +428,15 @@ if($count == 0) {
         </div>
         
         
-        <div id="subscribeDiv" class="smallText">
+        <div id="subscribeDiv" class="smallText" style="line-height: 26px;">
 		
-        <a 		<?php 
+        <a id="upload-button" class="action-button"		<?php 
                             if(!isset($_SESSION['username'])) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\"";
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+								<span class=\"action-button-text\">Subscribe";
 							} else if ($Uploader == $_SESSION['username']) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\"";
+								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+								<span class=\"action-button-text\">Subscribe";
 							} else {
 								$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
 								$cdf = mysqli_fetch_assoc($chanfetch);
@@ -442,18 +444,21 @@ if($count == 0) {
 								$learray = json_decode($Subscriptions);
 								//sphagetti code, but this makes it shut up if using an existing db.
 								if(!isset($Subscriptions) OR $Subscriptions == "") {
-									echo "href=\"/subscribe.php?user=".$Uploader."\"";
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									<span class=\"action-button-text\">Subscribe";
 								} else if(count(json_decode($Subscriptions)) == 0) {
-									echo "href=\"/subscribe.php?user=".$Uploader."\"";
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									<span class=\"action-button-text\">Subscribe";
 								} else if (in_array($Uploader, $learray)) {
-									echo "href=\"/unsubscribe.php?user=".$Uploader."\"";
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									<span class=\"action-button-text\">Unsubscribe";
 								} else {
-									echo "href=\"/subscribe.php?user=".$Uploader."\"";
+									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's videos\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
+									<span class=\"action-button-text\">Subscribe";
 								}
 							}
-                            ?> title="subscribe to <?php echo $Username?>'s videos">					<span class="action-button-leftcap"></span>
-					<span class="action-button-text">Subscribe</span>
-					<span class="action-button-rightcap"></span></a> to <?php echo $Username?>'s videos
+                            ?> </span>
+					<span class="action-button-rightcap" style="margin-right: 5px;"></span></a> to <?php echo $Username?>'s videos
         </div>
         
 	</div>
