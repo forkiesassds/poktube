@@ -15,9 +15,11 @@ Type these commands on your PokTube database on PHPmyAdmin, why? Because the dat
 
 No, this will not give access to that The Homer folder.
 #### March 31st 2021 database changes
-This should make reverse ordering work for members.php
+This should make reverse ordering work for members.php. it might not work, i swear.
 ```sql
-ALTER TABLE `users` CHANGE `id` `id` VARCHAR(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL AUTO_INCREMENT; 
+ALTER TABLE `users` CHANGE `id` `id` INT(64) NOT NULL;
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`id`);
 ```
 #### March 26th 2021 database changes
 This adds support for subscriptions
