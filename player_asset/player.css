@@ -2311,7 +2311,7 @@ body[data-player-size=fullscreen] #playlist-bar {
 
 .yt-uix-button-menu.yt-uix-button-menu-player .yt-uix-button-menu-item:focus,
 .yt-uix-button-menu.yt-uix-button-menu-player .yt-uix-button-menu-item:hover {
- color: #fff;
+ color: #fff !important;
  background-color: #2a55d5;
 }
 
@@ -2363,7 +2363,7 @@ body[data-player-size=fullscreen] #playlist-bar {
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item:focus span,
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item:hover span {
- color: #000;
+ color: #fff !important;
 }
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item.active {
