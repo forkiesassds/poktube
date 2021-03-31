@@ -24,36 +24,38 @@ if($count == 20) {
 }
 }
 ?>
+<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
+$vdf_alt = mysqli_fetch_assoc($query);
+if(($pages * 20) < $vdf_alt['COUNT(VideoID)']) {
+	$pages++;
+}	
+?>
 <title>Browse - PokTube</title>
-<table width="790" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#CCCCCC">
-	<tbody><tr>
-		<td><img src="img/box_login_tl.gif" width="5" height="5"></td>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-		<td><img src="img/box_login_tr.gif" width="5" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-		<td width="780">
-			<div class="moduleTitleBar">
-							<table cellpadding="0" cellspacing="0" border="0">
-				<tbody><tr valign="top">
-					<td width="260">
-						<div class="moduleTitle">Most Recent</div>
-					</td>
-					<td width="260" align="center">
-						<div style="font-weight: normal; font-size: 11px; color: #444444">
-							
-						</div>
-					</td>
-					<td width="260" align="right">
-					</td>
-				</tr>
-			</tbody></table>
 
-			</div>
+		<div class="headerRCBox">
+			<b class="rch">
+			<b class="rch1"><b></b></b>
+			<b class="rch2"><b></b></b>
+			<b class="rch3"></b>
+			<b class="rch4"></b>
+			<b class="rch5"></b>
+			</b> <div class="content">	<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+				<td width="30%">
+					<div class="headerTitle">Most Recent</div>
+				</td>
+				<td width="35%" align="center" class="smallText">
+				</td>
+				<td width="35%" align="right"><span class="label">Videos <?php echo ($count - 19)."-".($pages * 20)?> of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
+		$vdf_alt = mysqli_fetch_assoc($query);
+		echo $vdf_alt['COUNT(VideoID)'];?></span></td>
+			</tr>
+			</table>
+		</div>
+		</div>
 				
-			<div class="moduleFeatured"> 
-								<table width="770" cellpadding="0" cellspacing="0" border="0">
+	<div class="contentBox" style="background: #EEE;"> 
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr valign="top">
 
 				<tbody><?php
 $vidlist = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
@@ -75,32 +77,37 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 	if($count == 0) {
 		echo "<tr valign='top'>";
 	}
-	echo "<td width='20%' align='center'>
-			<a href='watch.php?v=".$idvideolist."&player=0'>      <div class='v120WrapperOuter'>
-         <div class='v120WrapperInner'>
-            <a id='video-url-muP9eH2p2PI' href='watch.php?v=$idvideolist' rel='nofollow'><img title='$namevideolist' src='content/thumbs/".$idvideolist.".png' onerror=\"this.src='img/default.png'\" class='vimg120' qlicon='muP9eH2p2PI' alt='$namevideolist'></a>
-         <div class='video-time'><span id='video-run-time-muP9eH2p2PI'>$lengthlist</span></div>
-		 </div>
-      </div></a>
-			<div class='moduleFeaturedTitle'><a href='watch.php?v=".$idvideolist."&player=0'>".$namevideolist."</a></div>
-			<div class='moduleFeaturedDetails'>
-				Added: ".$uploadvideolist."<br>
-				by <a href='profile.php?user=".$uploadervideolist."'>".$uploadervideolist."</a>
-			</div>		
-		</td>";
+	echo "<td width=\"20%\">
+				<div class=\"vBriefEntry\">
+		<div class=\"img\">
+			<a href='watch.php?v=$idvideolist'><img src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\" class=\"vimg\"></a>
+		</div>
+		<div class=\"title\">
+			<b><a href='watch.php?v=$idvideolist'>$namevideolist</a></b><br/>
+			<span class=\"runtime\">$lengthlist</span>
+		</div>
+		<div class=\"facets\">
+			<span class=\"grayText\">Added:</span> $uploadvideolist<br/>
+			<span class=\"grayText\">From:</span> <a href='profile.php?user=$uploadervideolist'>$uploadervideolist</a><br/>
+		</div>
+		
+	</div>";
 	$count++;
-	if($count == 4) {
+	if($count == 5) {
 		echo "</tr>";
 		$count = 0;
 	}
 	}
 ?>
-				</tbody></table>
+			</div>
+			
+			</tr>
+
+			</table>
 
 			</div>
-
-			<!-- begin paging -->
-			<div style="font-size: 13px; font-weight: bold; color: #444; text-align: right; padding: 5px 0px 5px 0px;">
+			
+			<div class="browsePagination">
 				<?php
 				$pagecount = 0;
 				while($pagecount !== $pages) {
@@ -108,18 +115,19 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 						echo "Browse Pages:";
 					}
 					$pagecount++;
-					echo "<span style='background-color: #CCC; padding: 1px 4px 1px 4px; border: 1px solid #999; margin-right: 5px;'><a href='browse.php?page=".$pagecount."'>".$pagecount."</a></span>";
+					if(!isset($_GET["page"])) {
+						$pagee = 1;
+					} else {
+						$pagee = $_GET["page"];
+					}
+					if($pagee == $pagecount)
+					{
+						echo "<span class=\"pagerCurrent\">".$pagecount."</span>";
+					} else {
+						echo "<span class=\"pagerNotCurrent\" onclick=\"location.href='/browse.php?page=".$pagecount."'\" style=\"text-decoration: underline; color:blue;\">".$pagecount."</span>";
+					}
 				}
 				?>
 			</div>
-			<!-- end paging -->
-		</td>
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="img/box_login_bl.gif" width="5" height="5"></td>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-		<td><img src="img/box_login_br.gif" width="5" height="5"></td>
-	</tr>
-</tbody></table>
+
 <?php include("footer.php"); ?>
