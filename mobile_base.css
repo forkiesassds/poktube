@@ -1,0 +1,50 @@
+body {
+	background-color: #333;
+	margin: 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFF;
+	}
+
+a:link { color: #FFDF8C; }
+a:visited { color: #FFDF8C; }
+a:hover { color: #FFDF8C; }
+
+.xlargeText { font-size: 120%; }
+.largeText { font-size: 110%; }
+.smallText { font-size: 90%; }
+.xsmallText { font-size: 80%; }
+
+#logoDiv { text-align: right; }
+#copyright { font-size: 90%; border-top: 1px dashed #666; margin-top: 10px;  padding: 5px 0px; }
+#menu { margin-top: 10px; padding-top: 5px; border-top: 1px dashed #666; }
+.menuItem { padding-bottom: 5px; align: baseline}
+.pageTitle { font-size: 120%; font-weight: bold; padding-bottom: 5px; }
+
+.vList { padding-bottom: 10px; }
+.vEntry { border-top: 1px dashed #666; margin: 3px 0px; padding-top: 3px; text-align: left;}
+.vTitle { padding-bottom: 1px; }
+.vStill { float: left; width: 80px; height: 60px; }
+.vSmallStill { width: 40px; height: 30px; border: 0px}
+.vInfo { font-size: 100%; padding-left: 2px; }
+.vLinks { padding-top: 3px; }
+.vRuntime { }
+.vRating { padding: 2px 0px; }
+.vStars { align: top }
+.vClear { clear: left; height: 1px; }
+
+.vdEntry { border-top: 1px dashed #666; margin: 3px 0px; padding-top: 3px; text-align: left; }
+.vdInfo { padding-left: 2px; }
+.vdRuntime { padding-bottom: 2px; }
+.vdDate { padding-top: 4px; font-size: 90%; }
+.vdDesc { padding-top: 5px; padding-bottom: 15px; }
+
+.gSection { border-top: 1px dashed #666; margin: 5px 0px; padding-top: 5px; }
+
+.errorBox { border: 1px solid #C00; padding: 5px; margin: 5px 0px; color: #C00; }
+
+.helpQ { font-weight:bold; }
+.helpA { margin-left:6px; }
+.helpQLink { margin-bottom:4px; }
+.toTop { margin-bottom:10px; }
+.searchTextField { color:#000; background:#FFF }
