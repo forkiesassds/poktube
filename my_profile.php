@@ -129,49 +129,37 @@ margin-top: 10px;
 	</div>
 	<div class="contentBox">
   <form action='setdesc.php' method='POST' name='setdesc' id='setdesc'>
-  <br>
   <textarea rows="4" cols="50" maxlength="500" name="desc" form="setdesc" placeholder="Input your About Me here..." style="margin: 0px; height: 67px; width: 352px; resize: none;" required="">
   <?php echo stripslashes($AboutMe);?></textarea>
   <p>500 character limit.</p>
   <input type='submit' name="submit">
  </form>
- <br>
- <br>
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Name       :
   <input type='text' value="<?php echo stripslashes($Name);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="prof_name">
   </form>
-   <br>
- <br>
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Age       :
   <input type='text' value="<?php echo stripslashes($Age);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="prof_age">
   </form>
-   <br>
- <br>
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   City       :
   <input type='text' value="<?php echo stripslashes($City);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="prof_city">
   </form>
-   <br>
- <br>
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Hometown       :
   <input type='text' value="<?php echo stripslashes($Hometown);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="prof_hometown">
   </form>
-   <br>
- <br>
  <form action="setinfo.php" method="post" enctype="multipart/form-data">
   Country       :
   <input type='text' value="<?php echo stripslashes($Country);?>" id='textbox' style="width: 250px;" name='textbox'>
   <input type="submit" value="Submit" name="prof_country">
   </form>
-   <br>
- <br></div><br>
+  </div><br>
  <div class="headerRCBox">
 	<b class="rch">
 	<b class="rch1"><b></b></b>
