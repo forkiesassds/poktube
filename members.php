@@ -25,7 +25,7 @@ if($count == 20) {
 }
 ?>
 <title>Browse - PokTube</title>
-<div style="width: 740px; margin-right: 12px;">
+<div>
 	
 		<div class="headerRCBox">
 	<b class="rch">
