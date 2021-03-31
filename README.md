@@ -17,9 +17,10 @@ No, this will not give access to that The Homer folder.
 #### March 31st 2021 database changes
 This should make reverse ordering work for members.php. it might not work, i swear.
 ```sql
-ALTER TABLE `users` CHANGE `id` `id` INT(64) NOT NULL;
+ALTER TABLE `users`
 DROP PRIMARY KEY,
 ADD PRIMARY KEY (`id`);
+ALTER TABLE `users` CHANGE `id` `id` INT(64) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
 ```
 #### March 26th 2021 database changes
 This adds support for subscriptions
