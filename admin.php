@@ -2,7 +2,7 @@
 include("admin_check.php");
 include("db.php"); 
 if(!$admin=1) {
-    echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
+    die("<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"); // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
 }?>
 	<h1>Welcome, <?php echo $_SESSION["username"];?></h1>
 <pre>

@@ -22,7 +22,7 @@ $admin = 1;
 }
 else
 {
-    echo "<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"; // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
+    die("<script>window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'</script>"); // ASGYHAHHAHAH FUNNY NSAFYNFN FYNNY YOOO FMAIY GUY FINNY MEOMTNS
 }
 
 mysqli_close($connect);
