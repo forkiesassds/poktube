@@ -7,7 +7,7 @@ include("header.php");
 if(isset($_SESSION['username'])) {
 $chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $cdf = mysqli_fetch_assoc($chanfetch);
-$Quicklist = $cdf['quickplay'];
+$Quicklist = $cdf['quicklist'];
 if(!isset($Quicklist) OR $Quicklist == "") {
 } else if(count(json_decode($Quicklist)) == 0) {
 } else {
