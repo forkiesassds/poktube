@@ -23,6 +23,24 @@ if ($detail2["registeredon"] == null) {
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="manifest" href="/manifest.webmanifest">
+<script>
+function dropdownOpen() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f28900">
 <meta name="description" content="Share your videos with friends and family">
@@ -51,15 +69,13 @@ if ($detail2["registeredon"] == null) {
 				<table cellspacing="0" cellpadding="2" border="0">
 					<tr>
 						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b>" . "$username" . "</b></td>
-		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a href='my_profile.php'>Settings</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a  href='logout.php'>Log Out</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a  href='help.php'>Help</a></td>";
+		echo "<div class='dropdown'>
+  <b><a onclick='dropdownOpen()'>$username</a></b>
+  <div id='myDropdown' class='dropdown-content'>
+    <a href='profile.php?user=$username'>My Profile</a>
+    <a href='my_profile.php'>Settings</a>
+  </div>
+</div> | <a href='logout.php'>Logout</a>";
 	} else {
 		echo "<td><a  href='signup.php'><strong>Sign Up</strong></a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
@@ -109,6 +125,8 @@ if ($detail2["registeredon"] == null) {
 							<td><a class="headertext" href="browse.php">Videos</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="members.php">Channels</a></td>
+							<td>&nbsp;|&nbsp;</td>
+							<td><a class="headertext" href="quicklist.php">QuickList</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="https://discord.gg/uGWvcDpmZS">Discord</a></td>
 							<?php if(isset($_SESSION['username'])) {
