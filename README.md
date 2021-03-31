@@ -22,7 +22,7 @@ DROP PRIMARY KEY,
 ADD PRIMARY KEY (`id`);
 ALTER TABLE `users` CHANGE `id` `id` INT(64) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
 
-ALTER TABLE `users` ADD `quickplay` TEXT NOT NULL AFTER `subscriptions`; 
+ALTER TABLE `users` ADD `quicklist` TEXT NOT NULL AFTER `subscriptions`; 
 ```
 #### March 26th 2021 database changes
 This adds support for subscriptions
