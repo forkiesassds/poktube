@@ -46,11 +46,14 @@ if($count == 20) {
 	<table width="100%" cellspacing="0" cellpadding="0" border="0">
 	<tbody>
 	<?php
-$chanfetch = mysqli_query($connect, "SELECT * FROM `users`");
+$chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY id DESC");
 $count = 0;
 
 while ($cdf = mysqli_fetch_assoc($chanfetch)) {
 $Username = htmlspecialchars($cdf['username']);
+$PreRegisteredOn = $cdf['registeredon'];
+$query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$Username."' AND `isApproved` = '1';");
+$vdf_alt = mysqli_fetch_assoc($query);
 
 	if($count == 0) {
 		echo "<tr valign='top'></tr>";
@@ -62,9 +65,8 @@ $Username = htmlspecialchars($cdf['username']);
 					<b><a href='/web/20060623021324/http://www.youtube.com/profile?user=baboy168'>$Username</a></b>
 				</div>
 				<div class='facets'>
-					<span class='grayText'>Joined:</span> 52 minutes ago<br>
-					<span class='grayText'>Videos:</span> 1<br>
-					<span class='grayText'>Viewed:</span> 0<br>
+					<span class='grayText'>Joined:</span> $PreRegisteredOn<br>
+					<span class='grayText'>Videos:</span>".$vdf_alt['COUNT(VideoID)']."<br>
 				</div>
 			</div>
 		</td>";
