@@ -47,7 +47,7 @@
  vertical-align: top;
  border: 1px solid transparent;
  border-width: 5px 5px 0;
- border-top-color: #000;
+ border-top-color: #ccc;
 }
 
 * html .yt-uix-range-tooltip-tip-arrow,
@@ -59,16 +59,16 @@
 .yt-uix-tooltip-tip-content {
  position: relative;
  padding: 0.75em;
- color: #fff;
+ color: #000;
  white-space: nowrap;
  *zoom: 1;
- background-image: linear-gradient(top, #4a4a4a 0, #000 100%);
- background-image: linear-gradient(top, #4a4a4a 0, #000 100%);
- background-image: linear-gradient(top, #4a4a4a 0, #000 100%);
- background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #4a4a4a), color-stop(100%, #000));
- background-image: linear-gradient(top, #4a4a4a 0, #000 100%);
- background-image: linear-gradient(to bottom, #4a4a4a 0, #000 100%);
- filter: progid:dximagetransform.microsoft.gradient(GradientType=0, StartColorStr=#4a4a4a, EndColorStr=#000000);
+ background-image: linear-gradient(top, #fff 0, #ccc 100%);
+ background-image: linear-gradient(top, #fff 0, #ccc 100%);
+ background-image: linear-gradient(top, #fff 0, #ccc 100%);
+ background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(100%, #ccc));
+ background-image: linear-gradient(top, #fff 0, #ccc 100%);
+ background-image: linear-gradient(to bottom, #fff 0, #ccc 100%);
+ filter: progid:dximagetransform.microsoft.gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cccccc);
  border-radius: 2px;
  border-radius: 2px;
  border-radius: 2px;
@@ -2278,8 +2278,8 @@ body[data-player-size=fullscreen] #playlist-bar {
 
 .yt-uix-button-menu.yt-uix-button-menu-player {
  padding: 0 0 3px;
- background-color: #141414;
- border: 1px solid #141414;
+ background-color: #EBEBEB;
+ border: 1px solid #EBEBEB;
  border-radius: 3px 3px 0 0;
  border-radius: 3px 3px 0 0;
  border-radius: 3px 3px 0 0;
@@ -2324,7 +2324,7 @@ body[data-player-size=fullscreen] #playlist-bar {
 .html5-popup-menu li.html5-popup-menu-header {
  padding: 4px 7px 4px 16px;
  font-size: 11px;
- color: #fff;
+ color: #000;
  white-space: nowrap;
  cursor: default;
 }
@@ -2358,21 +2358,21 @@ body[data-player-size=fullscreen] #playlist-bar {
 }
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item span {
- color: #aaa;
+ color: #555;
 }
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item:focus span,
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item:hover span {
- color: #fff;
+ color: #000;
 }
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item.active {
- color: #fff;
+ color: #000;
  list-style: disc inside none;
 }
 
 .html5-popup-menu.list-style-menu .yt-uix-button-menu-item.active span {
- color: #fff;
+ color: #000;
 }
 
 .html5-quality-popup-menu {
@@ -2394,7 +2394,7 @@ body[data-player-size=fullscreen] #playlist-bar {
  display: inline-block;
  padding: 0 3px;
  vertical-align: top;
- border-left: 1px solid #000;
+ border-left: 1px solid #fff;
  box-shadow: 1px 0 0 0 #2b2b2b inset;
  box-shadow: 1px 0 0 0 #2b2b2b inset;
  box-shadow: 1px 0 0 0 #2b2b2b inset;

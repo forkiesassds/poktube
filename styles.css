@@ -257,22 +257,41 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
     padding: 3.6px 1em;
     border: 1px solid #ccc;
     background: #f6f6f6;
-    background-image: linear-gradient(#f6f6f6, #e8e8e8);
+	background-image: -moz-linear-gradient(top, #f6f6f6 0%, #e8e8e8 100%); /* FF3.6-15 */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f6f6), color-stop(100%,#e8e8e8)); /* Chrome4-9,Safari4-5 */
+	background-image: -webkit-linear-gradient(top, #f6f6f6 0%,#e8e8e8 100%); /* Chrome10-25,Safari5.1-6 */
+	background-image: -o-linear-gradient(top, #f6f6f6 0%,#e8e8e8 100%); /* Opera 11.10-11.50 */
+	background-image: -ms-linear-gradient(top, #f6f6f6 0%,#e8e8e8 100%); /* IE10 preview */
+	background-image: linear-gradient(to bottom, #f6f6f6 0%,#e8e8e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#e8e8e8',GradientType=0 ); /* IE6-9 */
     margin-left: 0px;
     border-radius: 3px;
     font: 12px Arial,Helvetica,sans-serif;
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
 }
 
 .button:hover {
     border: 1px solid #ccc;
     background: #f6f6f6;
-    background-image: linear-gradient(#ededed, #e6e6e6);
+	background-image: -moz-linear-gradient(top, #ededed 0%, #e6e6e6 100%); /* FF3.6-15 */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#e6e6e6)); /* Chrome4-9,Safari4-5 */
+	background-image: -webkit-linear-gradient(top, #ededed 0%,#e6e6e6 100%); /* Chrome10-25,Safari5.1-6 */
+	background-image: -o-linear-gradient(top, #ededed 0%,#e6e6e6 100%); /* Opera 11.10-11.50 */
+	background-image: -ms-linear-gradient(top, #ededed 0%,#e6e6e6 100%); /* IE10 preview */
+	background-image: linear-gradient(to bottom, #ededed 0%,#e6e6e6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
 }
 
 .button:active {
     border: 1px solid #ccc;
     background: #d0d0d0;
-    background-image: linear-gradient(#d9d9d9, #fdfdfd);
+	background-image: -moz-linear-gradient(top, #d9d9d9 0%, #fdfdfd 100%); /* FF3.6-15 */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9d9d9), color-stop(100%,#fdfdfd)); /* Chrome4-9,Safari4-5 */
+	background-image: -webkit-linear-gradient(top, #d9d9d9 0%,#fdfdfd 100%); /* Chrome10-25,Safari5.1-6 */
+	background-image: -o-linear-gradient(top, #d9d9d9 0%,#fdfdfd 100%); /* Opera 11.10-11.50 */
+	background-image: -ms-linear-gradient(top, #d9d9d9 0%,#fdfdfd 100%); /* IE10 preview */
+	background-image: linear-gradient(to bottom, #d9d9d9 0%,#fdfdfd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#fdfdfd',GradientType=0 ); /* IE6-9 */
 }
 
 .moduleFeaturedTitle {

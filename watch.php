@@ -483,7 +483,7 @@ if($count == 0) {
 	<td align="right" class="smallText"><a href="/web/20060624045545/http://www.youtube.com/results?related=winekone%20filthywhore%20utnow%20morbeck%20boh3m3%20strip%20dance%20panties%20popular%20utube%20users%20mime%20beard%20kevin%20smith%20topless">See All Videos</a></td>
 	</tr></table>
 
-		<div id="side_results" class="exploreContent" name="side_results" onscroll="render_full_side()">
+		<div id="side_results" class="exploreContent" name="side_results">
 	
 		<div class="vWatchEntry">
 			<div class="vNowPlaying">
