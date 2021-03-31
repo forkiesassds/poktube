@@ -324,11 +324,11 @@ echo "<div class='headerRCBox'>
 		<div class="contentBox">
 			<div class="hpWNentry">
 				<div class="hpWNimage">
-				<a href="my_profile.php"><img src="img/downloaded/april.png" border="0"></a>
+				<img src="img/downloaded/april.png" border="0">
 				</div>
 				<div class="hpWNdesc">
-				<b><a href="my_profile.php">April Revamp</a></b><br>
-				A new design for squareBracket. This should improve the squareBracket experience.
+				<b>April Revamp</b><br>
+				A new design for squareBracket has been rolled out. It is still a work in progress.
 				</div>
 			</div> <!-- end hpWNentry -->
 			<div class="hpWNentry">
