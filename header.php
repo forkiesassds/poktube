@@ -45,7 +45,7 @@ if ($detail2["registeredon"] == null) {
 				</form>
 			</tr>
 		</table>
-		<table align="right" width="50%" cellpadding="0" cellspacing="0" border="0">
+		<table style="margin-top: 4px;" align="right" width="50%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
 				<td align="right">
 				<table cellspacing="0" cellpadding="2" border="0">
