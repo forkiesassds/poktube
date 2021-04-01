@@ -83,7 +83,7 @@ echo "
 		<div>
 ";
 $users = implode('\', \'', json_decode($Subscriptions));
-$sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader` IN ('$users') ORDER by `UploadDate` DESC LIMIT 4"); //instructions for sql
+$sqlSponsered = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader` IN ('$users') ORDER by `UploadDate` DESC LIMIT 5"); //instructions for sql
 while ($fetch = mysqli_fetch_assoc($sqlSponsered)) {
 $idvideolistSponsered = $fetch['VideoID'];
 $lengthlistSponsered = 0;
