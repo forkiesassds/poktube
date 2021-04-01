@@ -123,7 +123,7 @@ if (isset($_POST['post_comment'])) {
 	.bgtext { color: <?php echo $Text?> }
     .wrapper a { color: <?php echo $Text?> !important }
     tr.bulletin td { border-color: #<?php echo $color->lighten()?> }
-    .profileHeaders { background: #<?php echo $color->lighten()?> }
+    .content,  .rch * { background: #<?php echo $color->lighten()?> !important }
     .highlightheader { background: #<?php echo $color->lighten()?> }
     .userTable, .bulletin td, .leftBg, .commentsMsg td { background: <?php echo $Inside?> !important; }
     .userTable { border: 1px solid #<?php echo $color->lighten()?> !important; }
@@ -134,12 +134,12 @@ if (isset($_POST['post_comment'])) {
     .normalinner td { border-color: #<?php echo $color->lighten()?> !important; }
     .wrapper { color: #222222 }
     .profileTitles { color: <?php echo $Text?> }
-    .profileHeaders { color: #ffffff }
+    .headerRCBox .content { color: #ffffff }
 	#mainContent { width: 700px; margin-right: 10px; margin-left: 150px; }
 	td.bulletinRead, td.bulletinReadBottom { background-color: #<?php echo $Inside?> !important; }
 	#baseDiv { background-color: #0000 !important; }	/* FIXES WHITE BACKGROUND BUG */
 </style>
-
+<link rel="stylesheet" href="base_yts1170100257.css" type="text/css">
 <div style="margin: 0 0 13px;text-align:center">
 	<?php
 		$query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$user."' AND `isApproved` = '1';");
@@ -222,10 +222,23 @@ if(isset($_GET["page"]))
 	} else if ($_GET["page"] == "comments") {
 		echo "<div id=\"mainContent\">
 		<table class=\"commentPostTable\" style=\"width: 570px;\" cellpadding=\"0\" cellspacing=\"0\">
-			<tbody><tr class=\"profileHeaders\">
-				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Comments</div>
-                </div></td>
-            </tr>
+			<tbody><div class=\"headerRCBox\" style=\"width: 570px;\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+														Comments
+
+                            </div>
+													</span>
+												</div>
+					</div>
 		";
 		$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
 		$count = 0;
@@ -290,10 +303,23 @@ if(isset($_GET["page"]))
 		}
 		}
 		echo "<table class=\"commentPostTable\" style=\"width: 865px;\" cellpadding=\"0\" cellspacing=\"0\">
-			<tbody><tr class=\"profileHeaders\">
-				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">".$Username."'s Videos</div>
-                </div></td>
-            </tr>
+			<tbody><div class=\"headerRCBox\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+														".$Username."'s Videos
+
+                            </div>
+													</span>
+												</div>
+					</div>
 			<table class=\"rowsLine normalinner\" style=\"padding-top: 10px;padding-bottom: 10px;\" id=\"cc_718\" width=\"865\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
 
 			<tbody>
@@ -378,10 +404,23 @@ if(isset($_GET["page"]))
 		}
 		}
 		echo "<table class=\"commentPostTable\" style=\"width: 865px;\" cellpadding=\"0\" cellspacing=\"0\">
-			<tbody><tr class=\"profileHeaders\">
-				<td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">".$Username."'s Private Videos</div>
-                </div></td>
-            </tr>
+			<tbody><div class=\"headerRCBox\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+														".$Username."'s Private Videos
+
+                            </div>
+													</span>
+												</div>
+					</div>
 			<table class=\"rowsLine normalinner\" style=\"padding-top: 10px;padding-bottom: 10px;\" id=\"cc_718\" width=\"865\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
 
 			<tbody>
@@ -483,15 +522,35 @@ if(isset($_GET["page"]))
 		}
 		$bullfetch = mysqli_query($connect, "SELECT * FROM bulletins WHERE `user`='".$Username."' ORDER by `date` DESC LIMIT ".$page.", 15"); // calls for channel info
 		echo "<center>
-		        <table class=\"bulletinTable\" style=\"width:560px\" cellpadding=\"0\" cellspacing=\"0\">
-            <tbody><tr class=\"profileHeaders\">
-                <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Bulletin Board</div>
-                                            ";
+		        <table class=\"bulletinTable\" cellpadding=\"0\" cellspacing=\"0\">
+            <tbody><div class=\"headerRCBox\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+													 Bulletins
+
+
+";
 			if (isset($_SESSION['username']) AND $_SESSION['username'] == $user) {
-				echo "<div style=\"float: right; padding-right: 5px\"><a href=\"/profile.php?user=".$user."&page=write_bulletin\" class=\"edit\">Write Bulletin</a>
-                <div></div>";
+				echo "<div class=\"headerTitleRight\">
+						(<a href=\"/profile.php?user=".$user."&page=write_bulletin\" class=\"edit\">Write Bulletin</a>)
+					</div>
+				</span>
+			</div>
+		</div>";
+			} else {
+				echo "</span>
+				</div>
+			</div>";
 			}
-                        echo "</div></td>
+                        echo "
             </tr>
             <tr class=\"bulletinTitle\">
                 <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">From</span></td>
@@ -504,7 +563,8 @@ if(isset($_GET["page"]))
 		$Subject = htmlspecialchars($bdf['subject']);
 		$Date = htmlspecialchars($bdf['date']);
                                         echo "<tr class=\"bulletin\">
-                    <td align=\"center\"><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a></span></td>
+                    <td align=\"center\">
+					<a href=\"/profile.php?user=".$User."\"><img src=\"content/profpic/".$User.".png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\"></a><br/><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a></span></td>
                     <td align=\"center\">".$Date."</td>
                     <td align=\"center\">
                         <a href=\"/profile.php?user=".$Username."&page=bulletin&id=".$ID."\">".$Subject."</a>
@@ -591,9 +651,23 @@ if(isset($_GET["page"]))
             <div>&nbsp;</div>
 
             <table class=\"bulletinReadTable\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\"
-                <tbody><tr class=\"profileHeaders\">
-                    <td colspan=\"2\">&nbsp;&nbsp;Bulletin Post </td>
-                </tr>
+                <tbody><div class=\"headerRCBox\" style=\"width: 560px;\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+														Bulletin Post
+
+                            </div>
+													</span>
+												</div>
+					</div>
 
                 <tr class=\"rows normalinner\">
                     <td class=\"bulletinRead\" valign=\"top\"><div align=\"center\"><span class=\"profileTitles\">From:</span></div></td>
@@ -622,11 +696,23 @@ if(isset($_GET["page"]))
             <br>
             <center>
                 <table class=\"commentPostTable\" style=\"width:560px\" cellspacing=\"0\" cellpadding=\"0\">
-                    <tbody><tr class=\"profileHeaders\">
-                        <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">Bulletin Comments</div>
+                    <tbody><div class=\"headerRCBox\" style=\"width: 560px;\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+														Bulletin Comments
 
-                            </td>
-                    </tr>";
+                            </div>
+													</span>
+												</div>
+					</div>";
 					$sql= mysqli_query($connect, "SELECT * FROM comments WHERE `id`='".$id."' ORDER BY commentid DESC");
 
 					$count = 0;
@@ -651,7 +737,7 @@ if(isset($_GET["page"]))
                                     <span class=\"profileTitles\"><a href=\"/profile.php?user=".$usercommentlist."\">".$usercommentlist."</a></span>
                                     <br>
                                     <br>
-                                    <a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/<?php echo $usercommentlist?>.png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
+                                    <a href=\"/profile.php?user=".$usercommentlist."\"><img src=\"content/profpic/".$usercommentlist.".png\" onerror=\"this.src='img/profiledef.png'\" class=\"commentsImg\">
                                     </a></td>
                                 <td colspan=\"2\" style=\"position:relative;padding-right: 5px;\" valign=\"top\">
                                     <span class=\"profileTitles\">".$Daate."</span> <br>
@@ -759,18 +845,25 @@ if(isset($_GET["page"]))
 ?>
     <table width="865" cellpadding="0" cellspacing="0">
         <tbody><tr>
-            <td width="325" valign="top">
+            <td width="302" valign="top">
                 <table class="userTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders highlightheader">
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+														<?php echo $Username?>'s Channel
 
-                        <td colspan="2">
-                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">Hello. I'm <?php echo $Username ?></div>
-                            <div style="float: right; padding-right: 5px">
-
-
-
-                            </div></td>
-                    </tr>
+                            </div>
+													</span>
+												</div>
+					</div>
                     <tr class="rows">
 
 
@@ -804,9 +897,23 @@ if(isset($_GET["page"]))
 
 
                 <table class="connectTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td colspan="5">&nbsp;&nbsp;Connect with <?php echo $Username ?></td>
-                    </tr>
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+													 Connect with <?php echo $Username?>
+
+                            </div>
+													</span>
+												</div>
+					</div>
                     <tr class="connectRowsTop normalinner">
                         <td width="5">&nbsp;</td>
                         <td width="21" valign="middle"><img src="/img/SendMessage.gif"></td>
@@ -858,16 +965,28 @@ if(isset($_GET["page"]))
                 <div>&nbsp;</div>
 				<?php if($bcount > 0) {
 					$bullfetch = mysqli_query($connect, "SELECT * FROM bulletins WHERE `user`='".$user."' ORDER by `date` DESC LIMIT 5"); // calls for channel info
-                    echo "<table class=\"bulletinTable\" cellpadding=\"0\" cellspacing=\"0\">
-                    <tbody><tr class=\"profileHeaders\">
-                        <td colspan=\"3\">	<div style=\"float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px\">My Bulletin Board</div>
-                                                        <div style=\"float: right; padding-right: 5px\"><a href=\"/profile.php?user=".$user."&page=bulletins\" class=\"edit\">View All Bulletins</a>
-                            
-                            </div></td>
-                    </tr>
+                    $query = mysqli_query($connect, "SELECT COUNT(id) FROM bulletins WHERE `user`='".$Username."';");
+					$vdf_alt = mysqli_fetch_assoc($query);
+					echo "<table class=\"bulletinTable\" cellpadding=\"0\" cellspacing=\"0\">
+                    <tbody><div class=\"headerRCBox\">
+						<b class=\"rch\">
+						<b class=\"rch1\"><b></b></b>
+						<b class=\"rch2\"><b></b></b>
+						<b class=\"rch3\"></b>
+						<b class=\"rch4\"></b>
+						<b class=\"rch5\"></b>
+						</b> <div class=\"content\">							<div class=\"headerTitleEdit\">
+													<div class=\"headerTitleRight\">
+													</div>
+													<span>
+													 Bulletins (".$vdf_alt['COUNT(id)'].")
+
+                            </div>
+													</span>
+												</div>
+					</div>
                     <tr class=\"bulletinTitle\">
                         <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">From</span></td>
-                        <td align=\"center\" class=\"bulletinTopFirstCells\" valign=\"top\"><span class=\"profileTitles\">Date</span></td>
                         <td align=\"center\" valign=\"top\"><span class=\"profileTitles\">Bulletin</span></td>
                     </tr>";
 						while ($bdf = mysqli_fetch_assoc($bullfetch)) {
@@ -876,28 +995,46 @@ if(isset($_GET["page"]))
 							$Subject = htmlspecialchars($bdf['subject']);
 							$Date = htmlspecialchars($bdf['date']);
 							echo "<tr class=\"bulletin\">
-							<td align=\"center\"><span class=\"profileTitles\"><a href=\"/profile.php?user=".$User."\">".$User."</a></span></td>
-							<td align=\"center\">".$Date."</td>
-							<td align=\"center\">
-								<a href=\"/profile.php?user=".$User."&page=bulletin&id=".$ID."\">".$Subject."</a>
-							</td>
-							</tr>";
+								<td width=\"35%\"><a href=\"/profile.php?user=".$User."\" rel=\"nofollow\">".$User."</a>
+								<div class=\"xsmallText\">".$Date."</div></td>
+								<td align=\"left\">
+									<div><a href=\"/profile.php?user=".$Username."&page=bulletin&id=".$ID."\" rel=\"nofollow\">".$Subject."</a></div>
+								</td>
+						</tr>";
 						}
-                    echo "</tbody>
-					</table>";
+                    echo "<tr class=\"bulletin\">
+						<td colspan=\"3\" align=\"center\">
+							<span class=\"smallText\"><a href=\"/profile.php?user=".$Username."&page=bulletins\">See all ".$vdf_alt['COUNT(id)']." Bulletins</a></span>
+						</td>
+					</tr>
+				</tbody></table>
+				</div>
+				<div class=\"basicBoxesOpacity\"></div>
+			</div>";
 				}
 				?>
             </td>
 
             <td valign="top"><div style="width:15px"></div></td>
-            <td width="515px" valign="top">
+            <td width="550px" valign="top">
                 <table class="aboutTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td>	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">More About Me</div>
-                            <div style="float: right; padding-right: 5px">
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+														More About Me
 
-                            </div></td>
-                    </tr>
+                            </div>
+													</span>
+												</div>
+					</div>
 
                     <tr class="rows normalinner">
                         <td>
@@ -971,14 +1108,48 @@ if(isset($_GET["page"]))
 
                 <!--Begin Insert My Recent Videos Video Bar Here-->
                                 <table class="aboutTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td>
-                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Recent Videos</div>
-                            <div style="float: right; padding-right: 5px"><a href="/profile.php?user=<?php echo $Username?>&page=videos" class="edit">See All Videos</a>
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+																
+														Videos (<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."';");
+		$vdf_alt = mysqli_fetch_assoc($query);
+		echo $vdf_alt['COUNT(VideoID)'];?>)
+														<div class="headerTitleRight">
+															(<a href="/profile.php?user=<?php echo $Username?>&page=videos" class="edit">See All Videos</a> | <?php if (!isset($_SESSION["username"])) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Please log in to subscribe!')\"> Subscribe To";
+						}  else if ($user == $_SESSION['username']) {
+							echo "<a href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\"> Subscribe To";
+						} else {
+							$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
+							$cdf = mysqli_fetch_assoc($chanfetch);
+							$Subscriptions = $cdf['subscriptions'];
+							$learray = json_decode($Subscriptions);
+							//sphagetti code, but this makes it shut up if using an existing db.
+							if(!isset($Subscriptions) OR $Subscriptions == "") {
+								echo "<a href=\"/subscribe.php?user=".$Username."\" class=\"edit\"> Subscribe To";
+							} else if(count(json_decode($Subscriptions)) == 0) {
+								echo "<a href=\"/subscribe.php?user=".$Username."\" class=\"edit\"> Subscribe To";
+							} else if (in_array($user, $learray)) {
+								echo "<a href=\"/unsubscribe.php?user=".$Username."\" class=\"edit\"> Unsubscribe From";
+							} else {
+								echo "<a href=\"/subscribe.php?user=".$Username."\" class=\"edit\"> Subscribe To";
+							}
+						}?> Videos</a>)
+														</div>
 
-                                &nbsp;
-                            </div></td>
-                    </tr>
+                            </div>
+													</span>
+												</div>
+					</div>
                     <tr class="normalinner">
                         <td align="center">
 
@@ -1063,13 +1234,27 @@ if(isset($_GET["page"]))
                 <div>&nbsp;</div>
                                                 <!--Begin Insert My Friends Video Bar Here-->
                                 <table class="aboutTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td>
-                            <div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Friends</div>
-                            <div style="float: right; padding-right: 5px"><a href="/web/20180704185928/http://www.bitview.net/profile.php?user=doinyourmom4&amp;page=friends" class="edit">See All Friends</a>
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+																
+														My Friends (69)
+														<div class="headerTitleRight">
+															(<a href="/web/20180704185928/http://www.bitview.net/profile.php?user=doinyourmom4&amp;page=friends" class="edit">See All Friends</a>)
+														</div>
 
-                                &nbsp;
-                            </div></td></tr>
+                            </div>
+													</span>
+												</div>
+					</div>
                     <tr class="normalinner">
                         <td align="center">
 
@@ -1230,12 +1415,30 @@ if(isset($_GET["page"]))
                 <!--End Insert My Friends Video Bar Here-->
                 <div>&nbsp;</div>
                 <table class="commentPostTable" cellpadding="0" cellspacing="0">
-                    <tbody><tr class="profileHeaders">
-                        <td colspan="3">	<div style="float: left; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px">My Comments</div>
-                            <div style="float: right; padding-right: 5px"><a href="/profile.php?user=<?php echo $Username?>&page=comments" class="edit">View All Comments</a>
+                    <tbody><div class="headerRCBox">
+						<b class="rch">
+						<b class="rch1"><b></b></b>
+						<b class="rch2"><b></b></b>
+						<b class="rch3"></b>
+						<b class="rch4"></b>
+						<b class="rch5"></b>
+						</b> <div class="content">							<div class="headerTitleEdit">
+													<div class="headerTitleRight">
+													</div>
+													<span>
+																
+														Comments (<?php $query = mysqli_query($connect, "SELECT COUNT(id) FROM comments WHERE `id` = '".$Username."';");
+		$vdf_alt = mysqli_fetch_assoc($query);
+		echo $vdf_alt['COUNT(id)'];?>)
+														<div class="headerTitleRight">
+															(<a href="/profile.php?user=<?php echo $Username?>&page=comments" class="headers">See All Comments</a>)
+														</div>
 
-                            </div></td>
-                    </tr>
+                            </div>
+													</span>
+												</div>
+					</div>
+						</div>
 
 					<?php
 					$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid");
