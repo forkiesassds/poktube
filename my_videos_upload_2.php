@@ -45,7 +45,7 @@ function check_for_partner($sql, $user) {
 }
 
 function check_mime($mime) {
-	$mimes = array("video/3gpp2", "video/3gpp", "video/x-ms-asf", "video/x-msvideo", "video/mpeg", "video/x-flv", "video/x-h261", "video/x-h263", "video/x-m4v","video/x-matroska", "video/webm", "video/x-mjpeg", "video/mp4", "video/mpeg", "video/MP2T", "video/x-nut", "video/ogg");
+	$mimes = array("video/3gpp2", "video/3gpp", "video/x-ms-asf", "video/x-msvideo", "video/mpeg", "video/x-flv", "video/x-h261", "video/x-h263", "video/x-m4v","video/x-matroska", "video/webm", "video/x-mjpeg", "video/mp4", "video/mpeg", "video/MP2T", "video/x-nut", "video/ogg", "video/quicktime");
 	if(!in_array($mime, $mimes)) {
 		return false;
 	} else {
@@ -82,7 +82,7 @@ if (!file_exists($preload_folder)) {
 						die("ERROR: Could not connect. " . mysqli_connect_error()); // cannot connect to database therefore it stops uploading
 						}
 						if(!check_mime($_FILES['fileToUpload']['type'])) {
-							echo "<center><h1>Your video is an incompatible format.<br>To continue uploading this video, convert it to a supported format.</h1></center>";
+							echo "<center><h1>Your video is an incompatible format.<br>To continue uploading this video, convert it to a supported format.<br>If it is a video, we might not support it. Here is the information for the developers<pre>MIME_TYPE:".$_FILES['fileToUpload']['type']."\n FILE_EXTENSION:".pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION)."</pre></h1></center>";
 							die();
 						}
 						$width = exec("ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 ".$target_file);
