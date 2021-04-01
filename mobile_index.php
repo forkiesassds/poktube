@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM/DTD XHTML Mobile 1.0//EN" "http://wapforum.org/DTD/xhtml.mobile.dtd">
 <?php include "db.php"?>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Recently Featured</title>
 	<link href="mobile_base.css" rel="stylesheet" type="text/css">
 </head>
-
 <body vlink="#FFDF8C" link="#FFDF8C" bgcolor="#333333" alink="#FFDF8C">
 
 	<table width="100%"><tbody><tr>
