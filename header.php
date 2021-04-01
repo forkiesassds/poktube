@@ -34,9 +34,6 @@ window.onclick = function(event) {
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
     }
   }
 }
@@ -70,7 +67,7 @@ window.onclick = function(event) {
 					<tr>
 						<?php if(isset($_SESSION["username"])) {
 		echo "<div class='dropdown'>
-  <b><a onclick='dropdownOpen()'>$username</a></b>
+  <b><a style='cursor: default;' onclick='dropdownOpen()'>$username</a></b>
   <div id='myDropdown' class='dropdown-content'>
     <a href='profile.php?user=$username'>My Profile</a>
     <a href='my_profile.php'>Settings</a>
