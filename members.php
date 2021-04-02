@@ -62,7 +62,7 @@ $vdf_alt = mysqli_fetch_assoc($query);
 			<div class='vBriefEntry'>
 				<div class='img'><a href='profile.php?user=$Username'><img src='content/profpic/$Username.png' onerror=\"this.src='img/profiledef.png'\" class='vimg'></a></div>
 				<div class='title'>
-					<b><a href='/web/20060623021324/http://www.youtube.com/profile?user=baboy168'>$Username</a></b>
+					<b><a href='profile.php?user=$Username'>$Username</a></b>
 				</div>
 				<div class='facets'>
 					<span class='grayText'>Joined:</span> $PreRegisteredOn<br>
