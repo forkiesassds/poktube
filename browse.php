@@ -66,9 +66,9 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 	echo "		<td width='25%'>
 				<div class='v120vEntry'>
 			<div style='margin-top:-20px;'>
-		<div class='vstill'><a href='watch?v=$idvideolist'><img src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\" class='vimg'></a></div>
+		<div class='vstill'><a href='watch.php?v=$idvideolist'><img src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\" class='vimg'></a></div>
 		<div class='vtitle'>
-			<a href='/web/20061111083351/http://www3.youtube.com/watch?v=Y2Oy8QOoIvA'>$namevideolist</a><br>
+			<a href='watch.php?v=$idvideolist'>$namevideolist</a><br>
 			<span class='runtime'>$lengthlist</span>
 		</div>
 
