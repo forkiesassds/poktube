@@ -22,11 +22,3 @@ die(); // just dies
 	echo $vid;
 }
 ?>
-
-<?php
-header("content-type: text/plain");
-ob_start();
-$vid = $_GET["video_id"];
-$asset = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "content/video/ILVD_hJun4vlz2ExZ09CWYswQb/DgO73cE0VXaxSWAh6t4Rv_8mkK.mp4");
-echo $asset;
-?>
