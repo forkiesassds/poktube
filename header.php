@@ -45,7 +45,7 @@ if ($color_scheme === false) $color_scheme = 'light';  // fallback
 ?>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
 <script>
-	// code to set the `color_scheme` cookie
+	// code to set the `color_scheme` cookie (which is retarded because it hard codes only two options. fix it.)
 	var $color_scheme = Cookies.get("color_scheme");
 	function get_color_scheme() {
 		return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
@@ -63,6 +63,9 @@ if ($color_scheme === false) $color_scheme = 'light';  // fallback
 <?php
   if ($color_scheme == 'dark') {
     echo "<link rel='stylesheet' href='styles-dark.css'>";
+  }
+  if ($color_scheme == 'modern') {
+    echo "<link rel='stylesheet' href='styles-modern.css'>";
   }
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
