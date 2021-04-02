@@ -6,9 +6,8 @@ if(!isset($_GET["page"])){
 if(isset($_GET["page"])){
 if($_GET["page"] == 1) {
 	$page = 1;
-}
-if($_GET["page"] && $_GET["page"] > 1){
-	$page = $_GET["page"] * 20;
+} else {
+$page = ($_GET["page"] * 20) + 1;
 }
 }
 $page = $page - 1;
@@ -26,7 +25,7 @@ if($count == 20) {
 ?>
 <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
 $vdf_alt = mysqli_fetch_assoc($query);
-if(($pages * 20) < $vdf_alt['COUNT(VideoID)']) {
+if(($pages * 20) <= $vdf_alt['COUNT(VideoID)']) {
 	$pages++;
 }	
 ?>
@@ -35,7 +34,7 @@ if(($pages * 20) < $vdf_alt['COUNT(VideoID)']) {
 <div id="sectionHeader" class="videosColor">
 	<div class="my"><a href="/web/20061111083351/http://www3.youtube.com/my_videos"><img src="/img/btn_myvideo_104x25.gif" alt="myvideos" width="104" height="25" border="0"></a></div>
 	<div class="name">Videos</div>
-	<span class="title_browse">Most Recent (<?php echo ($count - 19)."-".($pages * 20)?> of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
+	<span class="title_browse">Most Recent (<?php echo ($page + 1)."-".($page + 20)?> of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
 		$vdf_alt = mysqli_fetch_assoc($query);
 		echo $vdf_alt['COUNT(VideoID)'];?>)</span>
 </div>
