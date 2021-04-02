@@ -30,34 +30,21 @@ if(($pages * 20) < $vdf_alt['COUNT(VideoID)']) {
 	$pages++;
 }	
 ?>
-<title>Browse - PokTube</title>
-
-		<div class="headerRCBox">
-			<b class="rch">
-			<b class="rch1"><b></b></b>
-			<b class="rch2"><b></b></b>
-			<b class="rch3"></b>
-			<b class="rch4"></b>
-			<b class="rch5"></b>
-			</b> <div class="content">	<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
-				<td width="30%">
-					<div class="headerTitle">Most Recent</div>
-				</td>
-				<td width="35%" align="center" class="smallText">
-				</td>
-				<td width="35%" align="right"><span class="label">Videos <?php echo ($count - 19)."-".($pages * 20)?> of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
+<title>Browse - squareBracket</title>
+<div id="mainContent"><br>
+<div id="sectionHeader" class="videosColor">
+	<div class="my"><a href="/web/20061111083351/http://www3.youtube.com/my_videos"><img src="/img/btn_myvideo_104x25.gif" alt="myvideos" width="104" height="25" border="0"></a></div>
+	<div class="name">Videos</div>
+	<span class="title_browse">Most Recent (<?php echo ($count - 19)."-".($pages * 20)?> of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
 		$vdf_alt = mysqli_fetch_assoc($query);
-		echo $vdf_alt['COUNT(VideoID)'];?></span></td>
-			</tr>
-			</table>
-		</div>
-		</div>
-				
-	<div class="contentBox" style="background: #EEE;"> 
-			<table cellpadding="0" cellspacing="0" border="0" width="100%">
-				<tr valign="top">
-
-				<tbody><?php
+		echo $vdf_alt['COUNT(VideoID)'];?>)</span>
+</div>
+<div id="mainContentWithNav">
+		
+	
+	<br><br>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0">
+            	<tbody><tr valign="top"><?php
 $vidlist = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC LIMIT ".$page.", 20");
 $count = 0;
 
@@ -77,42 +64,37 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 	if($count == 0) {
 		echo "<tr valign='top'>";
 	}
-	echo "<td width=\"20%\">
-				<div class=\"vBriefEntry\">
-		<div class=\"img\">
-			<a href='watch.php?v=$idvideolist'><img src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\" class=\"vimg\"></a>
+	echo "		<td width='25%'>
+				<div class='v120vEntry'>
+			<div style='margin-top:-20px;'>
+		<div class='vstill'><a href='watch?v=$idvideolist'><img src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\" class='vimg'></a></div>
+		<div class='vtitle'>
+			<a href='/web/20061111083351/http://www3.youtube.com/watch?v=Y2Oy8QOoIvA'>$namevideolist</a><br>
+			<span class='runtime'>$lengthlist</span>
 		</div>
-		<div class=\"title\">
-			<b><a href='watch.php?v=$idvideolist'>$namevideolist</a></b><br/>
-			<span class=\"runtime\">$lengthlist</span>
+
+		<div class='vfacets'>
+			<span class='grayText'>Added:</span>$uploadvideolist<br>
+			<span class='grayText'>From:</span> <a href='profile.php?user=$uploadervideolist'>$uploadervideolist</a><br>
 		</div>
-		<div class=\"facets\">
-			<span class=\"grayText\">Added:</span> $uploadvideolist<br/>
-			<span class=\"grayText\">From:</span> <a href='profile.php?user=$uploadervideolist'>$uploadervideolist</a><br/>
-		</div>
-		
-	</div>";
+			</div>
+	</div> <!-- end vEntry / this is like the 3rd fucking time we redesigned this one fucking page-->";
 	$count++;
-	if($count == 5) {
+	if($count == 4) {
 		echo "</tr>";
 		$count = 0;
 	}
 	}
 ?>
-			</div>
+	</tbody></table>
+		<div class="footerBox">
 			
-			</tr>
-
-			</table>
-
-			</div>
-			
-			<div class="browsePagination">
+					<div class="pagingDiv">
 				<?php
 				$pagecount = 0;
 				while($pagecount !== $pages) {
 					if($pagecount == 0) {
-						echo "Browse Pages:";
+						echo "Pages: ";
 					}
 					$pagecount++;
 					if(!isset($_GET["page"])) {
@@ -128,6 +110,17 @@ $viewsvideolist = htmlspecialchars($fetch['ViewCount']);
 					}
 				}
 				?>
-			</div>
+			</div> <!-- end pagingDiv -->
+
+
+
+
+		</div>
+	
+
+
+</div>
+			
+			</div></div>
 
 <?php include("footer.php"); ?>

@@ -1,272 +1,79 @@
-<?php
-$id_bitview = $_GET["v"];
-$vidInfo_bitview = json_decode(file_get_contents("https://www.bitview.net/api.php?ty=video&ta=".$id_bitview)); 
-$video_title_bitview = str_replace("\"", "'", $vidInfo_bitview->title);
-$desc_bitview = $vidInfo_bitview->description;
-$tags_bitview = $vidInfo_bitview->tags;
-$uploader_bitview = $vidInfo_bitview->upload_by;
-$UserInfo_bitview = json_decode(file_get_contents("https://www.bitview.net/api.php?ty=user&ta=".$uploader_bitview)); 
-$comments_bitview = $vidInfo_bitview->comment_num;
-$views_bitview = $vidInfo_bitview->display_views;
-$upload_date_bitview = $vidInfo_bitview->upload_date;
-$user_videos_bitview = $UserInfo_bitview->videos;
-$user_friends_bitview = $UserInfo_bitview->friends;
-$Username == $uploader_bitview;
-?>
-<?php
-require_once __DIR__ . '/lib/BBCode/BBCode.php';
-require_once __DIR__ . '/lib/BBCode/Tag.php';
-include("header.php");
-$share_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$embed_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]/embed.php?v=".$_GET['v'];
+<?php 
+include("header.php"); 
 
-function limit_echo($x, $length)
-{
-  if(strlen($x)<=$length)
-  {
-    echo $x;
-  }
-  else
-  {
-    $y=substr($x,0,$length) . '...';
-    echo $y;
-  }
-}
+$id = $_GET["v"];
+$vidInfo = json_decode(file_get_contents("https://www.bitview.net/api.php?ty=video&ta=".$id)); 
+$video_title = str_replace("\"", "'", $vidInfo->title);
+$desc = $vidInfo->description;
+$tags = $vidInfo->tags;
+$uploader = $vidInfo->upload_by;
+$UserInfo = json_decode(file_get_contents("https://www.bitview.net/api.php?ty=user&ta=".$uploader)); 
+$comments = $vidInfo->comment_num;
+$views = $vidInfo->display_views;
+$upload_date = $vidInfo->upload_date;
+$user_videos = $UserInfo->videos;
+$user_friends = $UserInfo->friends;
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
-$VideoName = "No title.";
-$VideoDesc = "No description.";
-$Uploader = "Unknown";
-$UploadDate = "Unknown";
-$loaded = 0;
-
-function makeClickableLinks($s) {
-  return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $s);
-}
-
-function makeClickableLinksLimit($s) {
-  return preg_replace('@(http(s)?)?(://)?(([a-zA-Z])([-\w]+\.)+([^\s\.]+[^\s]*)+[^,.\s])@', '<a href="$1" target="_blank">$1</a>', $s);
+$URL = "http://www.bitview.net/embed.php?v=$id&wt=0";
+$Fetched_Contents = file_get_contents($URL);
+if (preg_match('/<source(.*?)src="(.*?).mp4(.*?)"/i', $Fetched_Contents, $MP4_Link)){
+    $Complete_MP4_Link = "{$MP4_Link[2]}.mp4{$MP4_Link[3]}";
 }
 ?>
-<html>
-<link rel="stylesheet" href="watch_yts1149717226.css" type="text/css">
-<style>
-#masthead {
-    width: 100%;
-}
-</style>
-<script>
-function openDiv (elName) {
-	var theElemenet = document.getElementById(elName);
-	if (theElemenet) {
-		theElemenet.style.display = "block";
-	}
-}
-function closeDiv (elName) {
-	var theElemenet = document.getElementById(elName);
-	if (theElemenet) {
-		theElemenet.style.display = "none";
-	}
-}
-
-function selectLink (elName) {
-	var theElement = document.getElementById(elName);
-	if (theElement) {
-		theElement.className = "selectedNavLink";
-	}
-}
-function unSelectLink (elName) {
-	var theElement = document.getElementById(elName);
-	if (theElement) {
-		theElement.className = "unSelectedNavLink";
-	}
-}
-
-function blurElement (elName) {
-	var theElement = document.getElementById(elName);
-	if (theElement) {
-		theElement.blur();
-	}
-}
-
-function selectNavLink (linkName) {
-	if (linkName == "exRelatedLink") {
-		closeDiv("exUserDiv");
-		closeDiv("exPlaylistDiv");
-		openDiv("exRelatedDiv");
-		unSelectLink("exPlaylistLink");
-		unSelectLink("exUserLink");
-		selectLink("exRelatedLink");
-		blurElement("exRelatedLink");
-	}
-	if (linkName == "exPlaylistLink") {
-		closeDiv("exRelatedDiv");
-		closeDiv("exUserDiv");
-		openDiv("exPlaylistDiv");
-		unSelectLink("exUserLink");
-		unSelectLink("exRelatedLink");
-		selectLink("exPlaylistLink");
-		blurElement("exPlaylistLink");
-	}
-	if (linkName == "exUserLink") {
-		closeDiv("exRelatedDiv");
-		closeDiv("exPlaylistDiv");
-		openDiv("exUserDiv");
-		unSelectLink("exPlaylistLink");
-		unSelectLink("exRelatedLink");
-		selectLink("exUserLink");
-		blurElement("exUserLink");
-	}
-}
-
-function showRelatedVideosContent() {
-	selectNavLink('exRelatedLink');
-}
-
-function showRelatedPlaylistContent() {
-	selectNavLink('exPlaylistLink');
-}
-
-function showRelatedUserContent() {
-	selectNavLink('exUserLink');
-}
-</script>
-<title><?php echo $video_title_bitview ?> - SquareBracket</title>
-<meta name="title" content="<?php echo $video_title_bitview ?> - PokTube">
-<meta name="description" content="<?php echo $video_title_bitview ?>">
-<body><table width="930" cellpadding="0" cellspacing="0" border="0" align="center">
+<div class="tableSubTitle">BitView Frontend Prototype</div>
+<p>This is the BitView Frontend. This isn't currently using the code from the actual watch page, but that's because it's really fucking clunky and I just want to test shit.</p>
+<table width="930" cellspacing="0" cellpadding="0" border="0" align="center">
 	<tbody><tr>
-		<td bgcolor="#FFFFFF" style="padding-bottom: 25px;">
-<script>
-	function getFormVars(form) 
-	{	var formVars = new Array();
-		for (var i = 0; i < form.elements.length; i++)
-		{
-			var formElement = form.elements[i];
-			formVars[formElement.name] = formElement.value;
-		}
-		return urlEncodeDict(formVars);
-	}
-
-	function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
-		if(!CheckLogin()) 
-			return false;
-		printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form);
-	}
-	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
-
-		var div_id = "div_" + form_id;
-		var reply_id = "reply_" + form_id;
-		var reply_comment_form = "comment_form" + form_id;
-		
-		if (is_main_comment_form)
-			discard_visible="style='display: none'";
-		else
-			discard_visible="";
-		
-		var innerHTMLContent = '\
-		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>\
-		<form name="' + reply_comment_form + '" id="' + reply_comment_form + '" method="post" action="comment_servlet" >\
-			<input type="hidden" name="video_id" value="pTrJLz2Nwsg">\
-			<input type="hidden" name="add_comment" value="">\
-			<input type="hidden" name="form_id" value="' + reply_comment_form + '">\
-			<input type="hidden" name="reply_parent_id" value="' + reply_parent_id + '">\
-			<textarea tabindex="2" name="comment" cols="55" rows="3"></textarea>\
-			<br>\
-			Attach a video:\
-			<select name="field_reference_video">\
-				<option value="">- Your Videos -</option>\
-				<option value="">- Your Favorite Videos -</option>\
-			</select>\
-			<input type="button" name="add_comment_button" \
-								value="Post Comment" \
-								onclick="postThreadedComment(\'' + reply_comment_form + '\');">\
-			<input type="button" name="discard_comment_button"\
-								value="Discard" ' + discard_visible + '\
-								onclick="hideCommentReplyForm(\'' + form_id + '\',false);">\
-		</form></div>';
-		if(!is_main_comment_form) {
-			toggleVisibility(reply_id, false);
-		}
-		toggleVisibility(div_id, true);
-		setInnerHTML(div_id, innerHTMLContent);
-	}
-</script>
+		<td style="padding-bottom: 25px;" bgcolor="#FFFFFF">
 <div align="center">
-
-
-
-
-
 </div>
-
-<table width="930" align="center" cellpadding="0" cellspacing="0" border="0">
-	<tr valign="top">
-		<td width="515" style="padding-right: 15px;">
+<table width="930" cellspacing="0" cellpadding="0" border="0" align="center">
+	<tbody><tr valign="top">
+		<td style="padding-right: 15px;" width="515">
 		<div id="watch-vid-title" class="title">
-			<h1><?php echo $video_title_bitview ?></h1>
+			<h1><?php echo $video_title?></h1>
 		</div>
 		<div style="font-size: 13px; font-weight: bold; text-align:center;">
-     	<tbody><tr valign="top">
-		<td width="510" style="padding-right: 15px;">
-			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
-			</div>
-		</div>
+     	</div></td></tr></tbody><tbody><tr valign="top">
+		<td style="padding-right: 15px;" width="510">
+			<video src="<?php $Complete_MP4_Link?>" poster="movie.jpg" controls>
+	This is fallback content to display for user agents that do not support the video tag.
+</video>
+		
 <br>
 <!--todo: readd the box which contains some info, but it might all just be features unimplemented. maybe add video replies????-->
 <a name="comment"></a>
 
 		<div style="padding-bottom: 5px; font-weight: bold; color: #444;">Comment on this video:</div>
-				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="<?php echo $vid; ?>"><textarea tabindex="2" name="comment" cols="78" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" class="button" value="Post Comment" onclick="postThreadedComment(&#39;comment_formmain_comment&#39;);">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm(&#39;main_comment&#39;,false);">		</form></div>
+				<div id="div_main_comment">		<div style="padding-bottom: 5px; font-weight: bold; color: #444; display: none;">Comment on this video:</div>		<form name="comment_formmain_comment" id="comment_formmain_comment" method="post" action="comment.php"><input type="hidden" name="video_id" value="8a9wg0Zd36q"><textarea tabindex="2" name="comment" cols="78" rows="3"></textarea>			<br>			<input type="submit" name="add_comment_button" class="button" value="Post Comment" onclick="postThreadedComment('comment_formmain_comment');">			<input type="button" name="discard_comment_button" value="Discard" style="display: none" onclick="hideCommentReplyForm('main_comment',false);">		</form></div>
 		
 		
 <br>
 		
-<h2>Comments (<?php echo $commentcount; ?>):</h2>
-<?php
-$sql= mysqli_query($connect, "SELECT * FROM comments ORDER BY commentid DESC");
-
-$count = 0;
-
-while ($searchcomments = mysqli_fetch_assoc($sql)) { // get comments for video
-$usercommentlist = htmlspecialchars($searchcomments['user']); // commente
-$datecommentlist = $searchcomments['date']; // comment date
-$messagecommentlist = htmlspecialchars($searchcomments['comment']); // actual text for comment
-$idcommentlist = $searchcomments['id']; // comment id, to get descending order to work
-$hidden = $searchcomments['hidden']; // hidden comments are for deleted videos
-
-$bbcode = new ChrisKonnertz\BBCode\BBCode();
-$bbcode->ignoreTag('spoiler');
-$bbcode->ignoreTag('youtube');
-$bbcode->ignoreTag('img');
-$rendered = $bbcode->render($messagecommentlist);
-if ($idcommentlist == $vid AND $hidden != 1) {
-echo "<div class='commentEntry' id='comment_LdOoXgR5prs'>
-				<div class='commentHead'>
-				<div id='watch-channel-icon' class='user-thumb-small'><a href='/profile.php?user=$usercommentlist' onmousedown=''><img src='content/profpic/$usercommentlist.png' onerror='this.src='img/profiledef.png'' alt='Channel Icon'></a></div>
-					<b><a href='profile.php?user=$usercommentlist'>$usercommentlist</a></b>
-					<span class='smallText'> $datecommentlist </span>
+<h2>Comments (2):</h2>
+<div class="commentEntry" id="comment_LdOoXgR5prs">
+				<div class="commentHead">
+				<div id="watch-channel-icon" class="user-thumb-small"><a href="/profile.php?user=konqi" onmousedown=""><img src="content/profpic/konqi.png" onerror="this.src=" img="" profiledef.png''="" alt="Channel Icon"></a></div>
+					<b><a href="profile.php?user=konqi">konqi</a></b>
+					<span class="smallText"> 2021-01-30 </span>
 				</div>
-				<div class='commentBody'>
-					$rendered
+				<div class="commentBody">
+					so this is epic
 				</div>
-			</div>";
-$count++; // count the amount of comments
-}
-}
-if($count == 0) {
-	echo "<p style='padding: 10px; font-size: 15px;'>No comments found.</p>"; // echos "no comments found" if no comments
-}
-?>
-		
+			</div><div class="commentEntry" id="comment_LdOoXgR5prs">
+				<div class="commentHead">
+				<div id="watch-channel-icon" class="user-thumb-small"><a href="/profile.php?user=chaziz" onmousedown=""><img src="content/profpic/chaziz.png" onerror="this.src=" img="" profiledef.png''="" alt="Channel Icon"></a></div>
+					<b><a href="profile.php?user=chaziz">chaziz</a></b>
+					<span class="smallText"> 2021-01-29 </span>
+				</div>
+				<div class="commentBody">
+					HOLY SHIT IT WORKS
+				</div>
+			</div>		
 
 		</td>
 		<td width="280">
-		</div>
+		
 		<div class="headerRCBox">
 	<b class="rch">
 	<b class="rch1"><b></b></b>
@@ -280,14 +87,12 @@ if($count == 0) {
 		<div id="uploaderInfo">
 				<div>
 				<div id="watch-channel-icon" class="user-thumb-medium">
-				<a href="/profile.php?user=<?php echo $Uploader ?>" onmousedown=""><img src="content/profpic/<?php echo $Uploader ?>.png" onerror="this.src='img/profiledef.png'" alt="Channel Icon"></a>
+				<a href="/profile.php?user=chaziz" onmousedown=""><img src="img/profiledef.png" onerror="this.src='img/profiledef.png'" alt="Channel Icon"></a>
 			</div>
-					<span class="smallLabel">Added on</span> <b class="smallText"><?php echo $UploadDate ?></b><br>
-					<span class="smallLabel">by</span> <b><a href="/profile.php?user=<?php echo $Uploader ?>"><?php echo $Uploader ?></a></b>
+					<span class="smallLabel">Added on</span> <b class="smallText">January 29, 2021</b><br>
+					<span class="smallLabel">by</span> <b><a href="/profile.php?user=chaziz">chaziz</a></b>
 					<span class="xsmallText">
-							(<?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$Uploader."' AND `isApproved` = '1';");
-		$vdf_alt = mysqli_fetch_assoc($query);
-		echo $vdf_alt['COUNT(VideoID)'];?> videos)
+							(4 videos)
 						<!-- 1 hour ago) -->
 						<!-- 38 favorites -->
 					</span>
@@ -301,8 +106,7 @@ if($count == 0) {
         	<!-- <b>Vblog - how to be popular on youtube</b>
 			(<span class="runtime">06:27</span>)<br/> -->
 			<span id="vidDescBegin">
-			<?php echo $VideoDesc ?>
-			</span>
+			a			</span>
 		</div>
 		
 		<div id="vidTagsWrapper">
@@ -318,12 +122,12 @@ if($count == 0) {
             <table id="vidURLTable">
             <tbody><tr><td><span class="label">URL</span></td>
             <td>
-            <input name="video_link" type="text" value="<?php echo $share_link ?>" class="vidURLField" onclick="javascript:document.urlForm.video_link.focus();document.urlForm.video_link.select();" readonly="true">
+            <input name="video_link" type="text" value="http://localhost:90/watch.php?v=8a9wg0Zd36q" class="vidURLField" onclick="javascript:document.urlForm.video_link.focus();document.urlForm.video_link.select();" readonly="true">
             </td>
             </tr>
             <tr><td><span class="smallLabel">Embed</span></td>
             <td>
-            <input name="embed_code" type="text" value="<iframe width='650' height='380' src='<?php echo $embed_link?>' frameborder='0' allowfullscreen></iframe>" class="vidURLField" onclick="javascript:document.urlForm.embed_code.focus();document.urlForm.embed_code.select();" readonly="true">
+            <input name="embed_code" type="text" value="<iframe width='650' height='380' src='http://localhost:90/embed.php?v=8a9wg0Zd36q' frameborder='0' allowfullscreen></iframe>" class="vidURLField" onclick="javascript:document.urlForm.embed_code.focus();document.urlForm.embed_code.select();" readonly="true">
             </td></tr>
             </tbody></table>
             </form>
@@ -332,44 +136,13 @@ if($count == 0) {
         
         <div id="subscribeDiv" class="smallText" style="line-height: 26px;">
 		
-        <a class="action-button"		<?php 
-                            if(!isset($_SESSION['username'])) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Log in to subscribe!')\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-								<span class=\"action-button-text\">Subscribe</span>
-								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
-							} else if ($Uploader == $_SESSION['username']) {
-								echo "href=\"javascript:void(0)\" onclick=\"alert('Why are you trying to subscribe to yourself?')\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-								<span class=\"action-button-text\">Subscribe</span>
-								<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
-							} else {
-								$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION['username'] ."'"); // calls for channel info
-								$cdf = mysqli_fetch_assoc($chanfetch);
-								$Subscriptions = $cdf['subscriptions'];
-								$learray = json_decode($Subscriptions);
-								//sphagetti code, but this makes it shut up if using an existing db.
-								if(!isset($Subscriptions) OR $Subscriptions == "") {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
-								} else if(count(json_decode($Subscriptions)) == 0) {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
-								} else if (in_array($Uploader, $learray)) {
-									echo "href=\"/unsubscribe.php?user=".$Uploader."\" title=\"unsubscribe from $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-									<span class=\"action-button-text\">Unsubscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> from $Username's channel";
-								} else {
-									echo "href=\"/subscribe.php?user=".$Uploader."\" title=\"subscribe to $Username's channel\" style=\"line-height: 13px;\">					<span class=\"action-button-leftcap\"></span>
-									<span class=\"action-button-text\">Subscribe</span>
-									<span class=\"action-button-rightcap\" style=\"margin-right: 5px;\"></span></a> to $Username's channel";
-								}
-							}
-                            ?> 
+        <a class="action-button" href="javascript:void(0)" onclick="alert('Why are you trying to subscribe to yourself?')" title="subscribe to chaziz's channel" style="line-height: 13px;">					<span class="action-button-leftcap"></span>
+								<span class="action-button-text">Subscribe</span>
+								<span class="action-button-rightcap" style="margin-right: 5px;"></span></a> to chaziz's channel 
         </div>
         
 	</div>
-	<br/>
+	<br>
 	<div class="headerRCBox">
 	<b class="rch">
 	<b class="rch1"><b></b></b>
@@ -379,93 +152,159 @@ if($count == 0) {
 	<b class="rch5"></b>
 	</b> <div class="content"><span class="headerTitleLite">Explore More Videos</span></div>
 	</div>
-	</div>
+	
 
 	<div id="exploreDiv" class="contentBox">
 
-		<table id="exSubNavTable"><tr>
+		<table id="exSubNavTable"><tbody><tr>
 		<td><a href="#" id="exRelatedLink" class="selectedNavLink" onclick="selectNavLink('exRelatedLink'); return false;">Related</a></td>
 		<!--<td align="center"><a href="#" id="exPlaylistLink" class="unSelectedNavLink eLink" onclick="showRelatedPlaylistContent(); return false;">Playlists</a></td>-->
-		<td align="right"><a href="#" id="exUserLink" class="unSelectedNavLink eLink" onclick="selectNavLink('exUserLink'); return false;"><span class="smallText"><?php echo $Username?>'s</span> Videos</a></td>
-		</tr></table>
+		<td align="right"><a href="#" id="exUserLink" class="unSelectedNavLink eLink" onclick="selectNavLink('exUserLink'); return false;"><span class="smallText">chaziz's</span> Videos</a></td>
+		</tr></tbody></table>
 		
 
 			<div id="exRelatedDiv" style="display: block;">
-				<table class="showingTable"><tr>
-	<td class="smallText">Showing 1-20 of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
-		$vdf_alt = mysqli_fetch_assoc($query);
-		echo $vdf_alt['COUNT(VideoID)'];?></td>
-	<td align="right" class="smallText"><a href="/web/20060624045545/http://www.youtube.com/results?related=winekone%20filthywhore%20utnow%20morbeck%20boh3m3%20strip%20dance%20panties%20popular%20utube%20users%20mime%20beard%20kevin%20smith%20topless">See All Videos</a></td>
-	</tr></table>
+				<table class="showingTable"><tbody><tr>
+	<td class="smallText">Showing 1-20 of 10</td>
+	<td class="smallText" align="right"><a href="/web/20060624045545/http://www.youtube.com/results?related=winekone%20filthywhore%20utnow%20morbeck%20boh3m3%20strip%20dance%20panties%20popular%20utube%20users%20mime%20beard%20kevin%20smith%20topless">See All Videos</a></td>
+	</tr></tbody></table>
 
 		<div id="side_results" class="exploreContent" name="side_results">
 	
 		<div class="vWatchEntry">
 			<div class="vNowPlaying">
-		<table><tr>
+		<table><tbody><tr>
 		<td><div class="img">
-				<a href="<?php echo $share_link ?>"><img class="vimgSm" src='content/thumbs/<?php echo $vid ?>.png' onerror="this.src='img/default.png'"></a></div></td>
-		<td><div class="title"><b><a href="<?php echo $share_link ?>"><?php echo $VideoName ?></a></b><br/>
-			<span class="runtime"><?php echo $length ?></span>
+				<a href="http://localhost:90/watch.php?v=8a9wg0Zd36q"><img class="vimgSm" src="content/thumbs/8a9wg0Zd36q.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="http://localhost:90/watch.php?v=8a9wg0Zd36q">A scrapped PF94 YTP from mid-2018</a></b><br>
+			<span class="runtime">00:00</span>
 			</div>
 			<div class="facets">
-				<span class="grayText">From:</span> <a href="/profile.php?user=?php echo $Username ?>"><?php echo $Username ?></a><br/>
+				<span class="grayText">From:</span> <a href="/profile.php?user=?php echo $Username ?>">chaziz</a><br>
 			</div>
 				<div class="smallText">
 				<b>&lt;&lt; Now Playing</b>
 				</div>
-			</div></td>
-		</tr></table>
+			</td>
+		</tr></tbody></table>
 		</div> <!-- end vNowPlaying -->
 		</div> <!-- end vWatchEntry -->
 		
-		<?php				
-		$x = 1; 
-		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC"); //instructions for sql
-
-		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
-		if ($x == 20) {
-			break;
-		}
-		$idvideolist = $fetch['VideoID'];
-		$lengthlist = 0;
-		if($fetch['VideoLength'] > 3600) {
-			$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
-		} else { 
-			$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
-		};
-		$namevideolist = htmlspecialchars($fetch['VideoName']);
-		$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
-		$viewsvideolist = $fetch['ViewCount'];
-		$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
-
-		if ($idvideolist !== $vid) {
-		echo "		<div class=\"vWatchEntry\">
-		<table><tr>
-		<td><div class=\"img\">
-				<a href=\"/watch.php?v=$idvideolist\"><img class=\"vimgSm\" src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\"/></a></div></td>
-		<td><div class=\"title\"><b><a href=\"/watch.php?v=$idvideolist\">$namevideolist</a></b><br/>
-			<span class=\"runtime\">$lengthlist</span>
+				<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=SynEdsa1zWK"><img class="vimgSm" src="content/thumbs/SynEdsa1zWK.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=SynEdsa1zWK">The funny</a></b><br>
+			<span class="runtime">00:00</span>
 			</div>
-			<div class=\"facets\">
-				<span class=\"grayText\">From:</span> <a href=\"/profile.php?user=$uploadervideolist\">$uploadervideolist</a><br/>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=AverageRetard">AverageRetard</a><br>
 			</div>
-			</div></td>
-		</tr></table>
-		</div> <!-- end vWatchEntry -->";
-		$x++;
-		}
-		}
-		?>
-	
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=kQX0huz-3Fb"><img class="vimgSm" src="content/thumbs/kQX0huz-3Fb.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=kQX0huz-3Fb">sex</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=WSQ2RtTrDIm"><img class="vimgSm" src="content/thumbs/WSQ2RtTrDIm.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=WSQ2RtTrDIm">test</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=QHy0XcM9BVE"><img class="vimgSm" src="content/thumbs/QHy0XcM9BVE.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=QHy0XcM9BVE">Another Test</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=konqi">konqi</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=0v2LH9FkTRb"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=0v2LH9FkTRb">BFB Intro!</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=konqi">konqi</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=wLyb4h1f5SC"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=wLyb4h1f5SC">Secks with The Children</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=konqi">konqi</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=Od9SekaBvo3"><img class="vimgSm" src="content/thumbs/Od9SekaBvo3.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=Od9SekaBvo3">When the suffer</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=konqi">konqi</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=fc2ayqsOtIK"><img class="vimgSm" src="content/thumbs/fc2ayqsOtIK.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=fc2ayqsOtIK">GoFaggort</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=konqi">konqi</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+		<table><tbody><tr>
+		<td><div class="img">
+				<a href="/watch.php?v=zksyfohptgd"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
+		<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">PokTube Trailer</a></b><br>
+			<span class="runtime">00:00</span>
+			</div>
+			<div class="facets">
+				<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
+			</div>
+			</td>
+		</tr></tbody></table>
+		</div> <!-- end vWatchEntry -->	
 	</div>
 
-			<table class="showingTable"><tr>
-	<td class="smallText">Showing 1-20 of <?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1';");
-		$vdf_alt = mysqli_fetch_assoc($query);
-		echo $vdf_alt['COUNT(VideoID)'];?></td>
-	<td align="right" class="smallText"><a href="/web/20060624045545/http://www.youtube.com/results?related=winekone%20filthywhore%20utnow%20morbeck%20boh3m3%20strip%20dance%20panties%20popular%20utube%20users%20mime%20beard%20kevin%20smith%20topless">See All Videos</a></td>
-	</tr></table>
+			<table class="showingTable"><tbody><tr>
+	<td class="smallText">Showing 1-20 of 10</td>
+	<td class="smallText" align="right"><a href="/web/20060624045545/http://www.youtube.com/results?related=winekone%20filthywhore%20utnow%20morbeck%20boh3m3%20strip%20dance%20panties%20popular%20utube%20users%20mime%20beard%20kevin%20smith%20topless">See All Videos</a></td>
+	</tr></tbody></table>
 			</div> <!-- end exRelatedDiv -->
 			
 			
@@ -475,88 +314,72 @@ if($count == 0) {
 			
 			
 			<div id="exUserDiv" style="display: none">
-			<table class="showingTable"><tr>
-	<td class="smallText"><?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."';");
-		$vdf_alt = mysqli_fetch_assoc($query);
-		if ($vdf_alt['COUNT(VideoID)'] < 75) {
-			echo "Showing 1-".$vdf_alt['COUNT(VideoID)']." of ".$vdf_alt['COUNT(VideoID)'];
-		} else {
-			echo "Showing 1-75 of ".$vdf_alt['COUNT(VideoID)'];
-		}?></td>
-	<td align="right" class="smallText"><a href="/profile.php?user=<?php echo $Username?>&page=videos">See All Videos</a></td>
-	</tr></table>
+			<table class="showingTable"><tbody><tr>
+	<td class="smallText">Showing 1-4 of 4</td>
+	<td class="smallText" align="right"><a href="/profile.php?user=chaziz&amp;page=videos">See All Videos</a></td>
+	</tr></tbody></table>
 
 		<div id="side_results" class="exploreContent" name="side_results" onscroll="render_full_side()">
 	
-			<?php				
-			$x = 1; 
-			$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."' ORDER by `UploadDate` DESC"); //instructions for sql
-
-			while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
-			if ($x == 76) {
-				break;
-			}
-			$idvideolist = $fetch['VideoID'];
-			$lengthlist = 0;
-			if($fetch['VideoLength'] > 3600) {
-				$lengthlist = floor($fetch['VideoLength'] / 3600) . ":" . gmdate("i:s", $fetch['VideoLength'] % 3600);
-			} else { 
-				$lengthlist = gmdate("i:s", $fetch['VideoLength'] % 3600) ;
-			};
-			$namevideolist = htmlspecialchars($fetch['VideoName']);
-			$uploadervideolist = htmlspecialchars($fetch['Uploader']); // get recommendations information
-			$viewsvideolist = $fetch['ViewCount'];
-			$uploadedvideolist = htmlspecialchars($fetch['UploadDate']);
-
-			if ($idvideolist !== $vid) {
-			echo "		<div class=\"vWatchEntry\">
-			<table><tr>
-			<td><div class=\"img\">
-					<a href=\"/watch.php?v=$idvideolist\"><img class=\"vimgSm\" src='content/thumbs/$idvideolist.png' onerror=\"this.src='img/default.png'\"/></a></div></td>
-			<td><div class=\"title\"><b><a href=\"/watch.php?v=$idvideolist\">$namevideolist</a></b><br/>
-				<span class=\"runtime\">$lengthlist</span>
+					<div class="vWatchEntry">
+			<table><tbody><tr>
+			<td><div class="img">
+					<a href="/watch.php?v=kQX0huz-3Fb"><img class="vimgSm" src="content/thumbs/kQX0huz-3Fb.png" onerror="this.src='img/default.png'"></a></div></td>
+			<td><div class="title"><b><a href="/watch.php?v=kQX0huz-3Fb">sex</a></b><br>
+				<span class="runtime">00:00</span>
 				</div>
-				<div class=\"facets\">
-					<span class=\"grayText\">From:</span> <a href=\"/profile.php?user=$uploadervideolist\">$uploadervideolist</a><br/>
+				<div class="facets">
+					<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
 				</div>
-				</div></td>
-			</tr></table>
-			</div> <!-- end vWatchEntry -->";
-			$x++;
-			} else {
-				echo "		<div class=\"vWatchEntry\">
-				<div class=\"vNowPlaying\">
-			<table><tr>
-			<td><div class=\"img\">
-					<a href=\"$share_link\"><img class=\"vimgSm\" src='content/thumbs/$vid.png' onerror=\"this.src='img/default.png'\"></a></div></td>
-			<td><div class=\"title\"><b><a href=\"$share_link\">$VideoName</a></b><br/>
-				<span class=\"runtime\">$length</span>
+				</td>
+			</tr></tbody></table>
+			</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+			<table><tbody><tr>
+			<td><div class="img">
+					<a href="/watch.php?v=WSQ2RtTrDIm"><img class="vimgSm" src="content/thumbs/WSQ2RtTrDIm.png" onerror="this.src='img/default.png'"></a></div></td>
+			<td><div class="title"><b><a href="/watch.php?v=WSQ2RtTrDIm">test</a></b><br>
+				<span class="runtime">00:00</span>
 				</div>
-				<div class=\"facets\">
-					<span class=\"grayText\">From:</span> <a href=\"/profile.php?user=$Username>\">$Username</a><br/>
+				<div class="facets">
+					<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
 				</div>
-					<div class=\"smallText\">
+				</td>
+			</tr></tbody></table>
+			</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+			<table><tbody><tr>
+			<td><div class="img">
+					<a href="/watch.php?v=zksyfohptgd"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
+			<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">PokTube Trailer</a></b><br>
+				<span class="runtime">00:00</span>
+				</div>
+				<div class="facets">
+					<span class="grayText">From:</span> <a href="/profile.php?user=chaziz">chaziz</a><br>
+				</div>
+				</td>
+			</tr></tbody></table>
+			</div> <!-- end vWatchEntry -->		<div class="vWatchEntry">
+				<div class="vNowPlaying">
+			<table><tbody><tr>
+			<td><div class="img">
+					<a href="http://localhost:90/watch.php?v=8a9wg0Zd36q"><img class="vimgSm" src="content/thumbs/8a9wg0Zd36q.png" onerror="this.src='img/default.png'"></a></div></td>
+			<td><div class="title"><b><a href="http://localhost:90/watch.php?v=8a9wg0Zd36q">A scrapped PF94 YTP from mid-2018</a></b><br>
+				<span class="runtime">00:00</span>
+				</div>
+				<div class="facets">
+					<span class="grayText">From:</span> <a href="/profile.php?user=chaziz>">chaziz</a><br>
+				</div>
+					<div class="smallText">
 					<b>&lt;&lt; Now Playing</b>
 					</div>
-				</div></td>
-			</tr></table>
+				</td>
+			</tr></tbody></table>
 			</div> <!-- end vNowPlaying -->
-			</div> <!-- end vWatchEntry -->";
-			}
-			}
-			?>
-
+			</div> <!-- end vWatchEntry -->
 			</div> 
-						<table class="showingTable"><tr>
-	<td class="smallText"><?php $query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `isApproved` = '1' AND `Uploader`='".$Username."';");
-		$vdf_alt = mysqli_fetch_assoc($query);
-		if ($vdf_alt['COUNT(VideoID)'] < 75) {
-			echo "Showing 1-".$vdf_alt['COUNT(VideoID)']." of ".$vdf_alt['COUNT(VideoID)'];
-		} else {
-			echo "Showing 1-75 of ".$vdf_alt['COUNT(VideoID)'];
-		}?></td>
-	<td align="right" class="smallText"><a href="/profile.php?user=<?php echo $Username?>&page=videos">See All Videos</a></td>
-	</tr></table>
+						<table class="showingTable"><tbody><tr>
+	<td class="smallText">Showing 1-4 of 4</td>
+	<td class="smallText" align="right"><a href="/profile.php?user=chaziz&amp;page=videos">See All Videos</a></td>
+	</tr></tbody></table>
 			<!-- end exUserDiv -->
 
 		
@@ -575,4 +398,6 @@ if($count == 0) {
 		</td>
 	</tr>
 </tbody></table>
-<?php include('footer.php') ?></body></html>
+<?php 
+include("footer.php"); 
+?>
