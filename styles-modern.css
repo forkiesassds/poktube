@@ -1,5 +1,14 @@
 /* SOUR CREAM */
 
+.header1 {
+    padding: 10px 0px 2px 0px;
+    border-radius: 0px 0px 0 0;
+}
+
+.header2 { 
+    background-image: none;
+}
+
 body {
-background: none;
+    background: #f9f9f9;
 }
