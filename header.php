@@ -38,6 +38,33 @@ window.onclick = function(event) {
   }
 }
 </script>
+<!--code taken from https://stackoverflow.com/a/62024831-->
+<?php
+$color_scheme = isset($_COOKIE["color_scheme"]) ? $_COOKIE["color_scheme"] : false;
+if ($color_scheme === false) $color_scheme = 'light';  // fallback
+?>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
+<script>
+	// code to set the `color_scheme` cookie
+	var $color_scheme = Cookies.get("color_scheme");
+	function get_color_scheme() {
+		return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+    }
+    function update_color_scheme() {
+		Cookies.set("color_scheme", get_color_scheme());
+	}
+	// read & compare cookie `color-scheme`
+	if ((typeof $color_scheme === "undefined") || (get_color_scheme() != $color_scheme))
+		update_color_scheme();
+	// detect changes and change the cookie
+	if (window.matchMedia)
+		window.matchMedia("(prefers-color-scheme: dark)").addListener( update_color_scheme );
+</script>
+<?php
+  if ($color_scheme == 'dark') {
+    echo "<link rel='stylesheet' href='styles-dark.css'>";
+  }
+?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f28900">
 <meta name="description" content="Share your videos with friends and family">
@@ -46,7 +73,13 @@ window.onclick = function(event) {
 </head>
 <table class="header1" width="960px" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="squareBracket" border="0"></a></td>
+		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="<?php
+if ($color_scheme == 'dark') {
+	echo "img/logo-dark.png";
+} else {
+	echo "img/logo.png";
+}
+?>" alt="squareBracket" border="0"></a></td>
 		<td valign="top">
 				<table width="40%" align="left" cellpadding="2" cellspacing="0" border="0">
 			<tr>
