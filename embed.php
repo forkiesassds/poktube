@@ -22,15 +22,15 @@ if ($isApproved != 1) {
 		$admin = 1;
 		} else {
 			include("header.php");
-			echo "<div class='tableSubTitle'>403</div>
-			Are you still trying to bypass this error by loading up a private video in a embed player?";
+			echo "<div class='tableSubTitle'>Embed Error</div>
+			This video ethier does not exist, or is not approved";
 			include("footer.php");
 			die();
 		}
 	} else {
 		include("header.php");
-		echo "<div class='tableSubTitle'>403</div>
-		Are you still trying to bypass this error by loading up a private video in a embed player?";
+		echo "<div class='tableSubTitle'>Embed Error</div>
+		This video ethier does not exist, or is not approved";
 		include("footer.php");
 		die();
 	}
@@ -63,7 +63,7 @@ $name = "PLACEHOLDER";
 
   
 </head>
-  <body id="" class="date-20120609 en_US ltr ytg-old-clearfix " dir="ltr">
+  <body id="" class="date-20120609 light-theme en_US ltr ytg-old-clearfix " dir="ltr">
 
 <div id="watch-longform-ad" class="hid">
   <div id="watch-longform-text">
