@@ -3431,10 +3431,10 @@ tr,
 	background: transparent;
 }
 
-textarea {
-    color: white;
-    background: black;
-    border: 1px solid #141414;
+textarea, input[name="title"] {
+    color: white !important;
+    background: black !important;
+    border: 1px solid #141414 !important;
 }
 
 div[style="padding-bottom: 5px; font-weight: bold; color: #444;"] {
