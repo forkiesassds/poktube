@@ -1233,7 +1233,7 @@ if(isset($_GET["page"]))
 
                 <div>&nbsp;</div>
                                                 <!--Begin Insert My Friends Video Bar Here-->
-                                <table class="aboutTable" cellpadding="0" cellspacing="0">
+                                <!--<table class="aboutTable" cellpadding="0" cellspacing="0">
                     <tbody><div class="headerRCBox">
 						<b class="rch">
 						<b class="rch1"><b></b></b>
@@ -1384,7 +1384,7 @@ if(isset($_GET["page"]))
                                         </td>
                                         <td><img src="/img/RightSingleArrowOff.gif" onclick="fri_change(2)" style="cursor:pointer" id="friarr2" border="0"></td>
                                     </tr>
-                                    </tbody></table>
+                                    </tbody></table>-->
                                 <script>
                                     function fri_change(num) {
                                         if (num != 0 && num != 4 && document.getElementById("fril"+num)) {
