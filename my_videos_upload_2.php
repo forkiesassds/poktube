@@ -32,6 +32,17 @@ function delete_directory($dirname) {
      return true;
 }
 
+function resizeSizeAndKeepAspectRatio ($oldwidth, $oldheight, $width, $height) {
+	$ratio_orig = $oldwidth/$oldheight;
+
+	if ($width/$height > $ratio_orig) {
+	   $width = $height*$ratio_orig;
+	} else {
+	   $height = $width/$ratio_orig;
+	}
+	return $width.":".$height;
+}
+
 function check_for_partner($sql, $user) {
 	$userfetch = mysqli_query($sql, "SELECT * FROM users WHERE username='". $user ."'");
 	$userinf = mysqli_fetch_assoc($userfetch);
@@ -111,11 +122,11 @@ if (!file_exists($preload_folder)) {
 						$uploader = mysqli_real_escape_string($connect, $username);
 						echo check_for_partner($connect, $username);
 						if (check_for_partner($connect, $username) && $width && $height > 240) {
-							exec("ffmpeg -i ".$target_file." -vf scale=-854:480  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4");
+							exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 854, 480) ."  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4");
 						} else {
 							$hq_target_file = "";
 						}
-						exec("ffmpeg -i ".$target_file." -vf scale=-426:240  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4"); 
+						exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 426, 240) ."  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4"); 
 						$failcount = 0;
 						
 						clearstatcache();
