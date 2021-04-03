@@ -28,28 +28,28 @@ if ($detail2["registeredon"] == null) {
 </head>
 <table class="header_profile" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo.png" alt="PokTube" border="0"></a></td>
+		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo-dark.png" alt="PokTube" border="0"></a></td>
 		<td valign="top">
 		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">
-			<td align="left" class="headertext" id="needsToBeBlack" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide!</td>
+			<td align="left" class="headertext" style="padding: 0px 5px 0px 5px; font-style: italic;">Upload, tag and share your videos worldwide! (todo: replace this header with a smaller compact header meant for profiles)</td>
 				<td align="right">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<?php if(isset($_SESSION["username"])) {
-		echo "<td><b id='needsToBeBlack' class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
+		echo "<td><b class='headertext'>Hello, <div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px; font-size: 12px; font-weight: bold; float: right; margin: -2px 0px 0px 0px;\"><img src=\"content/profpic/" . $_SESSION["username"] . ".png\" onerror=\"this.src='img/profiledef.png'\" width=\"18\" height=\"18\"></div>".$username."</a></b></td>
 		<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a id='needsToBeBlack' class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
+<td><a class='headertext' href='profile.php?user=" . $_SESSION["username"] ."'>My Profile</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a id='needsToBeBlack' class='headertext' href='logout.php'>Log Out</a></td>
+<td><a class='headertext' href='logout.php'>Log Out</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a id='needsToBeBlack' class='headertext' href='help.php'>Help</a></td>";
+<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
 	} else {
-		echo "<td><a id='needsToBeBlack' class='headertext' href='signup.php'><strong>Sign Up</strong></a></td>
+		echo "<td><a class='headertext' href='signup.php'><strong>Sign Up</strong></a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a id='needsToBeBlack' class='headertext' href='login.php'>Log In</a></td>
+<td><a class='headertext' href='login.php'>Log In</a></td>
 <td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a id='needsToBeBlack' class='headertext' href='help.php'>Help</a></td>";
+<td style='padding-right: 5px;'><a class='headertext' href='help.php'>Help</a></td>";
 	}?>
 
 				
