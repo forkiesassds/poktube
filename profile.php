@@ -1384,7 +1384,7 @@ if(isset($_GET["page"]))
                                         </td>
                                         <td><img src="/img/RightSingleArrowOff.gif" onclick="fri_change(2)" style="cursor:pointer" id="friarr2" border="0"></td>
                                     </tr>
-                                    </tbody></table>-->
+                                    </tbody></table>
                                 <script>
                                     function fri_change(num) {
                                         if (num != 0 && num != 4 && document.getElementById("fril"+num)) {
