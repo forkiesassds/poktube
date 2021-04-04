@@ -131,11 +131,13 @@ if (!file_exists($preload_folder)) {
 						
 						clearstatcache();
 						if ( 0 == filesize("video/".$url_id.".mp4")) {
+							echo "filesize of video/".$url_id.".mp4 is 0";
 							unlink("video/".$url_id.".mp4");
 							delete_directory($preload_folder);
 							$failcount++;
 						}
 						if ( check_for_partner($connect, $username) && $width && $height > 240 && 0 == filesize("video/".$url_id.".hq.mp4") ) {
+							echo "filesize of video/".$url_id.".hq.mp4 is 0";
 							unlink("video/".$url_id.".hq.mp4");
 							delete_directory($preload_folder);
 							$failcount++;
@@ -146,7 +148,6 @@ if (!file_exists($preload_folder)) {
 						}
 						exec($thumbcmd);
 						$datenow = date('Y-m-d H:i:s');
-						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 						$stmt = $connect->prepare("INSERT INTO videodb (VideoID, VideoName, VideoDesc, Uploader, UploadDate, isApproved, ViewCount, VideoCategory, VideoFile, HQVideoFile, VideoLength, CustomThumbnail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); // add title, desc, through prepared statements
 						$stmt->bind_param("ssssssssssss", $url_id, $title, $desc, $uploader, $datenow, $none, $none, $category, $target_file, $hq_target_file, $length, $none);
 						// set params
@@ -159,7 +160,10 @@ if (!file_exists($preload_folder)) {
 						$stmt->execute();
 						$stmt = $connect->prepare("UPDATE users SET recent_vid = ? WHERE username = '".$uploader."'"); // add title, desc, through prepared statements
 						$stmt->bind_param("s", $url_id);
-						$stmt->execute();
+						if(!mysqli_stmt_execute($stmt)) {
+							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.<br>Debug information: <br><pre>".mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT)."</pre></h1></center>";
+							die();
+						}
 						delete_directory($preload_folder);
 						echo "<script>window.location.replace('watch.php?v=".$url_id."');</script>";
 			} else {
