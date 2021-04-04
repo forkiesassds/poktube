@@ -7,7 +7,7 @@ if(isset($_GET["page"])){
 if($_GET["page"] == 1) {
 	$page = 1;
 } else {
-$page = ($_GET["page"] * 20) + 1;
+$page = (($_GET["page"] - 1) * 20) + 1;
 }
 }
 $page = $page - 1;
