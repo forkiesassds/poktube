@@ -40,6 +40,8 @@ function resizeSizeAndKeepAspectRatio ($oldwidth, $oldheight, $width, $height) {
 	} else {
 	   $height = $width/$ratio_orig;
 	}
+	$width = round(($width / 2)) * 2;
+	$height = round(($height / 2)) * 2;
 	return $width.":".$height;
 }
 
