@@ -98,17 +98,17 @@ if (!file_exists($preload_folder)) {
 						}
 						$width = exec("ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 ".$target_file);
 						$height = exec("ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 ".$target_file);
-						$length = round(exec("ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ".$target_file));
 						$checkerror = exec("ffmpeg -v error -i ".$target_file." -f null - >error.log 2>&1");
 						if ( '' == file_get_contents("error.log") )
 						{
 							// good file, continues with process of uploading
 							unlink("error.log");
 						} else {
-							echo "<center><h1>Your video is invalid or corrupt. Please choose a different file.</h1></center>";
+							echo "<center><h1>Your video is invalid or corrupt. Please choose a different file.<br>DEBUG INFO:<br><pre>".file_get_contents("error.log")."</pre></h1></center>";
 							delete_directory($preload_folder);
 							die();
 						}
+						$length = round(exec("ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ".$target_file));
 						if($width && $height < 2160) {
 							// continues with upload
 						} else {
@@ -122,11 +122,11 @@ if (!file_exists($preload_folder)) {
 						$uploader = mysqli_real_escape_string($connect, $username);
 						echo check_for_partner($connect, $username);
 						if (check_for_partner($connect, $username) && $width && $height > 240) {
-							exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 854, 480) ."  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4");
+							exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 854, 480) ."  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4 2>&1", $output);
 						} else {
 							$hq_target_file = "";
 						}
-						exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 426, 240) ."  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4"); 
+						exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 426, 240) ."  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4 2>&1", $output_hq); 
 						$failcount = 0;
 						
 						clearstatcache();
@@ -141,7 +141,7 @@ if (!file_exists($preload_folder)) {
 							$failcount++;
 						}
 						if($failcount >= 1) {
-							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.</h1></center>";
+							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.<br>DEBUG INFO:<br><pre>"; echo $output; if (isset($output_hq)) { echo $output_hq; } echo "</pre></h1></center>";
 							die();
 						}
 						exec($thumbcmd);
