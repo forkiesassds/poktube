@@ -141,7 +141,7 @@ if (!file_exists($preload_folder)) {
 							$failcount++;
 						}
 						if($failcount >= 1) {
-							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.<br>DEBUG INFO:<br><pre>"; echo $output; if (isset($output_hq)) { echo $output_hq; } echo "</pre></h1></center>";
+							echo "<center><h1>Your video was unable to be uploaded.<br>If you see this screen, report it to staff/admin.<br>DEBUG INFO:<br><pre>"; print_r($output); if (isset($output_hq)) { print_r($output_hq); } echo "</pre></h1></center>";
 							die();
 						}
 						exec($thumbcmd);
