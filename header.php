@@ -39,10 +39,6 @@ window.onclick = function(event) {
 }
 </script>
 <!--code taken from https://stackoverflow.com/a/62024831-->
-<?php
-$color_scheme = isset($_COOKIE["color_scheme"]) ? $_COOKIE["color_scheme"] : false;
-if ($color_scheme === false) $color_scheme = 'light';  // fallback
-?>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
 <script>
 	// code to set the `color_scheme` cookie (which is retarded because it hard codes only two options. fix it.)
@@ -59,14 +55,17 @@ if ($color_scheme === false) $color_scheme = 'light';  // fallback
 	// detect changes and change the cookie
 	if (window.matchMedia)
 		window.matchMedia("(prefers-color-scheme: dark)").addListener( update_color_scheme );
+	}
 </script>
 <?php
-  if ($color_scheme == 'dark') {
-    echo "<link rel='stylesheet' href='styles-dark.css'>";
-  }
-  if ($color_scheme == 'modern') {
-    echo "<link rel='stylesheet' href='styles-modern.css'>";
-  }
+$color_scheme = isset($_COOKIE["color_scheme"]) ? $_COOKIE["color_scheme"] : false;
+if ($color_scheme === false) $color_scheme = 'light';  // fallback
+if ($color_scheme == 'dark') {
+	echo "<link rel='stylesheet' href='styles-dark.css'>";
+}
+if ($color_scheme == 'modern') {
+	echo "<link rel='stylesheet' href='styles-modern.css'>";
+}
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f28900">
@@ -162,6 +161,8 @@ if ($color_scheme == 'dark') {
 							<td><a class="headertext" href="quicklist.php">QuickList</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="https://discord.gg/uGWvcDpmZS">Discord</a></td>
+							<td>&nbsp;|&nbsp;</td>
+							<td><a class="headertext" href="/forum/">Forums</a></td>
 							<?php if(isset($_SESSION['username'])) {
 								if($detail2["is_admin"] == 1) {
 									echo "<td>&nbsp;|&nbsp;</td>
