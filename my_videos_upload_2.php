@@ -58,7 +58,7 @@ function check_for_partner($sql, $user) {
 }
 
 function check_mime($mime) {
-	$mimes = array("video/3gpp2", "video/3gpp", "video/x-ms-asf", "video/x-msvideo", "video/mpeg", "video/x-flv", "video/x-h261", "video/x-h263", "video/x-m4v","video/x-matroska", "video/webm", "video/x-mjpeg", "video/mp4", "video/mpeg", "video/MP2T", "video/x-nut", "video/ogg", "video/quicktime");
+	$mimes = array("video/3gpp2", "video/3gpp", "video/x-ms-asf", "video/x-msvideo", "video/mpeg", "video/x-flv", "video/x-h261", "video/x-h263", "video/x-m4v","video/x-matroska", "video/webm", "video/x-mjpeg", "video/mp4", "video/mpeg", "video/MP2T", "video/x-nut", "video/ogg", "video/quicktime", "video/avi");
 	if(!in_array($mime, $mimes)) {
 		return false;
 	} else {
