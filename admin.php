@@ -98,7 +98,6 @@ echo "<div class='moduleEntry'>
 				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
 			</tr>
 		</table>
-		</div>
 			<!-- end recently featured -->
 
 
@@ -175,8 +174,6 @@ echo "<div class='moduleEntry'>
 				<td><img src="img/box_login_br.gif" width="5" height="5"></td>
 			</tr>
 		</table>
-		</div>
-	</div>
 			<!-- end recently featured -->
 
 	<h3>Declined</h3>
