@@ -494,7 +494,7 @@ if($count == 0) {
 			<span class="runtime"><?php echo $length ?></span>
 			</div>
 			<div class="facets">
-				<span class="grayText">From:</span> <a href="/profile.php?user=?php echo $Username ?>"><?php echo $Username ?></a><br/>
+				<span class="grayText">From:</span> <a href="/profile.php?user=<?php echo $Username ?>"><?php echo $Username ?></a><br/>
 			</div>
 				<div class="smallText">
 				<b>&lt;&lt; Now Playing</b>
