@@ -50,15 +50,15 @@ if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
 		else
 		{
 			include("header.php");
-			echo "<div class='tableSubTitle'>403</div>
-			Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+			echo "<div class='tableSubTitle'>Embed Error</div>
+			This video ethier does not exist, or is not approved";
 			include("footer.php");
 			die();
 		}
 	} else {
 		include("header.php");
-		echo "<div class='tableSubTitle'>403</div>
-		Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+		echo "<div class='tableSubTitle'>Embed Error</div>
+		This video ethier does not exist, or is not approved";
 		include("footer.php");
 		die();
 	}
