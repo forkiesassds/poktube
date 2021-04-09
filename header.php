@@ -55,7 +55,6 @@ window.onclick = function(event) {
 	// detect changes and change the cookie
 	if (window.matchMedia)
 		window.matchMedia("(prefers-color-scheme: dark)").addListener( update_color_scheme );
-	}
 </script>
 <?php
 $color_scheme = isset($_COOKIE["color_scheme"]) ? $_COOKIE["color_scheme"] : false;
