@@ -82,6 +82,21 @@ if ($isApproved != 1) {
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
 $udf = mysqli_fetch_assoc($userfetch);
 
+if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
+	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+	$adf = mysqli_fetch_assoc($result);
+	$admin = 0;
+	if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+	{
+	$admin = 1;
+	}
+	else
+	{
+		echo "<script>window.location.replace('/?vexist=2');</script>";
+		die();
+	}
+}
+
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);

@@ -22,15 +22,6 @@
 	color: #000 !important !important;
 }
 
-.alert {
-  color: black !important;
-  background-color: #0bbcc9 !important;
-}
-
-.alert:hover {
-  background-color: #0fc3cf !important;
-}
-
 body {
 	color: #ddd !important;
 	background: url("/img/www-refreshbg-vflC3wnbM-dark.png") !important;

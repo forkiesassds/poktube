@@ -36,6 +36,33 @@ if ($isApproved != 1) {
 		die();
 	}
 }
+$userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
+$udf = mysqli_fetch_assoc($userfetch);
+if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
+	if(isset($_SESSION["username"])) {
+		$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+		$adf = mysqli_fetch_assoc($result);
+		$admin = 0;
+		if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+		{
+		$admin = 1;
+		}
+		else
+		{
+			include("header.php");
+			echo "<div class='tableSubTitle'>403</div>
+			Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+			include("footer.php");
+			die();
+		}
+	} else {
+		include("header.php");
+		echo "<div class='tableSubTitle'>403</div>
+		Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+		include("footer.php");
+		die();
+	}
+}
 
 $image = "content/thumbs/". $vid .".png"; // set this for thumbnail
 $name = ""; // self-explanatory

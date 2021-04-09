@@ -55,12 +55,68 @@ if(($_GET["vexist"]) == 0){
 				<td><img src=\"img/box_login_br.gif\" width=\"5\" height=\"5\"></td>
 			</tr>
 		</table>";
+} else if (($_GET["vexist"]) == 2) {
+		echo "<table class=\"alert\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" bgcolor=\"#f44336\">
+			<tr>
+				<td><img src=\"img/box_login_tl.gif\" width=\"5\" height=\"5\"></td>
+				<td width=\"100%\"><img src=\"img/pixel.gif\" width=\"1\" height=\"5\"></td>
+				<td><img src=\"img/box_login_tr.gif\" width=\"5\" height=\"5\"></td>
+			</tr>
+			<tr>
+				<td><img src=\"img/pixel.gif\" width=\"5\" height=\"1\"></td>
+				<td>
+				<img style=\"float: left; margin: 0px 12px 0px 0px; padding: 2px 0px 0px 0px;\" src=\"img/error.png\"><p>This video has been uploaded by a banned user!</p></div>
+					<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
+					</tr>
+				</table>
+				
+				</td>
+				<td><img src=\"img/pixel.gif\" width=\"5\" height=\"1\"></td>
+			</tr>
+			<tr>
+				<td><img src=\"img/box_login_bl.gif\" width=\"5\" height=\"5\"></td>
+				<td><img src=\"img/pixel.gif\" width=\"1\" height=\"5\"></td>
+				<td><img src=\"img/box_login_br.gif\" width=\"5\" height=\"5\"></td>
+			</tr>
+		</table>";
 } else {
 	$vexist = null;
 }
 } else {
 	$vexist = null;
-}?>
+}
+if(isset($_GET["uerr"])) {
+if(($_GET["uerr"]) == 0){
+	echo "<table class=\"alert\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" bgcolor=\"#f44336\">
+			<tr>
+				<td><img src=\"img/box_login_tl.gif\" width=\"5\" height=\"5\"></td>
+				<td width=\"100%\"><img src=\"img/pixel.gif\" width=\"1\" height=\"5\"></td>
+				<td><img src=\"img/box_login_tr.gif\" width=\"5\" height=\"5\"></td>
+			</tr>
+			<tr>
+				<td><img src=\"img/pixel.gif\" width=\"5\" height=\"1\"></td>
+				<td>
+				<img style=\"float: left; margin: 0px 12px 0px 0px; padding: 2px 0px 0px 0px;\" src=\"img/error.png\"><p>This user has been banned!</p></div>
+					<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
+					</tr>
+				</table>
+				
+				</td>
+				<td><img src=\"img/pixel.gif\" width=\"5\" height=\"1\"></td>
+			</tr>
+			<tr>
+				<td><img src=\"img/box_login_bl.gif\" width=\"5\" height=\"5\"></td>
+				<td><img src=\"img/pixel.gif\" width=\"1\" height=\"5\"></td>
+				<td><img src=\"img/box_login_br.gif\" width=\"5\" height=\"5\"></td>
+			</tr>
+		</table>";
+} else {
+	$uerr = null;
+}
+} else {
+	$uerr = null;
+}
+?>
 
 <div id='homepage-main-content'>
 <!--subscription videos-->
