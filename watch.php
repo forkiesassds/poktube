@@ -521,7 +521,7 @@ if($count == 0) {
 		
 		<?php				
 		$x = 1; 
-		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC"); //instructions for sql
+		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC"); //instructions for sql
 
 		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 		if ($x == 20) {
