@@ -13,6 +13,17 @@ if(!$admin=1) {
 <strong>System Information:</strong>
 <?php system("uname -a"); ?>
 </pre>
+<h2>Ban user<h2>
+ <form action="ban.php" method="post" enctype="multipart/form-data">
+  <input type='text' name="user" placeholder="Username" id='textbox' style="width: 250px;" name='textbox'>
+  <input type='text' name="bannedUntil" placeholder="Ban until (UNIX date)" id='textbox' style="width: 250px;" name='textbox'>
+  <input type='text' name="banReason" placeholder="Ban reason")" id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Ban" name="submit">
+  </form>
+  <h2>Unban user<h2>
+ <form action="unban.php" method="post" enctype="multipart/form-data">
+  <input type='text' name="user" placeholder="Username" id='textbox' style="width: 250px;" name='textbox'>
+  <input type="submit" value="Unban" name="submit">
 	<h2>Videos</h2>
 		<h3>Unapproved</h3>
 <!-- begin recently featured -->

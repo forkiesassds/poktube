@@ -192,3 +192,33 @@ if ($color_scheme == 'dark') {
 </table>
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
+<?php 
+if (isset($username)) {
+	$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE username ='".$username."'"));
+	if ($data['isBanned'] == true AND $data['bannedUntil'] > time()) {
+		echo "<div class=\"headerRCBox\">
+		<b class=\"rch\">
+		<b class=\"rch1\"><b></b></b>
+		<b class=\"rch2\"><b></b></b>
+		<b class=\"rch3\"></b>
+		<b class=\"rch4\"></b>
+		<b class=\"rch5\"></b>
+		</b> <div class=\"content\"><span class=\"headerTitle\">Warning</span></div></div><div class=\"contentBox\">
+		squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { echo "No reason specified"; } else { echo $data['banReason']; } echo "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { echo " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
+		echo "</div>";
+		include("footer.php");
+		// Unset all of the session variables
+		$_SESSION = array();
+		 
+		// Destroy the session.
+		session_destroy();
+		die();
+	} else if ($data['isBanned'] == true AND $data['bannedUntil'] < time()) {
+		$zero = 0;
+		$empty = "";
+		$stmt = $connect->prepare("UPDATE users SET isBanned=?, banReason=?, bannedUntil=? WHERE username=?");
+		$stmt->bind_param("bsis", $zero, $empty, $zero, $username);
+		$stmt->execute();
+	}
+}
+?>
