@@ -124,11 +124,11 @@ if (!file_exists($preload_folder)) {
 						$uploader = mysqli_real_escape_string($connect, $username);
 						echo check_for_partner($connect, $username);
 						if (check_for_partner($connect, $username) && $width && $height > 240) {
-							exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 854, 480) ."  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4 2>&1", $output);
+							exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 854, 480) ."  -c:v libx264 -b:v 700K -b:a 160k    -strict experimental video/".$url_id.".hq.mp4 2>&1", $output_hq);
 						} else {
 							$hq_target_file = "";
 						}
-						exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 426, 240) ."  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4 2>&1", $output_hq); 
+						exec("ffmpeg -i ".$target_file." -vf scale=-". resizeSizeAndKeepAspectRatio($width, $height, 426, 240) ."  -c:v libx264 -b:v 450K -b:a 100k    -strict experimental video/".$url_id.".mp4 2>&1", $output); 
 						$failcount = 0;
 						
 						clearstatcache();
