@@ -12,6 +12,7 @@ die();
 }
 $vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
 $vdf = mysqli_fetch_assoc($vidfetch);
+$Uploader = $vdf['Uploader'];
 $isApproved = $vdf['isApproved'];
 if ($isApproved != 1) {
 	if(isset($_SESSION["username"])) {
@@ -21,6 +22,33 @@ if ($isApproved != 1) {
 		if($adf['is_admin'] == 1 || $user == $_SESSION["username"]) { // is logged in?
 		$admin = 1;
 		} else {
+			include("header.php");
+			echo "<div class='tableSubTitle'>Embed Error</div>
+			This video ethier does not exist, or is not approved";
+			include("footer.php");
+			die();
+		}
+	} else {
+		include("header.php");
+		echo "<div class='tableSubTitle'>Embed Error</div>
+		This video ethier does not exist, or is not approved";
+		include("footer.php");
+		die();
+	}
+}
+$userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
+$udf = mysqli_fetch_assoc($userfetch);
+if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
+	if(isset($_SESSION["username"])) {
+		$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+		$adf = mysqli_fetch_assoc($result);
+		$admin = 0;
+		if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+		{
+		$admin = 1;
+		}
+		else
+		{
 			include("header.php");
 			echo "<div class='tableSubTitle'>Embed Error</div>
 			This video ethier does not exist, or is not approved";

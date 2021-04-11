@@ -34,6 +34,20 @@ $Age = htmlspecialchars($cdf['prof_age']);
 $City = htmlspecialchars($cdf['prof_city']);
 $Hometown = htmlspecialchars($cdf['prof_hometown']);
 $Country = htmlspecialchars($cdf['prof_country']);
+if ($cdf['isBanned'] == true AND $cdf['bannedUntil'] > time()) {
+	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+	$adf = mysqli_fetch_assoc($result);
+	$admin = 0;
+	if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+	{
+	$admin = 1;
+	}
+	else
+	{
+		echo "<script>window.location.replace('/?uerr=0');</script>";
+		die();
+	}
+}
 if($cdf['channel_color']) {
 	$Foreground = htmlspecialchars($cdf['channel_color']);
 } else {

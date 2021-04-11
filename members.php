@@ -46,7 +46,7 @@ if($count == 20) {
 	<table width="100%" cellspacing="0" cellpadding="0" border="0">
 	<tbody>
 	<?php
-$chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY id DESC");
+$chanfetch = mysqli_query($connect, "SELECT * FROM users WHERE `isBanned` != '1' ORDER BY id DESC");
 $count = 0;
 
 while ($cdf = mysqli_fetch_assoc($chanfetch)) {

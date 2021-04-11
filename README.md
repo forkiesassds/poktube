@@ -14,6 +14,13 @@
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
 
 No, this will not give access to that The Homer folder.
+#### April 9th 2021 database changes
+This adds support for the banning system.
+```sql
+ALTER TABLE `users` ADD `isBanned` BOOLEAN NOT NULL AFTER `password`; 
+ALTER TABLE `users` ADD `banReason` TEXT NOT NULL AFTER `isBanned`; 
+ALTER TABLE `users` ADD `bannedUntil` BIGINT UNSIGNED NOT NULL AFTER `banReason`; 
+```
 #### March 31st 2021 database changes
 This should make reverse ordering work for members.php. it might not work, i swear. also extremely basic quickplay support
 ```sql

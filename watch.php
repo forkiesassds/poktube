@@ -82,6 +82,21 @@ if ($isApproved != 1) {
 $userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
 $udf = mysqli_fetch_assoc($userfetch);
 
+if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
+	$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+	$adf = mysqli_fetch_assoc($result);
+	$admin = 0;
+	if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+	{
+	$admin = 1;
+	}
+	else
+	{
+		echo "<script>window.location.replace('/?vexist=2');</script>";
+		die();
+	}
+}
+
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);
@@ -494,7 +509,7 @@ if($count == 0) {
 			<span class="runtime"><?php echo $length ?></span>
 			</div>
 			<div class="facets">
-				<span class="grayText">From:</span> <a href="/profile.php?user=?php echo $Username ?>"><?php echo $Username ?></a><br/>
+				<span class="grayText">From:</span> <a href="/profile.php?user=<?php echo $Username ?>"><?php echo $Username ?></a><br/>
 			</div>
 				<div class="smallText">
 				<b>&lt;&lt; Now Playing</b>
@@ -506,7 +521,7 @@ if($count == 0) {
 		
 		<?php				
 		$x = 1; 
-		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER by `UploadDate` DESC"); //instructions for sql
+		$sql = mysqli_query($connect, "SELECT * FROM videodb WHERE `isApproved` = '1' ORDER BY RAND() DESC"); //instructions for sql
 
 		while ($fetch = mysqli_fetch_assoc($sql)) { //go forward with instructions
 		if ($x == 20) {

@@ -1,5 +1,7 @@
 <?php
 include("header.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Check if the user is already logged in, if yes then redirect them to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo "<script>history.go(-1)</script>";
@@ -54,7 +56,28 @@ if(isset($_POST["loginsubmit"])){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){             
+                        if(password_verify($password, $hashed_password)){
+							$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE username ='".$username."'"));
+							if ($data['isBanned'] == true AND $data['bannedUntil'] > time()) {
+								echo "<div class=\"headerRCBox\">
+									<b class=\"rch\">
+									<b class=\"rch1\"><b></b></b>
+									<b class=\"rch2\"><b></b></b>
+									<b class=\"rch3\"></b>
+									<b class=\"rch4\"></b>
+									<b class=\"rch5\"></b>
+									</b> <div class=\"content\"><span class=\"headerTitle\">Warning</span></div></div><div class=\"contentBox\">
+									squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { echo "No reason specified"; } else { echo $data['banReason']; } echo "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { echo " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
+								echo "</div>";
+								include("footer.php");
+								die();
+							} else if ($data['isBanned'] == true AND $data['bannedUntil'] < time()) {
+								$zero = 0;
+								$empty = "";
+								$stmt = $connect->prepare("UPDATE users SET isBanned=?, banReason=?, bannedUntil=? WHERE username=?");
+								$stmt->bind_param("bsis", $zero, $empty, $zero, $username);
+								$stmt->execute();
+							}
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
