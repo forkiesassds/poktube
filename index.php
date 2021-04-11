@@ -319,41 +319,12 @@ echo "<div class='headerRCBox'>
 		<div class="contentBox">
 			<div class="hpWNentry">
 				<div class="hpWNimage">
-				<img src="img/downloaded/pic_home_testtube_30x37.gif" border="0">
-				</div>
-				<div class="hpWNdesc">
-				<b>Important Notice</b><br>
-				The April Overhaul is still in beta. We are still exprimenting. -The squareBracket Team.
-				</div>
-			</div>
-			<div class="hpWNentry">
-				<div class="hpWNimage">
-				<a href="mobile_index.php"><img src="img/downloaded/pic_home_comedians_30x37.gif" border="0"></a>
-				</div>
-				<div class="hpWNdesc">
-				<a href="mobile_index.php"><b>Upcoming Funny Stuff</b><br></a>
-				Two frontends are in the early works. The first is a mobile frontend,
-				which is basically 2007 YouTube mobile but squareBracket stuff... 
-				The second is a BitView frontend, which will allow you to watch BitView videos
-				on a... website that has a simillar purpose? What the fuck.
-				</div>
-			</div>
-			<div class="hpWNentry">
-				<div class="hpWNimage">
 				<img src="img/downloaded/april.png" border="0">
 				</div>
 				<div class="hpWNdesc">
-				<b>April Overhaul</b><br>
-				A new design for squareBracket has been rolled out. It is still a work in progress.
-				</div>
-			</div> <!-- end hpWNentry -->
-			<div class="hpWNentry">
-				<div class="hpWNimage">
-				<a href="my_profile.php"><img src="img/downloaded/pic_home_chnlcustom_30x37.gif" border="0"></a>
-				</div>
-				<div class="hpWNdesc">
-				<b><a href="my_profile.php">More Channel Customizations and New Channel Redesign</a></b><br>
-				Now you can choose more colors for your Profile. Additionally, the 2006 YouTube Channel layout has been implemented.
+				<b>Completed April Overhaul</b><br>
+				A new design for squareBracket has been rolled out.
+				The April Overhaul was a way to expand squareBracket's functionality for a possible future redesign.
 				</div>
 			</div> <!-- end hpWNentry -->
 		</div>
