@@ -159,7 +159,7 @@ if ($color_scheme == 'dark') {
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="quicklist.php">QuickList</a></td>
 							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="https://discord.gg/uGWvcDpmZS">Discord</a></td>
+							<td><a class="headertext" href="chat.php">Chat</a></td>
 							<td>&nbsp;|&nbsp;</td>
 							<td><a class="headertext" href="/forum/">Forums</a></td>
 							<?php if(isset($_SESSION['username'])) {
