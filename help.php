@@ -1,7 +1,8 @@
 <?php include("header.php"); ?>
 <title>squareBracket</title>
 
-<div class="ui text container">
+<?php include "infopage_sidebar.php";?>
+<div id="subnavContent">
 <h1 class="header">Help</h1>
 <span class="highlight">Q: Is this service really free?</span>
 <br><br>A: Yes, completely free.  No strings.

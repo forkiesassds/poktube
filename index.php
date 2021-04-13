@@ -327,6 +327,31 @@ echo "<div class='headerRCBox'>
 				The April Overhaul was a way to expand squareBracket's functionality for a possible future redesign.
 				</div>
 			</div> <!-- end hpWNentry -->
+			<div><a href="explore_sb.php">Explore squareBracket</a></div>
+		</div>
+	</div>
+	<div class="hpContentBlock">
+			<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Active Channels</span></div>
+	</div>
+
+		<div class="contentBox">
+			<div class="hpChannelEntry v80hEntry">
+				<div class="vstill"><a href="/web/20060827034106/http://www3.youtube.com/profile?user=merimovies"><img src="https://web.archive.org/web/20060827034106im_/http://sjl-static14.sjl.youtube.com/vi/BbhvsjJagqY/2.jpg" class="vimg" style="background: #333;"></a></div>
+				<div class="vinfo">
+					<b><a href="/web/20060827034106/http://www3.youtube.com/profile?user=merimovies">merimovies</a></b>
+					<div class="vfacets">12 Videos | 63 Subscribers</div>
+				</div>
+				<div class="clear"></div>
+			</div> <!-- end hpChannelEntry -->
+			
+			<div style="text-align: right;"><a href="/web/20060827034106/http://www3.youtube.com/members">See More Channels</a></div>
 		</div>
 	</div>
 	<div class="hpContentBlock">
@@ -346,30 +371,6 @@ echo "<div class='headerRCBox'>
 			</div> <!-- end hpWNentry (also can we at least add the js) -->
 		</div>
 	</div>
-	<!--<div class="hpContentBlock">
-			<div class="headerRCBox">
-	<b class="rch">
-	<b class="rch1"><b></b></b>
-	<b class="rch2"><b></b></b>
-	<b class="rch3"></b>
-	<b class="rch4"></b>
-	<b class="rch5"></b>
-	</b> <div class="content"><span class="headerTitle">Active Channels</span></div>
-	</div>
-
-		<div class="contentBox">
-			<div class="hpChannelEntry v80hEntry">
-				<div class="vstill"><a href="/web/20070214121244/http://youtube.com/profile?user=openingmind"><img src="https://web.archive.org/web/20070214121244im_/http://sjc-static10.sjc.youtube.com/vi/lytExpvDAlU/2.jpg" class="vimg" style="background: #333;"></a></div>
-				<div class="vinfo">
-					<b><a href="/web/20070214121244/http://youtube.com/profile?user=openingmind">openingmind</a></b>
-					<div class="vfacets">23 Videos | 102 Subscribers</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-			
-			<div style="text-align: right;"><a href="/web/20070214121244/http://youtube.com/members">See More Channels</a></div>
-		</div>
-	</div>-->
    </div>
 </div></div>
 
