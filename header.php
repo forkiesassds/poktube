@@ -72,7 +72,7 @@ if ($color_scheme == 'modern') {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
-<table class="header1" width="960px" cellpadding="0" cellspacing="0" border="0">
+<table class="header1" cellpadding="0" cellspacing="0" border="0">
 	<tr valign="top">
 		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="<?php
 if ($color_scheme == 'dark') {
@@ -129,7 +129,7 @@ if ($color_scheme == 'dark') {
 
 			
 </table>
-<table class="header2" align="center" width="960px" bgcolor="#3C3C3C" cellpadding="0" cellspacing="0" border="0">
+<table class="header2" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
 	</tr>

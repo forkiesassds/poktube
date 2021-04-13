@@ -624,6 +624,7 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 	margin: 0px auto;
 	padding: 20px 0px 2px 0px;
 	/*! background-color: #eaeaea; */
+	width: 960px;
 }
 
 #dadminPanel {
@@ -661,6 +662,8 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 	-moz-box-shadow: #777 0 0 10px;
 	/*! box-shadow: #777 0 0 5px; */
 	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
+	width: 960px;
+	background-color: #3C3C3C;
 }
 
 .watchTags {
