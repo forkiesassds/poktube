@@ -72,19 +72,15 @@ if ($color_scheme == 'modern') {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
-<table class="header1" cellpadding="0" cellspacing="0" border="0">
-	<tr valign="top">
-		<td width="130" rowspan="1" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="<?php
+<div class="header1">
+<img src="<?php
 if ($color_scheme == 'dark') {
 	echo "img/logo-dark.png";
 } else {
 	echo "img/logo.png";
 }
 ?>" alt="squareBracket" border="0"></a></td>
-		<td valign="top">
-				<table width="40%" align="left" cellpadding="2" cellspacing="0" border="0">
-			<tr>
-				<form method="GET" action="results.php">
+				<form class="header-left-search" method="GET" action="results.php">
 				<td>
 					<input class="search_input" type="text" value="" name="search" size="30" maxlength="128">
 				</td>
@@ -92,13 +88,8 @@ if ($color_scheme == 'dark') {
 					<input class="button" type="submit" value="Search">
 				</td>
 				</form>
-			</tr>
-		</table>
-		<table style="margin-top: 4px;" align="right" width="50%" cellpadding="0" cellspacing="0" border="0">
-			<tr valign="top">
-				<td align="right">
-				<table cellspacing="0" cellpadding="2" border="0">
-					<tr>
+
+				<div class="header-left-links">
 						<?php if(isset($_SESSION["username"])) {
 		echo "<div class='dropdown'>
   <b><a style='cursor: default;' onclick='dropdownOpen()'>$username</a></b>
@@ -115,20 +106,8 @@ if ($color_scheme == 'dark') {
 <td style='padding-right: 5px;'><a  href='help.php'>Help</a></td>";
 	}?>
 
-				
-			</tr>
-		</table>
-		</td>
-		</tr>
-		</table>
-		</td>
-	</tr>
-
-		<tr>
-	</tr>
-
 			
-</table>
+</div></div>
 <table class="header2" align="center" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td><img src="img/pixel.gif" width="1" height="5"></td>
