@@ -72,6 +72,7 @@ if ($color_scheme == 'modern') {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
+<div class="header_holder">
 <div class="header1">
 <img src="<?php
 if ($color_scheme == 'dark') {
@@ -107,22 +108,10 @@ if ($color_scheme == 'dark') {
 	}?>
 
 			
-</div></div>
-<table class="header2" align="center" cellpadding="0" cellspacing="0" border="0">
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-		
-		<td width="100%">
-
-		<table width="100%" cellpadding="0" cellspacing="0" border="0">
-				<tr>
-					<td>
-											<table cellpadding="2" cellspacing="0" border="0" style="padding-top: 3px;">
-						<tr>
-							<td>&nbsp;<a class="headertext" href="index.php">Home</a></td>
+</div></div></div>
+<div class="header2_holder">
+<div class="header2">
+							&nbsp;<a class="headertext" href="index.php">Home</a>
 							<!--
 							<td>&nbsp;|&nbsp;</td>
 							<td><a href="my_videos.php">My Videos</a></td>
@@ -131,20 +120,20 @@ if ($color_scheme == 'dark') {
 							<td>&nbsp;|&nbsp;</td>
 							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
 							-->
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="browse.php">Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="members.php">Channels</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="quicklist.php">QuickList</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="chat.php">Chat</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="/forum/">Forums</a></td>
+							&nbsp;|&nbsp;
+							<a class="headertext" href="browse.php">Videos</a>
+							&nbsp;|&nbsp;</td>
+							<a class="headertext" href="members.php">Channels</a>
+							&nbsp;|&nbsp;</td>
+							<a class="headertext" href="quicklist.php">QuickList</a>
+							&nbsp;|&nbsp;
+							<a class="headertext" href="chat.php">Chat</a>
+							&nbsp;|&nbsp;
+							<a class="headertext" href="/forum/">Forums</a>
 							<?php if(isset($_SESSION['username'])) {
 								if($detail2["is_admin"] == 1) {
-									echo "<td>&nbsp;|&nbsp;</td>
-									<td><a class='headertext' href='admin.php'>Admin</a></td>";
+									echo "&nbsp;|&nbsp;
+									<a class='headertext' href='admin.php'>Admin</a>";
 								}
 							}?>
 									<?php if(isset($_SESSION["username"])) {
@@ -155,20 +144,7 @@ if ($color_scheme == 'dark') {
 				</a></div>";
 		} else {
 			echo "";}?>
-						</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			
-			</td>
-	
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-</table>
+</div></div>
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
 <?php 
