@@ -16,6 +16,8 @@ if ($detail2["registeredon"] == null) {
 }
 ?>
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="styles_yts1171492455.css" type="text/css">
 <link rel="stylesheet" href="base_yts1170100257.css" type="text/css">
@@ -37,6 +39,16 @@ window.onclick = function(event) {
     }
   }
 }
+
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+} 
 </script>
 <!--code taken from https://stackoverflow.com/a/62024831-->
 <script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
@@ -73,7 +85,32 @@ if ($color_scheme == 'modern') {
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
 <div class="header_holder">
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="headertext" href="index.php">Home</a>
+  <a class="headertext" href="browse.php">Videos</a>
+  <a class="headertext" href="members.php">Channels</a>
+  <a class="headertext" href="quicklist.php">QuickList</a>
+  <a class="headertext" href="chat.php">Chat</a>
+  <a class="headertext" href="https://squarebracket.me/forum">Forums</a>
+  									<?php if(isset($_SESSION["username"])) {
+		echo "<div style=\"font-size: 12px; font-weight: bold;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
+					<span class='action-button-leftcap'></span>
+					<span class='action-button-text'>Upload</span>
+					<span class='action-button-rightcap'></span>
+				</a></div>";
+		} else {
+			echo "";}?>
+  <?php if(isset($_SESSION['username'])) {
+								if($detail2["is_admin"] == 1) {
+									echo "<br><a class='headertext' href='admin.php'>Admin</a>";
+								}
+  }?>
+</div>
 <div class="header1">
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776;</button>
+</div>
 <img src="<?php
 if ($color_scheme == 'dark') {
 	echo "img/logo-dark.png";
@@ -109,42 +146,6 @@ if ($color_scheme == 'dark') {
 
 			
 </div></div></div>
-<div class="header2_holder">
-<div class="header2">
-							&nbsp;<a class="headertext" href="index.php">Home</a>
-							<!--
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_videos.php">My Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_favorites.php">My Favorites</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
-							-->
-							&nbsp;|&nbsp;
-							<a class="headertext" href="browse.php">Videos</a>
-							&nbsp;|&nbsp;</td>
-							<a class="headertext" href="members.php">Channels</a>
-							&nbsp;|&nbsp;</td>
-							<a class="headertext" href="quicklist.php">QuickList</a>
-							&nbsp;|&nbsp;
-							<a class="headertext" href="chat.php">Chat</a>
-							&nbsp;|&nbsp;
-							<a class="headertext" href="/forum/">Forums</a>
-							<?php if(isset($_SESSION['username'])) {
-								if($detail2["is_admin"] == 1) {
-									echo "&nbsp;|&nbsp;
-									<a class='headertext' href='admin.php'>Admin</a>";
-								}
-							}?>
-									<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
-					<span class='action-button-leftcap'></span>
-					<span class='action-button-text'>Upload</span>
-					<span class='action-button-rightcap'></span>
-				</a></div>";
-		} else {
-			echo "";}?>
-</div></div>
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
 <?php 
