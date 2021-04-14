@@ -26,20 +26,6 @@ if ($detail2["registeredon"] == null) {
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="manifest" href="/manifest.webmanifest">
 <script>
-function dropdownOpen() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-    }
-  }
-}
-
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
@@ -87,6 +73,18 @@ if ($color_scheme == 'modern') {
 <div class="header_holder">
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<?php if(isset($_SESSION["username"])) {
+		echo "<p class='headertext'>$username</p>
+  <a class='headertext' href='profile.php?user=$username'>My channel</a>
+  <a class='headertext' href='my_profile.php'>Settings</a>
+  <a class='headertext' href='logout.php'>Logout</a>";
+	} else {
+		echo "<p class='headertext'>Not logged in</p>
+		<a class='headertext' href='signup.php'>Sign Up</a>
+<a class='headertext' href='login.php'>Log In</a>
+<a class='headertext' href='help.php'>Help</a>";
+	}?>
+  <br>
   <a class="headertext" href="index.php">Home</a>
   <a class="headertext" href="browse.php">Videos</a>
   <a class="headertext" href="members.php">Channels</a>
@@ -126,26 +124,7 @@ if ($color_scheme == 'dark') {
 					<input class="button" type="submit" value="Search">
 				</td>
 				</form>
-
-				<div class="header-left-links">
-						<?php if(isset($_SESSION["username"])) {
-		echo "<div class='dropdown'>
-  <b><a style='cursor: default;' onclick='dropdownOpen()'>$username</a></b>
-  <div id='myDropdown' class='dropdown-content'>
-    <a href='profile.php?user=$username'>My Profile</a>
-    <a href='my_profile.php'>Settings</a>
-  </div>
-</div> | <a href='logout.php'>Logout</a>";
-	} else {
-		echo "<td><a  href='signup.php'><strong>Sign Up</strong></a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a  href='login.php'>Log In</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a  href='help.php'>Help</a></td>";
-	}?>
-
-			
-</div></div></div>
+</div></div>
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
 <?php 
