@@ -631,7 +631,7 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 }
 
 .header_holder {
-	background-color: #96d665
+	background-color: #79d976;
 }
 
 .header-left-links {
@@ -639,7 +639,8 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 }
 
 .header-left-search {
-	margin-left: 8px
+	margin-right: 320px;
+	margin-top: 1px;
 }
 
 #dadminPanel {
