@@ -1135,10 +1135,10 @@ img.rating {
 
 .v80hEntry .vimg {
  width: 80px;
- height: 60px;
+ /*! height: 60px; */
  border: 1px solid #ccc;
  }
-.v80hEntry .vinfo { margin-left: 86px; }
+.v80hEntry .vinfo { margin-left: 70px; }
 
 .v50hEntry { clear: left; }
 .v50hEntry .vstill { float: left; }

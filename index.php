@@ -337,14 +337,38 @@ echo "<div class='headerRCBox'>
 	</div>
 
 		<div class="contentBox">
-			<div class="hpChannelEntry v80hEntry">
-				<div class="vstill"><a href="/web/20060827034106/http://www3.youtube.com/profile?user=merimovies"><img src="https://web.archive.org/web/20060827034106im_/http://sjl-static14.sjl.youtube.com/vi/BbhvsjJagqY/2.jpg" class="vimg" style="background: #333;"></a></div>
-				<div class="vinfo">
-					<b><a href="/web/20060827034106/http://www3.youtube.com/profile?user=merimovies">merimovies</a></b>
-					<div class="vfacets">12 Videos | 63 Subscribers</div>
+			<?php
+$chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY RAND()"); // calls for channel info
+$cdf = mysqli_fetch_assoc($chanfetch);
+$LastestVideo = htmlspecialchars($cdf['recent_vid']);
+$Username = htmlspecialchars($cdf['username']);
+$AboutMe = htmlspecialchars($cdf['aboutme']);
+$VidsWatched = $cdf['videos_watched'];
+$Subscribers = $cdf['subscribers'];
+$Name = htmlspecialchars($cdf['prof_name']);
+$Age = htmlspecialchars($cdf['prof_age']);
+$City = htmlspecialchars($cdf['prof_city']);
+$Hometown = htmlspecialchars($cdf['prof_hometown']);
+$Country = htmlspecialchars($cdf['prof_country']);
+$Foreground = htmlspecialchars($cdf['channel_color']);
+if($cdf['prof_website']) {
+$Website = htmlspecialchars($cdf['prof_website']);
+} else {
+	$Website = "";
+}
+$PreRegisteredOn = $cdf['registeredon'];
+$DateTime = new DateTime($PreRegisteredOn);
+$RegisteredOn = $DateTime->format('F j Y');
+$RegisteredYear = $DateTime->format('Y');
+echo "<div class='hpChannelEntry v80hEntry'>
+				<div class='vstill'><a href='profile.php?user=$Username'><img src='content/profpic/$Username.png' class='vimg' style='background: #333;'></a></div>
+				<div class='vinfo'>
+					<b><a href='profile.php?user=$Username'>$Username</a></b>
+					<div class='vfacets'>(placeholder) Videos | $Subscribers Subscribers</div>
 				</div>
-				<div class="clear"></div>
-			</div> <!-- end hpChannelEntry -->
+				<div class='clear'></div>
+</div> <!-- end hpChannelEntry -->";
+?>
 			
 			<div style="text-align: right;"><a href="/web/20060827034106/http://www3.youtube.com/members">See More Channels</a></div>
 		</div>
