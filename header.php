@@ -85,7 +85,7 @@ if ($color_scheme == 'modern') {
 <a class='headertext' href='login.php'><i class='ri-login-box-fill'></i>Log In</a>";
 	}?>
   <br>
-  <a class="headertext" href="index.php"><i class="ri-home-2-fill"></i>Home</a>
+  <a class="headertext" href="/"><i class="ri-home-2-fill"></i>Home</a>
   <a class="headertext" href="browse.php"><i class="ri-film-fill"></i>Videos</a>
   <a class="headertext" href="members.php"><i class="ri-user-fill"></i>Channels</a>
   <a class="headertext" href="quicklist.php"><i class="ri-booklet-fill"></i>QuickList</a>
@@ -106,7 +106,7 @@ if ($color_scheme == 'modern') {
 <div id="main">
   <button class="openbtn" onclick="openNav()"><i class="ri-menu-line"></i></button>
 </div>
-<img src="<?php
+<a href="/"><img src="<?php
 if ($color_scheme == 'dark') {
 	echo "img/logo-dark.png";
 } else {
