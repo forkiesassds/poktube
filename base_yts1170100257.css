@@ -287,12 +287,6 @@ on the contest page) */
 .headerRCBox { }
 .headerRCBox .rch { display: block; }
 
-.headerRCBox .rch {
-	display: block;
-	overflow: hidden;
-	background: #ccc;
-	}
-
 .headerRCBox .content {
 	padding: 4px 6px 2px;
 	background: #ccc;
