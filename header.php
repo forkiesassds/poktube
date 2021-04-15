@@ -17,7 +17,8 @@ if ($detail2["registeredon"] == null) {
 ?>
 <head>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="styles_yts1171492455.css" type="text/css">
 <link rel="stylesheet" href="base_yts1170100257.css" type="text/css">
@@ -75,39 +76,35 @@ if ($color_scheme == 'modern') {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<?php if(isset($_SESSION["username"])) {
 		echo "<p class='headertext'>$username</p>
-  <a class='headertext' href='profile.php?user=$username'>My channel</a>
-  <a class='headertext' href='my_profile.php'>Settings</a>
-  <a class='headertext' href='logout.php'>Logout</a>";
+  <a class='headertext' href='profile.php?user=$username'><i class='ri-user-smile-fill'></i>My channel</a>
+  <a class='headertext' href='my_profile.php'><i class='ri-list-settings-fill'></i>Settings</a>
+  <a class='headertext' href='logout.php'><i class='ri-logout-box-fill'></i>Logout</a>";
 	} else {
-		echo "<p class='headertext'>Not logged in</p>
-		<a class='headertext' href='signup.php'>Sign Up</a>
-<a class='headertext' href='login.php'>Log In</a>
-<a class='headertext' href='help.php'>Help</a>";
+		echo "<p class='headertext'><i class='ri-error-warning-line'></i>Not logged in</p>
+		<a class='headertext' href='signup.php'><i class='ri-key-2-fill'></i>Sign Up</a>
+<a class='headertext' href='login.php'><i class='ri-login-box-fill'></i>Log In</a>";
 	}?>
   <br>
-  <a class="headertext" href="index.php">Home</a>
-  <a class="headertext" href="browse.php">Videos</a>
-  <a class="headertext" href="members.php">Channels</a>
-  <a class="headertext" href="quicklist.php">QuickList</a>
-  <a class="headertext" href="chat.php">Chat</a>
-  <a class="headertext" href="https://squarebracket.me/forum">Forums</a>
+  <a class="headertext" href="index.php"><i class="ri-home-2-fill"></i>Home</a>
+  <a class="headertext" href="browse.php"><i class="ri-film-fill"></i>Videos</a>
+  <a class="headertext" href="members.php"><i class="ri-user-fill"></i>Channels</a>
+  <a class="headertext" href="quicklist.php"><i class="ri-booklet-fill"></i>QuickList</a>
+  <a class='headertext' href='help.php'><i class="ri-question-fill"></i>Help</a>
+  <a class="headertext" href="chat.php"><i class="ri-chat-4-fill"></i>Chat</a>
+  <a class="headertext" href="https://squarebracket.me/forum"><i class="ri-question-answer-fill"></i>Forums</a>
   									<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
-					<span class='action-button-leftcap'></span>
-					<span class='action-button-text'>Upload</span>
-					<span class='action-button-rightcap'></span>
-				</a></div>";
+		echo "<a class='headertext' href='my_videos_upload.php'><i class='ri-video-upload-fill'></i>Upload</a>";
 		} else {
 			echo "";}?>
   <?php if(isset($_SESSION['username'])) {
 								if($detail2["is_admin"] == 1) {
-									echo "<br><a class='headertext' href='admin.php'>Admin</a>";
+									echo "<br><a class='headertext' href='admin.php'><i class='ri-admin-fill'></i>Admin</a>";
 								}
   }?>
 </div>
 <div class="header1">
 <div id="main">
-  <button class="openbtn" onclick="openNav()">&#9776;</button>
+  <button class="openbtn" onclick="openNav()"><i class="ri-menu-line"></i></button>
 </div>
 <img src="<?php
 if ($color_scheme == 'dark') {
