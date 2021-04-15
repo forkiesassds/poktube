@@ -1,3 +1,10 @@
+.welcomePokTube { 
+  background: url('img/www-refreshbg-vflC3wnbM.png') no-repeat center; 
+  background-size: cover;
+  padding: 35px;
+  height: 89px;
+}
+
  /* The sidebar menu */
 .sidebar {
   height: 100%; /* 100% Full-height */

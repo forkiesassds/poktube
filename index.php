@@ -41,7 +41,7 @@ if(($_GET["vexist"]) == 0){
 			<tr>
 				<td><img src=\"img/pixel.gif\" width=\"5\" height=\"1\"></td>
 				<td>
-				<img style=\"float: left; margin: 0px 12px 0px 0px; padding: 2px 0px 0px 0px;\" src=\"img/error.png\"><p>This video is private!</p></div>
+				<img style=\"float: left; margin: 0px 12px 0px 0px; padding: 2px 0px 0px 0px;\" src=\"img/error.png\"><p>This video is ethier under verification, or it has been declined.</p></div>
 					<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">
 					</tr>
 				</table>
@@ -62,7 +62,11 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }?>
 
+
 <div id='homepage-main-content'>
+<div class="welcomePokTube">
+<h1>Welcome to squareBracket</h1>
+<p>Don't worry about how garbage this looks, it will be fixed later</p></div>
 <!--subscription videos-->
 <?php
 if(isset($_SESSION['username'])) {
