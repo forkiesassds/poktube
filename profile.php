@@ -129,7 +129,7 @@ if (isset($_POST['post_comment'])) {
 
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
-<title><?php echo $Username ?> - PokTube</title>
+<title><?php echo $Username ?> - squareBracket</title>
 </div>
         <div class="wrapper">
             <style>

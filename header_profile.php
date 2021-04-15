@@ -28,7 +28,7 @@ if ($detail2["registeredon"] == null) {
 </head>
 <table class="header_profile" width="100%" bgcolor="#0049C7" cellpadding="0" style="padding: 5px 0px 0px 0px;" cellspacing="0" border="0">
 	<tr valign="top">
-		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo-dark.png" alt="PokTube" border="0"></a></td>
+		<td width="130" rowspan="2" style="padding: 0px 5px 5px 5px;"><a href="index.php"><img src="img/logo-dark.png" alt="squareBracket" border="0"></a></td>
 		<td valign="top">
 		<table align="right" width="100%" cellpadding="0" cellspacing="0" border="0">
 			<tr valign="top">

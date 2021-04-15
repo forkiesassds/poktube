@@ -248,18 +248,7 @@ $PreRegisteredOn = $cdf['registeredon'];
 $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
 $RegisteredYear = $DateTime->format('Y');
-echo "            
-<div class='headerRCBox'>
-	<b class='rch'>
-	<b class='rch1'><b></b></b>
-	<b class='rch2'><b></b></b>
-	<b class='rch3'></b>
-	<b class='rch4'></b>
-	<b class='rch5'></b>
-	</b> <div class='content'><span class='headerTitle'>Welcome back, $Username!</span></div>
-	</div>
-	<div class='contentBox'>
-                <div>
+makeBox("Welcome back, $Username!", "<div>
                     <div class='floatR'><span class='smallText'><b><a href='my_profile.php'>Profile Settings</a></b></span></div>
 					<img src='content/profpic/$Username.png' onerror='this.src='img/profiledef.png'' class='thumb' style='height: 64px;' width='64'>
                     <div class='clear'></div>
@@ -281,20 +270,9 @@ echo "
 			<a href='/web/20070115185031/http://youtube.com/my_messages' onclick='_hbLink('myMessages','MyLinks');'>Inbox</a>
 			-
 			<a href='/web/20070115185031/http://youtube.com/subscription_center' onclick='_hbLink('mySubscriptions','MyLinks');'>Subscriptions</a>--->
-		</div>
-	</div>";
+		</div>");
 } else {
-echo "<div class='headerRCBox'>
-	<b class='rch'>
-	<b class='rch1'><b></b></b>
-	<b class='rch2'><b></b></b>
-	<b class='rch3'></b>
-	<b class='rch4'></b>
-	<b class='rch5'></b>
-	</b> <div class='content'><span class='headerTitle'>Want to be part of SquareBracket?</span></div>
-	</div>
-	<div class='contentBox'>
-                <div>
+makeBox("Want to be part of SquareBracket?", "<div>
 					<a href='/login.php'><strong>Login to SquareBracket now!</strong></a><br>
                     <div class='clear'></div>
                 </div>
@@ -305,45 +283,26 @@ echo "<div class='headerRCBox'>
                     <a href='/signup.php'>Don't have an account? Sign up!</a><a href='/about.php' rel='nofollow'></a>    <a href='/about.php' rel='nofollow'><img src='img/pixel.gif' class='alignMid gaiaHelpBtn' alt='' border='0'></a>
                 <p class='marT0 marB0' align='center'>
                 </p></div>
-                <div class='bottomBorderDotted'></div>
-        </div>"; }
+                <div class='bottomBorderDotted'></div>");
+}
 ?>
-<br>
-<div class="hpContentBlock">
-			<div class="headerRCBox">
-	<b class="rch">
-	<b class="rch1"><b></b></b>
-	<b class="rch2"><b></b></b>
-	<b class="rch3"></b>
-	<b class="rch4"></b>
-	<b class="rch5"></b>
-	</b> <div class="content"><span class="headerTitle">What's New on SquareBracket</span></div>
-	</div>
-
-		<div class="contentBox">
-			<div class="hpWNentry">
-				<div class="hpWNimage">
-				<img src="img/downloaded/april.png" border="0">
+<?php
+makeBox("What's New on SquareBracket", "<div class=\"hpWNentry\">
+				<div class=\"hpWNimage\">
+				<img src=\"img/downloaded/april.png\" border=\"0\">
 				</div>
-				<div class="hpWNdesc">
+				<div class=\"hpWNdesc\">
 				<b>Completed April Overhaul</b><br>
 				A new design for squareBracket has been rolled out.
 				The April Overhaul was a way to expand squareBracket's functionality for a possible future redesign.
 				</div>
 			</div> <!-- end hpWNentry -->
-			<div><a href="explore_sb.php">Explore squareBracket</a></div>
-		</div>
-	</div>
-	<div class="hpContentBlock">
-			<div class="headerRCBox">
-	<div class="rch">
-	</div> <div class="content"><span class="headerTitle">Active Channels</span></div>
-	</div>
-
-		<div class="contentBox">
+			<div><a href=\"explore_sb.php\">Explore squareBracket</a></div>");
+?>
 			<?php
-$chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY RAND()"); // calls for channel info
-$cdf = mysqli_fetch_assoc($chanfetch);
+$chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY RAND() LIMIT 3"); // calls for channel info
+$contents = "";
+while ($cdf = mysqli_fetch_assoc($chanfetch)) {
 $LastestVideo = htmlspecialchars($cdf['recent_vid']);
 $Username = htmlspecialchars($cdf['username']);
 $AboutMe = htmlspecialchars($cdf['aboutme']);
@@ -364,38 +323,26 @@ $PreRegisteredOn = $cdf['registeredon'];
 $DateTime = new DateTime($PreRegisteredOn);
 $RegisteredOn = $DateTime->format('F j Y');
 $RegisteredYear = $DateTime->format('Y');
-echo "<div class='hpChannelEntry v80hEntry'>
-				<div class='vstill'><a href='profile.php?user=$Username'><img src='content/profpic/$Username.png' class='vimg' style='background: #333;'></a></div>
+$query = mysqli_query($connect, "SELECT COUNT(VideoID) FROM videodb WHERE `Uploader`='".$Username."' AND `isApproved` = '1';");
+$vdf_alt = mysqli_fetch_assoc($query);
+$contents .= "<div class='hpChannelEntry v80hEntry'>
+				<div class='vstill'><a href='profile.php?user=$Username'><img src='content/profpic/$Username.png' onerror=\"this.src='img/profiledef.png'\" class='vimg' style='background: #333;'></a></div>
 				<div class='vinfo'>
 					<b><a href='profile.php?user=$Username'>$Username</a></b>
-					<div class='vfacets'>(placeholder) Videos | $Subscribers Subscribers</div>
+					<div class='vfacets'>".$vdf_alt['COUNT(VideoID)']." Videos | $Subscribers Subscribers</div>
 				</div>
 				<div class='clear'></div>
-</div> <!-- end hpChannelEntry -->";
+				</div> <!-- end hpChannelEntry -->";
+}
+makeBox("Active Channels", "$contents <div style=\"text-align: right;\"><a href=\"/web/20060827034106/http://www3.youtube.com/members\">See More Channels</a></div>");
 ?>
-			
-			<div style="text-align: right;"><a href="/web/20060827034106/http://www3.youtube.com/members">See More Channels</a></div>
-		</div>
-	</div>
-	<div class="hpContentBlock">
-			<div class="headerRCBox">
-	<b class="rch">
-	<b class="rch1"><b></b></b>
-	<b class="rch2"><b></b></b>
-	<b class="rch3"></b>
-	<b class="rch4"></b>
-	<b class="rch5"></b>
-	</b> <div class="content"><span class="headerTitle">ChazizCraft</span></div>
-	</div>
-
-		<div class="contentBox">
-			<div class="hpWNentry">
-				<img src="https://mcapi.us/server/image?ip=185.86.231.49&port=25565&title=ChazizCraft" width="292" border="0">
-			</div> <!-- end hpWNentry (also can we at least add the js) -->
-		</div>
-	</div>
-   </div>
-</div></div>
+	<?php
+	makeBox("ChazizCraft", "<div class=\"hpWNentry\">
+				<img src=\"https://mcapi.us/server/image?ip=185.86.231.49&port=25565&title=ChazizCraft\" width=\"292\" border=\"0\">
+	</div>");
+	?>
+</div>
+</div>
 
 
 <div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">
