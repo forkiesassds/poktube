@@ -1,7 +1,9 @@
+/* The welcome box, only intended for the main page for unlogged in users. */
 .welcomePokTube { 
   background: url('img/www-refreshbg-vflC3wnbM.png') no-repeat center; 
   background-size: cover;
   padding: 35px;
+  border-radius: 8px;
   height: 89px;
 }
 

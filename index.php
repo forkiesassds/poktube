@@ -66,7 +66,7 @@ if(($_GET["vexist"]) == 0){
 <div id='homepage-main-content'>
 <div class="welcomePokTube">
 <h1>Welcome to squareBracket</h1>
-<p>Don't worry about how garbage this looks, it will be fixed later</p></div>
+<p>squareBracket is a video sharing site.</p></div>
 <!--subscription videos-->
 <?php
 if(isset($_SESSION['username'])) {
@@ -285,19 +285,6 @@ makeBox("Want to be part of SquareBracket?", "<div>
                 </p></div>
                 <div class='bottomBorderDotted'></div>");
 }
-?>
-<?php
-makeBox("What's New on SquareBracket", "<div class=\"hpWNentry\">
-				<div class=\"hpWNimage\">
-				<img src=\"img/downloaded/april.png\" border=\"0\">
-				</div>
-				<div class=\"hpWNdesc\">
-				<b>Completed April Overhaul</b><br>
-				A new design for squareBracket has been rolled out.
-				The April Overhaul was a way to expand squareBracket's functionality for a possible future redesign.
-				</div>
-			</div> <!-- end hpWNentry -->
-			<div><a href=\"explore_sb.php\">Explore squareBracket</a></div>");
 ?>
 			<?php
 $chanfetch = mysqli_query($connect, "SELECT * FROM users ORDER BY RAND() LIMIT 3"); // calls for channel info
