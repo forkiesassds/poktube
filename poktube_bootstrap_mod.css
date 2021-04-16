@@ -1,0 +1,67 @@
+.bg-header {
+ background-color: #79d976;
+ background-image: linear-gradient(#79d976, #6acf67);
+}
+
+.accordion-button:not(.collapsed) {
+    color: #000000;
+    background-color:  #f9f9f9;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000000;
+}
+
+.accordion-button {
+    background-color:  #f5f5f5;
+}
+.card-header {
+ background-image: linear-gradient(#f8f9fa, #f5f5f5);
+}
+
+.btn-outline-primary {
+    color: #fff;
+    background-color: #2356ad;
+    border-color: #204c96;
+}
+
+a {
+    color: #03C;
+}
+
+.bg-primary {
+    background-image: linear-gradient(#0054B6, #0A2D7F);
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #204c96c;
+    border-color: #2356ad;
+}
+
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #23ad2c4;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif";
+    --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}

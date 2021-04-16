@@ -31,6 +31,7 @@ if ($detail2["registeredon"] == null) {
 <link rel="stylesheet" href="base_all-vfl70436.css" type="text/css">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="poktube_bootstrap_mod.css" type="text/css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -80,7 +81,7 @@ if ($color_scheme == 'modern') {
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3fde6;">
+<nav class="navbar navbar-expand-lg navbar-light bg-header">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">squareBracket</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +90,7 @@ if ($color_scheme == 'modern') {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="\">Home</a>
+          <a class="nav-link" aria-current="page" href="\">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="browse.php">Videos</a>
@@ -114,10 +115,18 @@ if ($color_scheme == 'modern') {
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form method="GET" action="results.php" class="d-flex">
+        <input type="text" value="" class="form-control me-2" name="search" type="text" value="" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="signup.php">Register</a>
+            </li>
+        </ul>
     </div>
   </div>
 </nav>
