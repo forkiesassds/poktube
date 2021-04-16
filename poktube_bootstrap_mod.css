@@ -3,6 +3,10 @@
  background-image: linear-gradient(#79d976, #6acf67);
 }
 
+body {
+    background: #eceef2
+}
+
 .accordion-button:not(.collapsed) {
     color: #000000;
     background-color:  #f9f9f9;
@@ -61,7 +65,7 @@ a {
     --bs-danger: #dc3545;
     --bs-light: #f8f9fa;
     --bs-dark: #212529;
-    --bs-font-sans-serif: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", "Ubuntu", "verdana", "arial", "sans-serif";
+    --bs-font-sans-serif: Roboto,"Source Sans Pro", "Helvetica Neue", "Segoe UI", "Microsoft JhengHei", "PingFang HK", "MingLiU", Arial, sans-serif;
     --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }

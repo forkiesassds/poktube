@@ -130,59 +130,7 @@ if ($color_scheme == 'modern') {
     </div>
   </div>
 </nav>
-<div class="header_holder">
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-						<?php if(isset($_SESSION["username"])) {
-		echo "<p class='headertext'>$username</p>
-  <a class='headertext' href='profile.php?user=$username'><i class='ri-user-smile-fill'></i>My channel</a>
-  <a class='headertext' href='my_profile.php'><i class='ri-list-settings-fill'></i>Settings</a>
-  <a class='headertext' href='logout.php'><i class='ri-logout-box-fill'></i>Logout</a>";
-	} else {
-		echo "<p class='headertext'><i class='ri-error-warning-line'></i>Not logged in</p>
-		<a class='headertext' href='signup.php'><i class='ri-key-2-fill'></i>Sign Up</a>
-<a class='headertext' href='login.php'><i class='ri-login-box-fill'></i>Log In</a>";
-	}?>
-  <br>
-  <a class="headertext" href="/"><i class="ri-home-2-fill"></i>Home</a>
-  <a class="headertext" href="browse.php"><i class="ri-film-fill"></i>Videos</a>
-  <a class="headertext" href="members.php"><i class="ri-user-fill"></i>Channels</a>
-  <a class="headertext" href="quicklist.php"><i class="ri-booklet-fill"></i>QuickList</a>
-  <a class='headertext' href='help.php'><i class="ri-question-fill"></i>Help</a>
-  <a class="headertext" href="chat.php"><i class="ri-chat-4-fill"></i>Chat</a>
-  <a class="headertext" href="https://squarebracket.me/forum"><i class="ri-question-answer-fill"></i>Forums</a>
-  									<?php if(isset($_SESSION["username"])) {
-		echo "<a class='headertext' href='my_videos_upload.php'><i class='ri-video-upload-fill'></i>Upload</a>";
-		} else {
-			echo "";}?>
-  <?php if(isset($_SESSION['username'])) {
-								if($detail2["is_admin"] == 1) {
-									echo "<br><a class='headertext' href='admin.php'><i class='ri-admin-fill'></i>Admin</a>";
-								}
-  }?>
-</div>
-<div class="header1">
-<div id="main">
-  <button class="openbtn" onclick="openNav()"><i class="ri-menu-line"></i></button>
-</div>
-<a href="/"><img src="<?php
-if ($color_scheme == 'dark') {
-	echo "img/logo-dark.png";
-} else {
-	echo "img/logo.png";
-}
-?>" alt="squareBracket" border="0"></a></td>
-				<form class="header-left-search" method="GET" action="results.php">
-				<td>
-					<input class="search_input" type="text" value="" name="search" size="30" maxlength="128">
-				</td>
-				<td>
-					<input class="button" type="submit" value="Search">
-				</td>
-				</form>
-</div></div>
-<div id="baseDiv" class="date-20090101 video-info">
-<div id="masthead">
+<div class="container">
 <?php 
 if (isset($username)) {
 	$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE username ='".$username."'"));

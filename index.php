@@ -72,7 +72,8 @@ if(isset($_SESSION["username"])) // is logged in?
 echo "<p>\"nerd ur sites dead\", they say, \"your site is literally dead / therws no point of advertising something that isnt even functional\", they also say.
 <br>joke's on them, site's functional even with no activity.</p>";
 }	?></div>
-<div id='homepage-main-content'>
+<div class="row">
+<div class="col-8">
 <!--subscription videos-->
 <?php
 if(isset($_SESSION['username'])) {
@@ -227,7 +228,7 @@ echo "<div class='vEntry'>
 			<!-- end recently featured -->
 </div></div></div></div></div></div>
 
-<div id="homepage-side-content">
+<div class="col-4">
 <div class="homepage-content-block">
 <?php
 if(isset($_SESSION["username"])) // is logged in?
@@ -335,5 +336,5 @@ makeBox("Active Channels", "$contents <div style=\"text-align: right;\"><a href=
 	</div>");
 	?>
 </div>
-</div>
+</div></div>
 <?php include("footer.php"); ?>
