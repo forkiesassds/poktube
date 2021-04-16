@@ -3,6 +3,7 @@ if(!isset($_SESSION)){
     session_start();
 }
 include("db.php");
+include("uiFramework.php");
 $datenow = date("Y-m-d");
 if(isset($_SESSION["username"])) {
 $username = htmlspecialchars($_SESSION["username"]);
@@ -16,6 +17,9 @@ if ($detail2["registeredon"] == null) {
 }
 ?>
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="styles_yts1171492455.css" type="text/css">
 <link rel="stylesheet" href="base_yts1170100257.css" type="text/css">
@@ -24,19 +28,15 @@ if ($detail2["registeredon"] == null) {
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="manifest" href="/manifest.webmanifest">
 <script>
-function dropdownOpen() {
-  document.getElementById("myDropdown").classList.toggle("show");
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
 }
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-    }
-  }
-}
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+} 
 </script>
 <!--code taken from https://stackoverflow.com/a/62024831-->
 <script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
@@ -72,8 +72,42 @@ if ($color_scheme == 'modern') {
 <meta property="og:image" content="/img/icon.png">
 <meta name="keywords" content="video,sharing,camera phone,video phone">
 </head>
+<div class="header_holder">
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<?php if(isset($_SESSION["username"])) {
+		echo "<p class='headertext'>$username</p>
+  <a class='headertext' href='profile.php?user=$username'><i class='ri-user-smile-fill'></i>My channel</a>
+  <a class='headertext' href='my_profile.php'><i class='ri-list-settings-fill'></i>Settings</a>
+  <a class='headertext' href='logout.php'><i class='ri-logout-box-fill'></i>Logout</a>";
+	} else {
+		echo "<p class='headertext'><i class='ri-error-warning-line'></i>Not logged in</p>
+		<a class='headertext' href='signup.php'><i class='ri-key-2-fill'></i>Sign Up</a>
+<a class='headertext' href='login.php'><i class='ri-login-box-fill'></i>Log In</a>";
+	}?>
+  <br>
+  <a class="headertext" href="/"><i class="ri-home-2-fill"></i>Home</a>
+  <a class="headertext" href="browse.php"><i class="ri-film-fill"></i>Videos</a>
+  <a class="headertext" href="members.php"><i class="ri-user-fill"></i>Channels</a>
+  <a class="headertext" href="quicklist.php"><i class="ri-booklet-fill"></i>QuickList</a>
+  <a class='headertext' href='help.php'><i class="ri-question-fill"></i>Help</a>
+  <a class="headertext" href="chat.php"><i class="ri-chat-4-fill"></i>Chat</a>
+  <a class="headertext" href="https://squarebracket.me/forum"><i class="ri-question-answer-fill"></i>Forums</a>
+  									<?php if(isset($_SESSION["username"])) {
+		echo "<a class='headertext' href='my_videos_upload.php'><i class='ri-video-upload-fill'></i>Upload</a>";
+		} else {
+			echo "";}?>
+  <?php if(isset($_SESSION['username'])) {
+								if($detail2["is_admin"] == 1) {
+									echo "<br><a class='headertext' href='admin.php'><i class='ri-admin-fill'></i>Admin</a>";
+								}
+  }?>
+</div>
 <div class="header1">
-<img src="<?php
+<div id="main">
+  <button class="openbtn" onclick="openNav()"><i class="ri-menu-line"></i></button>
+</div>
+<a href="/"><img src="<?php
 if ($color_scheme == 'dark') {
 	echo "img/logo-dark.png";
 } else {
@@ -88,103 +122,16 @@ if ($color_scheme == 'dark') {
 					<input class="button" type="submit" value="Search">
 				</td>
 				</form>
-
-				<div class="header-left-links">
-						<?php if(isset($_SESSION["username"])) {
-		echo "<div class='dropdown'>
-  <b><a style='cursor: default;' onclick='dropdownOpen()'>$username</a></b>
-  <div id='myDropdown' class='dropdown-content'>
-    <a href='profile.php?user=$username'>My Profile</a>
-    <a href='my_profile.php'>Settings</a>
-  </div>
-</div> | <a href='logout.php'>Logout</a>";
-	} else {
-		echo "<td><a  href='signup.php'><strong>Sign Up</strong></a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td><a  href='login.php'>Log In</a></td>
-<td style='padding: 0px 5px 0px 5px;'>|</td>
-<td style='padding-right: 5px;'><a  href='help.php'>Help</a></td>";
-	}?>
-
-			
 </div></div>
-<table class="header2" align="center" cellpadding="0" cellspacing="0" border="0">
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-		
-		<td width="100%">
-
-		<table width="100%" cellpadding="0" cellspacing="0" border="0">
-				<tr>
-					<td>
-											<table cellpadding="2" cellspacing="0" border="0" style="padding-top: 3px;">
-						<tr>
-							<td>&nbsp;<a class="headertext" href="index.php">Home</a></td>
-							<!--
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_videos.php">My Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_favorites.php">My Favorites</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a href="my_friends.php">My Friends</a>&nbsp;<img src="img/new.gif"></td>
-							-->
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="browse.php">Videos</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="members.php">Channels</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="quicklist.php">QuickList</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="chat.php">Chat</a></td>
-							<td>&nbsp;|&nbsp;</td>
-							<td><a class="headertext" href="/forum/">Forums</a></td>
-							<?php if(isset($_SESSION['username'])) {
-								if($detail2["is_admin"] == 1) {
-									echo "<td>&nbsp;|&nbsp;</td>
-									<td><a class='headertext' href='admin.php'>Admin</a></td>";
-								}
-							}?>
-									<?php if(isset($_SESSION["username"])) {
-		echo "<div style=\"font-size: 12px; font-weight: bold; float: right; padding: 0px 5px 0px 5px;\"><a href='my_videos_upload.php' id='upload-button' class='action-button'>
-					<span class='action-button-leftcap'></span>
-					<span class='action-button-text'>Upload</span>
-					<span class='action-button-rightcap'></span>
-				</a></div>";
-		} else {
-			echo "";}?>
-						</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			
-			</td>
-	
-		<td><img src="img/pixel.gif" width="5" height="1"></td>
-	</tr>
-	<tr>
-		<td><img src="img/pixel.gif" width="1" height="5"></td>
-	</tr>
-</table>
 <div id="baseDiv" class="date-20090101 video-info">
 <div id="masthead">
 <?php 
 if (isset($username)) {
 	$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE username ='".$username."'"));
+	$contents = "";
 	if ($data['isBanned'] == true AND $data['bannedUntil'] > time()) {
-		echo "<div class=\"headerRCBox\">
-		<b class=\"rch\">
-		<b class=\"rch1\"><b></b></b>
-		<b class=\"rch2\"><b></b></b>
-		<b class=\"rch3\"></b>
-		<b class=\"rch4\"></b>
-		<b class=\"rch5\"></b>
-		</b> <div class=\"content\"><span class=\"headerTitle\">Warning</span></div></div><div class=\"contentBox\">
-		squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { echo "No reason specified"; } else { echo $data['banReason']; } echo "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { echo " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
-		echo "</div>";
+		$contents .= "squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { $contents .= "No reason specified"; } else { $contents .= $data['banReason']; } $contents .= "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { $contents .= " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
+		makeBox("Warning", "$contents");
 		include("footer.php");
 		// Unset all of the session variables
 		$_SESSION = array();

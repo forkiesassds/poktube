@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
-<title>Upload - PokTube</title>
+<title>Upload - squareBracket</title>
 <div class="ui container">
 	<div class="ui center aligned container">
 		<h2 class="ui icon header">

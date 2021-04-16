@@ -235,7 +235,7 @@ function showRelatedUserContent() {
 }
 </script>
 <title><?php echo $VideoName ?> - SquareBracket</title>
-<meta name="title" content="<?php echo $VideoName ?> - PokTube">
+<meta name="title" content="<?php echo $VideoName ?> - squareBracket">
 <meta name="description" content="<?php echo $VideoDesc ?>">
 <body><table width="930" cellpadding="0" cellspacing="0" border="0" align="center">
 	<tbody><tr>

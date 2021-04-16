@@ -290,7 +290,7 @@ if (preg_match('/<source(.*?)src="(.*?).mp4(.*?)"/i', $Fetched_Contents, $MP4_Li
 		<table><tbody><tr>
 		<td><div class="img">
 				<a href="/watch.php?v=zksyfohptgd"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
-		<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">PokTube Trailer</a></b><br>
+		<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">squareBracket Trailer</a></b><br>
 			<span class="runtime">00:00</span>
 			</div>
 			<div class="facets">
@@ -349,7 +349,7 @@ if (preg_match('/<source(.*?)src="(.*?).mp4(.*?)"/i', $Fetched_Contents, $MP4_Li
 			<table><tbody><tr>
 			<td><div class="img">
 					<a href="/watch.php?v=zksyfohptgd"><img class="vimgSm" src="img/default.png" onerror="this.src='img/default.png'"></a></div></td>
-			<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">PokTube Trailer</a></b><br>
+			<td><div class="title"><b><a href="/watch.php?v=zksyfohptgd">squareBracket Trailer</a></b><br>
 				<span class="runtime">00:00</span>
 				</div>
 				<div class="facets">

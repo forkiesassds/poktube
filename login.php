@@ -57,18 +57,11 @@ if(isset($_POST["loginsubmit"])){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
+							$contents = "";
 							$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE username ='".$username."'"));
 							if ($data['isBanned'] == true AND $data['bannedUntil'] > time()) {
-								echo "<div class=\"headerRCBox\">
-									<b class=\"rch\">
-									<b class=\"rch1\"><b></b></b>
-									<b class=\"rch2\"><b></b></b>
-									<b class=\"rch3\"></b>
-									<b class=\"rch4\"></b>
-									<b class=\"rch5\"></b>
-									</b> <div class=\"content\"><span class=\"headerTitle\">Warning</span></div></div><div class=\"contentBox\">
-									squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { echo "No reason specified"; } else { echo $data['banReason']; } echo "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { echo " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
-								echo "</div>";
+								$contents .= "squareBracket staff have banned you for the following reason: <b>"; if (!isset($data['banReason'])) { $contents .= "No reason specified"; } else { $contents .= $data['banReason']; } $contents .= "</b><br> Please contact the staff for a ban appeal."; if($data['bannedUntil'] != 18446744073709551615) { $contents .= " Or wait until you get unbaned on ".date('r', $data['bannedUntil']); }
+								makeBox("Warning", "$contents");
 								include("footer.php");
 								die();
 							} else if ($data['isBanned'] == true AND $data['bannedUntil'] < time()) {

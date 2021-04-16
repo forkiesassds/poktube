@@ -69,7 +69,7 @@ if($cdf['channel_color']) {
 
 <meta name="title" content="<?php echo $Username ?>'s Channel">
 <meta name="description" content="<?php echo $AboutMe ?>">
-<title><?php echo $Username ?> - PokTube</title>
+<title><?php echo $Username ?> - squareBracket</title>
 <div style="padding: 0px 5px 0px 5px;">
 <div class="headerPROF">
 <img src="content/profpic/<?php echo $Username?>.png" onerror="this.src='img/profiledef.png'" class="thumb" width="128" style="border: solid <?php if($color->isLight()) {

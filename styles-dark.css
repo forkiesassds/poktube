@@ -3375,7 +3375,7 @@ color: #fff !important;
 	}
 
 .headerText {
-	color: #000 !important;
+	color: #fff !important;
 }
 
 .action-button .action-button-leftcap,
@@ -3442,4 +3442,8 @@ div[style="padding-bottom: 5px; font-weight: bold; color: #444;"] {
 
 html {
 	scrollbar-color: #333 #222;
+}
+
+.welcomePokTube {
+    background: url('img/www-refreshbg-vflC3wnbM-dark.png') center;
 }
