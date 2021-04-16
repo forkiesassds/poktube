@@ -62,8 +62,8 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }?>
 
-<div class="welcomePokTube">
-<h1>Welcome to squareBracket</h1>
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Welcome to squareBracket</h4>
 <?php
 if(isset($_SESSION["username"])) // is logged in?
 {
