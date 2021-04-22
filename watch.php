@@ -83,6 +83,12 @@ if ($_COOKIE["im_not_curl"] == crypt($_SERVER['HTTP_USER_AGENT'], "coca cola esp
 		$updateQuery = "UPDATE videodb SET ViewCount='". $newview ."' WHERE `VideoID`='". $VideoID ."'";
 		mysqli_query($connect,$updateQuery);
 	}
+	$LastWatchedNew = date('Y-m-d H:i:s');
+
+	$LastWatched = $LastWatchedNew;
+
+	$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $vid ."'";
+	mysqli_query($connect,$updateQuery);
 }
 if($vdf['VideoLength'] > 3600) {
 	$length = floor($vdf['VideoLength'] / 3600) . ":" . gmdate("i:s", $vdf['VideoLength'] % 3600);
@@ -125,13 +131,6 @@ if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);
-
-$LastWatchedNew = date('Y-m-d H:i:s');
-
-$LastWatched = $LastWatchedNew;
-
-$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $vid ."'";
-mysqli_query($connect,$updateQuery);
 
 $vidnew = $ldf["videos_watched"] + 1;
 
