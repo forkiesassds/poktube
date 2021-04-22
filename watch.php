@@ -50,6 +50,23 @@ die();
 } else {
 $VideoID = $vdf['VideoID'];
 }
+if (isset($_COOKIE["watched"])) {
+	$Watched = $_COOKIE["watched"];
+} else {
+	$Watched = "";
+}
+$learray = json_decode($Watched);
+if ($learray == NULL) {
+} else if (in_array($VideoID, $learray)) {
+}
+if(!isset($Watched) OR $Watched == "") {
+	$learray = array($VideoID);
+} else if(count(json_decode($Watched)) == 0) {
+	$learray = array($VideoID);
+} else {
+	array_push($learray, $VideoID);
+}
+setcookie("watched", json_encode($learray), time() + 86400, "/");
 $Uploader = htmlspecialchars($vdf['Uploader']); // get all video information
 $LastWatched = htmlspecialchars($vdf['LastViewed']);
 $VideoName = htmlspecialchars($vdf['VideoName']);
@@ -60,6 +77,15 @@ $VideoCategory = htmlspecialchars($vdf['VideoCategory']);
 $VideoFile = $vdf['VideoFile'];
 $DateTime = new DateTime($PreUploadDate);
 $length = 0;
+if ($_COOKIE["im_not_curl"] == crypt($_SERVER['HTTP_USER_AGENT'], "coca cola espuma, i am death")) {
+	if (isset($_COOKIE["watched"]) AND !in_array($VideoID, json_decode($_COOKIE["watched"]))) {
+		$newview = $ViewCount + 1;
+		$updateQuery = "UPDATE videodb SET ViewCount='". $newview ."' WHERE `VideoID`='". $VideoID ."'";
+		mysqli_query($connect,$updateQuery);
+	}
+	$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $VideoID ."'";
+	mysqli_query($connect,$updateQuery);
+}
 if($vdf['VideoLength'] > 3600) {
 	$length = floor($vdf['VideoLength'] / 3600) . ":" . gmdate("i:s", $vdf['VideoLength'] % 3600);
 } else { 
@@ -101,13 +127,6 @@ if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);
-
-$LastWatchedNew = date('Y-m-d H:i:s');
-
-$LastWatched = $LastWatchedNew;
-
-$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $vid ."'";
-mysqli_query($connect,$updateQuery);
 
 $vidnew = $ldf["videos_watched"] + 1;
 

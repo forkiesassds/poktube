@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 if(!isset($_SESSION)){
     session_start();
 }
@@ -15,6 +16,7 @@ if ($detail2["registeredon"] == null) {
 	$stmt->execute(); // this is to remove SQL injection, and to update the last online date.
 }
 }
+setcookie("im_not_curl", crypt($_SERVER['HTTP_USER_AGENT'], "coca cola espuma, i am death"), time() + (86400 * 365));
 ?>
 <head>
 <link rel="preconnect" href="https://fonts.gstatic.com">
