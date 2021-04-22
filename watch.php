@@ -51,6 +51,7 @@ die();
 $VideoID = $vdf['VideoID'];
 }
 $Uploader = htmlspecialchars($vdf['Uploader']); // get all video information
+$LastWatched = htmlspecialchars($vdf['LastViewed']);
 $VideoName = htmlspecialchars($vdf['VideoName']);
 $ViewCount = $vdf['ViewCount'];
 $PreUploadDate = htmlspecialchars($vdf['UploadDate']);
@@ -100,6 +101,13 @@ if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);
+
+$LastWatchedNew = date('Y-m-d H:i:s');
+
+$LastWatched = $LastWatchedNew;
+
+$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $vid ."'";
+mysqli_query($connect,$updateQuery);
 
 $vidnew = $ldf["videos_watched"] + 1;
 
