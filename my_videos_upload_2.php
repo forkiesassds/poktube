@@ -212,7 +212,7 @@ if (!file_exists($preload_folder)) {
   <div class="header">
     Notice
   </div>
-  <p>The site might go down while in the uploading process. The uploader will be later rewritten. Chief Bazinga, shut the fuck up.</p>
+  <p>The site might go down while in the uploading process. The uploader will be later rewritten.</p>
 </div>
 			<input class="ui primary button" type="submit" id="upload" name="upload" value="Upload Video">
 		</form>

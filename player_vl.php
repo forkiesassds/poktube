@@ -1,4 +1,82 @@
 <?php
+session_start();
+include("db.php"); 
+$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . ":\/\/$_SERVER[HTTP_HOST]";
+if(isset($_GET["v"])) {
+$vid = htmlspecialchars($_GET["v"]);
+}
+
+//if $vid is null then dont show anything
+if ($vid == null) {
+die();
+}
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+$Uploader = $vdf['Uploader'];
+$isApproved = $vdf['isApproved'];
+$VideoFile = $vdf['VideoFile'];
+$HQVideoFile = $vdf['HQVideoFile'];
+if ($isApproved != 1) {
+	if(isset($_SESSION["username"])) {
+		$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+		$adf = mysqli_fetch_assoc($result);
+		$admin = 0;
+		if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) { // is logged in?
+		$admin = 1;
+		} else {
+			include("header.php");
+			echo "<div class='tableSubTitle'>403</div>
+			Wow, just wow... Did you really try to bypass this video is private error by loading up the player directly?";
+			include("footer.php");
+			die();
+		}
+	} else {
+		include("header.php");
+		echo "<div class='tableSubTitle'>403</div>
+		Wow, just wow... Did you really try to bypass this video is private error by loading up the player directly?";
+		include("footer.php");
+		die();
+	}
+}
+$userfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $Uploader ."'"); // calls for channel info
+$udf = mysqli_fetch_assoc($userfetch);
+if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
+	if(isset($_SESSION["username"])) {
+		$result = mysqli_query($connect,"SELECT * FROM users WHERE `username` = '". $_SESSION["username"] ."'");
+		$adf = mysqli_fetch_assoc($result);
+		$admin = 0;
+		if($adf['is_admin'] == 1 || $Uploader == $_SESSION["username"]) // is logged in?
+		{
+		$admin = 1;
+		}
+		else
+		{
+			include("header.php");
+			echo "<div class='tableSubTitle'>403</div>
+			Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+			include("footer.php");
+			die();
+		}
+	} else {
+		include("header.php");
+		echo "<div class='tableSubTitle'>403</div>
+		Wow, just wow... Did you really try to bypass this video is uploaded by banned user error by loading up the player directly?";
+		include("footer.php");
+		die();
+	}
+}
+
+$image = "content/thumbs/". $vid .".png"; // set this for thumbnail
+$name = ""; // self-explanatory
+
+$vidfetch = mysqli_query($connect, "SELECT * FROM videodb WHERE VideoID='". $vid ."'");
+$vdf = mysqli_fetch_assoc($vidfetch);
+//do not show anything if the video-stream dosent exist
+if (isset($vdf['VideoName'])) {
+$name = $vdf['VideoName'];
+} else {
+$name = "PLACEHOLDER";
+}
 //vlplayer for the average site, made by icanttellyou.
 //you can write your own code to fill in these values.
 //customization guide: 
@@ -17,11 +95,11 @@ $playerstyle = "2007HD";
 $playerautoplay = "true";
 $playerbuttoncolor = "teal";
 $playerbackgroundcolor = "white";
-$videopath = "https://185.86.231.49/video/kpL9_l72TNu.mp4";
-$hdvideopath = "https://185.86.231.49/video/kpL9_l72TNu.hq.mp4";
-$thumb = "../content/thumbs/tSKraHWTmpy.png";
-$watchpagepath = "../watch.php?v=";
-$videoid = "794";
+$videopath = "/" . $VideoFile;
+$hdvideopath = "/" . $HQVideoFile;
+$thumb = $image;
+$watchpagepath = "../frontend/vidlii/watch.php?v=";
+$videoid = $vid;
 $videoishd = true;
 $videolength = 0;
 ?>
