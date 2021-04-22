@@ -73,4 +73,4 @@ if ($detail2["registeredon"] == null) {
 </div>
 </div>
 </header>
-<div style="border: 1.5px solid red;padding:6px;text-align:center;margin-bottom:11px;font-size:14px;font-weight:bold">This is heavily incomplete, you will frequently run into bugs and dead links.</div>
+<div style="border: 1.5px solid red;padding:6px;text-align:center;margin-bottom:11px;font-size:14px;font-weight:bold">This is heavily incomplete, you will frequently run into bugs and dead links. Player is broken on Firefox, use Chrome.</div>

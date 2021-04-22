@@ -218,7 +218,6 @@ $RegisteredYear = $DateTime->format('Y');
 <h1><?php echo $VideoName;?></h1>
 </div>
 <div id="vtbl" class="">
-<div id="vtbl_pl" style="padding-bottom: 32px;">
 <script id="heightAdjust">
 	if (!window.videoInfo)
 		var videoInfo = {};
@@ -292,9 +291,7 @@ $RegisteredYear = $DateTime->format('Y');
 		}
 	}
 	</script>
-
-<div class="vlPlayer vlPlayer2007 tealBt initialized playing started" style="padding-bottom: 32px;" tabindex="0">
-<div class="vlPreload"><input type="text" tabindex="-1"></div><div class="vlScreenContainer"><div class="vlScreen"><div class="vlPreview" style="background-image: url(&quot;/usfi/thmp/XAK5cPyquPW.jpg&quot;);"></div><div class="vlsLoad"></div><div class="vlsPlay vlButton"></div><video src="https://www.vidlii.com/usfi/v/XAK5cPyquPW.LvgNDNKduGPrnfwwvZCO7BfDKDa2RcRiwZuyBXt7Ptcma8ZV6t3zoNy1faj5Istbxab0v2juxbAI2M77.mp4"></video></div></div><div class="vlControls"><div class="vlcLeft"><div class="vlcPlay vlButton"></div><div class="vlcStop vlButton"></div></div><div class="vlcRight"><div class="vlTimer"><span class="vltPos">00:00</span> / <span class="vltDur">00:05</span></div><div class="vlSeparator"></div><span class="vlcSoundContainer"><span class="vlcSoundContainerAbsolute"><div class="vlcSoundBar"><div class="vlcSoundSlider vlButton" style="margin-left: 90%;"></div></div></span><div class="vlcSound vlButton"></div></span><div class="vlSeparator"></div><div class="vlcExpand vlButton"></div><div class="vlcHDButton vlButton hidden" style="display: none;">HD</div><div class="vlcFull vlButton"></div><div class="vlcCloseFull vlButton"></div></div><div class="vlcCenter"><div class="vlProgress"><div class="vlPosition" style="width: 0%;"></div><div class="vlSeeker vlButton" style="margin-left: 0%;"></div><div class="vlBuffer"></div></div></div></div></div>
+<iframe style='outline: 0px solid transparent;' src='/player_vl.php?v=<?php echo $vid ?>' width='640' height='392' frameBorder='0' scrolling='no' debug='true'></iframe>
 </div><div id="vtbl_desc">
 <div class="wt_des" style=""> <div> <a href="/user/AnthonyGiarrusso"><img src='/content/profpic/<?php echo $Uploader;?>.png' onerror="this.src='/img/profiledef.png'" class="avt2 " alt="<?php echo $Uploader;?>" width="55" height="55"></a> <div class="wt_person"> <a href="/user/AnthonyGiarrusso"><?php echo $Uploader;?></a><br> Apr 18, 2021<br> (<a href="javascript:void(0)" id="show_more">more info</a>) </div> <div id="subsbtns"> <a href="javascript:void(0)" class="yel_btn" onclick="alert('You must be logged in to subscribe!')">Subscribe</a> <a href="/user/AnthonyGiarrusso/subscribers" class="yel_btn"><?php echo $Subs;?></a> </div> </div> <div class="cl"></div> <div id="des_text" style="max-height:84px">
 <?php echo $VideoDesc;?> </div> <div id="des_info" class="hddn"> <div> <div>Category: </div> <div> <a href="/videos?c=10&amp;o=re&amp;t=2">Entertainment</a></div> </div> <div class="cl"></div> <div> <div>Tags:</div> <div style="width: 281px"> <a href="/results?q=Anthony+Giarrusso+blessed+with+888+friends+4+17+2021">Anthony Giarrusso blessed with 888 friends 4 17 2021</a> <a href="/results?q=AnthonyGiarrusso">AnthonyGiarrusso</a> <a href="/results?q=Anthony+Giarrusso">Anthony Giarrusso</a> <a href="/results?q=888">888</a> <a href="/results?q=888+friends+Vidlii">888 friends Vidlii</a> <a href="/results?q="></a> </div> </div> </div> <div> <table> <tbody><tr> <td align="right"><label for="em">Embed</label></td> <td><input type="text" id="em" onclick="$(this).select()" readonly="" value="<iframe allowfullscreen src=&quot;https://www.vidlii.com/embed?v=XAK5cPyquPW&amp;a=1&quot; frameborder=&quot;0&quot; width=&quot;640&quot; height=&quot;360&quot;></iframe>"></td> </tr> </tbody></table> </div></div>
