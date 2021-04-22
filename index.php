@@ -61,7 +61,6 @@ if(($_GET["vexist"]) == 0){
 } else {
 	$vexist = null;
 }?>
-
 <div class="welcomePokTube">
 <h1>Welcome to squareBracket</h1>
 <?php
