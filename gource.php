@@ -26,7 +26,7 @@ $VideoName = htmlspecialchars($row["VideoName"]);
 $UploadDate = htmlspecialchars($row["UploadDate"]);
 $Uploader = htmlspecialchars($row["Uploader"]);
 $timestamp = strtotime($UploadDate);
-echo "$timestamp|$Uploader|A|$VideoName<br>";
+echo "$timestamp|$Uploader|A|$VideoName.$Uploader<br>";
 }
 
 
