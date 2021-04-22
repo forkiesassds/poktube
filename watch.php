@@ -83,11 +83,7 @@ if ($_COOKIE["im_not_curl"] == crypt($_SERVER['HTTP_USER_AGENT'], "coca cola esp
 		$updateQuery = "UPDATE videodb SET ViewCount='". $newview ."' WHERE `VideoID`='". $VideoID ."'";
 		mysqli_query($connect,$updateQuery);
 	}
-	$LastWatchedNew = date('Y-m-d H:i:s');
-
-	$LastWatched = $LastWatchedNew;
-
-	$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $vid ."'";
+	$updateQuery = "UPDATE videodb SET LastViewed='".date('Y-m-d H:i:s')."' WHERE VideoID='". $VideoID ."'";
 	mysqli_query($connect,$updateQuery);
 }
 if($vdf['VideoLength'] > 3600) {
