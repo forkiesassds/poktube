@@ -29,9 +29,9 @@ $categoryvideolist = htmlspecialchars($fetch['VideoCategory']);
 echo "<div>
 <div class='th'>
 <div class='th_t'>$lengthlist</div>
-<a href='/watch?v=f5guImkv2Wm'><img class='vid_th' onerror=\"this.src='/img/defaultVL.png'\" src='/content/thumbs/$idvideolist.png' alt='Vidlii Terrorism and Ashley2012 and BMF Coalition' title='Vidlii Terrorism and Ashley2012 and BMF Coalition' width='140' height='88'></a>
+<a href='watch.php?v=$idvideolist'><img class='vid_th' onerror=\"this.src='/img/defaultVL.png'\" src='/content/thumbs/$idvideolist.png' alt='Vidlii Terrorism and Ashley2012 and BMF Coalition' title='Vidlii Terrorism and Ashley2012 and BMF Coalition' width='140' height='88'></a>
 </div>
-<a href='/watch?v=f5guImkv2Wm' class='ba'>$namevideolist</a>
+<a href='watch.php?v=$idvideolist' class='ba'>$namevideolist</a>
 <div class='vw s'>$viewsvideolist views</div>
 <a href='/user/ashleyhasdied' class='ch_l s'>$uploadervideolist</a>
 <div class='s_r'><img src='img/full_star.png' width='14' height='13'><img src='img/full_star.png' width='14' height='13'><img src='img/full_star.png' width='14' height='13'><img src='img/full_star.png' width='14' height='13'><img src='img/full_star.png' width='14' height='13'></div>

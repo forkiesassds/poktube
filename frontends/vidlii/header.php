@@ -40,8 +40,8 @@ if ($detail2["registeredon"] == null) {
 <div class="pr_hd_wrapper">
 <a href="/"><img src="img/logo6.png" alt="VidLii" title="VidLii - Display Yourself." id="hd_vidlii"></a>
 <nav>
-<ul>
-<a href="/" id="pr_sel"><li>Home</li></a><a href="/videos"><li>Videos</li></a><a href="/channels"><li>Channels</li></a><a href="/community"><li>Community</li></a>
+<ul> <!-- id="pr_sel" (this is selected shit) -->
+<a href="/frontends/vidlii/index.php"><li>Home</li></a><a href="/videos"><li>Videos</li></a><a href="/channels"><li>Channels</li></a><a href="/community"><li>Community</li></a>
 </ul>
 </nav>
 <nav id="sm_nav">
