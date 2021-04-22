@@ -62,11 +62,17 @@ if(($_GET["vexist"]) == 0){
 	$vexist = null;
 }?>
 
-
-<div id='homepage-main-content'>
 <div class="welcomePokTube">
 <h1>Welcome to squareBracket</h1>
-<p>squareBracket is a video sharing site.</p></div>
+<?php
+if(isset($_SESSION["username"])) // is logged in?
+{
+	echo "secks";
+} else {
+echo "<p>\"nerd ur sites dead\", they say, \"your site is literally dead / therws no point of advertising something that isnt even functional\", they also say.
+<br>joke's on them, site's functional even with no activity.</p>";
+}	?></div>
+<div id='homepage-main-content'>
 <!--subscription videos-->
 <?php
 if(isset($_SESSION['username'])) {
@@ -330,16 +336,4 @@ makeBox("Active Channels", "$contents <div style=\"text-align: right;\"><a href=
 	?>
 </div>
 </div>
-
-
-<div id="sheet" style="position:fixed; top:0px; visibility:hidden; width:100%; text-align:center;">
-	<table width="100%">
-		<tr>
-			<td align="center">
-				<div id="sheetContent" style="filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5; border: 1px solid black; background-color:#cccccc; width:40%; text-align:left;"></div>
-			</td>
-		</tr>
-	</table>
-</div>
-
 <?php include("footer.php"); ?>
