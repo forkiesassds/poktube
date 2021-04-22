@@ -1,4 +1,5 @@
-# PokTube
+# squareBracket
+Internally, this is actually just code from FrameBit but ""improved"".
 ![Website](screenshot.png)
 
 ## How to set up (DEVELOPEMENT PURPOSES)
