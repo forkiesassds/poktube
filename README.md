@@ -17,7 +17,7 @@ No, this will not give access to that The Homer folder.
 #### April 22th 2021 database changes
 This adds support for reporting when the video was last viewed, this is for the frontends (eg: VidLii, 2006, etc)
 ```sql
-ALTER TABLE `videodb` ADD `LastViewed` DATETIME NOT NULL AFTER `CustomThumbnail`; `
+ALTER TABLE `videodb` ADD `LastViewed` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `CustomThumbnail`; 
 ```
 #### April 9th 2021 database changes
 This adds support for the banning system.
