@@ -95,17 +95,17 @@ $playerstyle = "2007HD";
 $playerautoplay = "true";
 $playerbuttoncolor = "teal";
 $playerbackgroundcolor = "white";
-$videopath = "/" . $VideoFile;
-$hdvideopath = "/" . $HQVideoFile;
+$videopath = $link."/".$VideoFile;
+$hdvideopath = $link."/".$HQVideoFile;
 $thumb = $image;
-$watchpagepath = "../frontend/vidlii/watch.php?v=";
+$watchpagepath = "frontend/vidlii/watch.php?v=";
 $videoid = $vid;
 $videoishd = true;
 $videolength = 0;
 ?>
 
 <link rel="stylesheet" type="text/css" href="Dxba6_VY.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="lib/jquery-3.6.0.min.js"></script>
 <script src="vlPlayer/main15.js"></script>
 <div id="vtbl_pl">
 <script id="heightAdjust">
