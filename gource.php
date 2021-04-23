@@ -1,17 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
 <?php
-include "header_admin.php";
-include "db.php";
-?>
-<table width="800" cellspacing="0" cellpadding="0" border="0" align="center">
-	<tbody><tr>
-		<td style="padding-bottom: 25px;" bgcolor="#FFFFFF">
-		<div style="padding: 0px 5px 0px 5px;">
-<div class="tableSubTitle">Gource Export</div>
-<?php
+include( 'db.php' );
+header( 'Content-type: text/x-component' );
 // Check connection
 if (mysqli_connect_errno())
 {
@@ -26,15 +15,9 @@ $VideoName = htmlspecialchars($row["VideoName"]);
 $UploadDate = htmlspecialchars($row["UploadDate"]);
 $Uploader = htmlspecialchars($row["Uploader"]);
 $timestamp = strtotime($UploadDate);
-echo "$timestamp|$Uploader|A|$VideoName.$Uploader<br>";
+echo "$timestamp|$Uploader|A|$VideoName.$Uploader\n";
 }
 
 
 mysqli_close($connect);
 ?>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</html>
