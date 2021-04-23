@@ -80,6 +80,7 @@ $name = "PLACEHOLDER";
 
 <head>
 
+	<link rel="stylesheet" href="./player_asset/www-core-vflv4vaHm.css">
     <link rel="stylesheet" href="./player_asset/player.css">
   <style>
     @-o-viewport { width: device-width; }
@@ -93,16 +94,7 @@ $name = "PLACEHOLDER";
 </head>
   <body id="" class="date-20120609 en_US ltr ytg-old-clearfix " dir="ltr">
 
-<div id="watch-longform-ad" class="hid">
-  <div id="watch-longform-text">
-Advertisement
-  </div>
-  <div id="watch-longform-ad-placeholder"><img src="" height="60" width="300"></div>
-</div>
-
-
-
-  <div id="player" class="light-theme full-frame"></div>
+  <div id="player" class="full-frame"></div>
 
         
     <script src="./player_asset/embed.js" data-loaded="true"></script>
