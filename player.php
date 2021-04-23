@@ -91,9 +91,9 @@ $name = "PLACEHOLDER";
 
   
 </head>
-  <body id="" class="date-20130415 en_US ltr   ytg-old-clearfix guide-feed-v2 site-left-aligned exp-new-site-width exp-watch7-comment-ui" dir="ltr">
+  <body id="" class="date-20130415 en_US ltr   ytg-old-clearfix guide-feed-v2 site-left-aligned exp-new-site-width exp-watch7-comment-ui " dir="ltr">
 
-  <div id="movie_player" class="html5-video-player el-profilepage ps-default tag-pool-enabled autohide-fade html5-before-playback cued-mode hide-controls"></div>
+  <div id="cued-embed" class="html5-video-player html5-autohide cued-mode video-content">
 
         
     <script id="js-914140142" src="/player_asset/www-embed-cued-vfl3Cfaol.js" data-loaded="true"></script>
