@@ -1,5 +1,6 @@
 # squareBracket
-Internally, this is actually just code from FrameBit but ""improved"".
+Internally, this is actually just code from FrameBit but ""improved"". But it's a fucking sphagetti mess of interfaces and code styling.
+
 ![Website](screenshot.png)
 
 ## How to set up (DEVELOPEMENT PURPOSES)
