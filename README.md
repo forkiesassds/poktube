@@ -16,6 +16,11 @@ Internally, this is actually just code from FrameBit but ""improved"". But it's 
 Type these commands on your PokTube database on PHPmyAdmin, why? Because the database was updated. A fresh empty database is available.
 
 No, this will not give access to that The Homer folder.
+#### April 23rd 2021 database changes
+Adds support for toggling between current player and old March 2021 player.
+```sql
+ALTER TABLE `users` ADD `player` INT NOT NULL AFTER `is_partner`; 
+```
 #### April 22th 2021 database changes
 This adds support for reporting when the video was last viewed, this is for the frontends (eg: VidLii, 2006, etc)
 ```sql
