@@ -1,3 +1,22 @@
+.header1 {
+	margin: 0px auto;
+	padding: 20px 0px 2px 0px;
+	/*! background-color: #eaeaea; */
+}
+
+.header2 {
+	height: 35px;
+	line-height: 0;
+	background-image: url(img/subheader.gif);
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 5px 5px 0 0;
+	/*! -webkit-box-shadow: #777 0 0 5px; */
+	-moz-box-shadow: #777 0 0 10px;
+	/*! box-shadow: #777 0 0 5px; */
+	behavior: url(lib/PIE.php); /* polyfilling css3 for those who still use ie 6-8 */
+}
+
 /* The welcome box, only intended for the main page for unlogged in users. */
 .welcomePokTube { 
   background: url('img/www-refreshbg-vflC3wnbM.png') no-repeat center; 
@@ -171,7 +190,8 @@ body {
 	font-family: 'Open Sans', sans-serif; /* /* jesus christ this code dates from 2020 and was on 2003page */
 	font-size: 12px;
 	color: #222;
-	background-color: #fff;
+	background-color: #eaeaea;
+	background: url("/img/www-refreshbg-vflC3wnbM.png");
 }
 
 a:link,
@@ -702,22 +722,6 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 	border-bottom: 1px dashed #ccc;
 }
 
-.header1 {
-	padding: 5px 0px 2px 0px;
-	/*! background-color: #eaeaea; */
-	width: auto;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	/*! margin-left: 20%; */
-	/*! margin-right: 16%; */
-}
-
-.header_holder {
-	background-color: #79d976;
-	background-image: linear-gradient(#79d976, #6acf67);
-}
-
 .header-left-links {
 	 text-align: right;
 }
@@ -750,13 +754,6 @@ a.title:hover { /* font-family: "Segoe UI", "Open Sans", "Noto Sans", "Roboto", 
 /* pictoboi please don't be horny as fuck to a wireframe rabbit */
 .vibriwentuwu {
 	background-image: url(img/header_admin.gif);
-}
-
-.header2 {
-padding-top: 5px;
-width: 960px;
-align-items: center;
-display: flex;
 }
 
 .header2_holder {

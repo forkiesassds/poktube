@@ -120,4 +120,22 @@ $stmt->bind_param("ss", $setinfo, $user);
 $stmt->execute();
 echo "<br><br><center><h1>Set color.</h1></center><br><br>";
 }
+if(isset($_POST['sumbit-player'])) {
+   if(isset($_POST['player']) && 
+   $_POST['player'] == '1')
+{
+    $setinfo = 1;
+}
+else
+{
+    $setinfo = 0;
+}	 
+$user = $_SESSION['username']; // get username to set about to
+echo "<br><br><center><h1>" . $_POST['player'] ."</h1></center><br><br>";
+$stmt = $connect->prepare("UPDATE users SET player=? WHERE username=?");
+$stmt->bind_param("ss", $setinfo, $user);
+$stmt->execute();
+echo "<br><br><center><h1>Set setting.</h1></center><br><br>";
+}
+
 ?>

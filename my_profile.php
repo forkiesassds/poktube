@@ -18,6 +18,7 @@ $Interests = htmlspecialchars($cdf['prof_interests']);
 $Music = htmlspecialchars($cdf['prof_music']);
 $Books = htmlspecialchars($cdf['prof_books']);
 $Movies = htmlspecialchars($cdf['prof_movies']);
+$PlayerToggle = htmlspecialchars($cdf['player']);
 if($cdf['channel_color']) {
 	$Foreground = htmlspecialchars($cdf['channel_color']);
 } else {
@@ -117,7 +118,26 @@ margin-top: 10px;
   Select profile picture to upload:<br><br>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="upload">
-</form></div></div><div class="panel2">
+</form></div><br>
+<div class="headerRCBox">
+	<b class="rch">
+	<b class="rch1"><b></b></b>
+	<b class="rch2"><b></b></b>
+	<b class="rch3"></b>
+	<b class="rch4"></b>
+	<b class="rch5"></b>
+	</b> <div class="content"><span class="headerTitle">Player</span></div>
+	</div>
+	<div class="contentBox">
+	Toggling this will make the old player be used instead.
+<form action="setinfo.php" method="post" enctype="multipart/form-data">
+<input name="player" value="0" type="hidden">
+<input type="checkbox" id="vehicle1" name="player" value="1">
+<label for="player"> Use old player</label><br>
+<input type="submit" value="Submit" name="sumbit-player">
+</form>
+</div></div>
+<div class="panel2">
 <div class="headerRCBox">
 	<b class="rch">
 	<b class="rch1"><b></b></b>

@@ -124,9 +124,14 @@ if ($udf['isBanned'] == true AND $udf['bannedUntil'] > time()) {
 	}
 }
 
+$playername = "player";
+
 if(isset($_SESSION["username"])){
 $localfetch = mysqli_query($connect, "SELECT * FROM users WHERE username='". $_SESSION["username"] ."'"); // calls for channel info
 $ldf = mysqli_fetch_assoc($localfetch);
+if($ldf["player"] == 1){
+$playername = "player_old";
+}
 
 $vidnew = $ldf["videos_watched"] + 1;
 
@@ -340,7 +345,7 @@ function showRelatedUserContent() {
      	<tbody><tr valign="top">
 		<td width="510" style="padding-right: 15px;">
 			<div width="640" height="380">
-				<iframe style='outline: 0px solid transparent;' src='./player.php?v=<?php echo $vid ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
+				<iframe style='outline: 0px solid transparent;' src='./<?php echo $playername?>.php?v=<?php echo $vid ?>' width='650' height='380' frameBorder='0' scrolling='no' debug='true'></iframe>
 			</div>
 		</div>
 <br>
