@@ -1,4 +1,4 @@
-# squareBracket
+# squareBracket 1.0 (INSECURE - FULL OF SQL INJECTION VUNERBILITIES)
 Internally, this is actually just code from FrameBit but ""improved"". But it's a fucking sphagetti mess of interfaces and code styling.
 
 ![Website](screenshot.png)
