@@ -1,9 +1,10 @@
-# squareBracket 1.0 (INSECURE - FULL OF SQL INJECTION VUNERBILITIES)
-Internally, this is actually just code from FrameBit but ""improved"". But it's a fucking sphagetti mess of interfaces and code styling.
+# PokTube (squareBracket 1.0) ***INSECURE***
+
+You are free to use this code, but note that you should sanitize the code first before doing anything with it. We no longer are using this source code, and have instead writen a newer and better code.
 
 ![Website](screenshot.png)
 
-## How to set up (DEVELOPEMENT PURPOSES)
+## How to set PokTube up (might not be proper)
 
 1. Get XAMPP.
 2. Install Apache and MySQL from the XAMPP Control Panel.
